@@ -1,0 +1,32 @@
+@@include('_tpl_layout_head.html', {
+	"title": "Главная",
+	"pageClass": ""
+})
+
+@@include('_tpl_PAGE_WRAP.html', {"pageWrap": "START" })
+
+<!--HEADER-->
+@@include('_tpl_layout_header.html', {
+	"currentItem": "Главная"
+})
+<!--HEADER end-->
+
+<!--MAIN-->
+<div class="main">
+	<h1>Покупка облигаций</h1>
+	<section class="main-section">
+		<div class="main-section__heading layout-flood">
+			<h2><span>{{Title of Section}}</span></h2>
+		</div>
+		{{Content of Section}}
+	</section>
+</div>
+<!--MAIN end-->
+
+<!--FOOTER-->
+@@include('_tpl_layout_footer.html')
+<!--FOOTER end-->
+
+@@include('_tpl_PAGE_WRAP.html', {"pageWrap": "END" })
+
+@@include('_tpl_layout_foot.html')
