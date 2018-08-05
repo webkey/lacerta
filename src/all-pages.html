@@ -42,10 +42,19 @@
 	<noscript><div class="no-js-warning">Для корректной работы сайта <b>включите JavaScript</b> в браузере</div></noscript>
 	<!--[if lt IE 9]> <div class="browserupgrade"><p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p></div> <![endif]-->
 	<!-- >>> head.tpl END <<< -->
-	<div class="wrapper m-scene" id="main">
+	<div class="c-heading heading-js">
+		<div class="c-heading__layout max-wrap layout">
+			<div class="c-heading__align">
+				<div class="heading">
+					<h1>&nbsp;</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="wrapper" id="main">
 		<!--HEADER-->
 		<header class="header ">
-			<div class="max-wrap layout">
+			<div class="header__layout max-wrap">
 				<div class="header__holder">
 					<!--logo-->
 					<strong class="logo">
@@ -58,34 +67,37 @@
 						<nav class="nav">
 							<ul class="nav__list nav-js">
 								<li class="">
-									<a href="about.html"><span>Компания Lacerta</span></a>
+									<a href="about.html" data-heading="Скажите: “Здравствуйте, деньги”"><span>Компания Lacerta</span></a>
 								</li>
 								<li class="">
-									<a href="inner.html"><span>Вторичный рынок облигаций</span></a>
+									<a href="index.html" data-heading="Размещение облигаций белорусских компаний"><span>Вторичный рынок облигаций</span></a>
 								</li>
 								<li class="">
-									<a href="#!"><span>Выплаты доходов</span></a>
+									<a href="#!" data-heading="@@title"><span>Выплаты доходов</span></a>
 								</li>
 								<li class="">
-									<a href="#!"><span>Купить облигации</span></a>
+									<a href="#!" data-heading="@@title"><span>Купить облигации</span></a>
 								</li>
 								<li class="">
-									<a href="#!"><span>Продать облигации</span></a>
+									<a href="#!" data-heading="@@title"><span>Продать облигации</span></a>
 								</li>
 								<li class="">
-									<a href="#!"><span>Контакты</span></a>
+									<a href="#!" data-heading="@@title"><span>Контакты</span></a>
 								</li>
 							</ul>
 						</nav>
 					</div>
 					<!--navigation end-->
 				</div>
+				<div class="egg">&nbsp;</div>
 			</div>
 		</header>
 		<!--HEADER end-->
 		<!--MAIN-->
-		<div class="main scene-main scene-main--fadein">
-			<h1>@@title</h1>
+		<div class="main layout" data-heading="@@title">
+			<div class="heading">
+				<h1>@@title</h1>
+			</div>
 			<!--MAIN-->
 			<div class="main">
 				<div class="max-wrap layout user-content">
@@ -163,9 +175,7 @@
 		</footer>
 		<!--FOOTER end-->
 	</div>
-	<div class="c-transition">
-		{{Wooooooo!}}
-	</div>
+	<div class="c-transition">&nbsp;</div>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/libs.min.js"></script>
 	<script src="js/common.js?rev=@@hash"></script>

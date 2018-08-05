@@ -15,7 +15,8 @@ body
 	+font($font-size, $line-height)
 	color: $text-color
 	min-width: $page-layout-min
-	background: $bg-color url(../../img/empty.png) no-repeat left top fixed
+	//background: $bg-color url(../../img/empty.png) no-repeat left top fixed
+	background: $bg-color url(../../img/bg-page.png) center center
 
 	// выделение текста
 	*::selection
@@ -109,6 +110,10 @@ i, em
 
 i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	+font-bold-italic
+
+.heading
+	text-align: center
+	padding: 70px 0 0
 
 .entry-text
 	+font-bold

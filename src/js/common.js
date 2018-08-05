@@ -146,25 +146,31 @@ function formValidation() {
 }
 
 var $page = $('#main'),
-	cover = $('.c-transition'),
+	$cover = $('.c-transition'),
+	$heading = $('.heading-js'),
+	$title = $('h1', $heading),
 	options = {
 		debug: true,
 		prefetch: true,
 		// cacheLength: 4, // The number of pages to cache
 		onBefore: function($currentTarget, $container) {
-			console.log('onBefore');
-			cover.removeClass('is-leaving').removeClass('is-active');
-			cover.addClass('is-active');
-		},
-		onAfter: function($container, $newContent) {
-			console.log('onAfter');
-			cover.addClass('is-leaving');
+			$cover.removeClass('is-leaving').removeClass('is-active');
+
+			$heading.removeClass('is-leaving').removeClass('is-active');
+			var title = $currentTarget.attr('data-heading') || '';
+			console.log("title: ", title);
+			$title.text(title);
+
+			// console.log("$currentTarget: ", $container.attr());
+			// heading.text($currentTarget[0].pathname.substr(1));
 		},
 		onStart: {
 			duration: 1100, // Duration of our animation
 			render: function ($container) {
 				// Add your CSS animation reversing class
 				$container.addClass('is-exiting');
+				$cover.addClass('is-active');
+				$heading.addClass('is-active');
 				// Restart your animation
 				smoothState.restartCSSAnimations();
 			}
@@ -176,6 +182,8 @@ var $page = $('#main'),
 				$container.removeClass('is-exiting');
 				// Inject the new content
 				$container.html($newContent);
+				$cover.addClass('is-leaving');
+				$heading.addClass('is-leaving');
 			}
 		}
 	},

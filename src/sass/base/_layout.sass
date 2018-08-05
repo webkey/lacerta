@@ -150,11 +150,10 @@ html
 	justify-content: space-between
 	align-items: stretch
 	margin: 0 auto
-	min-height: 100%
+	//min-height: 100%
+	height: 100%
 	max-width: 100%
 	width: $page-layout-width
-	background-color: $bg-color-alt
-	box-shadow: 0 0 0 1px #cdcdcd
 
 /* === LAYOUT end ===
 
@@ -164,7 +163,10 @@ html
 	flex-grow: 1
 	position: relative
 	clear: both
-	z-index: 4
+	z-index: $z-main
+
+.main,
+.c-heading__align
 	margin-right: $heading-width
 
 //.main__holder
@@ -192,16 +194,24 @@ html
 /* === HEADER ===
 .header
 	position: fixed
-	right: 0
+	left: 0
 	top: 0
-	width: $heading-width
-	height: 100%
-	background-color: white
-	z-index: 5
+	height: 0
+	width: 100%
+	z-index: $z-header
+
+.header__layout
+	position: relative
+	margin: 0 auto
 
 .header__holder
-	position: relative
+	position: absolute
+	right: 0
+	top: 0
+	height: 100vh
+	width: $heading-width
 	padding: 10px 0
+	background-color: lightcoral
 	z-index: 5
 	+clear
 
@@ -233,39 +243,12 @@ html
 
 /* === NAVIGATION end ===
 
-/* === SIDEBAR ===
-.sidebar
-	display: inline
-	float: left
-	margin: 0 0 0 -100%
-	width: $sidebar-width
-
-	background-color: sandybrown
-
-	+media('<tab-lg')
-		display: none
-
-/* === SIDEBAR end ===
-
-/* === ASIDE ===
-.aside
-	display: inline
-	float: right
-	margin: 0 0 0 -#{$aside-width}
-	width: $aside-width
-	background-color: sandybrown
-
-	+media('<desk-lg')
-		display: none
-
-/* === ASIDE end ===
-
 /* === FOOTER ===
 .footer
 	//margin: 0 auto
 	position: relative
 	clear: both
-	z-index: 5
+	z-index: $z-footer
 	+font(16px, round-float(24/16, 3))
 	color: $text-color
 	border-top: 1px solid $border-color
@@ -381,37 +364,76 @@ html
 .main.main-homepage
 	margin-right: 55vw
 
+.c-heading
+	$tf: cubic-bezier(0.4, 0.6, 0.2, 1)
+	opacity: 0
+	transition:
+		property: opacity, animation
+		duration: 0.8s
+		timing-function: $tf
+
+	animation:
+		duration: 1s
+		timing-function: $tf
+
+	&.is-active
+		opacity: 1
+		transition:
+			delay: 0.2s
+		animation:
+			fill-mode: forwards
+			name: showHeading
+
+	&.is-leaving
+		opacity: 0
+		animation:
+			fill-mode: forwards
+			duration: 0s
+			delay: 1s
+			name: hideHeading
+
+		transition:
+			timing-function: ease-in-out
+
+$c-heading-y: 60vh
+@keyframes showHeading
+	0%
+		transform: translate(0, $c-heading-y)
+
+	30%
+		transform: translate(0, $c-heading-y)
+
+	100%
+		transform: translate(0, 0)
+
+@keyframes hideHeading
+	0%
+		transform: translate(0, 0)
+
+	100%
+		transform: translate(0, $c-heading-y)
+
 /* ===========================================
  * SmoothState styling
  * ===========================================
 .m-scene .scene-main
-	-webkit-animation-duration: .25s
 	animation-duration: .25s
-	-webkit-transition-timing-function: ease-in
 	transition-timing-function: ease-in
-	-webkit-animation-fill-mode: both
 	animation-fill-mode: both
 
 .m-scene .scene-main--fadein
-	-webkit-animation-name: fadeIn
 	animation-name: fadeIn
 
 .m-scene.is-exiting .scene-main
-	-webkit-animation-direction: alternate-reverse
 	animation-direction: alternate-reverse
 
 .m-scene .header.main-homepage
-	-webkit-animation-duration: .25s
 	animation-duration: .25s
-	-webkit-transition-timing-function: ease-in
 	transition-timing-function: ease-in
-	-webkit-animation-fill-mode: both
 	animation-fill-mode: both
-	-webkit-animation-name: width
 	animation-name: width
 
 .m-scene.is-exiting .header.main-homepage
-	-webkit-animation-direction: alternate-reverse
 	animation-direction: alternate-reverse
 
 @keyframes fadeIn
@@ -430,7 +452,8 @@ html
 
 // c-transition
 .c-transition
-	background-color: #343399
+	//background-color: #343399
+	background-color: #2a2971
 	cursor: wait
 	height: 100vh
 	left: 0
@@ -441,7 +464,7 @@ html
 	top: 100vh
 	transform: translate3d(0, 100%, 0)
 	width: 100%
-	z-index: 1000
+	z-index: $z-loader
 
 .c-transition .u-h1
 	left: 50%
@@ -473,18 +496,43 @@ html
 
 @keyframes fade-out
 	0%
-		-webkit-transform: translateZ(0)
 		transform: translateZ(0)
 
 	to
-		-webkit-transform: translate3d(0, -100%, 0)
 		transform: translate3d(0, -100%, 0)
 
 @keyframes fade-in
 	0%
-		-webkit-transform: translate3d(0, 100%, 0)
 		transform: translate3d(0, 100%, 0)
 
 	to
-		-webkit-transform: translateZ(0)
 		transform: translateZ(0)
+
+/* heading
+.c-heading
+	position: fixed
+	height: 0
+	top: 0
+	left: 0
+	width: 100%
+	z-index: $z-heading
+	pointer-events: none
+
+	//h1
+		color: red
+
+.c-heading__layout
+	position: relative
+
+.header__holder
+	position: absolute
+	right: 0
+	top: 0
+	height: 100vh
+	width: $heading-width
+	padding: 10px 0
+	background-color: lightcoral
+	z-index: 5
+	+clear
+
+/* heading end

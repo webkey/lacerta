@@ -1,6 +1,17 @@
 @@if(pageWrap === "START")
 {
-<div class="wrapper m-scene" id="main">
+
+<div class="c-heading heading-js">
+	<div class="c-heading__layout max-wrap layout">
+		<div class="c-heading__align">
+			<div class="heading">
+				<h1>&nbsp;</h1>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="wrapper" id="main">
 
 	<!--HEADER-->
 	@@include('_tpl_layout_header.html', {
@@ -10,8 +21,11 @@
 	<!--HEADER end-->
 
 	<!--MAIN-->
-	<div class="main scene-main scene-main--fadein@@if(context.classes && context.classes != "@@classes"){ @@classes}">
-		<h1>@@title</h1>
+	<div class="main layout@@if(context.classes && context.classes != "@@classes"){ @@classes}" data-heading="@@title">
+		<div class="heading">
+			<h1>@@title</h1>
+		</div>
+
 }
 @@if(pageWrap === "END")
 {
@@ -24,7 +38,5 @@
 
 </div>
 
-<div class="c-transition">
-	{{Wooooooo!}}
-</div>
+<div class="c-transition">&nbsp;</div>
 }

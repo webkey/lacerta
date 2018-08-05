@@ -146,20 +146,32 @@ $bottom-space--small: round-float($font-size*$line-height*0.75, 1) !default
 
 // Color of brands
 $base-color: #343399 !default
-$base-color-alt: lightskyblue !default
+$base-color-alt: #2b2b8b !default
+$mark-color: #f25984 !default
+$active-color: #6bdbbc !default
 // ----------------------------------------------------
-$bg-color: #e5e5e5 !default
-$bg-color-alt: #f3f3f3 !default
+$bg-color: $base-color !default
+$bg-color-alt: white !default
 // ----------------------------------------------------
-$text-color: #262626 !default
-$text-color-light: gray !default
-$title-color: black !default
+$text-color: white !default
+$text-color-alt: white !default
+$text-color-light: #9a9ac6 !default
+$title-color: white !default
 // ----------------------------------------------------
 $link-color: blue !default
 // ----------------------------------------------------
 $border-color: lightgray !default
 // ----------------------------------------------------
-$mark-color: tomato !default
+
+
+// Z-indexes
+// ==========================================================================
+$z-header: 5 !default
+$z-egg: 10 !default
+$z-main: 5 !default
+$z-footer: 5 !default
+$z-loader: 1100 !default
+$z-heading: 1200 !default
 
 
 // Class of typography styles
@@ -176,10 +188,10 @@ $user-content: user-content !default
 // ==========================================================================
 
 // отступы для всего сайта
-$page-layout-space: 18px 30px !default // v h
+$page-layout-space: 18px 80px !default // v h
 $page-layout-space--mob: 10px 10px !default // v h
 // максимальная ширина сайта
-$page-layout-width: 1800px !default
+$page-layout-width: 1400px !default
 // минимальная ширина сайта
 $page-layout-min: 320px !default
 // минимальные отступы у текствого блока
@@ -241,8 +253,8 @@ $form-placeholder-color: lighten($form-text-color, 65%) !default
 $form-bg-color: white !default
 $form-border-color: lighten($form-text-color, 70%) !default
 // validation
-$form-error-color: red !default
-$form-success-color: lightseagreen !default
+$form-error-color: $mark-color !default
+$form-success-color: $active-color !default
 // disabled
 $form-text-color--disabled: rgb(190, 190, 190) !default
 $form-bg-color--disabled: rgb(222, 222, 222) !default

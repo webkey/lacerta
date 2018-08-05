@@ -5,10 +5,10 @@
 
 <ul class="@@bsKey__list @@bsKey-js">
 	<li class="@@if(currentItem === 'Компания Lacerta'){current}">
-		@@include('_tpl_nav-LINK--short.html', { "txt": "Компания Lacerta", "href": "@@if(currentItem === 'Компания Lacerta'){javascript:;}@@if(currentItem !== 'Компания Lacerta'){about.html}", "key": "@@bsKey" })
+		@@include('_tpl_nav-LINK--short.html', { "txt": "Компания Lacerta", "href": "@@if(currentItem === 'Компания Lacerta'){javascript:;}@@if(currentItem !== 'Компания Lacerta'){about.html}", "key": "@@bsKey", "title": "Скажите: “Здравствуйте, деньги”" })
 	</li>
 	<li class="@@if(currentItem === 'Вторичный рынок облигаций'){current}">
-		@@include('_tpl_nav-LINK--short.html', { "txt": "Вторичный рынок облигаций", "href": "inner.html", "key": "@@bsKey" })
+		@@include('_tpl_nav-LINK--short.html', { "txt": "Вторичный рынок облигаций", "href": "index.html", "key": "@@bsKey", "title": "Размещение облигаций белорусских компаний" })
 	</li>
 	<li class="@@if(currentItem === 'Выплаты доходов'){current}">
 		@@include('_tpl_nav-LINK--short.html', { "txt": "Выплаты доходов", "href": "#!", "key": "@@bsKey" })
