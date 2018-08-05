@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * !Resize only width
  * */
@@ -82,15 +84,7 @@ function inputHasValueClass() {
 		var $selectWrap = $('.select');
 		var classHasValue = 'input--has-value';
 
-		$.each($inputs, function () {
-			switchHasValue.call(this);
-		});
-
-		$inputs.on('keyup change', function () {
-			switchHasValue.call(this);
-		});
-
-		function switchHasValue() {
+		var switchHasValue = function () {
 			var $currentField = $(this);
 			var $currentFieldWrap = $currentField.closest($fieldWrap);
 
@@ -108,7 +102,15 @@ function inputHasValueClass() {
 				$currentFieldWrap.addClass(classHasValue);
 				$currentFieldWrap.find('label').addClass(classHasValue);
 			}
-		}
+		};
+
+		$.each($inputs, function () {
+			switchHasValue.call(this);
+		});
+
+		$inputs.on('keyup change', function () {
+			switchHasValue.call(this);
+		});
 	}
 }
 
@@ -116,6 +118,7 @@ function inputHasValueClass() {
  * !Form validation
  * */
 function formValidation() {
+
 	$('.user-form form').validate({
 		errorClass: "error",
 		validClass: "success",
@@ -141,6 +144,42 @@ function formValidation() {
 		}
 	});
 }
+
+var $page = $('#main'),
+	cover = $('.c-transition'),
+	options = {
+		debug: true,
+		prefetch: true,
+		// cacheLength: 4, // The number of pages to cache
+		onBefore: function($currentTarget, $container) {
+			console.log('onBefore');
+			cover.removeClass('is-leaving').removeClass('is-active');
+			cover.addClass('is-active');
+		},
+		onAfter: function($container, $newContent) {
+			console.log('onAfter');
+			cover.addClass('is-leaving');
+		},
+		onStart: {
+			duration: 1100, // Duration of our animation
+			render: function ($container) {
+				// Add your CSS animation reversing class
+				$container.addClass('is-exiting');
+				// Restart your animation
+				smoothState.restartCSSAnimations();
+			}
+		},
+		onReady: {
+			duration: 0,
+			render: function ($container, $newContent) {
+				// Remove your CSS animation reversing class
+				$container.removeClass('is-exiting');
+				// Inject the new content
+				$container.html($newContent);
+			}
+		}
+	},
+	smoothState = $page.smoothState(options).data('smoothState');
 
 /**
  * =========== !ready document, load/resize window ===========

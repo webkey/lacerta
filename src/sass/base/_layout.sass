@@ -167,16 +167,16 @@ html
 	z-index: 4
 	margin-right: $heading-width
 
-.main__holder
+//.main__holder
 	width: 100%
 	+clear
 
-.content-wrap
+//.content-wrap
 	float: left
 	width: 100%
 
 .content
-	margin: 0 200px 0 300px
+	//margin: 0 200px 0 300px
 	min-height: 50px
 
 	background-color: whitesmoke
@@ -197,6 +197,7 @@ html
 	width: $heading-width
 	height: 100%
 	background-color: white
+	z-index: 5
 
 .header__holder
 	position: relative
@@ -353,7 +354,6 @@ html
 	&::before
 		+pseudo()
 		+position(4px, 4px)
-		background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OTA2ODc1N0UwOEJDMTFFNzlCNzhBOUI2REQxMjc4QzgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OTA2ODc1N0YwOEJDMTFFNzlCNzhBOUI2REQxMjc4QzgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5MDY4NzU3QzA4QkMxMUU3OUI3OEE5QjZERDEyNzhDOCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5MDY4NzU3RDA4QkMxMUU3OUI3OEE5QjZERDEyNzhDOCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PnDruBQAAAAkSURBVHjaYmRgYPjPACL+/2cE0YwYAkAGA5jByPgfqwBAgAEAP4gP/bFMMZQAAAAASUVORK5CYII=')
 		background-size: 2px
 
 	//.no-touchevents a:hover
@@ -363,7 +363,7 @@ html
 
 	&::after
 		+pseudo()
-		background: #00ef85 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAAgBAMAAABa5liJAAAAMFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaPxwLAAAAD3RSTlMAd7tEIt0R7pkzzIhmqlV9QenDAAAD2klEQVRYw+2WPYsTURSGj5oEs0lMBkUUlMSUWkxwxNKsnV2ihWCVbGXpFwhWs6Io2GT0D2xQsM2KqGUEEUvFwjbxF7irO2ZMsh7PuRvP3Xuv2mhhkRd258zuvc/7bOaDhXnmmedvUi79S1rK2wcqp99XnyzSwVOhib4fBJWl98ciOuS9GsCuQzR5HNLY4akdW1ovDc6OvUCLPS7wPJ5lEKBU6FJJDiezI4Wa6qhCAny4AKwTIiZtgJ3YpLrPAICcNYAi7+ggAHyET7Udw22c4jrQYiQ1pJwFGTRQKnSpJI0xcAbxE+8e4R5Uq+HVajUCwCOHWyM6Qnn05BlWWGs60/K81lmPu7ELELJW+KF+wj8vHEPr5oEeLsuggVKhSyUrE+SzPbx+Fr8CHCwR9h1AFh9DpjdlrVhp6TXFeAPyMWudGfXvJovCMbRqkOp9kUGAUqGBOv3zuEqH3QRwtaB3GaAworqLMWklOLS0kgkUJgjshWQlHEsLGpsyaKCucLVaq4MmUOWvtfw1IiXqlolg57pfMbXq32NoXBMt4ThaC2MZNFAqXK0s1srf1KrSLz8tUn77HZhZIq1PXyyttTAqP+e646P+iyQSjq21M5ZBA6XC1cqNoDHhpzfcXHS18ryv/JVOMkor/dnW6iy3IqrL0C1/ctAUjq1FG2UQoFS4WukEFmIe3uDm0NK6daozbgMM1tTZO9LKY2RqNVdujIHrXsHb2p6hcGyt+lQGDZQKV2vlO+2NaEh1MH5palHu8OkWpUJamXDZ1Kqkx+ukJW954ZhaS2FXBg2UClerfxlSuKp4L9AUx3O9RJ3qTwvKG4ZWubIDN7ZpCcfQengU40gGDZQKV6v1jr6aoPIau+a9lVfCnS1KibUuJpZWiuj6aRGO9ZYf7QcZNFAqHK0sPg2CwTdQyfhTUwvKX7j7mzyJ9IQsmVrgv7S1mGNo7Q0iABk0UCocrRxyJrOzxrqldZEdPk1VQcRaKfQsLQBDSzhFhhZm7wWODAKUCkcrjZyxvAItrRyTLvHGdAysBZ2zrpavtTRngdctbLpaApQKV2uFxXO4CCpv7YuYQhoLOCSB6ZZWI96uNXC0hLObofWpqyVAqXC1+vxmy9JvC68A7ofXLS3obABtvNJewi5rcRtrBUHvUVD7udJfFp5wSOIR7ArPu1oClApHix9EStiFIlJGka3VSPiP5+vcZi1mb/9/y1+1iZrTx888uFoClAobkuWfK+GdIWK8H2ytAl+KrK8ebKUFvqFVsomas6eHeBt+pSVAqRCImyBow2+SCSL4c1wO76r9CTjPPPP8x/kBIrOdsjg4YcgAAAAASUVORK5CYII=') no-repeat center center
+		background: #00ef85
 		background-size: auto 16px
 
 		.no-touchevents a:hover &
@@ -371,3 +371,120 @@ html
 
 /* developer end
 /* === FOOTER end ===
+
+.header
+	transition: 0.3s width ease-in-out
+
+.header.main-homepage
+	width: 50vw
+
+.main.main-homepage
+	margin-right: 55vw
+
+/* ===========================================
+ * SmoothState styling
+ * ===========================================
+.m-scene .scene-main
+	-webkit-animation-duration: .25s
+	animation-duration: .25s
+	-webkit-transition-timing-function: ease-in
+	transition-timing-function: ease-in
+	-webkit-animation-fill-mode: both
+	animation-fill-mode: both
+
+.m-scene .scene-main--fadein
+	-webkit-animation-name: fadeIn
+	animation-name: fadeIn
+
+.m-scene.is-exiting .scene-main
+	-webkit-animation-direction: alternate-reverse
+	animation-direction: alternate-reverse
+
+.m-scene .header.main-homepage
+	-webkit-animation-duration: .25s
+	animation-duration: .25s
+	-webkit-transition-timing-function: ease-in
+	transition-timing-function: ease-in
+	-webkit-animation-fill-mode: both
+	animation-fill-mode: both
+	-webkit-animation-name: width
+	animation-name: width
+
+.m-scene.is-exiting .header.main-homepage
+	-webkit-animation-direction: alternate-reverse
+	animation-direction: alternate-reverse
+
+@keyframes fadeIn
+	0%
+		opacity: 0
+
+	100%
+		opacity: 1
+
+@keyframes width
+	0%
+		width: $heading-width
+
+	100%
+		width: 50vw
+
+// c-transition
+.c-transition
+	background-color: #343399
+	cursor: wait
+	height: 100vh
+	left: 0
+
+	overflow: hidden
+	pointer-events: none
+	position: fixed
+	top: 100vh
+	transform: translate3d(0, 100%, 0)
+	width: 100%
+	z-index: 1000
+
+.c-transition .u-h1
+	left: 50%
+	position: absolute
+	text-align: center
+	top: 50%
+	transform: translate(-50%, 100vh)
+	transition: transform 1s cubic-bezier(0.4, 0.6, 0.2, 1)
+	transition-delay: 0.2s
+
+.c-transition.is-active
+	animation-delay: 0s
+	animation-duration: 1s
+	animation-fill-mode: forwards
+	animation-name: fade-in
+	animation-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99)
+	top: 0
+
+.c-transition.is-active .u-h1
+	transform: translate(-50%, -50%)
+
+.c-transition.is-leaving
+	animation-duration: 1s
+	animation-name: fade-out
+
+.c-transition.is-leaving .u-h1
+	transform: translate(-50%, -100vh)
+	transition-delay: 0s
+
+@keyframes fade-out
+	0%
+		-webkit-transform: translateZ(0)
+		transform: translateZ(0)
+
+	to
+		-webkit-transform: translate3d(0, -100%, 0)
+		transform: translate3d(0, -100%, 0)
+
+@keyframes fade-in
+	0%
+		-webkit-transform: translate3d(0, 100%, 0)
+		transform: translate3d(0, 100%, 0)
+
+	to
+		-webkit-transform: translateZ(0)
+		transform: translateZ(0)

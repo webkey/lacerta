@@ -1,0 +1,21 @@
+@@include('_tpl_layout_head.html', {
+	"title": "Компания Lacerta",
+	"pageClass": ""
+})
+
+@@include('_tpl_PAGE_WRAP.html', {
+	"pageWrap": "START",
+	"currentItem": "Компания Lacerta",
+	"title": "Скажите: “Здравствуйте, деньги”"
+})
+
+<section class="main-section">
+	<div class="main-section__heading layout-flood">
+		<h2><span>{{Title of Section}}</span></h2>
+	</div>
+	{{Content of Section}}
+</section>
+
+@@include('_tpl_PAGE_WRAP.html', {"pageWrap": "END" })
+
+@@include('_tpl_layout_foot.html')

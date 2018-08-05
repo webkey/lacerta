@@ -103,9 +103,10 @@ gulp.task('createCustomModernizr', function (done) { // Таск для форм
 	});
 });
 
-gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () { // Таск для мераж js библиотек
+gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () { // Таск для мержа js библиотек
 	return gulp.src([
-		'src/libs/jquery-smartresize/jquery.debouncedresize.js' // "умный" ресайз
+		'src/js/temp/smoothState.js' // https://github.com/miguel-perez/smoothState.js
+		, 'src/libs/jquery-smartresize/jquery.debouncedresize.js' // "умный" ресайз
 		, 'src/libs/jquery-placeholder/jquery.placeholder.min.js' // поддержка плейсхолдера в старых браузерах
 		, 'node_modules/object-fit-images/dist/ofi.min.js' // object-fit fix for a non-support browsers
 		, 'src/libs/jquery-validation/dist/jquery.validate.min.js' // валидация форм

@@ -1,8 +1,30 @@
 @@if(pageWrap === "START")
 {
-<div class="wrapper">
+<div class="wrapper m-scene" id="main">
+
+	<!--HEADER-->
+	@@include('_tpl_layout_header.html', {
+		"currentItem": "@@currentItem",
+		"classes": "@@classes"
+	})
+	<!--HEADER end-->
+
+	<!--MAIN-->
+	<div class="main scene-main scene-main--fadein@@if(context.classes && context.classes != "@@classes"){ @@classes}">
+		<h1>@@title</h1>
 }
 @@if(pageWrap === "END")
 {
+	</div>
+	<!--MAIN end-->
+
+	<!--FOOTER-->
+	@@include('_tpl_layout_footer.html')
+	<!--FOOTER end-->
+
+</div>
+
+<div class="c-transition">
+	{{Wooooooo!}}
 </div>
 }
