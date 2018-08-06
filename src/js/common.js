@@ -159,7 +159,7 @@ var $page = $('#main'),
 			$heading.removeClass('is-leaving').removeClass('is-active');
 			var title = $currentTarget.attr('data-heading') || '';
 			console.log("title: ", title);
-			$title.text(title);
+			$title.html(title);
 
 			// console.log("$currentTarget: ", $container.attr());
 			// heading.text($currentTarget[0].pathname.substr(1));

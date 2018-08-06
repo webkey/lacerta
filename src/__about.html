@@ -6,41 +6,47 @@
 @@include('_tpl_PAGE_WRAP.html', {
 	"pageWrap": "START",
 	"currentItem": "Компания Lacerta",
-	"title": "Скажите: “Здравствуйте, деньги”"
+	"title": "Скажите:<br> “Здравствуйте, деньги”"
 })
 
-<section class="main-section">
-	<div class="main-section__heading layout-flood">
-		<h2><span>{{Title of Section}}</span></h2>
+@@include('_tpl_breadcrumbs.html', {
+	"items": ["Главная"],
+	"last": "Выпустить и разместить облигации"
+})
+
+<p><strong class="highlight">Компания “Lacerta” — это деятельность, сфокусированная на облигациях и только на них.</strong></p>
+<p>Мы можем быть полезны как для эмитента, учитывая наш опыт в структурировании сделок, нашу широкую клиентскую базу, так и для инвесторов (физических и юридических лиц) поскольку мы предлагаем реальную<b>альтернативу депозитам</b> с точки зрения<b>доходности</b>.</p>
+<p>Кроме этого, мы проводим предварительный анализ эмитента, <b>не беремся за размещение облигаций откровенно некачественных эмитентов</b>.</p>
+<blockquote>
+	<q>Основной упор мы делаем на физических лиц. Но есть и специально разработанные непосредственно под инвесторов- юридических лиц продукты.</q>
+</blockquote>
+<p><b>Компания “Lacerta” — это деятельность, сфокусированная только на облигациях.</b> Мы можем быть полезны как для эмитента, учитывая наш опыт в структурировании сделок.</p>
+<div class="cols">
+	<div class="col">
+		<h3>Эмитентам</h3>
+		<ul>
+			<li><b>Организация выпусков облигаций</b> (подготовка проспектов, решений, иной информации).</li>
+			<li><b>Структурирование сделок</b> (разработка оптимальных параметров: ставки, срока, периодичности выплаты купона и оферт) с прицелом на конкретную категорию инвесторов;</li>
+			<li><b>Организация дистрибьюции</b> (маркетирование выпуска, пиар-поддержка, информирование потенциальных инвесторов, непосредственно продажи и так далее).</li>
+		</ul>
+		<p>
+			@@include("_tpl_btn.html", {"value": "Как стать эмитентом и сколько это стоит"})
+		</p>
 	</div>
-	{{Content of Section}}<br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-	{{Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aspernatur atque ratione!}} <br>
-</section>
+	<div class="col">
+		<h3>Эмитентам</h3>
+		<ul>
+			<li><b>Организация выпусков облигаций</b> (подготовка проспектов, решений, иной информации).</li>
+			<li><b>Структурирование сделок</b> (разработка оптимальных параметров: ставки, срока, периодичности выплаты купона и оферт) с прицелом на конкретную категорию инвесторов;</li>
+			<li><b>Организация дистрибьюции</b> (маркетирование выпуска, пиар-поддержка, информирование потенциальных инвесторов, непосредственно продажи и так далее).</li>
+		</ul>
+		<p>
+			@@include("_tpl_btn.html", {"value": "Как стать эмитентом и сколько это стоит"})
+		</p>
+	</div>
+</div>
+
+@@include('_tpl_forms_user-form.html', { "title": "Закажите звонок" })
 
 @@include('_tpl_PAGE_WRAP.html', {"pageWrap": "END" })
 

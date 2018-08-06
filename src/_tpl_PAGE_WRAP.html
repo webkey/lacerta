@@ -1,7 +1,7 @@
 @@if(pageWrap === "START")
 {
 
-<div class="c-heading heading-js">
+<div class="c-heading heading-js@@if(context.pageClass){ @@pageClass}">
 	<div class="c-heading__layout max-wrap layout">
 		<div class="c-heading__align">
 			<div class="heading">
@@ -21,7 +21,7 @@
 	<!--HEADER end-->
 
 	<!--MAIN-->
-	<div class="main layout@@if(context.classes && context.classes != "@@classes"){ @@classes}" data-heading="@@title">
+	<div class="main user-content layout@@if(context.classes && context.classes != "@@classes"){ @@classes}@@if(context.pageClass){ @@pageClass}">
 		<div class="heading">
 			<h1>@@title</h1>
 		</div>

@@ -44,7 +44,7 @@
 			+media('<mob-lg')
 				display: block
 				width: 100%
-				margin-top: $bottom-space--small
+				margin-top: $bottom-space--row
 
 				&:first-child
 					margin-top: 0
@@ -192,7 +192,7 @@
 	margin-bottom: $bottom-space
 
 	+media('<tab-lg')
-		margin-bottom: $bottom-space--large
+		margin-bottom: $bottom-space--section
 
 .images-slider__list, .slick-dotted.images-slider__list
 	padding-bottom: $bottom-space
@@ -319,11 +319,10 @@
 
 /* breadcrumbs
 .breadcrumbs
-	color: $text-color-light
-	margin-bottom: $bottom-space--large
+	margin-bottom: $bottom-space--section
 
 	+media('<desk-lg')
-		margin-bottom: $bottom-space--middle
+		margin-bottom: $bottom-space--element
 
 	&:last-child
 		margin-bottom: 0
@@ -341,9 +340,10 @@
 			&::before, &:first-child::before
 				content: none
 
-	cursor: default
-	overflow: hidden
-	+font($font-size--small, $line-height--small)
+	&
+		cursor: default
+		text-align: center
+		+font($font-size--small, $line-height--small)
 
 	.layout-article &
 		max-width: none
@@ -355,9 +355,9 @@
 		&::after
 			display: inline-block
 			vertical-align: baseline
-			content: '•'
+			content: '/'
 			border: none
-			color: $base-color
+			color: $highlight-color
 			padding-left: 10px
 
 		&:last-child::after
@@ -365,18 +365,21 @@
 
 	a
 		padding-top: 0.5em
-		color: $text-color
+		color: $highlight-color
 		text-decoration: none
 		cursor: pointer
 
 		span
-			border-bottom: 1px solid rgba(white, 0.3)
+			border-bottom: 1px solid transparent
+			// transition
+			$prop: border-color
+			transition:
+				property: $prop
+				duration: $animation-speed
 
-		.no-touchevents &:hover
-			color: $base-color
-
+		&:hover
 			span
-				border-color: rgba($base-color, 0.3)
+				border-color: $highlight-color
 
 /* breadcrumbs end
 
@@ -428,7 +431,7 @@
 
 /* feature list
 .feature-list
-	margin-bottom: $bottom-space--medium
+	margin-bottom: $bottom-space--article
 
 	&:last-child
 		margin-bottom: 0
@@ -443,7 +446,7 @@
 .feature-list__img
 	float: left
 	width: 25%
-	margin: 0.3em $bottom-space $bottom-space--small 0
+	margin: 0.3em $bottom-space $bottom-space--row 0
 
 	+media("<mob-lg")
 		width: auto
@@ -454,7 +457,7 @@
 	overflow: hidden
 
 	h3, p
-		margin-bottom: $bottom-space--small
+		margin-bottom: $bottom-space--row
 
 		&:last-child
 			margin-bottom: 0

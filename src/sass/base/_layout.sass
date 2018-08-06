@@ -32,16 +32,14 @@ html
 
 // выравнивание текстовых элементов на странице статьи (контент обернут в .layout-article)
 // и их максимальная ширина
-.layout-article
-	padding: $text-layout-space
+//.layout-article
+.#{$user-content}
+	& > p, & > ul, & > ol,
+	& > h2, & > h3, & > h4, & > h5, & > h6,
+	& > .h2, & > .h3, & > .h4, & > .h5, & > .h6,
+	& > hr, & > blockquote,
+	& > .layout-text
 
-	+media('<tab-lg')
-		padding: $text-layout-space--md
-
-	+media('<tab-sm')
-		padding: $text-layout-space--sm
-
-	& > p, & > ul, & > ol, & > h1, & > h2, & > h3, & > h4, & > h5, & > h6, & > hr, & > blockquote, & > .layout-text, .imgc figcaption
 		max-width: $text-layout-width
 		+padding-horizontal(0)
 		+push-auto
@@ -115,7 +113,8 @@ html
 		max-width: #{$flood-layout-width + (nth($text-layout-space--sm, 2))*2}
 		+padding-horizontal((nth($text-layout-space--sm, 2)))
 
-	p, ul, ol, h1, h2, h3, h4, h5, h6, hr
+	p, ul, ol, h2, h3, h4, h5, h6, hr
+	.h2, .h3, .h4, .h5, .h6
 		max-width: none
 
 // элеметы с отступами по бокам
@@ -164,10 +163,12 @@ html
 	position: relative
 	clear: both
 	z-index: $z-main
+	padding-bottom: $bottom-space--section
 
 .main,
 .c-heading__align
 	margin-right: $heading-width
+	width: calc(100% - #{$heading-width})
 
 //.main__holder
 	width: 100%
