@@ -1,24 +1,30 @@
 
 
-
-
-
-<ul class="@@bsKey__list @@bsKey-js">
+<ul class="@@bsKey__list">
 	<li class="@@if(currentItem === 'Компания Lacerta'){current}">
 		@@include('_tpl_nav-LINK--short.html', { "txt": "Компания Lacerta", "href": "@@if(currentItem === 'Компания Lacerta'){javascript:;}@@if(currentItem !== 'Компания Lacerta'){about.html}", "key": "@@bsKey", "title": "Скажите:&lt;br&gt; “Здравствуйте, деньги”" })
 	</li>
+</ul>
+<ul class="@@bsKey__list">
 	<li class="@@if(currentItem === 'Вторичный рынок облигаций'){current}">
 		@@include('_tpl_nav-LINK--short.html', { "txt": "Вторичный рынок облигаций", "href": "index.html", "key": "@@bsKey", "title": "Размещение облигаций белорусских компаний" })
+	</li>
+	<li class="@@if(currentItem === 'Выпустить и разместить облигации'){current}">
+		@@include('_tpl_nav-LINK--short.html', { "txt": "Выпустить и разместить облигации", "href": "#!", "key": "@@bsKey", "title": "Выпустить и разместить облигации" })
 	</li>
 	<li class="@@if(currentItem === 'Выплаты доходов'){current}">
 		@@include('_tpl_nav-LINK--short.html', { "txt": "Выплаты доходов", "href": "#!", "key": "@@bsKey" })
 	</li>
-	<li class="@@if(currentItem === 'Купить облигации'){current}">
-		@@include('_tpl_nav-LINK--short.html', { "txt": "Купить облигации", "href": "#!", "key": "@@bsKey" })
+</ul>
+<ul class="@@bsKey__list">
+	<li class="high @@if(currentItem === 'Купить облигации'){current}">
+		@@include('_tpl_nav-LINK--short.html', { "txt": "Купить облигации", "href": "@@if(currentItem === 'Купить облигации'){javascript:;}@@if(currentItem !== 'Купить облигации'){buy.html}", "key": "@@bsKey", "title": "Покупка облигаций" })
 	</li>
-	<li class="@@if(currentItem === 'Продать облигации'){current}">
+	<li class="high @@if(currentItem === 'Продать облигации'){current}">
 		@@include('_tpl_nav-LINK--short.html', { "txt": "Продать облигации", "href": "#!", "key": "@@bsKey" })
 	</li>
+</ul>
+<ul class="@@bsKey__list">
 	<li class="@@if(currentItem === 'Контакты'){current}">
 		@@include('_tpl_nav-LINK--short.html', { "txt": "Контакты", "href": "#!", "key": "@@bsKey" })
 	</li>

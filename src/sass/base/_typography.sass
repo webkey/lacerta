@@ -45,16 +45,13 @@ h1, h2, h3, h4, h5, h6,
 			text-decoration: underline
 
 h1, .h1
-	+font-alt-black
 	+font-h1
 
 h2, .h2
 	+font-h2
 
 h3, .h3
-	+font-bold
 	+font-h3
-	color: $highlight-color
 
 h4, .h4
 	+font-bold
@@ -84,14 +81,15 @@ hr
 
 a
 	color: $link-color
-	text-decoration: underline
+	text-decoration: none
 	cursor: default
 
 	&:link
 		cursor: pointer
 
-	.no-touchevents &:hover
+	&:not([class*="btn-"]):hover
 		text-decoration: none
+		color: $link-color--hover
 
 	&[href^="tel"], .no-touchevents &[href^="tel"]:hover
 		text-decoration: none !important
@@ -117,11 +115,6 @@ i, em
 
 i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	+font-bold-italic
-
-.heading
-	text-align: center
-	padding: 70px 0 0
-	margin-bottom: $bottom-space--element
 
 .mark
 	color: $mark-color
@@ -158,11 +151,17 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 .hide
 	display: block
 
-.section
+.section, .section-bottom
 	margin-bottom: $bottom-space--section
 
-.article
+.article, .article-bottom
 	margin-bottom: $bottom-space--article
+
+.element-bottom
+	margin-bottom: $bottom-space--element
+
+.row-bottom
+	margin-bottom: $bottom-space--row
 
 /* content img
 

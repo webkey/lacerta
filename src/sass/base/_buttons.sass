@@ -24,13 +24,14 @@
 [class*="btn-def"]
 	position: relative
 	padding: floor(($btn-height - $btn-line-height)/2) 46px ceil(($btn-height - $btn-line-height)/2) 32px
-	+font-normal
-	color: $btn-text-color
+	margin: 0
 	border: none
 	border-radius: round($btn-height/2)
 	background: $btn-bg-color
 	box-shadow: none
-	margin: 0
+	+font-normal
+	color: $btn-text-color
+	text-align: left
 	// transition
 	$prop: color, background-color
 	transition:

@@ -17,9 +17,9 @@
 
 .label-holder, label
 	+font-normal
-	+font($font-size, $line-height)
-	color: $text-color-light
-	margin-bottom: 7px
+	+font(1.6rem, round-float(24/16, 2))
+	color: inherit
+	margin-bottom: 0.5rem
 
 label, .label
 	+display-inline-block-top
@@ -28,6 +28,9 @@ label, .label
 
 	.label-holder &
 		margin-bottom: 0
+
+label
+	margin-left: round($form-input-height/2)
 
 .form-mark
 	+display-inline-block-top
@@ -47,7 +50,7 @@ label, .label
 
 	.input-wrap
 		+display-inline-block-top
-		width: calc(100% * 0.5 - #{$form-gap})
+		width: calc(100% / 3 - #{$form-gap})
 		+margin-horizontal(#{round($form-gap*0.5)})
 		margin-bottom: 0
 
@@ -61,28 +64,6 @@ label, .label
 
 	label
 		+truncate(100%)
-
-// some column
-.form-columnize
-	column-count: 2
-
-.form-columnize--3
-	column-count: 3
-
-.form-columnize, .form-columnize--3
-	column-gap: $form-gap
-
-	+media('<mob-lg')
-		column-count: 1
-		column-gap: 0
-
-	label
-		+truncate(100%)
-
-	.input-wrap
-		display: inline-block
-		vertical-align: top
-		width: 100%
 
 /* forms layout end
 
@@ -99,8 +80,10 @@ label, .label
 	width: 100%
 	height: $form-input-height
 	background-color: $form-bg-color
+	border-radius: round($form-input-height/2)
 	box-shadow: none
-	border: $form-border-width solid $form-border-color
+	@if $form-border-width
+		border: $form-border-width solid $form-border-color
 	cursor: pointer
 
 	// Стили для текста полей ввода прописываем отдельно через миксин,
@@ -118,12 +101,22 @@ label, .label
 	.input-wrap &, &:last-child
 		margin-bottom: 0
 
+	/* Change autocomplete styles in WebKit */
+	&:-webkit-autofill,
+	&:-webkit-autofill:hover,
+	&:-webkit-autofill:focus
+		-webkit-text-fill-color: $form-text-color
+		-webkit-box-shadow: 0 0 0 1000px $form-bg-color inset
+
 textarea
 	$lines: 2
 	$height: round($form-line-height*$lines) + $form-input-space-vt + $form-input-space-vb + round($form-border-width*2)
 	min-height: $height
 	height: $height
 	resize: vertical
+
+	&[disabled]
+		resize: none
 
 // Placeholder
 input, textarea
@@ -198,6 +191,6 @@ input, textarea
 
 @import checkboxes
 @import selects
-@import select2
+//@import select2
 @import validation
-@import captcha
+//@import captcha

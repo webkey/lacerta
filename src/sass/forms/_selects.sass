@@ -39,6 +39,7 @@
 // Select with a custom arrow
 .select
 	position: relative
+	+selectArrow
 
 	select
 		padding-right: 40px
@@ -97,6 +98,7 @@
 
 	&.error:not([disabled])
 		+form-error
+		box-shadow: inset 0 0 0 2px $form-error-color
 
 		//form error placeholder
 		+placeholder

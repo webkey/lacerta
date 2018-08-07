@@ -129,23 +129,33 @@ function formValidation() {
 		highlight: function(element, errorClass, successClass) {
 			$(element)
 				.removeClass(successClass)
-				.addClass(errorClass)
+				.addClass(errorClass);
+			$(element)
 				.closest('form').find('label[for="' + $(element).attr('id') + '"]')
+				.removeClass(successClass)
+				.addClass(errorClass);
+			$(element)
+				.closest('.input-holder')
 				.removeClass(successClass)
 				.addClass(errorClass);
 		},
 		unhighlight: function(element, errorClass, successClass) {
 			$(element)
 				.removeClass(errorClass)
-				.addClass(successClass)
+				.addClass(successClass);
+			$(element)
 				.closest('form').find('label[for="' + $(element).attr('id') + '"]')
+				.removeClass(errorClass)
+				.addClass(successClass);
+			$(element)
+				.closest('.input-holder')
 				.removeClass(errorClass)
 				.addClass(successClass);
 		}
 	});
 }
 
-var $page = $('#main'),
+var $page = $('#page'),
 	$cover = $('.c-transition'),
 	$heading = $('.heading-js'),
 	$title = $('h1', $heading),

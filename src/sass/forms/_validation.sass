@@ -5,8 +5,9 @@
 .error-note, .success-note
 	float: left
 	position: relative
-	+size(100%, 22px)
-	+font(12px, 22px)
+	+padding-horizontal(round($form-input-height/2))
+	+size(100%, 24px)
+	+font(16px, 24px)
 	letter-spacing: normal // Важно!
 	+truncate(none)
 	display: none
@@ -33,8 +34,8 @@
 	color: $form-success-color
 
 	// нужно выбрать тольк ближайший элемент подтверждения формы ((нельзя использовать ~))
-	form .success + .error-note + &,
-	form .success + .select2 + .error-note + &
+	//form .success + .error-note + &,
+	//form .success + .select2 + .error-note + &
 		display: block
 
 // Если поддтверждение в виде галочки
@@ -95,3 +96,66 @@
 		left: 50%
 		transform-origin: bottom left
 		transform: rotate(-45deg)
+
+.input-holder
+	$this-icon-lines-width: 18px
+	$this-icon-lines-width-short: 8px
+	$this-icon-lines-height: 2px
+
+	&::before, &::after
+		content: ""
+		display: block
+		position: absolute
+		right: 22px
+		top: 30px
+		height: $this-icon-lines-height
+		width: $this-icon-lines-width
+		max-width: $this-icon-lines-width
+		background-color: $form-bg-color
+		z-index: 5
+		opacity: 0
+		pointer-events: none
+		// transition
+		$prop: transform, background-color, opacity, max-width
+		will-change: $prop
+		transition:
+			property: $prop
+			duration: $animation-speed
+
+	&::before
+		//+size(round($this-icon-lines-width*0.44), $this-icon-lines-height)
+		//transform-origin: bottom right
+		$rotate: 45deg
+		transform: rotate($rotate)
+
+	&::after
+		//+size(round($this-icon-lines-width), $this-icon-lines-height)
+		//transform-origin: bottom left
+		$rotate: -45deg
+		transform: rotate($rotate)
+
+	&.success, &.error
+		&::before, &::after
+			opacity: 1
+
+	&.success
+		&::before, &::after
+			background-color: $form-success-color
+
+		&::before
+			$translate: -13px, 4px
+			$rotate: 45deg
+			max-width: $this-icon-lines-width-short
+			transform: translate($translate) rotate($rotate)
+			transform: translate3d($translate, 0) rotate($rotate)
+
+		&::after
+			$translate: 0, 0
+			$rotate: -45deg
+			transform: translate($translate) rotate($rotate)
+			transform: translate3d($translate, 0) rotate($rotate)
+
+
+	&.error
+		&::before, &::after
+			background-color: $form-error-color

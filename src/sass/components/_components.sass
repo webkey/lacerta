@@ -5,34 +5,53 @@
 /* user form
 .user-form
 	margin-bottom: $bottom-space
+	background-color: $base-color-alt
+	border-radius: round($form-input-height/2)
+	padding: nth($page-layout-space, 2)
 
 	&:last-child
 		margin-bottom: 0
 
 	.form-title
 		display: block
-		+font-alt-bold
-		color: $title-color
 		text-align: center
-		margin-bottom: $bottom-space
+		max-width: $text-layout-width
+		+push-auto
+		margin-bottom: $bottom-space--row
 
 		// font size
 		&
-			+font-h2
+			+font-h3
 
-	form
-		display: block
+	p
+		max-width: $text-layout-width
+		+push-auto
 
-	.input-wrap
 		&:last-child
 			margin-bottom: 0
 
-	textarea
+	form
+		display: block
+		margin-bottom: 6rem
+
+		&:last-child
+			margin-bottom: 0
+
+	.form-row .input-wrap
+		button
+			display: block
+			width: 100%
+
+	//.input-wrap
+		&:last-child
+			margin-bottom: 0
+
+	//textarea
 		height: 130px
 		max-height: 130px
 		resize: none
 
-	.form-buttons
+	//.form-buttons
 		float: left
 		margin-right: 30px
 
@@ -49,7 +68,7 @@
 				&:first-child
 					margin-top: 0
 
-	.form-note
+	//.form-note
 		overflow: hidden
 		min-height: $btn-height
 		+clear-spacing
@@ -61,7 +80,7 @@
 			vertical-align: middle
 			min-height: inherit
 
-	.form-note__item
+	//.form-note__item
 		display: inline-block
 		vertical-align: middle
 		width: calc(100% - 6px)
@@ -368,8 +387,13 @@
 		color: $highlight-color
 		text-decoration: none
 		cursor: pointer
+		// transition
+		$prop: color
+		transition:
+			property: $prop
+			duration: $animation-speed
 
-		span
+		//span
 			border-bottom: 1px solid transparent
 			// transition
 			$prop: border-color
@@ -378,101 +402,51 @@
 				duration: $animation-speed
 
 		&:hover
-			span
+			color: $highlight-color--hover
+			//text-decoration: underline
+
+			//span
 				border-color: $highlight-color
 
 /* breadcrumbs end
 
-/* files links
-.file
-	$file-icon-size: 42px
-	+display-inline-block-top
-	min-height: $file-icon-size
-	padding: 0.5em
-	+font(16px, 20px)
-	color: $text-color
-	text-decoration: none
-
-	+clear
-
-	svg
-		float: left
-		+size($file-icon-size)
-
-	& > span, & > em
-		display: block
-		margin-left: #{$file-icon-size}
-		padding-left: 1em
-
-	& > em
-		display: block
-		font-size: 1.4rem
-		color: $text-color-light
-
-	.no-touchevents &:hover
-		background-color: $base-color
-
-		& > em
-			color: $bg-color
-
-.st-bg
-	fill: #e2e5e7
-
-.st-corner
-	fill: #b0b7bd
-
-.st-shadow
-	fill: #cad1d8
-
-.st-text
-	fill: #fff
-
-/* files links end
-
-/* feature list
-.feature-list
-	margin-bottom: $bottom-space--article
-
-	&:last-child
-		margin-bottom: 0
-
-.feature-list__item
+/* social networks
+.social-networks
 	margin-bottom: $bottom-space
-	+clear
 
 	&:last-child
 		margin-bottom: 0
 
-.feature-list__img
+.social-networks__list
+	position: relative
+	display: inline-block
+	vertical-align: top
+	margin: 0 -10px -20px 0
+
+.social-networks__item
 	float: left
-	width: 25%
-	margin: 0.3em $bottom-space $bottom-space--row 0
+	margin: 0 10px 20px
 
-	+media("<mob-lg")
-		width: auto
-		float: none
-		margin-right: 0
+	a
+		display: block
+		position: relative
+		color: $highlight-color
+		transition:
+			property: color, border-color
+			duration: $animation-speed
 
-.feature-list__content
-	overflow: hidden
+		span
+			+hide-text
 
-	h3, p
-		margin-bottom: $bottom-space--row
+		svg
+			display: block
+			+size(60px)
 
-		&:last-child
-			margin-bottom: 0
+		path
+			fill: currentColor
 
-/* feature list end
+		// hover
+		&:hover
+			color: $highlight-color--hover
 
-/* egg
-.egg
-	position: absolute
-	top: 100vh
-	right: 0
-	background: url(../../img/egg.png) no-repeat
-	width: 590px
-	height: 450px
-	margin: -450px 0 0
-	z-index: $z-egg
-
-/* egg end
+/* social networks end

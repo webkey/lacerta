@@ -211,12 +211,25 @@ html
 	top: 0
 	height: 100vh
 	width: $heading-width
-	padding: 10px 0
-	background-color: lightcoral
-	z-index: 5
+	padding: nth($page-layout-space, 1) 60px
+	background-color: $heading-bg
+	z-index: $z-header
 	+clear
 
-/* logo
+//egg
+.egg
+	position: absolute
+	top: 100vh
+	right: 0
+	background: url(../../img/egg.png) no-repeat
+	width: 590px
+	height: 450px
+	margin: -450px 0 0
+	z-index: $z-egg
+
+	display: none
+
+//logo
 .logo
 	display: block
 	position: relative
@@ -225,14 +238,13 @@ html
 	height: 36px
 	text-indent: -9999px
 	overflow: hidden
-	margin: 0 2rem 0 0
+	margin-bottom: $bottom-space--section
 	z-index: 5
 
 	a, & > span
 		display: block
 		height: 100%
 
-/* logo end
 /* === HEADER end ===
 
 /* === NAVIGATION ===
@@ -241,6 +253,34 @@ html
 
 .nav__list
 	position: relative
+	list-style: none
+	margin: 0 0 42px
+	padding: 0
+	+font($font-size--small, $line-height--small)
+
+	li
+		margin-bottom: 12px
+
+		&.high
+			+font-bold
+			+font(3.6rem, round-float(49/36, 2))
+
+		&:last-child
+			margin-bottom: 0
+
+	a
+		color: $base-color
+		text-decoration: none
+		// transition
+		$prop: color
+		transition:
+			property: $prop
+			duration: $animation-speed
+
+	li.current a,
+	a:hover
+		text-decoration: none
+		color: $highlight-color
 
 /* === NAVIGATION end ===
 
@@ -356,14 +396,20 @@ html
 /* developer end
 /* === FOOTER end ===
 
-.header
+//.header
 	transition: 0.3s width ease-in-out
 
-.header.main-homepage
+//.header.main-homepage
 	width: 50vw
 
-.main.main-homepage
+//.main.main-homepage
 	margin-right: 55vw
+
+// heading
+.heading
+	text-align: center
+	padding: nth($page-layout-space, 1) 0 0
+	margin-bottom: $bottom-space--element
 
 .c-heading
 	$tf: cubic-bezier(0.4, 0.6, 0.2, 1)
@@ -414,37 +460,37 @@ $c-heading-y: 60vh
 	100%
 		transform: translate(0, $c-heading-y)
 
-/* ===========================================
- * SmoothState styling
- * ===========================================
-.m-scene .scene-main
+///* ===========================================
+// * SmoothState styling
+// * ===========================================
+//.m-scene .scene-main
 	animation-duration: .25s
 	transition-timing-function: ease-in
 	animation-fill-mode: both
 
-.m-scene .scene-main--fadein
+//.m-scene .scene-main--fadein
 	animation-name: fadeIn
 
-.m-scene.is-exiting .scene-main
+//.m-scene.is-exiting .scene-main
 	animation-direction: alternate-reverse
 
-.m-scene .header.main-homepage
+//.m-scene .header.main-homepage
 	animation-duration: .25s
 	transition-timing-function: ease-in
 	animation-fill-mode: both
 	animation-name: width
 
-.m-scene.is-exiting .header.main-homepage
+//.m-scene.is-exiting .header.main-homepage
 	animation-direction: alternate-reverse
 
-@keyframes fadeIn
+//@keyframes fadeIn
 	0%
 		opacity: 0
 
 	100%
 		opacity: 1
 
-@keyframes width
+//@keyframes width
 	0%
 		width: $heading-width
 
@@ -524,16 +570,5 @@ $c-heading-y: 60vh
 
 .c-heading__layout
 	position: relative
-
-.header__holder
-	position: absolute
-	right: 0
-	top: 0
-	height: 100vh
-	width: $heading-width
-	padding: 10px 0
-	background-color: lightcoral
-	z-index: 5
-	+clear
 
 /* heading end

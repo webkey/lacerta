@@ -2,8 +2,8 @@
 {
 
 <div class="c-heading heading-js@@if(context.pageClass){ @@pageClass}">
-	<div class="c-heading__layout max-wrap layout">
-		<div class="c-heading__align">
+	<div class="c-heading__layout max-wrap">
+		<div class="c-heading__align layout">
 			<div class="heading">
 				<h1>&nbsp;</h1>
 			</div>
@@ -11,7 +11,7 @@
 	</div>
 </div>
 
-<div class="wrapper" id="main">
+<div class="wrapper"@@if(!context.noSmooth){ id="page"}>
 
 	<!--HEADER-->
 	@@include('_tpl_layout_header.html', {
