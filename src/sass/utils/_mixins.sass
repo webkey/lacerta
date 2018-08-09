@@ -14,30 +14,30 @@
 // =============================================================================
 /// Примесь позволяет определять `width` и `height` одновременно.
 ///
-/// @param {Length} $width - `width` элемента
 /// @param {Length} $height ($width) - `height` элемента
+/// @param {Length} $width - `width` элемента
 ///
 /// @example Sass - Использование
 /// .foo
 ///   +size(10em)
 ///
 /// .bar
-///   +size(100%, 10em)
+///   +size(10em, 100%)
 ///
 /// @example css - Вывод CSS
 /// .foo {
-///   width: 10em;
 ///   height: 10em;
+///   width: 10em;
 /// }
 ///
 /// .bar {
-///   width: 100%;
 ///   height: 10em;
+///   width: 100%;
 /// }
 
-=size($width, $height: $width)
-	width: $width
+=size($height, $width: $height)
 	height: $height
+	width: $width
 
 // =============================================================================
 // Position

@@ -450,3 +450,254 @@
 			color: $highlight-color--hover
 
 /* social networks end
+
+/* social networks in footer
+.f-soc
+	overflow: hidden
+	margin-bottom: $bottom-space--element
+
+	&:last-child
+		margin-bottom: 0
+
+.f-soc__group
+	float: left
+	margin: 0 40px 40px 0
+
+	& > strong
+		display: block
+		margin-bottom: 5px
+		font-size: 14px
+		line-height: 18px
+		color: $text-color-light
+
+.f-soc__list
+	position: relative
+	display: inline-block
+	vertical-align: top
+	margin: 0 -15px -15px 0
+
+.f-soc__item
+	float: left
+	margin: 0 15px 15px 0
+
+	a
+		display: block
+		position: relative
+		color: $highlight-color
+		transition:
+			property: color, border-color
+			duration: $animation-speed
+
+		span
+			+hide-text
+
+		svg
+			display: block
+			+size(60px)
+
+		path
+			fill: currentColor
+
+		// hover
+		&:hover
+			color: $highlight-color--hover
+
+/* social networks in footer end
+
+/* developer
+.developer
+	line-height: 0
+
+	a
+		display: inline-block
+		vertical-align: top
+		color: $highlight-color
+		text-decoration: none
+		// transition
+		transition: color $animation-speed ease-in-out
+
+		&:hover
+			color: $highlight-color--hover
+			text-decoration: none
+
+		svg
+			display: inline-block
+			vertical-align: top
+			+size(15px, 70px)
+			margin-right: 5px
+
+			path
+				fill: currentColor
+
+		& > span
+			display: inline-block
+			vertical-align: top
+			font-size: 14px
+			line-height: 15px
+
+/* developer end
+
+/* subscription form
+.subs-form
+	margin-bottom: $bottom-space--element
+
+	&:last-child
+		margin-bottom: 0
+
+	form
+		display: block
+
+	.label-holder, label, .error-note, .success-note
+		font-size: 14px
+		margin-bottom: 2px
+
+	.input-holder
+		&.error
+			&::before, &::after
+				opacity: 0
+
+		&.success
+			&::before, &::after
+				background-color: $base-color
+				right: 17px
+
+	button
+		display: block
+		position: absolute
+		right: 0
+		top: 0
+		+size($form-input-height)
+		margin: 0
+		border: none
+		box-shadow: none
+		background-color: $highlight-color
+		border-radius: round($form-input-height / 2)
+		color: $base-color
+		// transition
+		$prop: color, background-color
+		will-change: $prop
+		transition:
+			property: $prop
+			duration: $animation-speed
+			timing-function: ease-in-out
+
+		&:hover
+			background-color: $highlight-color--hover
+
+		svg
+			$size: 24px
+			display: block
+			position: absolute
+			left: 50%
+			top: 50%
+			+size($size)
+			margin: -#{round($size / 2)} 0 0 -#{round($size / 2)}
+			// transition
+			$prop: opacity
+			will-change: $prop
+			transition:
+				property: $prop
+				duration: $animation-speed
+				timing-function: ease-in-out
+
+			path
+				fill: currentColor
+
+	// Form error
+	.error ~ button
+		background-color: $form-error-color
+
+	// Form success
+	.success ~ button
+			svg
+				opacity: 0
+
+	// Form complete
+	.form-success
+		.success-note
+			display: block
+
+		input[type="email"], input[type="input"]
+			&:not(:disabled)
+				background-color: #56a4a6
+				border-color: #56a4a6
+
+/* subscription form end
+
+/* footer list
+.f-list
+	list-style: none
+	padding: 0
+	margin: 0 0 $bottom-space--element
+	font-size: 2.0rem
+	line-height: round-float(24/20, 2)
+
+	&:last-child
+		margin-bottom: 0
+
+	li
+		margin-bottom: 1.5rem
+
+		&:last-child
+			margin-bottom: 0
+
+		& > div
+			margin-bottom: 1rem
+
+			&:last-child
+				margin-bottom: 0
+
+	a
+		color: inherit
+		// transition
+		transition: color $animation-speed ease-in-out
+
+		&:hover
+			color: $link-color
+
+		&[href^="tel:"]
+			b
+				+font-bold
+				font-size: 24px
+
+/* footer list end
+
+/* requisites
+.req
+	font-size: 12px
+	line-height: 14px
+	color: $text-color-light
+
+	p
+		margin-bottom: 15px
+
+		&:last-child
+			margin-bottom: 0
+
+		b
+			color: white
+
+/* requisites end
+
+/* footer form
+.f-form
+	margin: 0 0 $bottom-space--element
+	padding: 40px
+	background-color: $base-color-alt
+
+	&:last-child
+		margin-bottom: 0
+
+	button
+		display: block
+		width: 100%
+
+.f-form__cols
+	display: flex
+	justify-content: space-between
+	align-items: flex-start
+
+.f-form__col
+	width: calc(50% - 40px / 2)
+
+/* footer form end

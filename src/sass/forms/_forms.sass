@@ -127,14 +127,14 @@ label
 		margin-bottom: 0
 
 	/* Change autocomplete styles in WebKit */
-	&:-webkit-autofill,
-	&:-webkit-autofill:hover,
-	&:-webkit-autofill:focus
+	//&:-webkit-autofill,
+	//&:-webkit-autofill:hover,
+	//&:-webkit-autofill:focus
 		-webkit-text-fill-color: $form-text-color
 		-webkit-box-shadow: 0 0 0 1000px $form-bg-color inset
 
 textarea
-	$lines: 2
+	$lines: 5
 	$height: round($form-line-height*$lines) + $form-input-space-vt + $form-input-space-vb + round($form-border-width*2)
 	min-height: $height
 	height: $height
@@ -196,6 +196,7 @@ input, textarea
 	//style for label
 	@at-root label
 		&.success
+			color: $form-success-color
 			+form-success
 
 	&.success:not([disabled])
@@ -208,6 +209,7 @@ input, textarea
 	//form error
 	@at-root label
 		&.error
+			color: $form-error-color
 			+form-error
 
 	&.error:not([disabled])

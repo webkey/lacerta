@@ -286,114 +286,28 @@ html
 
 /* === FOOTER ===
 .footer
-	//margin: 0 auto
 	position: relative
-	clear: both
 	z-index: $z-footer
-	+font(16px, round-float(24/16, 3))
-	color: $text-color
-	border-top: 1px solid $border-color
-
-	background-color: lightgreen
+	background-color: $base-color
 
 .footer__holder
-	overflow: hidden
-	cursor: default
-	padding: $footer-grid-space
-
-/* footer bottom
-.footer-bottom
-	position: relative
-	// обрезать вытянутый маржинами по горизонтале дочерний элемент
-	overflow: hidden
-
-.footer-bottom__holder
-	position: relative
 	display: flex
 	flex-wrap: wrap
-	+margin-horizontal(-#{round(nth($grid-space, 2)/2)})
-	margin-bottom: -#{round(nth($grid-space, 1)/2)}
+	margin-top: -#{$bottom-space--article}
 
-.footer-bottom__col
-	text-align: center
-	+padding-horizontal(round(nth($grid-space, 2)/2))
-	margin-bottom: #{round(nth($grid-space, 1)/2)}
-	// для браузеров не поддерживающих display: flex
-	display: inline-block
-	vertical-align: top
-	width: calc(33.33% - 5px)
+.f-box
+	width: calc(100% / 4)
+	margin-top: $bottom-space--article
+	padding: 40px
 
-	+media('<mob-lg')
-		min-width: 100%
+.f-box-form
+	width: calc(100% / 2)
 
-	&:first-child
-		+media('>=mob-lg')
-			text-align: left
+.f-box__title
+	+font-bold
+	+font(2.6rem, round-float(30/26, 2))
+	margin-bottom: $bottom-space--row
 
-	&:last-child
-		+media('>=mob-lg')
-			text-align: right
-
-	a
-		color: inherit
-		text-decoration: none
-
-		.no-touchevents &:hover
-			text-decoration: underline
-
-/* footer bottom end
-
-/* developer
-.developer
-	display: inline-block
-
-	a
-		text-decoration: none
-
-		.no-touchevents &:hover
-			text-decoration: none
-
-.developer__label
-	+media('<mob-lg')
-		display: block
-
-	i
-		+media('<mob-lg')
-			display: none
-
-.developer__logo
-	+display-inline-block-top
-	position: relative
-	top: 5px
-	padding-right: 3px
-	+size(154px, 20px)
-	text-align: left
-	text-indent: -9999px
-
-	&::before, &::after
-		+pseudo()
-		+position(0, 0)
-		+size(149px, 16px)
-
-	&::before
-		+pseudo()
-		+position(4px, 4px)
-		background-size: 2px
-
-	//.no-touchevents a:hover
-		transform: translate(0, 1px)
-		filter: blur(2px)
-		opacity: 0.6
-
-	&::after
-		+pseudo()
-		background: #00ef85
-		background-size: auto 16px
-
-		.no-touchevents a:hover &
-			transform: translate(0, -1px)
-
-/* developer end
 /* === FOOTER end ===
 
 //.header

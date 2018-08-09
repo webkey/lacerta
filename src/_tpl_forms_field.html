@@ -45,7 +45,7 @@
 @@if(!context.wrap){
 	>@@include('_tpl_forms_options.html', {"placeholder": "@@placeholder", "ph": "@@ph", "value": "@@value", "options": "@@options"})</select>
 	@@if(context.valid){@@include('_tpl_forms_valid.html', {"error": "@@error", "success": "@@success"})}
-}@@if(context.wrap){>@@include('_tpl_forms_options.html', {"placeholder": "@@placeholder", "ph": "@@ph", "value": "@@value"})</select>
+}@@if(context.wrap){>@@include('_tpl_forms_options.html', {"placeholder": "@@placeholder", "ph": "@@ph", "value": "@@value", "options": "@@options"})</select>
 	@@if(context.valid){@@include('_tpl_forms_valid.html', {"error": "@@error", "success": "@@success"})}
 </div>}
 @@if(context.wrap){</div>}
@@ -65,10 +65,10 @@
 <select}
 	@@if(context.classes){ class="@@classes"}@@if(context.id){ id="@@id"} name="@@id"@@if(context.ph){ data-placeholder="@@ph"}@@if(context.readonly){ readonly}@@if(context.disabled){ disabled}@@if(context.required){ required}
 @@if(!context.wrap){
-	>@@include('_tpl_forms_options.html', {"placeholder": "@@placeholder", "ph": "@@ph", "value": "@@value"})</select>
+	>@@include('_tpl_forms_options.html', {"placeholder": "@@placeholder", "ph": "@@ph", "value": "@@value", "options": "@@options"})</select>
 	@@if(context.valid){@@include('_tpl_forms_valid.html', {"error": "@@error", "success": "@@success"})}
 </div>
-}@@if(context.wrap){>@@include('_tpl_forms_options.html', {"placeholder": "@@placeholder", "ph": "@@ph", "value": "@@value"})</select>
+}@@if(context.wrap){>@@include('_tpl_forms_options.html', {"placeholder": "@@placeholder", "ph": "@@ph", "value": "@@value", "options": "@@options"})</select>
 	@@if(context.valid){@@include('_tpl_forms_valid.html', {"error": "@@error", "success": "@@success"})}
 </div>
 </div>}
