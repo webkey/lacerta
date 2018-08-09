@@ -85,7 +85,7 @@ gulp.task('sassCompilation', ['normalize'], function () { // Создаем та
 gulp.task('mergeCssLibs', function () { // Таск для мержа css библиотек
 	return gulp.src([
 		'src/css/temp/*.css' // see gulpfile-special.js
-		// , 'src/libs/select2/dist/css/select2.min.css'
+		, 'src/libs/select2/dist/css/select2.min.css'
 		// , 'src/lib/plugin/file.css'
 	]) // Выбираем файлы для конкатенации
 		.pipe(concatCss("src/css/libs.css", {
@@ -108,6 +108,9 @@ gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () { // Таск �
 		'src/js/temp/smoothState.js' // https://github.com/miguel-perez/smoothState.js
 		, 'src/libs/jquery-smartresize/jquery.debouncedresize.js' // "умный" ресайз
 		, 'src/libs/jquery-placeholder/jquery.placeholder.min.js' // поддержка плейсхолдера в старых браузерах
+		, 'src/libs/select2/dist/js/select2.full.min.js' // кастомный селект
+		, 'src/libs/select2/dist/js/i18n/ru.js' // локализация для кастомного селекта
+		, 'src/libs/slick-carousel/slick/slick.min.js' // slick slider
 		, 'node_modules/object-fit-images/dist/ofi.min.js' // object-fit fix for a non-support browsers
 		, 'src/libs/jquery-validation/dist/jquery.validate.min.js' // валидация форм
 	])

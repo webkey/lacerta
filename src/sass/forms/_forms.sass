@@ -4,9 +4,17 @@
 
 /* forms layout
 .form-row, .input-wrap
+	line-height: 1
 	position: relative // Важно! Для позицирования отметки подтверждения полей формы
 	margin-bottom: $form-bottom-space
 	z-index: 1 // Важно! Отметка подтверждения полей формы имеет z-index: -1
+
+.input-wrap
+	.#{$small-field} &
+		margin-bottom: $form-bottom-space--small
+
+		.form-row &
+			margin-bottom: 0
 
 .form-row:last-child
 	margin-bottom: 0
@@ -17,9 +25,12 @@
 
 .label-holder, label
 	+font-normal
-	+font(1.6rem, round-float(24/16, 2))
+	+font($form-label-size, $form-label-line-height)
 	color: inherit
 	margin-bottom: 0.5rem
+
+	.#{$small-field} &
+		+font($form-label-size--small, $form-label-line-height--small)
 
 label, .label
 	+display-inline-block-top
@@ -31,6 +42,9 @@ label, .label
 
 label
 	margin-left: round($form-input-height/2)
+
+	.#{$small-field} &
+		margin-left: round($form-input-height--small/2)
 
 .form-mark
 	+display-inline-block-top
@@ -86,15 +100,26 @@ label
 		border: $form-border-width solid $form-border-color
 	cursor: pointer
 
+	.#{$small-field} &
+		padding: $form-input-space-vt--small $form-input-space-h--small $form-input-space-vb--small
+		height: $form-input-height--small
+		border-radius: round($form-input-height--small/2)
+
 	// Стили для текста полей ввода прописываем отдельно через миксин,
 	// чтобы была возможность добавить медиа развилки через тот же миксин
 	&
 		+inputs-font
 
+		.#{$small-field} &
+			+inputs-font--small
+
 	// Стили вертикальных отступов для полей ввода прописываем отдельно через миксин,
 	// чтобы была возможность добавить медиа развилки через тот же миксин
 	&
 		+forms-space
+
+		.#{$small-field} &
+			+forms-space--small
 
 	// Стили для полей ввода, которые лежат в специальной обертке
 	// И для тех, которые являются последними в родительском контейнере
@@ -114,6 +139,11 @@ textarea
 	min-height: $height
 	height: $height
 	resize: vertical
+
+	.#{$small-field} &
+		$height: round($form-line-height--small*$lines) + $form-input-space-vt--small + $form-input-space-vb--small + round($form-border-width*2)
+		min-height: $height
+		height: $height
 
 	&[disabled]
 		resize: none
@@ -191,6 +221,6 @@ input, textarea
 
 @import checkboxes
 @import selects
-//@import select2
+@import select2
 @import validation
 //@import captcha

@@ -23,6 +23,12 @@
 		&
 			+selects-font
 
+.#{$small-field}
+	.#{$user-content} &, & .select, .#{$user-content} & .select
+		select
+			+selectSelection--small
+			+selects-font--small
+
 .#{$user-content} select
 	padding-right: 0
 
@@ -31,6 +37,10 @@
 
 	&:last-child
 		margin-bottom: 0
+
+.#{$small-field}
+	.#{$user-content} & select, & .select
+		+forms-space--small
 
 .input-wrap
 	select, .select

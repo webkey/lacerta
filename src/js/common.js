@@ -1,4 +1,53 @@
 'use strict';
+/**
+ * !Smooth State
+ * */
+
+$(function () {
+	var $page = $('#page'),
+		$cover = $('.c-transition'),
+		$heading = $('.heading-js'),
+		$title = $('h1', $heading),
+		options = {
+			debug: true,
+			prefetch: true,
+			// cacheLength: 4, // The number of pages to cache
+			onBefore: function($currentTarget, $container) {
+				$cover.removeClass('is-leaving').removeClass('is-active');
+
+				$heading.removeClass('is-leaving').removeClass('is-active');
+				var title = $currentTarget.attr('data-heading') || '';
+				console.log("title: ", title);
+				$title.html(title);
+
+				// console.log("$currentTarget: ", $container.attr());
+				// heading.text($currentTarget[0].pathname.substr(1));
+			},
+			onStart: {
+				duration: 1100, // Duration of our animation
+				render: function ($container) {
+					// Add your CSS animation reversing class
+					$container.addClass('is-exiting');
+					$cover.addClass('is-active');
+					$heading.addClass('is-active');
+					// Restart your animation
+					smoothState.restartCSSAnimations();
+				}
+			},
+			onReady: {
+				duration: 0,
+				render: function ($container, $newContent) {
+					// Remove your CSS animation reversing class
+					$container.removeClass('is-exiting');
+					// Inject the new content
+					$container.html($newContent);
+					$cover.addClass('is-leaving');
+					$heading.addClass('is-leaving');
+				}
+			}
+		},
+		smoothState = $page.smoothState(options).data('smoothState');
+});
 
 /**
  * !Resize only width
@@ -115,6 +164,97 @@ function inputHasValueClass() {
 }
 
 /**
+ * !Initial custom select for cross-browser styling
+ * */
+function customSelect(select) {
+	$.each(select, function () {
+		var $thisSelect = $(this);
+		// var placeholder = $thisSelect.attr('data-placeholder') || '';
+		$thisSelect.select2({
+			language: "ru",
+			width: '100%',
+			containerCssClass: 'cselect-head',
+			dropdownCssClass: 'cselect-drop',
+			minimumResultsForSearch: Infinity
+			// , placeholder: placeholder
+		});
+		// if ($thisSelect.attr("id") === 'form-cover-c-select-base'){
+		// 	console.log(1);
+		// 	$thisSelect.select2('open');
+		// }
+	})
+}
+
+/**
+ * !Initial sliders on the project
+ * */
+function slidersInit() {
+	//images carousel
+	var $imagesCarousel = $('.images-slider-js');
+
+	if($imagesCarousel.length){
+		var slideCounterTpl = '' +
+			'<div class="slider-counter">' +
+			'<span class="slide-curr">0</span>/<span class="slide-total">0</span>' +
+			'</div>';
+
+		var titleListTpl = $('<div class="flashes"></div>');
+
+		$imagesCarousel.each(function () {
+			var $curSlider = $(this);
+			var $imgList = $curSlider.find('.images-slider__list');
+			var $imgListItem = $imgList.find('.images-slider__item');
+			var dur = 200;
+
+			// create titles
+			$imgList.after(titleListTpl.clone());
+			var $titleList = $curSlider.find('.flashes');
+			$.each($imgListItem, function () {
+				var $this = $(this);
+				$titleList.append($('<div class="flashes__item">' + $this.find('.caption').html() + '</div>'));
+			});
+
+			// initialized slider of titles
+			$titleList.slick({
+				fade: true,
+				speed: dur,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				infinite: true,
+				asNavFor: $imgList,
+				dots: false,
+				arrows: false,
+
+				swipe: false,
+				touchMove: false,
+				draggable: false
+			});
+
+			// initialized slider of images
+			$imgList.on('init', function (event, slick) {
+				$(slick.$slider).append($(slideCounterTpl).clone());
+
+				$('.slide-total', $(slick.$slider)).text(slick.$slides.length);
+				$('.slide-curr', $(slick.$slider)).text(slick.currentSlide + 1);
+			}).slick({
+				fade: false,
+				speed: dur,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				asNavFor: $titleList,
+				lazyLoad: 'ondemand',
+				infinite: true,
+				dots: true,
+				arrows: true
+			}).on('beforeChange', function (event, slick, currentSlide, nextSlider) {
+				$('.slide-curr', $(slick.$slider)).text(nextSlider + 1);
+			});
+
+		});
+	}
+}
+
+/**
  * !Form validation
  * */
 function formValidation() {
@@ -155,50 +295,6 @@ function formValidation() {
 	});
 }
 
-var $page = $('#page'),
-	$cover = $('.c-transition'),
-	$heading = $('.heading-js'),
-	$title = $('h1', $heading),
-	options = {
-		debug: true,
-		prefetch: true,
-		// cacheLength: 4, // The number of pages to cache
-		onBefore: function($currentTarget, $container) {
-			$cover.removeClass('is-leaving').removeClass('is-active');
-
-			$heading.removeClass('is-leaving').removeClass('is-active');
-			var title = $currentTarget.attr('data-heading') || '';
-			console.log("title: ", title);
-			$title.html(title);
-
-			// console.log("$currentTarget: ", $container.attr());
-			// heading.text($currentTarget[0].pathname.substr(1));
-		},
-		onStart: {
-			duration: 1100, // Duration of our animation
-			render: function ($container) {
-				// Add your CSS animation reversing class
-				$container.addClass('is-exiting');
-				$cover.addClass('is-active');
-				$heading.addClass('is-active');
-				// Restart your animation
-				smoothState.restartCSSAnimations();
-			}
-		},
-		onReady: {
-			duration: 0,
-			render: function ($container, $newContent) {
-				// Remove your CSS animation reversing class
-				$container.removeClass('is-exiting');
-				// Inject the new content
-				$container.html($newContent);
-				$cover.addClass('is-leaving');
-				$heading.addClass('is-leaving');
-			}
-		}
-	},
-	smoothState = $page.smoothState(options).data('smoothState');
-
 /**
  * =========== !ready document, load/resize window ===========
  */
@@ -208,6 +304,8 @@ $(document).ready(function () {
 	printShow();
 	inputFocusClass();
 	inputHasValueClass();
+	customSelect($('select.cselect'));
+	slidersInit();
 	objectFitImages(); // object-fit-images initial
 
 	formValidation();

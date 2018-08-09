@@ -6,12 +6,20 @@
 	float: left
 	position: relative
 	+padding-horizontal(round($form-input-height/2))
-	+size(100%, 24px)
-	+font(16px, 24px)
+	height: $form-label-line-height
+	width: 100%
+	+font($form-label-size, $form-label-line-height)
+	text-align: right
 	letter-spacing: normal // Важно!
 	+truncate(none)
 	display: none
 	margin-top: -#{$form-bottom-space}
+
+	.#{$small-field} &
+		+padding-horizontal(round($form-input-height--small/2))
+		margin-top: -#{$form-bottom-space--small}
+		height: $form-label-line-height--small
+		+font($form-label-size--small, $form-label-line-height--small)
 
 	+media('<mob-lg')
 		margin-top: -#{$form-bottom-space--mob}
@@ -19,8 +27,11 @@
 	.input-wrap &, .input-holder &, .select &
 		float: none
 		position: absolute
-		top: 100%
-		margin-top: 0
+		bottom: 100%
+		right: 0
+		width: auto
+		max-width: 50%
+		margin: 0 0 5px
 
 .error-note
 	color: $form-error-color
@@ -107,7 +118,7 @@
 		display: block
 		position: absolute
 		right: 22px
-		top: 30px
+		top: round($form-input-height / 2)
 		height: $this-icon-lines-height
 		width: $this-icon-lines-width
 		max-width: $this-icon-lines-width
@@ -121,6 +132,10 @@
 		transition:
 			property: $prop
 			duration: $animation-speed
+
+		.#{$small-field} &
+			right: 15px
+			top: round($form-input-height--small / 2)
 
 	&::before
 		//+size(round($this-icon-lines-width*0.44), $this-icon-lines-height)
