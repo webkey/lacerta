@@ -293,20 +293,30 @@ html
 .footer__holder
 	display: flex
 	flex-wrap: wrap
-	margin-top: -#{$bottom-space--article}
+	//margin: -#{$bottom-space--article} -#{nth($footer-box-space, 2)} 0
+
+//.f-boxes
+	width: 50%
+
+.f-col
+	width: calc(100% / 4)
 
 .f-box
 	width: calc(100% / 4)
-	margin-top: $bottom-space--article
-	padding: 40px
+	padding: $footer-box-space
 
-.f-box-form
+	.f-col &
+		width: 100%
+
+	.f-box__title
+		+font-bold
+		+font(2.6rem, round-float(30/26, 2))
+		margin-bottom: $bottom-space--row
+
+.f-box_form
 	width: calc(100% / 2)
+	background-color: $base-color-alt
 
-.f-box__title
-	+font-bold
-	+font(2.6rem, round-float(30/26, 2))
-	margin-bottom: $bottom-space--row
 
 /* === FOOTER end ===
 

@@ -31,6 +31,10 @@
 		background-color: $form-border-color--focus
 		z-index: -1
 
+	.#{$small-field} &
+		&::before
+			height: $form-input-height--small + 5
+
 	&.select2-container--below
 		&::before
 			top: 0
@@ -38,12 +42,22 @@
 				left-radius: round($form-input-height / 2)
 				right-radius: round($form-input-height / 2)
 
+			.#{$small-field} &
+				border-top:
+					left-radius: round($form-input-height--small / 2)
+					right-radius: round($form-input-height--small / 2)
+
 	&.select2-container--above
 		&::before
 			bottom: 0
 			border-bottom:
 				left-radius: round($form-input-height / 2)
 				right-radius: round($form-input-height / 2)
+
+			.#{$small-field} &
+				border-bottom:
+					left-radius: round($form-input-height--small / 2)
+					right-radius: round($form-input-height--small / 2)
 
 	&.select2-container--open
 		&::before
@@ -61,9 +75,6 @@
 	.#{$small-field} &
 		+selects-font--small
 
-.select2-container--default .select2-selection--single .select2-selection__arrow b
-	+selectArrow
-
 .select2-container--default
 	.select2-selection--single
 		.select2-selection__rendered
@@ -77,11 +88,27 @@
 			+size($select-arrow-height, $select-arrow-width)
 			background: none
 			z-index: 2
+			pointer-events: none
+			transform: translateZ(0)
+			// transition
+			$prop: transform
+			will-change: $prop
+			transition: $prop $animation-speed ease-in-out
+
+			.#{$small-field} &
+				+size($select-arrow-height--small, $select-arrow-width--small)
 
 			b
 				border: none
 				+cover()
 				margin: 0
+
+				&
+					+selectArrow
+
+	&.select2-container--open
+		.select2-selection__arrow
+			transform: translateZ(0) rotate(0.5turn)
 
 	.select2-search--inline .select2-search__field
 		height: auto
@@ -121,6 +148,10 @@
 			&:hover
 				color: $link-color
 
+	&.#{$small-field}
+		.select2-selection--multiple
+			padding: #{$form-input-space-vt--small - $multiple-item-space} $form-input-space-h--small #{$form-input-space-vb--small - $multiple-item-space}
+
 	.select2-selection--single,
 	.select2-selection--multiple
 		.select2-selection__placeholder
@@ -134,11 +165,21 @@
 					left-radius: round($form-input-height/2)
 					right-radius: round($form-input-height/2)
 
+				.#{$small-field} &
+					border-bottom:
+						left-radius: round($form-input-height--small/2)
+						right-radius: round($form-input-height--small/2)
+
 		&.select2-container--above
 			.select2-selection--multiple, .select2-selection--single
 				border-top:
 					left-radius: round($form-input-height/2)
 					right-radius: round($form-input-height/2)
+
+				.#{$small-field} &
+					border-top:
+						left-radius: round($form-input-height--small/2)
+						right-radius: round($form-input-height--small/2)
 
 	&.select2-container--focus, &.select2-container--open
 		.select2-selection--multiple, .select2-selection--single
@@ -171,6 +212,10 @@
 			background-color: $form-bg-color
 			outline: 1px solid transparent
 
+	&.#{$small-field}
+		.select2-results>.select2-results__options
+			max-height: $form-input-height--small * 6
+
 	.select2-results__option[aria-selected=true]
 		background-color: $highlight-color
 		color: $text-color
@@ -185,6 +230,27 @@
 	background-color: $form-border-color--focus
 	border-radius: round($form-input-height / 2)
 	z-index: 9999
+	opacity: 0
+	// transition
+	$prop: transform, opacity
+	will-change: $prop
+	transition:
+		property: $prop
+		duration: $animation-speed
+		timing-function: ease-in-out
+
+	.select2-container--open &
+		opacity: 1
+
+	&.select2-dropdown--below.#{$small-field}
+		border-bottom:
+			left-radius: round($form-input-height--small / 2)
+			right-radius: round($form-input-height--small / 2)
+
+	&.select2-dropdown--above.#{$small-field}
+		border-top:
+			left-radius: round($form-input-height--small / 2)
+			right-radius: round($form-input-height--small / 2)
 
 .select2-results
 	overflow: hidden
@@ -194,10 +260,20 @@
 			left-radius: round($form-input-height / 2)
 			right-radius: round($form-input-height / 2)
 
+	.select2-dropdown--below.#{$small-field} &
+		border-bottom:
+			left-radius: round($form-input-height--small / 2)
+			right-radius: round($form-input-height--small / 2)
+
 	.select2-dropdown--above &
 		border-top:
 			left-radius: round($form-input-height / 2)
 			right-radius: round($form-input-height / 2)
+
+	.select2-dropdown--above.#{$small-field} &
+		border-top:
+			left-radius: round($form-input-height--small / 2)
+			right-radius: round($form-input-height--small / 2)
 
 .select2-results__options
 	position: relative

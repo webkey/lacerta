@@ -166,23 +166,27 @@ function inputHasValueClass() {
 /**
  * !Initial custom select for cross-browser styling
  * */
-function customSelect(select) {
-	$.each(select, function () {
-		var $thisSelect = $(this);
-		// var placeholder = $thisSelect.attr('data-placeholder') || '';
+function customSelect() {
+	$.each($('select.cselect'), function () {
+		var $thisSelect = $(this),
+			headClass,
+			dropClass;
+
+		headClass = $thisSelect.closest('.small-field').length ? 'cselect-head small-field' : 'cselect-head';
+		dropClass = $thisSelect.closest('.small-field').length ? 'cselect-drop small-field' : 'cselect-drop';
 		$thisSelect.select2({
 			language: "ru",
 			width: '100%',
-			containerCssClass: 'cselect-head',
-			dropdownCssClass: 'cselect-drop',
+			containerCssClass: headClass,
+			dropdownCssClass: dropClass,
 			minimumResultsForSearch: Infinity
-			// , placeholder: placeholder
 		});
-		// if ($thisSelect.attr("id") === 'form-cover-c-select-base'){
-		// 	console.log(1);
-		// 	$thisSelect.select2('open');
-		// }
-	})
+
+		$thisSelect.on("select2:open", function (e, prop) {
+			console.log("e: ", e);
+			console.log("prop: ", prop);
+		});
+	});
 }
 
 /**
@@ -263,7 +267,7 @@ $(document).ready(function () {
 	printShow();
 	inputFocusClass();
 	inputHasValueClass();
-	customSelect($('select.cselect'));
+	customSelect();
 	slidersInit();
 	objectFitImages(); // object-fit-images initial
 });

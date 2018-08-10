@@ -142,6 +142,84 @@
 			</div>
 		</div>
 	</div>
+	<div>
+		@@include('_tpl_title-anchor.html', {
+			"taTag": "h4",
+			"taId": "fcSelectCustomSmall",
+			"taText": "Select2 .small-field",
+			"openerId": "0_04_01_small-field"
+		})
+
+		<div class="cols">
+			<div class="col">
+				<p><b>With a wrapper</b></p>
+
+				@@loop("_tpl_forms_field.html", [
+					{
+						"wrap": "small-field",
+						"type": "select",
+						"id": "swc-base",
+						"classes": "cselect",
+						"ph": "-Choose-",
+						"label": "Select - no js states - placeholder:",
+						"options": ""
+					}, {
+						"wrap": "small-field",
+						"type": "select",
+						"id": "swc-ph",
+						"classes": "cselect field-js",
+						"ph": "-Choose-",
+						"label": "Select - placeholder:",
+						"options": ""
+					}, {
+						"wrap": "small-field",
+						"type": "select",
+						"id": "swc-no-ph",
+						"classes": "cselect field-js",
+						"placeholder": "false",
+						"label": "Select - no placeholder:",
+						"options": ""
+					}, {
+						"wrap": "small-field",
+						"type": "select",
+						"id": "swc-ph-error",
+						"classes": "cselect field-js error",
+						"ph": "-Choose-",
+						"label": "Select - error - placeholder:",
+						"labelClasses": "error",
+						"valid": "true"
+					}, {
+						"wrap": "small-field",
+						"type": "select",
+						"id": "swc-no-ph-error",
+						"classes": "cselect field-js error",
+						"placeholder": "false",
+						"label": "Select - error - no placeholder:",
+						"labelClasses": "error",
+						"valid": "true"
+					}, {
+						"wrap": "small-field",
+						"type": "select",
+						"id": "swc-ph-success",
+						"classes": "cselect field-js success",
+						"ph": "-Choose-",
+						"label": "Select - success - placeholder:",
+						"labelClasses": "success",
+						"valid": "true"
+					}, {
+						"wrap": "small-field",
+						"type": "select",
+						"id": "swc-no-ph-success",
+						"classes": "cselect field-js success",
+						"placeholder": "false",
+						"label": "Select - success - no placeholder:",
+						"labelClasses": "success",
+						"valid": "true"
+					}
+				])
+			</div>
+		</div>
+	</div>
 
 	<!--===================================================-->
 	<!--===================================================-->

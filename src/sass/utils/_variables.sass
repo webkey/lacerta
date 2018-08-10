@@ -243,6 +243,7 @@ $aside-width: 160px !default
 
 // Footer
 // ==========================================================================
+$footer-box-space: 4rem 4rem // v h
 
 
 // Buttons
@@ -283,8 +284,8 @@ $form-border-color--focus: #4949a7 !default
 
 // Fonts of forms
 $form-font-size: 18px !default
-$form-font-size--small: 16px !default
-$form-line-height: 21px !default
+$form-font-size--small: 18px !default
+$form-line-height: 20px !default
 $form-line-height--small: 20px !default
 $form-input-height: 60px !default
 $form-input-height--small: 44px !default
@@ -355,9 +356,10 @@ $form-gap: 4rem !default
 $checkbox-color: $highlight-color !default
 
 // Select
-$select-arrow-width: 50px !default
-$select-arrow-width--small: 40px !default
+$select-arrow-width: 56px !default
+$select-arrow-width--small: 56px !default
 $select-arrow-height: 100% !default
+$select-arrow-height--small: 100% !default
 $multiple-item-space: 3px !default
 
 // Style Selection
@@ -383,9 +385,9 @@ $multiple-item-space: 3px !default
 	&::before, &::after
 		content: ''
 		position: absolute
-		right: 26px
+		right: 27px
 		top: 50%
-		width: 8px
+		width: 6px
 		height: 2px
 		background-color: $text-color
 		margin-top: -1px
@@ -399,7 +401,7 @@ $multiple-item-space: 3px !default
 
 	&::after
 		transform: rotate(-45deg)
-		right: 21px
+		right: 23px
 
 // States
 =form-success()
