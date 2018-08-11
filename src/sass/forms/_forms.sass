@@ -9,12 +9,16 @@
 	margin-bottom: $form-bottom-space
 	z-index: 1 // Важно! Отметка подтверждения полей формы имеет z-index: -1
 
+	// Чтобы убрать в футере в подписке лишний отступ снизу
+	&:last-child
+		margin-bottom: 0
+
 .input-wrap
-	.#{$small-field} &
+	//.#{$small-field} &
 		margin-bottom: $form-bottom-space--small
 
-		.form-row &
-			margin-bottom: 0
+	.form-row &
+		margin-bottom: 0
 
 .form-row:last-child
 	margin-bottom: 0
@@ -27,10 +31,11 @@
 	+font-normal
 	+font($form-label-size, $form-label-line-height)
 	color: inherit
-	margin-bottom: 0.4rem
+	margin-bottom: $form-label-vsb
 
 	.#{$small-field} &
 		+font($form-label-size--small, $form-label-line-height--small)
+		margin-bottom: $form-label-vsb--small
 
 label, .label
 	+display-inline-block-top
@@ -41,10 +46,14 @@ label, .label
 		margin-bottom: 0
 
 label
-	margin-left: round($form-input-height/2)
+	padding-left: $form-input-space-h
+	@if $form-border-width
+		margin-left: $form-border-width
 
 	.#{$small-field} &
-		margin-left: round($form-input-height--small/2)
+		padding-left: $form-input-space-h--small
+		@if $form-border-width--small
+			margin-left: $form-border-width--small
 
 .form-mark
 	+display-inline-block-top
@@ -104,13 +113,15 @@ label
 		padding: $form-input-space-vt--small $form-input-space-h--small $form-input-space-vb--small
 		height: $form-input-height--small
 		border-radius: round($form-input-height--small/2)
+		@if $form-border-width--small
+			border-width: $form-border-width--small
 
 	// Стили для текста полей ввода прописываем отдельно через миксин,
 	// чтобы была возможность добавить медиа развилки через тот же миксин
 	&
 		+inputs-font
 
-		.#{$small-field} &
+		//.#{$small-field} &
 			+inputs-font--small
 
 	// Стили вертикальных отступов для полей ввода прописываем отдельно через миксин,
@@ -141,7 +152,7 @@ textarea
 	resize: vertical
 
 	.#{$small-field} &
-		$height: round($form-line-height--small*$lines) + $form-input-space-vt--small + $form-input-space-vb--small + round($form-border-width*2)
+		$height: round($form-line-height--small*$lines) + $form-input-space-vt--small + $form-input-space-vb--small + round($form-border-width--small*2)
 		min-height: $height
 		height: $height
 
@@ -203,7 +214,7 @@ input, textarea
 		+form-success
 
 		//form success placeholder
-		+placeholder
+		//+placeholder
 			color: $form-success-color
 
 	//form error
@@ -216,7 +227,7 @@ input, textarea
 		+form-error
 
 		//form error placeholder
-		+placeholder
+		//+placeholder
 			color: $form-error-color
 
 /* inputs states end

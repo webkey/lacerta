@@ -5,6 +5,7 @@
 /* === LAYOUT ===
 html
 	font-size: 62.5%
+	//+scroll-blocked
 
 	// блокировка скролла
 	&.css-scroll-fixed:not(.open-only-mob)
@@ -289,11 +290,27 @@ html
 	position: relative
 	z-index: $z-footer
 	background-color: $base-color
+	border-top: 5px solid #363c9b
+	padding-top: 6.5rem
+	padding-bottom: 7rem
+
+	&::before
+		content: ""
+		display: block
+		position: absolute
+		left: 50%
+		width: 50%
+		height: 100%
+		top: 0
+		z-index: -1
+		background-color: $base-color-alt
 
 .footer__holder
 	display: flex
 	flex-wrap: wrap
+	justify-content: flex-end
 	//margin: -#{$bottom-space--article} -#{nth($footer-box-space, 2)} 0
+	margin: -#{nth($footer-box-space, 1)} -#{nth($footer-box-space, 2)}
 
 //.f-boxes
 	width: 50%
@@ -313,9 +330,14 @@ html
 		+font(2.6rem, round-float(30/26, 2))
 		margin-bottom: $bottom-space--row
 
+// footer box appeal form
 .f-box_form
 	width: calc(100% / 2)
 	background-color: $base-color-alt
+
+// footer box developer
+.f-box_dev
+	text-align: right
 
 
 /* === FOOTER end ===

@@ -14,7 +14,7 @@
 .select2
 	+forms-space
 
-	.#{$small-field} &
+	//.#{$small-field} &
 		+forms-space--small
 
 	.input-wrap &, &:last-child
@@ -185,6 +185,10 @@
 		.select2-selection--multiple, .select2-selection--single
 			border: #{$form-border-width} solid #{$form-border-color--focus}
 
+			.#{$small-field} &
+				@if $form-border-width--small
+					border-width: #{$form-border-width--small}
+
 	.select2-search--dropdown
 		.select2-search__field
 			margin: 0
@@ -226,7 +230,8 @@
 
 // dropdown
 .select2-dropdown
-	border: #{$form-border-width} solid #{$form-border-color--focus}
+	@if $form-border-width
+		border: #{$form-border-width} solid #{$form-border-color--focus}
 	background-color: $form-border-color--focus
 	border-radius: round($form-input-height / 2)
 	z-index: 9999
@@ -238,6 +243,10 @@
 		property: $prop
 		duration: $animation-speed
 		timing-function: ease-in-out
+
+	.#{$small-field} &
+		@if $form-border-width--small
+			border: $form-border-width--small
 
 	.select2-container--open &
 		opacity: 1

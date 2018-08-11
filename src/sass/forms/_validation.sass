@@ -5,19 +5,24 @@
 .error-note, .success-note
 	float: left
 	position: relative
-	+padding-horizontal(round($form-input-height/2))
+	+padding-horizontal($form-input-space-h)
+	margin-top: -#{$form-bottom-space}
+	@if $form-border-width
+		+margin-horizontal($form-border-width)
 	height: $form-label-line-height
 	width: 100%
 	+font($form-label-size, $form-label-line-height)
 	text-align: right
 	letter-spacing: normal // Важно!
 	+truncate(none)
+	// hide before validation
 	display: none
-	margin-top: -#{$form-bottom-space}
 
 	.#{$small-field} &
 		+padding-horizontal(round($form-input-height--small/2))
-		margin-top: -#{$form-bottom-space--small}
+		//margin-top: -#{$form-bottom-space--small}
+		@if $form-border-width--small
+			+margin-horizontal($form-border-width--small)
 		height: $form-label-line-height--small
 		+font($form-label-size--small, $form-label-line-height--small)
 
@@ -30,8 +35,14 @@
 		bottom: 100%
 		right: 0
 		width: auto
-		max-width: 50%
-		margin: 0 0 5px
+		//max-width: 50%
+		padding-left: 0
+		margin-bottom: $form-label-vsb
+
+	.#{$small-field} .input-wrap &,
+	.#{$small-field} .select &,
+	.input-holder.#{$small-field} &
+		margin-bottom: $form-label-vsb--small
 
 .error-note
 	color: $form-error-color
