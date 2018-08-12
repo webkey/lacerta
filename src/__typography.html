@@ -3,30 +3,16 @@
 	"pageClass": ""
 })
 
-@@include('_tpl_PAGE_WRAP.html', {"pageWrap": "START" })
-
-<!--HEADER-->
-@@include('_tpl_layout_header.html', {
-	"currentItem": "Компания Lacerta"
+@@include('_tpl_PAGE_WRAP.html', {
+	"pageWrap": "START",
+	"currentItem": "Компания Lacerta",
+	"title": "Компания Lacerta"
 })
-<!--HEADER end-->
 
-<!--MAIN-->
-<div class="main">
-	<div class="max-wrap layout">
-		<div class="main__holder">
-			<!--CONTENT-->
-			<div class="content-wrap">
-				<div class="content user-content">
-
-					<div class="layout-article">
-						<!--===============breadcrumbs===============-->
-						@@include('_tpl_breadcrumbs.html', {
-							"items": ["Главная", "Новости"],
-							"last": "Типографика в вебдизайне. Основные понятия и положения"
-						})
-						<!--===============breadcrumbs end===============-->
-
+@@include('_tpl_breadcrumbs.html', {
+	"items": ["Главная", "Новости"],
+	"last": "Компания Lacerta"
+})
 
 						<!--===============heading===============-->
 						<h1>
@@ -34,28 +20,6 @@
 							Типографика в вебдизайне. Основные понятия и положения
 						</h1>
 						<!--===============heading end===============-->
-
-
-						<!--===============datetime===============-->
-						<time class="datetime" datetime="2017-03-22T13:42">22 марта 2017, 13:42</time>
-						<!--===============datetime end===============-->
-
-
-						<!--===============entry-img===============-->
-						<div class="entry-img">
-							<img src="img/temp/img-entry.jpg" alt="image description"/>
-							<h2 class="entry-img__title">Типографика в вебдизайне. Основные понятия и положения</h2>
-						</div>
-						<!--===============entry-img end===============-->
-
-
-						<!--===============entry-text===============-->
-						<div class="entry-text">
-							<p>Типографика играет <i>ключевую роль</i> в веб-дизайне, по статистике
-								<b>95% содержимого</b> сайтов составляет текстовый контент. Шрифтовое оформление управляет настроением и создает определенную атмосферу при прочтении текстового содержимого веб-страниц.
-							</p>
-						</div>
-						<!--===============entry-text end===============-->
 
 
 						<!--==============================-->
@@ -711,20 +675,8 @@
 							</a>
 						</div>
 						<!--print-button end-->
-					</div>
 
 					@@include('_tpl_typography_nav.html')
-				</div>
-			</div>
-			<!--CONTENT end-->
-		</div>
-	</div>
-</div>
-<!--MAIN end-->
-
-<!--FOOTER-->
-@@include('_tpl_layout_footer.html')
-<!--FOOTER end-->
 
 @@include('_tpl_PAGE_WRAP.html', {"pageWrap": "END" })
 

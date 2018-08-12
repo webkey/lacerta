@@ -1,0 +1,31 @@
+@@include('_tpl_layout_head.html', {
+	"title": "Продажа облигации",
+	"pageClass": ""
+})
+
+@@include('_tpl_PAGE_WRAP.html', {
+	"pageWrap": "START",
+	"currentItem": "Продать облигации",
+	"title": "Продажа облигации"
+})
+
+@@include('_tpl_breadcrumbs.html', {
+	"items": ["Главная"],
+	"last": "Продать облигации"
+})
+
+<ol>
+	<li>Заключение договора комиссии (для продажи облигаций).</li>
+	<li>Выдача инвестором поручения на перевод облигаций на специальный раздел <a href="javascript:;" class="has-info">счет ДЕПО</a>.</li>
+	<li>Продажа Lacerta облигаций на торгах ОАО «Белорусская валютно-фондовая биржа».</li>
+	<li>Зачисление денежных средств на счет инвестора.</li>
+	<li>Отчет Lacerta о проделанной работе.</li>
+</ol>
+@@include('_tpl_forms_user-form.html', { "title": "Закажите звонок" })
+<h2 class="h1">СМИ о нас</h2>
+<p>{{Сми о нас}}</p>
+<p>@@include("_tpl_btn.html", {"value": "Все материалы"})</p>
+
+@@include('_tpl_PAGE_WRAP.html', {"pageWrap": "END" })
+
+@@include('_tpl_layout_foot.html')

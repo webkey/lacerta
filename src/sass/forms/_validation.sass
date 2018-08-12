@@ -11,7 +11,7 @@
 		+margin-horizontal($form-border-width)
 	height: $form-label-line-height
 	width: 100%
-	+font($form-label-size, $form-label-line-height)
+	+font($form-label-font-size, $form-label-line-height)
 	text-align: right
 	letter-spacing: normal // Важно!
 	+truncate(none)
@@ -24,7 +24,7 @@
 		@if $form-border-width--small
 			+margin-horizontal($form-border-width--small)
 		height: $form-label-line-height--small
-		+font($form-label-size--small, $form-label-line-height--small)
+		+font($form-label-font-size--small, $form-label-line-height--small)
 
 	+media('<mob-lg')
 		margin-top: -#{$form-bottom-space--mob}

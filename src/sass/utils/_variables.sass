@@ -133,6 +133,7 @@ $line-height-h2--sm: round-float(4.2rem/$font-size-h2--sm, 2) !default
 =font-h2()
 	font-size: $font-size-h2
 	line-height: $line-height-h2
+	text-align: center
 
 	+media('<tab-lg')
 		font-size: $font-size-h2--md
@@ -151,9 +152,9 @@ $line-height-h3--sm: round-float(3.2rem/$font-size-h3, 2) !default
 // ----------------------------------------------------
 =font-h3()
 	+font-bold
-	color: $highlight-color
 	font-size: $font-size-h3
 	line-height: $line-height-h3
+	text-align: center
 
 	+media('<mob-lg')
 		font-size: $font-size-h3--sm
@@ -182,10 +183,10 @@ $bottom-space--row: 1.5rem !default
 
 // Z-indexes
 // ==========================================================================
-$z-header: 5 !default
+$z-header: 25 !default
 $z-egg: 10 !default
 $z-main: 5 !default
-$z-footer: 5 !default
+$z-footer: 30 !default
 $z-loader: 1100 !default
 $z-heading: 1200 !default
 
@@ -205,6 +206,7 @@ $user-content: user-content !default
 
 // отступы для всего сайта
 $page-layout-space: 7rem 8rem !default // v h
+$page-layout-space--md: 7rem 4rem !default // v h
 $page-layout-space--mob: 1rem 1rem !default // v h
 // максимальная ширина сайта
 $page-layout-width: 1920px !default
@@ -223,14 +225,17 @@ $flood-layout-width: 1080px !default
 $grid-space: $page-layout-space !default // v h
 $grid-space--mob: $page-layout-space--mob !default // v h
 // отступы в дефолтных списках
-$list-space: 34px
+$list-space: 34px !default
 
 
-// Heading
+// Header
 // ==========================================================================
-$heading-width: 520px !default
-$heading-bg: $bg-color-alt !default
-
+$header-width: 520px !default
+$header-width--md: 100% !default
+$header-height: 100vh !default
+$header-height--md: 120px !default
+$header-bg: $bg-color-alt !default
+$nav-is-open-class: 'nav-is-open'
 
 // Sidebar
 // ==========================================================================
@@ -244,8 +249,8 @@ $aside-width: 160px !default
 
 // Footer
 // ==========================================================================
-$footer-box-space: 2.5rem 4rem // v h
-
+$footer-box-space: 2.5rem 4rem !default // v h
+$footer-box-space--md: 4rem 4rem !default // v h
 
 // Buttons
 // ==========================================================================
@@ -294,8 +299,8 @@ $form-letter-spacing: null !default
 $form-letter-spacing--small: null !default
 
 // Font of Labels
-$form-label-size: 16px !default
-$form-label-size--small: 14px !default
+$form-label-font-size: 16px !default
+$form-label-font-size--small: 14px !default
 $form-label-line-height: 24px !default
 $form-label-line-height--small: 20px !default
 

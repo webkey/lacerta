@@ -1,7 +1,7 @@
 /**
  * !Form validation
  * */
-$(function () {
+var formValidInit = function (){
 	// !Код для тестирования успешной отправки формы
 	// После успешной отправки формы нужно добавить на тег form класс "form-success"
 	$.validator.setDefaults({
@@ -14,7 +14,6 @@ $(function () {
 
 	if($validationForm.length) {
 		$.each($validationForm, function (i, el) {
-			console.log("el: ", el);
 			$(el).validate({
 				errorClass: 'error',
 				validClass: 'success',
@@ -51,4 +50,8 @@ $(function () {
 			});
 		});
 	}
+};
+
+$(document).ready(function () {
+	formValidInit();
 });

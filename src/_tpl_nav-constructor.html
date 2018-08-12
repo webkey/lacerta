@@ -7,7 +7,7 @@
 </ul>
 <ul class="@@bsKey__list">
 	<li class="@@if(currentItem === 'Вторичный рынок облигаций'){current}">
-		@@include('_tpl_nav-LINK--short.html', { "txt": "Вторичный рынок облигаций", "href": "index.html", "key": "@@bsKey", "title": "Размещение облигаций белорусских компаний" })
+		@@include('_tpl_nav-LINK--short.html', { "txt": "Вторичный рынок облигаций", "href": "secondary.html", "key": "@@bsKey", "title": "Вторичный - значит “на бис!”" })
 	</li>
 	<li class="@@if(currentItem === 'Выпустить и разместить облигации'){current}">
 		@@include('_tpl_nav-LINK--short.html', { "txt": "Выпустить и разместить облигации", "href": "#!", "key": "@@bsKey", "title": "Выпустить и разместить облигации" })
@@ -21,7 +21,7 @@
 		@@include('_tpl_nav-LINK--short.html', { "txt": "Купить облигации", "href": "@@if(currentItem === 'Купить облигации'){javascript:;}@@if(currentItem !== 'Купить облигации'){buy.html}", "key": "@@bsKey", "title": "Покупка облигаций" })
 	</li>
 	<li class="high @@if(currentItem === 'Продать облигации'){current}">
-		@@include('_tpl_nav-LINK--short.html', { "txt": "Продать облигации", "href": "#!", "key": "@@bsKey" })
+		@@include('_tpl_nav-LINK--short.html', { "txt": "Продать облигации", "href": "@@if(currentItem === 'Продать облигации'){javascript:;}@@if(currentItem !== 'Продать облигации'){sell.html}", "key": "@@bsKey", "title": "Продажа облигаций" })
 	</li>
 </ul>
 <ul class="@@bsKey__list">

@@ -9,6 +9,9 @@
 	border-radius: round($form-input-height/2)
 	padding: nth($page-layout-space, 1) nth($page-layout-space, 2)
 
+	+media('<desk-lg')
+		padding: nth($page-layout-space--md, 1) nth($page-layout-space--md, 2)
+
 	&:last-child
 		margin-bottom: 0
 
@@ -340,9 +343,6 @@
 .breadcrumbs
 	margin-bottom: $bottom-space--section
 
-	+media('<desk-lg')
-		margin-bottom: $bottom-space--element
-
 	&:last-child
 		margin-bottom: 0
 
@@ -549,6 +549,7 @@
 
 	.label-holder, label, .error-note, .success-note
 		font-size: 14px
+		+font($form-label-font-size--small, $form-label-line-height--small)
 		margin-bottom: $form-label-vsb--small
 		+padding-horizontal($form-input-space-h--small)
 
@@ -561,6 +562,7 @@
 			&::before, &::after
 				background-color: $base-color
 				right: 17px
+				opacity: 0
 
 	input[type="email"], input[type="input"]
 		+padding-horizontal($form-input-space-h--small)
@@ -611,20 +613,24 @@
 	.error ~ button
 		background-color: $form-error-color
 
-	// Form success
-	.success ~ button
-			svg
-				opacity: 0
-
 	// Form complete
 	.form-success
 		.success-note
 			display: block
 
+		.input-holder
+			&.success
+				&::before, &::after
+					opacity: 1
+
 		input[type="email"], input[type="input"]
 			&:not(:disabled)
 				background-color: #56a4a6
 				border-color: #56a4a6
+
+		button
+			svg
+				opacity: 0
 
 /* subscription form end
 
@@ -724,6 +730,9 @@
 		property: $prop
 		duration: $animation-speed
 		timing-function: ease-in-out
+
+	+media('<desk-lg')
+		width: 100%
 
 	.form-success &
 		opacity: 1

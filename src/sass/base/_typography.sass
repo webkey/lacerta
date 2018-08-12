@@ -83,11 +83,13 @@ a
 	color: $link-color
 	text-decoration: none
 	cursor: default
+	// transition
+	transition: color $animation-speed ease-in-out
 
 	&:link
 		cursor: pointer
 
-	&:not([class*="btn-"]):hover
+	&:not([class*="btn-"]):not([href*="javascript:;"]):hover
 		text-decoration: none
 		color: $link-color--hover
 
@@ -116,12 +118,7 @@ i, em
 i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	+font-bold-italic
 
-.mark
-	color: $mark-color
-	font-style: inherit
-	font-weight: inherit
-
-.highlight
+.highlight, .mark
 	color: $highlight-color
 
 .text-color-alt
@@ -310,6 +307,8 @@ table
 		+font($font-size, $line-height)
 		color: inherit
 		padding: 8px 15px
+
+	&, td, th
 		border-color: $text-color
 
 .table-auto
