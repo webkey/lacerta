@@ -157,6 +157,7 @@ $line-height-h3--sm: round-float(3.2rem/$font-size-h3, 2) !default
 	font-size: $font-size-h3
 	line-height: $line-height-h3
 	text-align: center
+	color: $highlight-color
 
 	+media('<mob-lg')
 		font-size: $font-size-h3--sm
@@ -214,8 +215,8 @@ $text-layout-width: 680px !default
 // максимальная ширина текстового блока выходящего за пределы текста
 $flood-layout-width: 1080px !default
 // отступы внутри блочных элементов
-$grid-space: $page-layout-space !default // v h
-$grid-space--mob: $page-layout-space--mob !default // v h
+$grid-space: 4rem 4rem !default // v h
+$grid-space--mob: 2rem 2rem !default // v h
 // отступы в дефолтных списках
 $list-space: 34px !default
 

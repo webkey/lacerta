@@ -570,7 +570,7 @@
 	min-height: 50px
 	padding-right: 2rem
 
-	+media('<tab-lg')
+	+media('<desk-lg')
 		float: none
 		width: auto
 		min-height: 0
@@ -582,7 +582,7 @@
 		margin-bottom: $bottom-space--row
 		text-align: left
 
-		+media('<tab-lg')
+		+media('<desk-lg')
 			margin-bottom: 0
 
 		&:last-child
@@ -595,7 +595,7 @@
 	align-items: center
 	margin-left: $main-sect-heading-width
 
-	+media('<tab-lg')
+	+media('<desk-lg')
 		display: block
 		margin-left: 0
 
@@ -605,14 +605,14 @@
 	max-width: 50%
 	margin-bottom: $bottom-space--element
 
-	+media('<tab-lg')
+	+media('<desk-lg')
 		order: unset
 
 .main-section__body
 	width: 100%
 	order: 3
 
-	+media('<tab-lg')
+	+media('<desk-lg')
 		order: unset
 		margin-bottom: $bottom-space--title
 
@@ -629,7 +629,7 @@
 	order: 2
 	margin-bottom: $bottom-space--element
 
-	+media('<tab-lg')
+	+media('<desk-lg')
 		order: unset
 		text-align: center
 
@@ -1002,59 +1002,116 @@ a.btn-cont
 
 /* news
 .news
-	margin-bottom: 4rem
+	margin-bottom: $bottom-space--article
 
 	&:last-child
 		margin-bottom: 0
 
 .news__list
 	position: relative
+	overflow: hidden
+	+clear-spacing
 
 .news__item
-	margin: 0 0 20px
+	display: inline-block
+	vertical-align: top
+	width: calc(100% / 2)
+	+font-light
+	+font($font-size, $line-height)
+	letter-spacing: $letter-spacing
+	background-color: white
 
-	&:last-child
-		margin-bottom: 0
+	box-shadow: inset 1px 0 0 #e7e7f5
+
+	&.news__item__more, &.news__item_has-img,
+	&.news__item__more + &, &.news__item_has-img + &
+		box-shadow: none
+
+.news__item_wide
+	width: 100%
 
 .news__item__inner
 	position: relative
 	display: block
-	padding: nth($grid-space, 1) nth($grid-space, 2)
 	text-decoration: none
-	background-color: white
-	border-radius: 10px
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1)
-	color: inherit
-	//+font(1.6rem, round-float(24/16, 2))
+	color: $base-color
+	// transition
+	$prop: background-color, color
+	will-change: $prop
+	transition:
+		property: $prop
+		duration: $animation-speed
+		timing-function: ease-in-out
 
-	+media('<mob-lg')
-		padding: nth($grid-space--mob, 1) nth($grid-space--mob, 2)
+	.news__item__more &
+		background-color: $highlight-color
+		color: white
+		+font-bold
+		+font(3.2rem, round-float(38/32, 2))
+		z-index: 5
 
-	+clear
+		& > span
+			position: absolute
+			left: nth($grid-space, 2)
+			bottom: round-float(nth($grid-space, 2) * 0.8, 2)
 
-.news__item__figure
-	position: relative
-	overflow: hidden
-	float: left
-	width: 252px
-	margin: 0 nth($grid-space, 2) 0 0
-	padding: 0
-	border-radius: 10px
+		svg
+			display: block
+			position: absolute
+			right: nth($grid-space, 2) - 0.6
+			bottom: round-float(nth($grid-space, 2) * 0.8, 2)
+			@include size(30px)
 
-	+media('<tab-lg')
-		width: 180px
-
-	+media('<mob-lg')
-		width: 120px
-		margin-right: nth($grid-space--mob, 2)
-
-	+media('<mob-md')
-		display: none
+			path
+				fill: currentColor
 
 	&::before
 		content: ""
 		display: block
-		+ratio(1, 1)
+		+ratio(540, 360)
+		z-index: -1
+
+		.news__item_wide &
+			+ratio(1080, 360)
+
+		// index page
+		.main-section__body &
+			+ratio(480, 360)
+
+		.main-section__body .news__item_wide &
+			+ratio(960, 360)
+
+.news__item__figure,
+.news__item__body
+	display: block
+	position: absolute
+	left: 0
+	top: 0
+	+size(100%)
+	padding: 0
+	margin: 0
+
+
+.news__item__figure
+	display: none
+
+	.news__item_has-img &
+		display: block
+
+		&::before
+			$bg-color: #41418b
+			content: ""
+			display: block
+			position: absolute
+			left: 0
+			bottom: 0
+			+size(100%)
+			opacity: 0.8
+			+linear-gradient(to top, rgba($bg-color, 1) 0%, rgba($bg-color, 0) 100%)
+			z-index: 1
+			// transition
+			will-change: opacity
+			transition: opacity $animation-speed ease-in-out
 
 	img
 		position: absolute
@@ -1063,71 +1120,67 @@ a.btn-cont
 		max-width: none
 		width: 100%
 		height: 100%
-		object-fit: scale-down
+		+object-fit(cover)
 
 .news__item__body
-	overflow: hidden
-	padding-bottom: 52px // line height footer (more link) + 20px
+	z-index: 5
+	padding: nth($grid-space, 1) nth($grid-space, 2) round-float(nth($grid-space, 2) * 0.85, 1)
+	display: flex
+	flex-direction: column
+	align-items: flex-start
 
-	time
-		display: block
-		margin-bottom: 1.43em
-		+font-bold
-		+font(1.4rem, round-float(24/14, 2))
-		color: $text-color-light
-		text-transform: uppercase
+	.news__item_has-img &
+		justify-content: flex-end
 
-.news__item__title
-	+font-alt-bold
-	+font($font-size-h2, $line-height-h2)
-	color: $base-color
-	margin-bottom: 0.83em
+	.news__item_wide &
+		text-align: center
+		justify-content: flex-start
+		align-items: center
 
-	+media('<mob-lg')
-		+font-h2
-
-.news__item__cont
 	p
 		&:last-child
 			margin-bottom: 0
 
-.news__item__footer
-	position: absolute
-	right: 0
-	bottom: 0
-	padding: 0 nth($grid-space, 2) nth($grid-space, 1) 0
-	line-height: 32px
+.news__item__title
+	+font(3.2rem, round-float(38/32, 2))
+	overflow: hidden
 
-	+media('<mob-lg')
-		padding: 0 nth($grid-space--mob, 2) nth($grid-space--mob, 1) 0
+	.news__item_has-img &
+		+font(2.4rem, round-float(29/24, 2))
+		color: white
 
-.news__item__more
-	text-transform: uppercase
-	font-size: 1.6rem
+	.news__item_wide &
+		+font(4.8rem, round-float(48/48, 2))
+		max-width: 780px
+		+push-auto
 
-	+media('<mob-lg')
-		font-size: 1.4rem
+.btn-source
+	display: inline-block
+	vertical-align: top
+	padding: 4px 16px 5px
+	min-width: 120px
+	+font-bold
+	+font(16px, 24px)
+	color: $highlight-color
+	background-color: $base-color
+	border-radius: 17px
+
+	.news__item__body &
+		margin-bottom: 2.8rem
+
+	.news__item_wide &
+		margin-bottom: 4.5rem
 
 // hover
-.news__item__inner
-	&
-		// transition
-		$prop: box-shadow
-		transition:
-			property: $prop
-			duration: $animation-speed
+.no-touchevents
+	.news__item__inner:hover
+		.news__item__figure
+			&::before
+				opacity: 1
 
 	.news__item__more
-		// transition
-		$prop: color
-		transition:
-			property: $prop
-			duration: $animation-speed
-
-	.no-touchevents &:hover
-		box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3)
-
-		.news__item__more
-			color: $base-color
+		.news__item__inner:hover
+			color: white
+			background-color: $highlight-color--hover
 
 /* news end

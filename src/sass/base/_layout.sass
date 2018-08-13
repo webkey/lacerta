@@ -242,7 +242,8 @@ html
 //header top
 .header__top
 	position: relative
-	margin-bottom: $bottom-space--section
+	//margin-bottom: 10.6rem
+	margin-bottom: 7rem
 
 	+media('<desk-lg')
 		display: flex
@@ -292,6 +293,9 @@ html
 		display: block
 		padding-right: $header-height--md
 
+	+media('<tab-lg')
+		display: none
+
 	li
 		float: left
 		//+padding-horizontal(round($hs / 2))
@@ -312,20 +316,37 @@ html
 //egg
 .egg
 	position: absolute
-	top: 100vh
-	right: 0
+	top: 380px
+	left: -139px
 	background: url(../../img/egg.png) no-repeat
+	-webkit-background-size: contain
+	background-size: contain
 	width: 590px
-	height: 450px
-	margin: -450px 0 0
 	z-index: $z-egg
+	font-size: 0
+	line-height: 0
+	overflow: hidden
+	//display: none
 
-	display: none
+	&::before
+		content: ""
+		position: relative
+		display: block
+		+ratio(590px, 450px)
+
+	+media('<desk-lg')
+		left: auto
+		right: -190px
+		top: auto
+		bottom: -36px
+		width: 470px
 
 /* === HEADER end ===
 
 /* === NAVIGATION ===
 .nav-wrap
+	position: relative
+	overflow: hidden
 	background-color: $header-bg
 	$prop: transform, opacity
 	will-change: $prop
@@ -342,7 +363,7 @@ html
 		z-index: $z-footer - 1
 
 		$translate: 0, -100%
-		//$x: 0
+		//$translate: 0, 0
 		transform: translate($translate) // for old browser
 		transform: translate3d($translate, 0)
 
@@ -377,16 +398,19 @@ html
 .nav__list
 	position: relative
 	list-style: none
-	margin: 0 0 42px
+	//margin: 0 0 4.2rem
+	margin: 0 0 3rem
 	padding: 0
 	+font($font-size--small, $line-height--small)
 
 	li
-		margin-bottom: 12px
+		//margin-bottom: 1.3rem
+		margin-bottom: 0.5rem
 
 		&.high
 			+font-bold
 			+font(3.6rem, round-float(49/36, 2))
+			margin-bottom: 0
 
 		&:last-child
 			margin-bottom: 0
@@ -423,8 +447,8 @@ a.nav-opener
 
 	display: none
 	position: absolute
-	right: nth($page-layout-space--md, 1)
-	top: round($header-height--md/2)
+	right: nth($page-layout-space--md, 2)
+	top: round($header-height--md / 2)
 	margin-top: -#{round($btn-menu-size/2)}
 	z-index: $z-footer
 	+size($btn-menu-size)
@@ -548,7 +572,6 @@ a.nav-opener
 
 	// active
 	&.nav-is-open
-		background-color: #fff
 
 		&::before, &::after
 			transition-delay: $btn-menu-animation-delay

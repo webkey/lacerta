@@ -148,12 +148,12 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 .hide
 	display: block
 
-.show-mob
-	+media('>=tab-lg')
+.hide-desk
+	+media('>=desk-lg')
 		display: none !important
 
-.hide-mob
-	+media('<tab-lg')
+.show-desk
+	+media('<desk-lg')
 		display: none !important
 
 .section, .section-bottom
@@ -528,8 +528,8 @@ blockquote
 
 .col
 	float: left
-	width: calc(50% - #{nth($grid-space, 2)})
-	margin: 0 nth($grid-space, 2)
+	width: calc(50% - #{nth($page-layout-space, 2)})
+	margin: 0 nth($page-layout-space, 2)
 
 	&:nth-child(odd)
 		margin-left: 0
