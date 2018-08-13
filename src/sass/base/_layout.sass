@@ -25,7 +25,7 @@ html
 	+media('<desk-lg')
 		+padding-horizontal(nth($page-layout-space--md, 2))
 
-	+media('<mob-lg')
+	+media('<tab-lg')
 		+padding-horizontal(nth($page-layout-space--mob, 2))
 
 .layout-space
@@ -34,13 +34,13 @@ html
 	+media('<desk-lg')
 		+padding-horizontal(nth($page-layout-space--md, 2))
 
-	+media('<mob-lg')
+	+media('<tab-lg')
 		+padding-horizontal(nth($page-layout-space--mob, 2))
 
 // выравнивание текстовых элементов на странице статьи (контент обернут в .layout-article)
 // и их максимальная ширина
 //.layout-article
-.#{$user-content}
+.#{$user-content}:not(.home-page)
 	& > p, & > ul, & > ol,
 	& > h2, & > h3, & > h4, & > h5, & > h6,
 	& > .h2, & > .h3, & > .h4, & > .h5, & > .h6,
@@ -254,6 +254,9 @@ html
 		background-color: $header-bg
 		z-index: $z-footer
 
+	+media('<tab-lg')
+		padding: 1rem nth($page-layout-space--mob, 2)
+
 	&:last-child
 		margin-bottom: 0
 
@@ -274,8 +277,7 @@ html
 
 //header-menu
 .header-menu
-	opacity: 0
-	pointer-events: none
+	display: none
 	$hs: 6rem
 	list-style: none
 	padding: 0
@@ -287,8 +289,7 @@ html
 	+clear
 
 	+media('<desk-lg')
-		opacity: 1
-		pointer-events: auto
+		display: block
 		padding-right: $header-height--md
 
 	li
@@ -345,11 +346,15 @@ html
 		transform: translate($translate) // for old browser
 		transform: translate3d($translate, 0)
 
-		&.#{$nav-is-open-class}, // add js
-		.no-js &
+	&.#{$nav-is-open-class}, // add js
+	.no-js &
+		+media('<desk-lg')
 			$translate: 0, 0
 			transform: translate($translate) // for old browser
 			transform: translate3d($translate, 0)
+
+	+media('<tab-lg')
+		padding: $page-layout-space--mob
 
 .nav
 	position: relative
@@ -434,6 +439,9 @@ a.nav-opener
 
 	+media('<desk-lg')
 		display: block
+
+	+media('<tab-lg')
+		right: nth($page-layout-space--mob, 1)
 
 	.touchevents &
 		// убрать подсветку при клике на тачскринах
@@ -622,6 +630,9 @@ a.nav-opener
 		+padding-vertical(nth($footer-box-space--md, 1))
 		z-index: $z-header
 
+	+media('<tab-lg')
+		+padding-vertical(nth($footer-box-space--mob, 1))
+
 	&::before
 		content: ""
 		display: block
@@ -646,6 +657,9 @@ a.nav-opener
 		align-items: stretch
 		margin: -#{nth($footer-box-space--md, 1)} -#{nth($footer-box-space--md, 2)}
 
+	+media('<tab-lg')
+		margin: -#{nth($footer-box-space--mob, 1)} -#{nth($footer-box-space--mob, 2)}
+
 //.f-boxes
 	width: 50%
 
@@ -666,6 +680,9 @@ a.nav-opener
 
 	+media('<desk-lg')
 		padding: $footer-box-space--md
+
+	+media('<tab-lg')
+		padding: $footer-box-space--mob
 
 	.f-box__title
 		+font-bold
@@ -696,6 +713,9 @@ a.nav-opener
 
 .req
 	+media('<desk-lg')
+		margin-bottom: nth($footer-box-space--md, 1)
+
+	+media('<tab-lg')
 		margin-bottom: nth($footer-box-space--md, 1)
 
 	&:last-child
@@ -764,10 +784,13 @@ a.nav-opener
 .heading
 	text-align: center
 	padding: nth($page-layout-space, 1) 0 0
-	margin-bottom: $bottom-space--element
+	margin-bottom: $bottom-space--article
 
 	+media('<desk-lg')
 		padding: nth($page-layout-space--md, 1) 0 0
+
+	+media('<desk-lg')
+		padding: nth($page-layout-space--mob, 1) 0 0
 
 .c-heading
 	$tf: cubic-bezier(0.4, 0.6, 0.2, 1)

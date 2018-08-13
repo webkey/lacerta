@@ -24,6 +24,8 @@ $font-alt: 'Playfair Display', serif !default
 // Main font
 =font-normal()
 	font-family: $font-norm
+	font-weight: normal
+	font-style: normal
 
 =font-bold()
 	font-weight: 700
@@ -101,11 +103,11 @@ $letter-spacing: normal !default
 $font-size-h1: 8.0rem !default
 $line-height-h1: round-float(8.0rem/$font-size-h1, 2) !default
 // ----------------------------------------------------
-$font-size-h1--md: 3.6rem !default
-$line-height-h1--md: round-float(4.8rem/$font-size-h1--md, 2) !default
+$font-size-h1--md: 4.2rem !default
+$line-height-h1--md: round-float(5.0rem/$font-size-h1--md, 2) !default
 // ----------------------------------------------------
 $font-size-h1--sm: 3.0rem !default
-$line-height-h1--sm: round-float(4.2rem/$font-size-h1--sm, 2) !default
+$line-height-h1--sm: round-float(3.2rem/$font-size-h1--sm, 2) !default
 // ----------------------------------------------------
 =font-h1()
 	+font-alt-black
@@ -174,8 +176,8 @@ $line-height-h6: $line-height--small !default
 
 // Spaces
 $bottom-space: 1.5rem !default
-$bottom-space--section: 12rem !default
-$bottom-space--article: 8rem !default
+$bottom-space--section: 14rem !default
+$bottom-space--article: 7rem !default
 $bottom-space--element: 4.5rem !default
 $bottom-space--title: 2.4rem !default
 $bottom-space--row: 1.5rem !default
@@ -191,23 +193,13 @@ $z-loader: 1100 !default
 $z-heading: 1200 !default
 
 
-// Class of typography styles
-// ==========================================================================
-// @example Sass - Использование
-// .#{$user-content}
-//
-// @example css - Вывод CSS
-// .user-content
-$user-content: user-content !default
-
-
 // Layout
 // ==========================================================================
 
 // отступы для всего сайта
 $page-layout-space: 7rem 8rem !default // v h
 $page-layout-space--md: 7rem 4rem !default // v h
-$page-layout-space--mob: 1rem 1rem !default // v h
+$page-layout-space--mob: 4rem 2rem !default // v h
 // максимальная ширина сайта
 $page-layout-width: 1920px !default
 // минимальная ширина сайта
@@ -226,6 +218,21 @@ $grid-space: $page-layout-space !default // v h
 $grid-space--mob: $page-layout-space--mob !default // v h
 // отступы в дефолтных списках
 $list-space: 34px !default
+
+
+// Class of typography styles
+// ==========================================================================
+// @example Sass - Использование
+// .#{$user-content}
+//
+// @example css - Вывод CSS
+// .user-content
+$user-content: user-content !default
+
+
+// Main Sections
+// ==========================================================================
+$main-sect-heading-width: 280px
 
 
 // Header
@@ -251,6 +258,7 @@ $aside-width: 160px !default
 // ==========================================================================
 $footer-box-space: 2.5rem 4rem !default // v h
 $footer-box-space--md: 4rem 4rem !default // v h
+$footer-box-space--mob: 4rem 2rem !default // v h
 
 // Buttons
 // ==========================================================================
@@ -432,6 +440,11 @@ $multiple-item-space: 3px !default
 =form-on-focus()
 	//color: $form-border-focus-color
 	border-color: $form-border-color--focus
+
+
+// Info Slider
+// ==========================================================================
+$info-slider-space: 15px !default
 
 
 // Animation

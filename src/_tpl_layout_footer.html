@@ -20,11 +20,11 @@
 
 			<div class="f-box f-box_nav">
 				<ul class="f-list">
-					<li><a href="#">Алгоритм покупки облигаций</a></li>
-					<li><a href="#">Алгоритм продажи облигаций</a></li>
-					<li><a href="#">Узнать об эмитентах</a></li>
+					<li@@if(context.currentItem == 'Купить облигации'){ class="current"}><a href="@@if(context.currentItem == 'Купить облигации'){javascript:;}@@if(context.currentItem != 'Купить облигации'){buy.html}" data-heading="Покупка облигаций">Алгоритм покупки облигаций</a></li>
+					<li@@if(context.currentItem == 'Продать облигации'){ class="current"}><a href="@@if(context.currentItem == 'Продать облигации'){javascript:;}@@if(context.currentItem != 'Продать облигации'){sell.html}" data-heading="Продажа облигаций">Алгоритм продажи облигаций</a></li>
+					<li><a href="https://www.onliner.by/">Узнать об эмитентах</a></li>
 					<li><a href="#">Выбрать облигации</a></li>
-					<li><a href="#">СМИ о нас</a></li>
+					<li@@if(context.currentItem == 'СМИ о нас'){ class="current"}><a href="@@if(context.currentItem == 'СМИ о нас'){javascript:;}@@if(context.currentItem != 'СМИ о нас'){news.html}" data-heading="СМИ о нас">СМИ о нас</a></li>
 				</ul>
 			</div>
 

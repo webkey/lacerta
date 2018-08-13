@@ -148,6 +148,14 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 .hide
 	display: block
 
+.show-mob
+	+media('>=tab-lg')
+		display: none !important
+
+.hide-mob
+	+media('<tab-lg')
+		display: none !important
+
 .section, .section-bottom
 	margin-bottom: $bottom-space--section
 
@@ -159,6 +167,15 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 
 .row-bottom
 	margin-bottom: $bottom-space--row
+
+.enter-text
+	+font-normal
+	+font(2.2rem, round-float(26/22, 2))
+	color: rgba($highlight-color, 0.8)
+	margin-bottom: $bottom-space--element
+
+	&:last-child
+		margin-bottom: 0
 
 /* content img
 
@@ -266,17 +283,20 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 			counter-increment: section
 			height: 1%
 			overflow: hidden
+			padding-left: 53px
 
 			&::before
 				position: relative
 				display: inline-block
-				text-align: left
-				+font-medium
-				color: $highlight-color
 				content: counter(section)
-				padding: 0 4px 0 0
-				min-width: $list-space
-				margin-left: -#{$list-space}
+				+size(32px)
+				margin: 0 calc(53px - 32px) 0 -53px
+				+font-bold
+				+font(2.2rem, 32px)
+				text-align: center
+				color: $highlight-color
+				background-color: white
+				border-radius: 16px
 
 	ul, ol
 		ul, ol

@@ -12,6 +12,9 @@
 	+media('<desk-lg')
 		padding: nth($page-layout-space--md, 1) nth($page-layout-space--md, 2)
 
+	+media('<tab-lg')
+		padding: nth($page-layout-space--mob, 1) nth($page-layout-space--mob, 2)
+
 	&:last-child
 		margin-bottom: 0
 
@@ -160,6 +163,8 @@
 .slick-dots
 	margin: 0
 	line-height: 0
+	pointer-events: none
+	bottom: -2.5rem
 
 	.#{$user-content} &
 		margin: 0
@@ -170,174 +175,210 @@
 		width: auto
 		height: auto
 		margin: 0
+		pointer-events: auto
 
 		&, .#{$user-content} &
-			padding: 4px 10px
+			padding: 3px
 			margin: 0
 
 			&::before
 				content: none
 
 		button
-			width: 12px
-			height: 12px
+			width: 10px
+			height: 10px
 			padding: 0
 			border-radius: 50%
-			background: $base-color
+			background: $text-color-light
 			position: relative
-			transition-property: background, border, box-shadow, transform
-			transition-duration: 0.6s
+			transition: background-color $animation-speed ease-in-out
 
 			&::before
-				content: ''
-				position: absolute
-				left: 2px
-				top: 2px
-				height: 8px
-				width: 8px
-				background: #fff
-				border-radius: 50%
-				opacity: 1
-				box-shadow: 0 2px 3px rgba(0, 0, 0, 0.20)
-				transition-property: transform, opacity
-				transition-duration: $animation-speed
+				content: none
 
-		&.slick-active button::before
-			opacity: 0
+		&.slick-active button
+			background-color: $highlight-color
 
 //.no-touchevents &:hover button::before
 /* slick sliders end
 
-/* images slider
-.images-slider
-	position: relative
-	margin-bottom: $bottom-space
+/* promo slider
+// slider
+.info
+	margin-bottom: $bottom-space--element
 
-	+media('<tab-lg')
-		margin-bottom: $bottom-space--section
-
-.images-slider__list, .slick-dotted.images-slider__list
-	padding-bottom: $bottom-space
-	margin-bottom: 0
-	position: relative
-	z-index: 2
-
-.images-slider__item
-	float: none
-	display: inline-block
-	vertical-align: top
-	opacity: 0
-	white-space: normal
-	overflow: hidden
-	position: relative
-	background-color: transparent
-
-	.slick-initialized &
-		display: block
-		float: left
-		opacity: 1
-
-	.no-js &
-		display: block
-		width: 100%
-		opacity: 1
-		margin-bottom: $bottom-space
-
-	&::before
-		content: ''
-		display: block
-		+ratio(16, 9)
-
-		.no-js &
-			content: none
-
-	img
-		position: absolute
-		+position(0)
-		text-align: center
-		max-width: none
-		width: 100%
-		height: 100%
-		+object-fit(contain)
-
-		.no-js &[data-lazy]
-			display: none
-
-		.no-js &
-			position: relative
-			+position(auto)
-			width: auto
-			height: auto
-			+object-fit(fill)
-			margin-bottom: 1rem
-
-	.caption
-		display: none
-
-		.no-js &
-			display: block
-
-.images-slider
-
-	.slick-arrow
-		right: 0
-		left: auto
-		top: 100%
-		transform: translate(0, 0)
-
-	.slick-prev
-		right: 40px
-
-	// slider counter
-	.slider-counter
-		position: absolute
-		left: 0
-		top: 100%
-		color: $text-color-light
-
-		.slide-curr
-			color: $text-color
-
-	.slick-dots, .#{$user-content} & .slick-dots
-		position: absolute
-		bottom: $bottom-space + 1
-
-		li
-			+padding-horizontal(7px)
-
-			button
-				width: 6px
-				height: 6px
-				border-radius: 50%
-				background-color: white
-				opacity: 0.5
-				transition-property: opacity, transform
-				transition-duration: $animation-speed
-
-				&::before
-					content: none
-
-			&.slick-active button
-				opacity: 1
-
-			.no-touchevents &:hover button
-				opacity: 1
-				transform: scale(2)
-
-/* images slider end
-
-/* flashes
-.flashes
-	padding: 0 90px
-
-.flashes__item, .images-slider__item .caption
-	+font(1.4rem, 1.5)
-	color: $text-color-light
-
-	& > *:last-child
+	&:last-child
 		margin-bottom: 0
 
-/* flashes end
+.info__slider
+	overflow: hidden
+
+	// only for mobile
+	+media('<mob-lg')
+		// before slide load
+		white-space: nowrap
+		overflow: visible
+		opacity: 0
+
+		&.slick-initialized, .no-js &
+			// after slide load
+			white-space: normal
+			opacity: 1
+
+		.slick-list
+			overflow: visible
+			+margin-horizontal(-#{round($info-slider-space / 2)}) // компенсировать отступы между слайдами
+
+	// destroy slider for desktop
+	+media('>=mob-lg')
+		.slick-track
+				opacity: 1 !important
+				width: auto !important
+				transform: none !important
+
+		.slick-slide
+			width: 100% !important
+
+			&.slick-cloned
+				display: none !important
+
+		.slick-dots
+			display: none !important
+
+	&, &.slick-dotted
+		margin: 0
+
+	&.slick-dotted
+		+media('<mob-lg')
+			margin-bottom: $bottom-space--element
+
+.info__heads, .info__item .tr
+	+clear-spacing
+	.td
+		$item-width: round-float(150 / 960 * 100%, 2)
+		display: inline-block
+		vertical-align: top
+		white-space: normal
+		width: $item-width
+
+		+media('<mob-lg')
+			width: round-float(100% / 2, 2)
+
+		&:first-child
+			position: relative
+			width: round-float(100% - ($item-width * 4), 2)
+
+.info__heads
+	+padding-vertical(0.7rem, 1.5rem)
+
+	+media('<mob-lg')
+		display: none
+
+	.td
+		+font(1.6rem, round-float(24/16, 2))
+		letter-spacing: $letter-spacing
+		color: rgba($text-color, 0.4)
+
+// slide
+.info__item
+	position: relative
+	border-top: 1px solid rgba($text-color, 0.2)
+	color: inherit
+	margin-top: -1px
+
+	// only for mobile
+	+media('<mob-lg')
+		border: none
+		margin: 0
+		+padding-horizontal(round($info-slider-space / 2)) // добавить отступы между слайдами
+		// before slide load
+		float: none
+		display: inline-block
+		vertical-align: top
+		width: 100%
+
+		.slick-initialized &
+			// after slide load
+			float: left
+			display: block
+
+	.tr
+		+padding-vertical(2rem)
+
+		+media('<mob-lg')
+			padding: round-float(nth($page-layout-space--mob, 2) * 0.8, 2) nth($page-layout-space--mob, 2)
+			background-color: $base-color
+
+		.td.info__item__caption
+			+media('<mob-lg')
+				display: block
+				width: auto
+				background-color: #fff
+				padding: nth($page-layout-space--mob, 2)
+				text-align: center
+				margin: -#{round-float(nth($page-layout-space--mob, 2) * 0.8, 2)} -#{nth($page-layout-space--mob, 2)} $bottom-space--row
+
+	.td
+		+font-bold
+		+font(2.6rem, round-float(26/26, 2))
+		letter-spacing: $letter-spacing
+		color: inherit
+
+		+media('<mob-lg')
+			+font-medium
+			font-size: 2.0rem
+			padding-bottom: 1rem
+
+		&::before
+			display: none
+			content: attr(data-label)
+			+font-normal
+			+font(13px, 15px)
+			color: $text-color-light
+			margin-bottom: 0.2em
+
+			+media('<mob-lg')
+				display: block
+
+.info__item__img
+	position: relative
+	padding: 0
+	margin: 0 0 nth($page-layout-space--mob, 2)
+	display: none
+
+	+media('<mob-lg')
+		display: block
+
+	&::before
+		content: ""
+		display: block
+		+ratio(210, 90)
+
+	img
+		display: block
+		position: absolute
+		left: 0
+		top: 0
+		width: 100%
+		height: 100%
+		max-width: none
+		margin: 0 auto
+		+object-fit(contain)
+
+.info__item__title
+	+font-bold
+	margin-bottom: 0.4em
+
+	+media('<mob-lg')
+		+font(2.0rem, round-float(22/20, 2))
+		color: $base-color
+
+.info__item__release
+	color: $highlight-color
+	+font-normal
+	+font(1.4rem, round-float(18/14, 2))
+
+/* promo slider end
 
 /* breadcrumbs
 .breadcrumbs
@@ -504,6 +545,97 @@
 
 /* social networks in footer end
 
+/* main sections
+.main-section
+	margin-bottom: $bottom-space--section
+	overflow: hidden
+	+margin-horizontal(-#{nth($page-layout-space, 2)})
+	+padding-horizontal(#{nth($page-layout-space, 2)})
+	+clear
+
+	+media('<desk-lg')
+		+margin-horizontal(-#{nth($page-layout-space--md, 2)})
+		+padding-horizontal(#{nth($page-layout-space--md, 2)})
+
+	+media('<tab-lg')
+		+margin-horizontal(-#{nth($page-layout-space--mob, 2)})
+		+padding-horizontal(#{nth($page-layout-space--mob, 2)})
+
+	&:last-child
+		margin-bottom: 0
+
+.main-section__heading
+	float: left
+	width: $main-sect-heading-width
+	min-height: 50px
+	padding-right: 2rem
+
+	+media('<tab-lg')
+		float: none
+		width: auto
+		min-height: 0
+		padding-right: 0
+		margin-bottom: $bottom-space--title
+
+	h2, h3, h4,
+	.h2, .h3, .h4
+		margin-bottom: $bottom-space--row
+		text-align: left
+
+		+media('<tab-lg')
+			margin-bottom: 0
+
+		&:last-child
+			margin-bottom: 0
+
+.main-section__content
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+	align-items: center
+	margin-left: $main-sect-heading-width
+
+	+media('<tab-lg')
+		display: block
+		margin-left: 0
+
+.main-section__caption
+	order: 1
+	+font(2.2rem, round-float(26/22, 2))
+	max-width: 50%
+	margin-bottom: $bottom-space--element
+
+	+media('<tab-lg')
+		order: unset
+
+.main-section__body
+	width: 100%
+	order: 3
+
+	+media('<tab-lg')
+		order: unset
+		margin-bottom: $bottom-space--title
+
+	&:last-child
+		margin-bottom: 0
+
+	ul, ol, p
+		margin-top: 0
+
+		&:last-child
+			margin-bottom: 0
+
+.main-section__foot
+	order: 2
+	margin-bottom: $bottom-space--element
+
+	+media('<tab-lg')
+		order: unset
+		text-align: center
+
+
+/* main sections end
+
 /* developer
 .developer
 	line-height: 0
@@ -662,7 +794,7 @@
 		// transition
 		transition: color $animation-speed ease-in-out
 
-		&:hover
+		&:not([href*="javascript:;"]):hover
 			color: $link-color
 
 		&[href^="tel:"]
@@ -757,32 +889,245 @@
 /* footer form end
 
 /* big button of contacts
-.btn-cont
-	$size: 876px 880px
+$btn-cont-size: 876px 880px
+$btn-cont-size--max: 956px 960px
+$scale: round-float(nth($btn-cont-size--max, 2) / nth($btn-cont-size, 2), 2)
+a.btn-cont
+	display: block
+	overflow: hidden
 	position: absolute
 	right: 0
 	bottom: 0
-	+size(nth($size, 1), nth($size, 2))
-	margin: 0 -#{round(nth($size, 2) / 2)} -#{round(nth($size, 1) / 2)} 0
-	background-color: $highlight-color
-	border-radius: 50%
-	//animation-name: pulse
-	animation-iteration-count: infinite
-	animation-duration: 2.5s
-	animation-fill-mode: both
-	//animation-timing-function: cubic-bezier(0, 0, 0.2, 1)
+	+size(round(nth($btn-cont-size--max, 1) / 2), round(nth($btn-cont-size--max, 2) / 2))
+	text-align: left
+	+font-bold
+	+font(2.6rem, round-float(32/26, 2))
+	color: white
+	z-index: -1
+
+	& > span
+		display: block
+		position: absolute
+		width: 330px
+		right: 5rem
+		bottom: 3.2rem
+
+	svg
+		display: block
+		position: absolute
+		right: 5.5rem
+		bottom: 2.8rem
+		+size(30px)
+		margin-bottom: 0.3rem
+		animation-iteration-count: infinite
+		animation-duration: 1.5s
+		animation-fill-mode: both
+		//$prop: transform
+		//will-change: $prop
+		//transition:
+			property: $prop
+			duration: $animation-speed
+			timing-function: ease-in-out
+
+		path
+			fill: currentColor
+
+	&::before
+		content: ""
+		display: block
+		position: absolute
+		left: 100%
+		top: 100%
+		+size(nth($btn-cont-size, 1), nth($btn-cont-size, 2))
+		margin: -#{round(nth($btn-cont-size, 1) / 2)} 0 0 -#{round(nth($btn-cont-size, 2) / 2)}
+		background-color: $highlight-color
+		border-radius: 50%
+		animation-iteration-count: infinite
+		animation-duration: 1.5s
+		animation-fill-mode: both
+		// transition
+		$prop: background-color, transform
+		will-change: $prop
+		transition:
+			property: $prop
+			duration: $animation-speed
+			timing-function: ease-in-out
+
+	// hover
+	.no-touchevents &:hover
+		svg
+			//$tX: 1rem
+			//transform: translate($tX, 0)
+			//transform: translateX($tX)
+			animation-name: pulseArr
+
+		&::before
+			background-color: $highlight-color--hover
+			animation-name: pulse
 
 @keyframes pulse
+
 	0%
-		transform: scaleX(1)
+		$scale: 1
+		transform: scale($scale)
+		transform: scale3d($scale, $scale, 1)
 
-	33.3%
-		transform: scale3d(0.95,0.95,0.95)
-
-	66.6%
-		transform: scale3d(1.1,1.1,1.1)
+	33%
+		transform: scale($scale)
+		transform: scale3d($scale, $scale, 1)
 
 	to
-		transform: scaleX(1)
+		$scale: 1
+		transform: scale($scale)
+		transform: scale3d($scale, $scale, 1)
+
+@keyframes pulseArr
+
+	0%
+		$tX: 0
+		transform: translate($tX, 0)
+		transform: translateX($tX)
+
+	33%
+		$tX: 1rem
+		transform: translate($tX, 0)
+		transform: translateX($tX)
+
+	to
+		$tX: 0
+		transform: translate($tX, 0)
+		transform: translateX($tX)
 
 /* big button of contacts end
+
+/* news
+.news
+	margin-bottom: 4rem
+
+	&:last-child
+		margin-bottom: 0
+
+.news__list
+	position: relative
+
+.news__item
+	margin: 0 0 20px
+
+	&:last-child
+		margin-bottom: 0
+
+.news__item__inner
+	position: relative
+	display: block
+	padding: nth($grid-space, 1) nth($grid-space, 2)
+	text-decoration: none
+	background-color: white
+	border-radius: 10px
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1)
+	color: inherit
+	//+font(1.6rem, round-float(24/16, 2))
+
+	+media('<mob-lg')
+		padding: nth($grid-space--mob, 1) nth($grid-space--mob, 2)
+
+	+clear
+
+.news__item__figure
+	position: relative
+	overflow: hidden
+	float: left
+	width: 252px
+	margin: 0 nth($grid-space, 2) 0 0
+	padding: 0
+	border-radius: 10px
+
+	+media('<tab-lg')
+		width: 180px
+
+	+media('<mob-lg')
+		width: 120px
+		margin-right: nth($grid-space--mob, 2)
+
+	+media('<mob-md')
+		display: none
+
+	&::before
+		content: ""
+		display: block
+		+ratio(1, 1)
+
+	img
+		position: absolute
+		left: 0
+		top: 0
+		max-width: none
+		width: 100%
+		height: 100%
+		object-fit: scale-down
+
+.news__item__body
+	overflow: hidden
+	padding-bottom: 52px // line height footer (more link) + 20px
+
+	time
+		display: block
+		margin-bottom: 1.43em
+		+font-bold
+		+font(1.4rem, round-float(24/14, 2))
+		color: $text-color-light
+		text-transform: uppercase
+
+.news__item__title
+	+font-alt-bold
+	+font($font-size-h2, $line-height-h2)
+	color: $base-color
+	margin-bottom: 0.83em
+
+	+media('<mob-lg')
+		+font-h2
+
+.news__item__cont
+	p
+		&:last-child
+			margin-bottom: 0
+
+.news__item__footer
+	position: absolute
+	right: 0
+	bottom: 0
+	padding: 0 nth($grid-space, 2) nth($grid-space, 1) 0
+	line-height: 32px
+
+	+media('<mob-lg')
+		padding: 0 nth($grid-space--mob, 2) nth($grid-space--mob, 1) 0
+
+.news__item__more
+	text-transform: uppercase
+	font-size: 1.6rem
+
+	+media('<mob-lg')
+		font-size: 1.4rem
+
+// hover
+.news__item__inner
+	&
+		// transition
+		$prop: box-shadow
+		transition:
+			property: $prop
+			duration: $animation-speed
+
+	.news__item__more
+		// transition
+		$prop: color
+		transition:
+			property: $prop
+			duration: $animation-speed
+
+	.no-touchevents &:hover
+		box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3)
+
+		.news__item__more
+			color: $base-color
+
+/* news end

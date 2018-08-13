@@ -1,18 +1,24 @@
 @@include('_tpl_layout_head.html', {
-	"title": "Покупка облигаций",
+	"title": "СМИ о нас",
 	"pageClass": ""
 })
 
 @@include('_tpl_PAGE_WRAP.html', {
 	"pageWrap": "START",
-	"currentItem": "Купить облигации",
-	"title": "Покупка облигаций"
+	"currentItem": "СМИ о нас",
+	"title": "СМИ о нас"
 })
 
 @@include('_tpl_breadcrumbs.html', {
 	"items": ["Главная"],
-	"last": "Купить облигации"
+	"last": "Новости"
 })
+
+<div class="news">
+	<div class="news__list">
+		@@loop("_tpl_news--items.html", "includes/json/news--items.json")
+	</div>
+</div>
 
 <ol>
 	<li>Выбираете понравившиеся облигации.</li>
@@ -27,6 +33,6 @@
 	<li><b><a href="#!">Отчет Lacerta о проделанной работе.</a></b></li>
 </ul>
 
-@@include('_tpl_PAGE_WRAP.html', {"pageWrap": "END", "currentItem": "Купить облигации" })
+@@include('_tpl_PAGE_WRAP.html', {"pageWrap": "END", "currentItem": "СМИ о нас" })
 
 @@include('_tpl_layout_foot.html')

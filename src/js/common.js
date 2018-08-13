@@ -44,6 +44,7 @@ $(function () {
 					$cover.addClass('is-leaving');
 					$heading.addClass('is-leaving');
 
+					customSelect();
 					formValidInit();
 					toggleNav();
 				}
@@ -193,68 +194,63 @@ function customSelect() {
 }
 
 /**
+ * !Equal height of blocks by maximum height of them
+ */
+function equalHeight() {
+	// equal height
+	var $equalHeight = $('.equal-height-js');
+
+	if($equalHeight.length) {
+		$equalHeight.children().matchHeight({
+			byRow: true, property: 'height', target: null, remove: false
+		});
+	}
+}
+
+/**
  * !Initial sliders on the project
  * */
 function slidersInit() {
-	//images carousel
-	var $imagesCarousel = $('.images-slider-js');
+	/**info slider*/
+	var $infoSlider = $('.info-slider-js');
 
-	if($imagesCarousel.length){
-		var slideCounterTpl = '' +
-			'<div class="slider-counter">' +
-			'<span class="slide-curr">0</span>/<span class="slide-total">0</span>' +
-			'</div>';
-
-		var titleListTpl = $('<div class="flashes"></div>');
-
-		$imagesCarousel.each(function () {
+	if($infoSlider.length){
+		$infoSlider.each(function () {
 			var $curSlider = $(this);
-			var $imgList = $curSlider.find('.images-slider__list');
-			var $imgListItem = $imgList.find('.images-slider__item');
 			var dur = 200;
 
-			// create titles
-			$imgList.after(titleListTpl.clone());
-			var $titleList = $curSlider.find('.flashes');
-			$.each($imgListItem, function () {
-				var $this = $(this);
-				$titleList.append($('<div class="flashes__item">' + $this.find('.caption').html() + '</div>'));
-			});
-
-			// initialized slider of titles
-			$titleList.slick({
-				fade: true,
+			$curSlider.slick({
 				speed: dur,
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				infinite: true,
-				asNavFor: $imgList,
-				dots: false,
+				slidesToShow: 2,
+				slidesToScroll: 2,
+				lazyLoad: 'ondemand',
+				infinite: false,
+				dots: true,
 				arrows: false,
-
+				// remove touch events
+				accessibility: false,
+				draggable: false,
 				swipe: false,
 				touchMove: false,
-				draggable: false
-			});
-
-			// initialized slider of images
-			$imgList.on('init', function (event, slick) {
-				$(slick.$slider).append($(slideCounterTpl).clone());
-
-				$('.slide-total', $(slick.$slider)).text(slick.$slides.length);
-				$('.slide-curr', $(slick.$slider)).text(slick.currentSlide + 1);
-			}).slick({
-				fade: false,
-				speed: dur,
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				asNavFor: $titleList,
-				lazyLoad: 'ondemand',
-				infinite: true,
-				dots: true,
-				arrows: true
-			}).on('beforeChange', function (event, slick, currentSlide, nextSlider) {
-				$('.slide-curr', $(slick.$slider)).text(nextSlider + 1);
+				responsive:[
+					{
+						breakpoint: 640,
+						settings: {
+							// add touch events
+							accessibility: true,
+							draggable: true,
+							swipe: true,
+							touchMove: true
+						}
+					},
+					{
+						breakpoint: 480,
+						settings: {
+							slidesToShow: 1,
+							slidesToScroll: 1
+						}
+					}
+				]
 			});
 
 		});
@@ -538,6 +534,7 @@ $(document).ready(function () {
 	inputFocusClass();
 	inputHasValueClass();
 	customSelect();
+	equalHeight();
 	slidersInit();
 	toggleNav();
 	objectFitImages(); // object-fit-images initial

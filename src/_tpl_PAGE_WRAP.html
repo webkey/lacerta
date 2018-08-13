@@ -29,14 +29,12 @@
 }
 @@if(pageWrap === "END")
 {
-		<div class="btn-cont">
-			<a href="#" class="pulse"></a>
-		</div>
+		@@if(!context.noBigBtn) {<a href="#" class="btn-cont pulse"><span>Контакты</span>@@include("./includes/svg/icon-arrow-right.svg")</a>}
 	</div>
 	<!--MAIN end-->
 
 	<!--FOOTER-->
-	@@include('_tpl_layout_footer.html')
+	@@include("_tpl_layout_footer.html", {"currentItem": "@@currentItem"})
 	<!--FOOTER end-->
 
 </div>
