@@ -755,3 +755,34 @@
 	max-width: 600px
 
 /* footer form end
+
+/* big button of contacts
+.btn-cont
+	$size: 876px 880px
+	position: absolute
+	right: 0
+	bottom: 0
+	+size(nth($size, 1), nth($size, 2))
+	margin: 0 -#{round(nth($size, 2) / 2)} -#{round(nth($size, 1) / 2)} 0
+	background-color: $highlight-color
+	border-radius: 50%
+	//animation-name: pulse
+	animation-iteration-count: infinite
+	animation-duration: 2.5s
+	animation-fill-mode: both
+	//animation-timing-function: cubic-bezier(0, 0, 0.2, 1)
+
+@keyframes pulse
+	0%
+		transform: scaleX(1)
+
+	33.3%
+		transform: scale3d(0.95,0.95,0.95)
+
+	66.6%
+		transform: scale3d(1.1,1.1,1.1)
+
+	to
+		transform: scaleX(1)
+
+/* big button of contacts end
