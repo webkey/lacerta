@@ -25,6 +25,9 @@
 		+push-auto
 		margin-bottom: $bottom-space--title
 
+		+media('<tab-lg')
+			margin-bottom: $bottom-space--title--mob
+
 		// font size
 		&
 			+font-h3
@@ -164,7 +167,7 @@
 	margin: 0
 	line-height: 0
 	pointer-events: none
-	bottom: -2.5rem
+	bottom: -2.8rem
 
 	.#{$user-content} &
 		margin: 0
@@ -207,6 +210,9 @@
 .info
 	margin-bottom: $bottom-space--element
 
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--element--mob
+
 	&:last-child
 		margin-bottom: 0
 
@@ -248,7 +254,7 @@
 	&, &.slick-dotted
 		margin: 0
 
-	&.slick-dotted
+	//&.slick-dotted
 		+media('<mob-lg')
 			margin-bottom: $bottom-space--element
 
@@ -302,22 +308,6 @@
 			float: left
 			display: block
 
-	.tr
-		+padding-vertical(2rem)
-
-		+media('<mob-lg')
-			padding: round-float(nth($page-layout-space--mob, 2) * 0.8, 2) nth($page-layout-space--mob, 2)
-			background-color: $base-color
-
-		.td.info__item__caption
-			+media('<mob-lg')
-				display: block
-				width: auto
-				background-color: #fff
-				padding: nth($page-layout-space--mob, 2)
-				text-align: center
-				margin: -#{round-float(nth($page-layout-space--mob, 2) * 0.8, 2)} -#{nth($page-layout-space--mob, 2)} $bottom-space--row
-
 	.td
 		+font-bold
 		+font(2.6rem, round-float(26/26, 2))
@@ -327,7 +317,7 @@
 		+media('<mob-lg')
 			+font-medium
 			font-size: 2.0rem
-			padding-bottom: 1rem
+			padding-top: 1rem
 
 		&::before
 			display: none
@@ -335,10 +325,29 @@
 			+font-normal
 			+font(13px, 15px)
 			color: $text-color-light
-			margin-bottom: 0.2em
+			margin-bottom: 0.4em
 
 			+media('<mob-lg')
 				display: block
+
+	.tr
+		+padding-vertical(2rem)
+
+		+media('<mob-lg')
+			padding: nth($grid-space--mob, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 1) * 0.8, 2)
+			background-color: $base-color
+
+		.td.info__item__caption
+			+media('<mob-lg')
+				display: block
+				width: auto
+				background-color: #fff
+				padding: nth($grid-space--mob, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 1) * 0.8, 2)
+				text-align: center
+				margin: -#{nth($grid-space--mob, 1)} -#{nth($grid-space--mob, 2)} 0.5rem
+
+				&::before
+					display: none
 
 .info__item__img
 	position: relative
@@ -371,18 +380,26 @@
 
 	+media('<mob-lg')
 		+font(2.0rem, round-float(22/20, 2))
-		color: $base-color
+		color: #242473
+		margin-bottom: 0.1em
 
 .info__item__release
 	color: $highlight-color
 	+font-normal
 	+font(1.4rem, round-float(18/14, 2))
 
+	+media('<mob-lg')
+		+font-medium
+		font-size: 12px
+
 /* promo slider end
 
 /* breadcrumbs
 .breadcrumbs
 	margin-bottom: $bottom-space--section
+
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--section--mob
 
 	&:last-child
 		margin-bottom: 0
@@ -497,12 +514,24 @@
 	overflow: hidden
 	margin-bottom: $bottom-space--element
 
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--element--mob
+
 	&:last-child
 		margin-bottom: 0
 
 .f-soc__group
 	float: left
-	margin-right: nth($footer-box-space, 2)
+	margin-left: nth($footer-box-space, 2)
+
+	+media('<desk-lg')
+		margin-left: nth($footer-box-space--md, 2)
+
+	+media('<tab-lg')
+		margin-left: nth($footer-box-space--mob, 2)
+
+	&:first-child
+		margin-left: 0
 
 	& > strong
 		display: block
@@ -511,15 +540,24 @@
 		line-height: 18px
 		color: $text-color-light
 
+		+media('<tab-lg')
+			font-size: 12px
+
 .f-soc__list
 	position: relative
 	display: inline-block
 	vertical-align: top
 	margin: 0 -15px -15px 0
 
+	+media('<tab-lg')
+		margin: 0 -10px -10px 0
+
 .f-soc__item
 	float: left
 	margin: 0 15px 15px 0
+
+	+media('<tab-lg')
+		margin: 0 10px 10px 0
 
 	a
 		display: block
@@ -536,6 +574,9 @@
 			display: block
 			+size(60px)
 
+			+media('<tab-lg')
+				+size(40px)
+
 		path
 			fill: currentColor
 
@@ -547,9 +588,9 @@
 
 /* main sections
 .main-section
-	margin-bottom: $bottom-space--section
 	overflow: hidden
 	+margin-horizontal(-#{nth($page-layout-space, 2)})
+	margin-bottom: $bottom-space--section
 	+padding-horizontal(#{nth($page-layout-space, 2)})
 	+clear
 
@@ -559,6 +600,7 @@
 
 	+media('<tab-lg')
 		+margin-horizontal(-#{nth($page-layout-space--mob, 2)})
+		margin-bottom: $bottom-space--section--mob
 		+padding-horizontal(#{nth($page-layout-space--mob, 2)})
 
 	&:last-child
@@ -576,6 +618,9 @@
 		min-height: 0
 		padding-right: 0
 		margin-bottom: $bottom-space--title
+
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--title--mob
 
 	h2, h3, h4,
 	.h2, .h3, .h4
@@ -606,7 +651,12 @@
 	margin-bottom: $bottom-space--element
 
 	+media('<desk-lg')
+		max-width: none
 		order: unset
+
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--element--mob
+		font-size: 1.6rem
 
 .main-section__body
 	width: 100%
@@ -614,7 +664,7 @@
 
 	+media('<desk-lg')
 		order: unset
-		margin-bottom: $bottom-space--title
+		margin-bottom: 4.5rem
 
 	&:last-child
 		margin-bottom: 0
@@ -632,46 +682,16 @@
 	+media('<desk-lg')
 		order: unset
 		text-align: center
-
+		margin-bottom: 0
 
 /* main sections end
-
-/* developer
-.developer
-	line-height: 0
-
-	a
-		display: inline-block
-		vertical-align: top
-		color: $highlight-color
-		text-decoration: none
-		// transition
-		transition: color $animation-speed ease-in-out
-
-		&:hover
-			color: $highlight-color--hover
-			text-decoration: none
-
-		svg
-			display: inline-block
-			vertical-align: top
-			+size(15px, 70px)
-			margin-right: 5px
-
-			path
-				fill: currentColor
-
-		& > span
-			display: inline-block
-			vertical-align: top
-			font-size: 14px
-			line-height: 15px
-
-/* developer end
 
 /* subscription form
 .subs-form
 	margin-bottom: $bottom-space--element
+
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--element--mob
 
 	&:last-child
 		margin-bottom: 0
@@ -774,11 +794,18 @@
 	font-size: 2.0rem
 	line-height: round-float(24/20, 2)
 
+	+media('<tab-lg')
+		font-size: 1.6rem
+		margin: 0 0 $bottom-space--element--mob
+
 	&:last-child
 		margin-bottom: 0
 
 	li
 		margin-bottom: 1.5rem
+
+		+media('<tab-lg')
+			margin-bottom: 0.9rem
 
 		&:last-child
 			margin-bottom: 0
@@ -825,6 +852,9 @@
 .appeal-form
 	margin: 0 0 $bottom-space--element
 
+	+media('<tab-lg')
+		margin: 0 0 $bottom-space--element--mob
+
 	&:last-child
 		margin-bottom: 0
 
@@ -832,13 +862,30 @@
 		display: block
 		width: 100%
 
+		+media('<tab-sm')
+			+push-auto
+			max-width: 320px
+
 .appeal-form__cols
 	display: flex
 	justify-content: space-between
 	align-items: flex-start
 
+	+media('<tab-sm')
+		display: block
+
 .appeal-form__col
-	width: calc(50% - 40px / 2)
+	width: calc(50% - 4rem / 2)
+
+	+media('<tab-lg')
+		width: calc(50% - 2rem / 2)
+
+	+media('<tab-sm')
+		width: auto
+		margin-bottom: $form-bottom-space
+
+	&:last-child
+		margin-bottom: 0
 
 .appeal-form__msg
 	position: absolute
@@ -846,6 +893,7 @@
 	top: 0
 	width: 50%
 	height: 100%
+	overflow: hidden
 	display: flex
 	flex-direction: column
 	justify-content: center
@@ -865,6 +913,10 @@
 
 	+media('<desk-lg')
 		width: 100%
+		padding: $footer-box-space--md
+
+	+media('<desk-lg')
+		padding: $footer-box-space--mob
 
 	.form-success &
 		opacity: 1
@@ -872,19 +924,21 @@
 
 .appeal-form__msg__title
 	display: block
-	+font-alt-black
-	+font(8.0rem, round-float(90/80, 2))
 	text-align: center
 	color: white
 	margin-bottom: $bottom-space--row
 
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--row--mob
+
+	&
+		+font-h1
+
 .appeal-form__msg__subtitle
 	display: block
-	+font-bold
-	+font(2.6rem, round-float(32/26, 2))
-	color: $base-color
-	text-align: center
 	max-width: 600px
+
+	+font-h3($base-color)
 
 /* footer form end
 
@@ -1004,8 +1058,15 @@ a.btn-cont
 .news
 	margin-bottom: $bottom-space--article
 
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--article--mob
+
 	&:last-child
 		margin-bottom: 0
+
+	&.max-wrap-flood
+		+media('<mob-lg')
+			max-width: 360px
 
 .news__list
 	position: relative
@@ -1020,15 +1081,21 @@ a.btn-cont
 	+font($font-size, $line-height)
 	letter-spacing: $letter-spacing
 	background-color: white
-
 	box-shadow: inset 1px 0 0 #e7e7f5
+
+	+media('<tab-lg')
+		+font($font-size--mob, $line-height--mob)
+
+	+media('<mob-lg')
+		width: 100%
+		box-shadow: inset 0 1px 0 #e7e7f5
 
 	&.news__item__more, &.news__item_has-img,
 	&.news__item__more + &, &.news__item_has-img + &
 		box-shadow: none
 
-.news__item_wide
-	width: 100%
+	&.news__item_wide
+		width: 100%
 
 .news__item__inner
 	position: relative
@@ -1050,10 +1117,17 @@ a.btn-cont
 		+font(3.2rem, round-float(38/32, 2))
 		z-index: 5
 
+		+media('<tab-lg')
+			font-size: 2.4rem
+
 		& > span
 			position: absolute
 			left: nth($grid-space, 2)
 			bottom: round-float(nth($grid-space, 2) * 0.8, 2)
+
+			+media('<tab-lg')
+				left: nth($grid-space--mob, 2)
+				bottom: round-float(nth($grid-space--mob, 2) * 0.8, 2)
 
 		svg
 			display: block
@@ -1061,6 +1135,10 @@ a.btn-cont
 			right: nth($grid-space, 2) - 0.6
 			bottom: round-float(nth($grid-space, 2) * 0.8, 2)
 			@include size(30px)
+
+			+media('<tab-lg')
+				right: nth($grid-space--mob, 2) - 0.6
+				bottom: round-float(nth($grid-space--mob, 2) * 0.8, 2)
 
 			path
 				fill: currentColor
@@ -1080,6 +1158,12 @@ a.btn-cont
 
 		.main-section__body .news__item_wide &
 			+ratio(960, 360)
+
+		&, .news__item_wide &, .main-section__body &, .main-section__body .news__item_wide &
+			+media('<mob-lg')
+				//padding: 0
+				//height: 203px
+				+ratio(280px, 203px)
 
 .news__item__figure,
 .news__item__body
@@ -1129,6 +1213,9 @@ a.btn-cont
 	flex-direction: column
 	align-items: flex-start
 
+	+media('<tab-lg')
+		padding: nth($grid-space--mob, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 2) * 0.85, 1)
+
 	.news__item_has-img &
 		justify-content: flex-end
 
@@ -1145,14 +1232,27 @@ a.btn-cont
 	+font(3.2rem, round-float(38/32, 2))
 	overflow: hidden
 
+	+media('<tab-lg')
+		+font(2.0rem, round-float(24/20, 2))
+
 	.news__item_has-img &
 		+font(2.4rem, round-float(29/24, 2))
 		color: white
+
+		+media('<tab-lg')
+			+font(1.6rem, round-float(19/16, 2))
 
 	.news__item_wide &
 		+font(4.8rem, round-float(48/48, 2))
 		max-width: 780px
 		+push-auto
+
+		+media('<tab-lg')
+			max-width: 480px
+			+font(3.0rem, round-float(32/30, 2))
+
+		+media('<mob-lg')
+			+font(2.0rem, round-float(24/20, 2))
 
 .btn-source
 	display: inline-block
@@ -1166,10 +1266,21 @@ a.btn-cont
 	border-radius: 17px
 
 	.news__item__body &
-		margin-bottom: 2.8rem
+		//margin-bottom: 2.8rem
+		margin-bottom: round-float(nth($grid-space, 1) * 0.7, 1)
+
+		+media('<tab-lg')
+			margin-bottom: round-float(nth($grid-space--mob, 1) * 0.7, 1)
 
 	.news__item_wide &
-		margin-bottom: 4.5rem
+		//margin-bottom: 4.5rem
+		margin-bottom: round-float(nth($grid-space, 1) * 1.125, 1)
+
+		+media('<tab-lg')
+			margin-bottom: round-float(nth($grid-space--mob, 1) * 1.125, 1)
+
+		+media('<mob-lg')
+			margin-bottom: round-float(nth($grid-space--mob, 1) * 0.7, 1)
 
 // hover
 .no-touchevents

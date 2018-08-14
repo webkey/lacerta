@@ -90,6 +90,8 @@ $border-color: lightgray !default
 
 $font-size: 2.2rem !default
 $line-height: round-float(3.0rem/$font-size, 2) !default
+$font-size--mob: 1.6rem !default
+$line-height--mob: round-float(2.0rem/$font-size--mob, 2) !default
 // ----------------------------------------------------
 $font-size--small: 2.0rem !default
 $line-height--small: round-float(2.8rem/$font-size--small, 2) !default
@@ -114,7 +116,7 @@ $line-height-h1--sm: round-float(3.2rem/$font-size-h1--sm, 2) !default
 	font-size: $font-size-h1
 	line-height: $line-height-h1
 
-	+media('<tab-lg')
+	+media('<desk-sm')
 		font-size: $font-size-h1--md
 		line-height: $line-height-h1--md
 
@@ -149,15 +151,15 @@ $line-height-h2--sm: round-float(4.2rem/$font-size-h2--sm, 2) !default
 $font-size-h3: 2.6rem !default
 $line-height-h3: round-float(3.2rem/$font-size-h3, 2) !default
 // ----------------------------------------------------
-$font-size-h3--sm: 2.6rem !default
-$line-height-h3--sm: round-float(3.2rem/$font-size-h3, 2) !default
+$font-size-h3--sm: 2.0rem !default
+$line-height-h3--sm: round-float(2.8rem/$font-size-h3, 2) !default
 // ----------------------------------------------------
-=font-h3()
+=font-h3($color: #6bdbbc)
 	+font-bold
 	font-size: $font-size-h3
 	line-height: $line-height-h3
 	text-align: center
-	color: $highlight-color
+	color: $color
 
 	+media('<mob-lg')
 		font-size: $font-size-h3--sm
@@ -177,11 +179,17 @@ $line-height-h6: $line-height--small !default
 
 // Spaces
 $bottom-space: 1.5rem !default
+$bottom-space--mob: 1.1rem !default
 $bottom-space--section: 14rem !default
+$bottom-space--section--mob: 5rem !default
 $bottom-space--article: 7rem !default
+$bottom-space--article--mob: 3rem !default
 $bottom-space--element: 4.5rem !default
+$bottom-space--element--mob: 2rem !default
 $bottom-space--title: 2.4rem !default
+$bottom-space--title--mob: 1.6rem !default
 $bottom-space--row: 1.5rem !default
+$bottom-space--row--mob: 1.2rem !default
 
 
 // Z-indexes
@@ -200,7 +208,7 @@ $z-heading: 1200 !default
 // отступы для всего сайта
 $page-layout-space: 7rem 8rem !default // v h
 $page-layout-space--md: 7rem 4rem !default // v h
-$page-layout-space--mob: 4rem 2rem !default // v h
+$page-layout-space--mob: 3rem 2rem !default // v h
 // максимальная ширина сайта
 $page-layout-width: 1920px !default
 // минимальная ширина сайта
@@ -242,6 +250,7 @@ $header-width: 520px !default
 $header-width--md: 100% !default
 $header-height: 100vh !default
 $header-height--md: 120px !default
+$header-height--mod: 60px !default
 $header-bg: $bg-color-alt !default
 $nav-is-open-class: 'nav-is-open'
 
@@ -259,14 +268,17 @@ $aside-width: 160px !default
 // ==========================================================================
 $footer-box-space: 2.5rem 4rem !default // v h
 $footer-box-space--md: 4rem 4rem !default // v h
-$footer-box-space--mob: 4rem 2rem !default // v h
+$footer-box-space--mob: 2rem 2rem !default // v h
 
 // Buttons
 // ==========================================================================
 
 $btn-height: 60px !default
+$btn-height--mob: 39px !default
 $btn-font-size: 18px !default
-$btn-line-height: 24px !default
+$btn-font-size--mob: 16px !default
+$btn-line-height: 22px !default
+$btn-line-height--mob: 20px !default
 $btn-bg-color: $highlight-color !default
 $btn-bg-hover-color: $highlight-color--hover !default
 $btn-text-color: white !default
@@ -394,6 +406,8 @@ $multiple-item-space: 3px !default
 	box-shadow: none
 	text-indent: 0
 	outline: none
+	user-select: none
+	-webkit-tap-highlight-color: transparent
 
 =selectSelection--small()
 	height: $form-input-height--small

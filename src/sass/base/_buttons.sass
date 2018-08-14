@@ -38,6 +38,14 @@
 		property: $prop
 		duration: $animation-speed
 
+	+media('<tab-lg')
+		padding: floor(($btn-height--mob - $btn-line-height--mob)/2) 32px ceil(($btn-height--mob - $btn-line-height--mob)/2) 18px
+		border-radius: round($btn-height--mob/2)
+
+	.touchevents &
+		user-select: none
+		-webkit-tap-highlight-color: transparent
+
 	&::before, &::after
 		content: ""
 		display: block
@@ -47,6 +55,9 @@
 		height: 1px
 		margin: 2px -1px
 		background-color: $base-color
+
+		+media('<tab-lg')
+			right: 18px
 
 	&::before
 		bottom: 50%
@@ -58,6 +69,9 @@
 
 	&, & > span
 		+font($btn-font-size, $btn-line-height)
+
+		+media('<tab-lg')
+			+font($btn-font-size--mob, $btn-line-height--mob)
 
 	// hover
 	&:hover:not(:disabled):not(.disabled)

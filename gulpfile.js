@@ -172,7 +172,12 @@ gulp.task('buildDist', ['cleanDist', 'htmlCompilation', 'copyImgToDist', 'sassCo
 	gulp.src(['src/video/**/*']) // Переносим видеофайлы в продакшен
 		.pipe(gulp.dest(path.dist + '/video'));
 
-	gulp.src(['!src/css/_temp_*.css', 'src/css/*.css']) // Переносим стили в продакшен
+	gulp.src(['src/css/main.css']) // Переносим main.css
+		.pipe(removeEmptyLines()) // Удаляем пустые строки
+		.pipe(cssnano()) // Compress
+		.pipe(gulp.dest(path.dist + '/css'));
+
+	gulp.src(['!src/css/_temp_*.css', '!src/css/libs.css', '!src/css/main.css', 'src/css/*.css']) // Переносим стили в продакшен
 		.pipe(removeEmptyLines()) // Удаляем пустые строки
 		.pipe(gulp.dest(path.dist + '/css'));
 
@@ -190,15 +195,16 @@ gulp.task('buildDist', ['cleanDist', 'htmlCompilation', 'copyImgToDist', 'sassCo
 			"space_after_anon_function": true,
 			"max_preserve_newlines": 2
 		}))
+		.pipe(uglify()) // Compress
 		.pipe(gulp.dest(path.dist + '/js'));
 
-	gulp.src(['!src/js/temp/**/*.js', '!src/js/**/_temp_*.js', '!src/js/common.js', 'src/js/*.js']) // Переносим остальные скрипты в продакшен
+	gulp.src(['!src/js/temp/**/*.js', '!src/js/**/_temp_*.js', '!src/js/libs.js', '!src/js/common.js', 'src/js/*.js']) // Переносим остальные скрипты в продакшен
 		.pipe(gulp.dest(path.dist + '/js'));
 
 	gulp.src('src/assets/**/*') // Переносим дополнительные файлы в продакшен
 		.pipe(gulp.dest(path.dist + '/assets'));
 
-	gulp.src(['!src/__*.html', '!src/_tpl_*.html', '!src/_temp_*.html', 'src/*.html']) // Переносим HTML в продакшен
+	gulp.src(['!src/typography.html', '!src/inner.html', '!src/forms.html', '!src/__*.html', '!src/_tpl_*.html', '!src/_temp_*.html', 'src/*.html']) // Переносим HTML в продакшен
 		.pipe(revts()) // Добавить версии подключаемых файлов. В html добавить ключ ?rev=@@hash в место добавления версии
 		.pipe(gulp.dest(path.dist));
 

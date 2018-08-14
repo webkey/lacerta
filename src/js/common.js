@@ -247,7 +247,12 @@ function slidersInit() {
 						breakpoint: 480,
 						settings: {
 							slidesToShow: 1,
-							slidesToScroll: 1
+							slidesToScroll: 1,
+							// add touch events
+							accessibility: true,
+							draggable: true,
+							swipe: true,
+							touchMove: true
 						}
 					}
 				]

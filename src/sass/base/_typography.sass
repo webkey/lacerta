@@ -19,6 +19,9 @@ body
 	//background: $bg-color url(../../img/empty.png) no-repeat left top fixed
 	background: $bg-color url(../../img/bg-page.png) center center
 
+	+media('<tab-lg')
+		+font($font-size--mob, $line-height--mob)
+
 	// выделение текста
 	//*::selection
 		background-color: white
@@ -31,8 +34,8 @@ h1, h2, h3, h4, h5, h6,
 	color: $title-color
 	margin: 0 0 $bottom-space--element
 
-	+media('<mob-lg')
-		margin-bottom: round-float($bottom-space*0.85, 1)
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--element--mob
 
 	&:last-child
 		margin-bottom: 0
@@ -68,6 +71,9 @@ p
 	padding: 0
 	margin: 0 0 $bottom-space
 
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--mob
+
 	&:last-child
 		margin-bottom: 0
 
@@ -79,12 +85,18 @@ hr
 	border-bottom: 1px solid $border-color
 	margin-bottom: $bottom-space
 
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--mob
+
 a
 	color: $link-color
 	text-decoration: none
 	cursor: default
 	// transition
 	transition: color $animation-speed ease-in-out
+
+	.touchevents &
+		-webkit-tap-highlight-color: transparent
 
 	&:link
 		cursor: pointer
@@ -159,20 +171,36 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 .section, .section-bottom
 	margin-bottom: $bottom-space--section
 
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--section--mob
+
 .article, .article-bottom
 	margin-bottom: $bottom-space--article
+
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--article--mob
 
 .element-bottom
 	margin-bottom: $bottom-space--element
 
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--element--mob
+
 .row-bottom
 	margin-bottom: $bottom-space--row
+
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--row--mob
 
 .enter-text
 	+font-normal
 	+font(2.2rem, round-float(26/22, 2))
 	color: rgba($highlight-color, 0.8)
 	margin-bottom: $bottom-space--element
+
+	+media('<tab-lg')
+		font-size: 1.6rem
+		margin-bottom: $bottom-space--element--mob
 
 	&:last-child
 		margin-bottom: 0
@@ -262,10 +290,16 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		padding: 0
 		list-style: none
 
+		+media('<tab-lg')
+			+margin-vertical($bottom-space--element--mob)
+
 		li
 			padding-left: $list-space
 			margin: 0 0 $bottom-space
 			position: relative
+
+			+media('<tab-lg')
+				margin-bottom: $bottom-space--mob
 
 	ul > li::before
 		content: ''
@@ -280,27 +314,44 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		counter-reset: section
 
 		& > li
+			$size: 32px
+			$space: 53px
+			$size--mob: 20px
+			$space--mob: 35px
+			//===================
 			counter-increment: section
 			height: 1%
 			overflow: hidden
-			padding-left: 53px
+			padding-left: $space
+
+			+media('<tab-lg')
+				padding-left: $space--mob
 
 			&::before
 				position: relative
 				display: inline-block
 				content: counter(section)
-				+size(32px)
-				margin: 0 calc(53px - 32px) 0 -53px
+				+size($size)
+				margin: 0 calc(#{$space} - #{$size}) 0 -#{$space}
 				+font-bold
-				+font(2.2rem, 32px)
+				line-height: $size
 				text-align: center
 				color: $highlight-color
 				background-color: white
-				border-radius: 16px
+				border-radius: round($size / 2)
+
+				+media('<tab-lg')
+					+size($size--mob)
+					margin: 0 calc(#{$space--mob} - #{$size--mob}) 0 -#{$space--mob}
+					line-height: $size--mob
+					border-radius: round($size--mob / 2)
 
 	ul, ol
 		ul, ol
 			margin: round($bottom-space*0.5) 0
+
+			+media('<tab-lg')
+				+margin-vertical(round($bottom-space--mob*0.5))
 
 /* list reset
 .reset-list,
@@ -328,6 +379,9 @@ table
 		color: inherit
 		padding: 8px 15px
 
+		+media('<tab-lg')
+			+font($font-size--mob, $line-height--mob)
+
 	&, td, th
 		border-color: $text-color
 
@@ -346,6 +400,9 @@ table
 .#{$user-content}
 	table
 		margin-bottom: $bottom-space
+
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--mob
 
 	.table-auto table
 		margin-bottom: 0
@@ -404,6 +461,9 @@ blockquote
 	padding: 0
 	//background-color: lightcoral
 
+	+media('<tab-lg')
+		margin: $bottom-space--element--mob auto
+
 	q
 		display: block
 		position: relative
@@ -425,6 +485,9 @@ blockquote
 		+font-italic
 		+font($font-size, $line-height)
 		color: $highlight-color
+
+		+media('<tab-lg')
+			+font($font-size--mob, $line-height--mob)
 
 	&, & q
 		&::before, &::after
@@ -516,6 +579,9 @@ blockquote
 	+clear
 	margin: $bottom-space--article 0 $bottom-space--section
 
+	+media('<tab-lg')
+		margin: $bottom-space--article--mob 0 $bottom-space--section--mob
+
 	&::before
 		content: ""
 		display: block
@@ -526,16 +592,20 @@ blockquote
 		border-right: 1px solid $text-color
 		opacity: 0.2
 
-.col
-	float: left
-	width: calc(50% - #{nth($page-layout-space, 2)})
-	margin: 0 nth($page-layout-space, 2)
+	.col
+		float: left
+		width: calc(50% - #{nth($page-layout-space, 2)})
+		margin: 0 nth($page-layout-space, 2)
 
-	&:nth-child(odd)
-		margin-left: 0
+		+media('<desk-lg')
+			width: calc(50% - #{nth($page-layout-space--md, 2)})
+			margin: 0 nth($page-layout-space--md, 2)
 
-	&:nth-child(even)
-		margin-right: 0
+		&:nth-child(odd)
+			margin-left: 0
+
+		&:nth-child(even)
+			margin-right: 0
 
 /* columns end
 
@@ -545,7 +615,6 @@ blockquote
 	.col
 		float: left
 		width: 100%
-
 
 	.col-6
 		width: 50%
