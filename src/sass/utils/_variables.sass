@@ -66,6 +66,7 @@ $font-alt: 'Playfair Display', serif !default
 // Color of brands
 $base-color: #333399 !default
 $base-color-alt: #2b2b8b !default
+$base-color-dark: #242473 !default
 $mark-color: #f25984 !default
 $highlight-color: #6bdbbc !default
 $highlight-color--hover: #5eb8b2 !default
@@ -161,13 +162,27 @@ $line-height-h3--sm: round-float(2.8rem/$font-size-h3, 2) !default
 	text-align: center
 	color: $color
 
-	+media('<mob-lg')
+	+media('<tab-lg')
 		font-size: $font-size-h3--sm
 		line-height: $line-height-h3--sm
 
 // Heading h4
 $font-size-h4: $font-size !default
 $line-height-h4: $line-height !default
+// ----------------------------------------------------
+$font-size-h4--sm: $font-size--mob !default
+$line-height-h4--sm: $line-height--mob !default
+// ----------------------------------------------------
+=font-h4($color: null)
+	+font-bold
+	font-size: $font-size-h4
+	line-height: $line-height-h4
+	@if $color
+		color: $color
+
+	+media('<tab-lg')
+		font-size: $font-size-h4--sm
+		line-height: $line-height-h4--sm
 
 // Heading h5
 $font-size-h5: $font-size !default
@@ -297,7 +312,7 @@ $small-field: 'small-field'
 // Colors of forms
 $form-text-color: white !default
 $form-placeholder-color: #666695 !default
-$form-bg-color: #242473 !default
+$form-bg-color: $base-color-dark !default
 $form-border-color: $form-bg-color !default
 // validation
 $form-error-color: $mark-color !default

@@ -167,7 +167,6 @@ html
 	flex-shrink: 1
 	flex-grow: 1
 	position: relative
-	clear: both
 	z-index: $z-high
 	padding-bottom: $bottom-space--section
 
@@ -497,24 +496,24 @@ html
 
 // nav opener btn
 a.nav-opener
-	$btn-menu-bg: transparent
-	$btn-menu-size: $header-height--md
-	$btn-menu-size--mob: $header-height--mod
-	$btn-menu-lines-width: 43px
-	$btn-menu-lines-width--mob: 25px
-	$btn-menu-lines-height: 7px
-	$btn-menu-lines-height--mob: 4px
-	$btn-menu-lines-space: 7px
-	$btn-menu-lines-space--mob: 4px
-	$btn-menu-lines-color: $highlight-color
-	$btn-menu-animation-speed: $animation-speed
-	$btn-menu-animation-delay: round-float($animation-speed*0.5, 2)
+	$burger-bg: transparent
+	$burger-size: $header-height--md
+	$burger-size--mob: $header-height--mod
+	$layer-width: 43px
+	$layer-width--mob: 25px
+	$layer-height: 7px
+	$layer-height--mob: 4px
+	$layer-space: 7px
+	$layer-space--mob: 4px
+	$layer-color: $highlight-color
+	$burger-animation-speed: $animation-speed
+	$burger-animation-delay: round-float($animation-speed*0.5, 2)
 
-	$user-options-cross-width: $btn-menu-lines-width
-	$user-options-cross-width--mob: $btn-menu-lines-width--mob
-	$user-options-cross-height: $btn-menu-lines-height
-	$user-options-cross-height--mob: $btn-menu-lines-height--mob
-	$user-options-cross-color: $btn-menu-lines-color
+	$cross-width: $layer-width
+	$cross-width--mob: $layer-width--mob
+	$cross-height: $layer-height
+	$cross-height--mob: $layer-height--mob
+	$cross-color: $layer-color
 
 	// =====================
 
@@ -522,15 +521,15 @@ a.nav-opener
 	position: absolute
 	right: nth($page-layout-space--md, 2)
 	top: round($header-height--md / 2)
-	margin-top: -#{round($btn-menu-size/2)}
-	+size($btn-menu-size)
+	margin-top: -#{round($burger-size/2)}
+	+size($burger-size)
 	z-index: $z-middle
 	text-decoration: none
 	+font-normal
 	+font($font-size, $line-height)
 	letter-spacing: $letter-spacing
 	color: $text-color
-	background-color: $btn-menu-bg
+	background-color: $burger-bg
 	user-select: none
 	-webkit-tap-highlight-color: transparent
 
@@ -540,14 +539,9 @@ a.nav-opener
 	+media('<tab-lg')
 		right: nth($page-layout-space--mob, 2)
 		top: round($header-height--mod / 2)
-		margin-top: -#{round($btn-menu-size--mob/2)}
-		+size($btn-menu-size--mob)
+		margin-top: -#{round($burger-size--mob/2)}
+		+size($burger-size--mob)
 		+font($font-size--mob, $line-height--mob)
-
-	.touchevents &
-		// убрать подсветку при клике на тачскринах
-		user-select: none
-		-webkit-tap-highlight-color: transparent
 
 	& > span
 		position: absolute
@@ -563,75 +557,75 @@ a.nav-opener
 	&::before, &::after
 		+pseudo()
 		+position(50%)
-		+size($user-options-cross-height, $user-options-cross-width)
-		margin-top: -#{round($user-options-cross-height / 2)}
-		margin-left: -#{round($user-options-cross-width / 2)}
-		background-color: $user-options-cross-color
+		+size($cross-height, $cross-width)
+		margin-top: -#{round($cross-height / 2)}
+		margin-left: -#{round($cross-width / 2)}
+		background-color: $cross-color
 		opacity: 0
 		$prop: transform, opacity, background-color
 		will-change: $prop
 		transition:
 			property: $prop
-			duration: $btn-menu-animation-speed
+			duration: $burger-animation-speed
 			delay: 0s
 			timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
 
 		+media('<tab-lg')
-			+size($user-options-cross-height--mob, $user-options-cross-width--mob)
-			margin-top: -#{round($user-options-cross-height--mob / 2)}
-			margin-left: -#{round($user-options-cross-width--mob / 2)}
+			+size($cross-height--mob, $cross-width--mob)
+			margin-top: -#{round($cross-height--mob / 2)}
+			margin-left: -#{round($cross-width--mob / 2)}
 
 	// бутерброд
 	& > i
 		position: absolute
 		left: 50%
 		top: 50%
-		+size($btn-menu-lines-height, $btn-menu-lines-width + 10)
-		margin-top: -#{round($btn-menu-lines-height / 2)}
-		margin-left: -#{round($btn-menu-lines-width / 2)}
-		background-color: $btn-menu-lines-color
+		+size($layer-height, $layer-width + 10)
+		margin-top: -#{round($layer-height / 2)}
+		margin-left: -#{round($layer-width / 2)}
+		background-color: $layer-color
 		$prop: transform, opacity, background-color, max-width
 		will-change: $prop
 		transition:
 			property: $prop
-			duration: $btn-menu-animation-speed
-			delay: $btn-menu-animation-delay
+			duration: $burger-animation-speed
+			delay: $burger-animation-delay
 
 		+media('<tab-lg')
-			+size($btn-menu-lines-height--mob, $btn-menu-lines-width--mob + 5)
-			margin-top: -#{round($btn-menu-lines-height--mob / 2)}
-			margin-left: -#{round($btn-menu-lines-width--mob / 2)}
+			+size($layer-height--mob, $layer-width--mob + 5)
+			margin-top: -#{round($layer-height--mob / 2)}
+			margin-left: -#{round($layer-width--mob / 2)}
 
 		&::before, &::after
 			+pseudo()
 			left: 0
-			+size($btn-menu-lines-height, $btn-menu-lines-width)
+			+size($layer-height, $layer-width)
 			background-color: inherit
 			$prop: transform, max-width
 			will-change: $prop
 			transition:
 				property: $prop
-				duration: $btn-menu-animation-speed
-				delay: $btn-menu-animation-delay
+				duration: $burger-animation-speed
+				delay: $burger-animation-delay
 
 			+media('<tab-lg')
-				+size($btn-menu-lines-height--mob, $btn-menu-lines-width--mob)
+				+size($layer-height--mob, $layer-width--mob)
 
 		//first line menu
 		&::before
-			top: -#{$btn-menu-lines-height + $btn-menu-lines-space}
-			max-width: $btn-menu-lines-width - 5
+			top: -#{$layer-height + $layer-space}
+			max-width: $layer-width - 5
 
 			+media('<tab-lg')
-				top: -#{$btn-menu-lines-height--mob + $btn-menu-lines-space--mob}
-				max-width: $btn-menu-lines-width--mob - 5
+				top: -#{$layer-height--mob + $layer-space--mob}
+				max-width: $layer-width--mob - 5
 
 		//third line menu
 		&::after
-			top: #{$btn-menu-lines-height + $btn-menu-lines-space}
+			top: #{$layer-height + $layer-space}
 
 			+media('<tab-lg')
-				top: #{$btn-menu-lines-height--mob + $btn-menu-lines-space--mob}
+				top: #{$layer-height--mob + $layer-space--mob}
 
 	// hover
 	.no-touchevents &:hover
@@ -642,19 +636,19 @@ a.nav-opener
 
 		& > i
 			background-color: $highlight-color--hover
-			//max-width: $btn-menu-lines-width
+			//max-width: $layer-width
 
 			&::before, &::after
 				background-color: inherit
 
 			//&::before
-				max-width: $btn-menu-lines-width
+				max-width: $layer-width
 
 	// active
 	&.nav-is-open
 
 		&::before, &::after
-			transition-delay: $btn-menu-animation-delay
+			transition-delay: $burger-animation-delay
 			//background-color: $base-color
 
 			opacity: 1
@@ -673,16 +667,16 @@ a.nav-opener
 				transition-delay: 0s
 
 			&::before
-				transform: translate(0, #{$btn-menu-lines-height + $btn-menu-lines-space}) translateZ(0)
+				transform: translate(0, #{$layer-height + $layer-space}) translateZ(0)
 
 				+media('<tab-lg')
-					transform: translate(0, #{$btn-menu-lines-height--mob + $btn-menu-lines-space--mob}) translateZ(0)
+					transform: translate(0, #{$layer-height--mob + $layer-space--mob}) translateZ(0)
 
 			&::after
-				transform: translate(0, -#{$btn-menu-lines-height + $btn-menu-lines-space}) translateZ(0)
+				transform: translate(0, -#{$layer-height + $layer-space}) translateZ(0)
 
 				+media('<tab-lg')
-					transform: translate(0, -#{$btn-menu-lines-height--mob + $btn-menu-lines-space--mob}) translateZ(0)
+					transform: translate(0, -#{$layer-height--mob + $layer-space--mob}) translateZ(0)
 
 // overlay
 // в html добавить

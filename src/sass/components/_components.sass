@@ -958,7 +958,7 @@
 $btn-cont-size: 876px 880px
 $btn-cont-size--max: 956px 960px
 $scale: round-float(nth($btn-cont-size--max, 2) / nth($btn-cont-size, 2), 2)
-a.btn-cont
+.btn-cont
 	display: block
 	overflow: hidden
 	position: absolute
@@ -970,6 +970,9 @@ a.btn-cont
 	+font(2.6rem, round-float(32/26, 2))
 	color: white
 	z-index: -1
+
+	+media('<tab-lg')
+		display: none
 
 	& > span
 		display: block
@@ -1346,15 +1349,17 @@ a.btn-cont
 				timing-function: ease-in-out
 
 	&.pop-is-open > span
-		&::before
-			opacity: 0
+		+media('>=tab-lg')
+			&::before
+				opacity: 0
 
 	// hover
 	.no-touchevents & > span:hover
 		color: $highlight-color--hover
 
 	.no-touchevents &.pop-is-open > span:hover
-		color: $base-color
+		+media('>=tab-lg')
+			color: $base-color
 
 .pop__content
 	position: absolute
@@ -1379,12 +1384,29 @@ a.btn-cont
 		duration: $pop-animation-speed
 		timing-function: cubic-bezier(0.55, 0.085, 0, 0.99)
 
+	+media('<tab-lg')
+		position: fixed
+		left: 50%
+		top: 50%
+		padding: round-float(nth($grid-space--mob, 2) * 0.75, 1) nth($grid-space--mob, 2)
+		max-width: calc(100% - #{nth($page-layout-space--mob, 2) * 2})
+		box-shadow: 0 0 30px rgba(black, 0.2)
+		z-index: 15
+		$translate: -50%, calc(-50% + 2em + #{round($header-height--mod / 2)})
+		transform: translate($translate)
+		transform: translate3d($translate, 0)
+
 	.pop-is-open &
 		opacity: 1
 		pointer-events: auto
 		$translate: 0, 0
 		transform: translate($translate)
 		transform: translate3d($translate, 0)
+
+		+media('<tab-lg')
+			$translate: -50%, calc(-50% + #{round($header-height--mod / 2)})
+			transform: translate($translate)
+			transform: translate3d($translate, 0)
 
 .pop__title
 	display: block
@@ -1451,15 +1473,11 @@ a.btn-cont
 /* rolls
 .rolls
 	margin: 0 auto $bottom-space--element
-	width: $text-layout-width + nth($page-layout-space, 2) * 2
-	max-width: 100%
-
-	+media('<desk-lg')
-		width: $text-layout-width + nth($page-layout-space--md, 2) * 2
+	max-width: $text-layout-width + nth($page-layout-space, 2) * 2
 
 	+media('<tab-lg')
 		margin-bottom: $bottom-space--element--mob
-		width: $text-layout-width + nth($page-layout-space--mob, 2) * 2
+		max-width: $text-layout-width + nth($page-layout-space--mob, 2) * 2
 
 	&:last-child
 		margin-bottom: 0
@@ -1472,6 +1490,9 @@ a.btn-cont
 	+media('<tab-lg')
 		margin-bottom: nth($grid-space--mob, 2)
 
+	+media('<mob-lg')
+		padding-bottom: 4rem
+
 	&:last-child
 		margin-bottom: 0
 
@@ -1481,176 +1502,123 @@ a.btn-cont
 	background-color: $base-color-alt
 	color: inherit
 	padding: 3rem nth($page-layout-space, 2)
-
-	+media('<desk-lg')
-		padding: 2.5rem nth($page-layout-space--md, 2)
+	-webkit-tap-highlight-color: transparent
 
 	+media('<tab-lg')
-		padding: 1.5rem nth($page-layout-space--mob, 2)
+		padding: 1.5rem 6rem 1.5rem nth($page-layout-space--mob, 2)
 
-	.max-wrap-text
-		margin: 0 auto
+	+media('<mob-lg')
+		position: static
+		padding-right: nth($page-layout-space--mob, 2)
+
+.rolls__header__inner
+	text-align: left
+	color: inherit
+	margin: 0 auto
+	max-width: $text-layout-width
+	cursor: default
 
 // angle
 .rolls__angle
-	$sandwich-bg: transparent
-	$sandwich-size: $header-height--md
-	$sandwich-size--mob: $header-height--mod
-	$lines-width: 20px
-	$lines-width--mob: 20px
-	$lines-height: 2px
-	$lines-height--mob: 2px
-	$lines-space: 4px
-	$lines-space--mob: 4px
-	$lines-color: currentColor
-	$animation-speed: $animation-speed
-	$animation-delay: round-float($animation-speed*0.5, 2)
+	$burger-size: 100% 6rem
+	$burger-size--md: 100% 4rem
+	$burger-size--mob: 4rem 100%
+	$layer-size: 2px 20px
+	$layer-space: 4px
+	$layer-color: white
+	$burger-animation-speed: $animation-speed
+	$burger-animation-delay: round-float($burger-animation-speed*0.5, 2)
 
-	$cross-width: $lines-width
-	$cross-width--mob: $lines-width--mob
-	$cross-height: $lines-height
-	$cross-height--mob: $lines-height--mob
-	$cross-color: $lines-color
+	$cross-size: nth($layer-size, 1) nth($layer-size, 2)
+	$cross-color: $layer-color
 
 	// =====================
 
-	display: none
 	position: absolute
-	right: nth($page-layout-space--md, 2)
-	top: round($header-height--md / 2)
-	margin-top: -#{round($sandwich-size/2)}
-	+size($sandwich-size)
-	z-index: $z-middle
-	text-decoration: none
-	+font-normal
-	+font($font-size, $line-height)
-	letter-spacing: $letter-spacing
-	color: inherit
-	background-color: $sandwich-bg
+	right: 0
+	bottom: 0
+	+size(nth($burger-size, 1), nth($burger-size, 2))
+	background-color: $highlight-color
+	box-shadow: inset 0 0 0 1px $highlight-color--hover
+	cursor: pointer
 	user-select: none
 	-webkit-tap-highlight-color: transparent
-
-	+media('<desk-lg')
-		display: block
+	transition: background-color $animation-speed ease-in-out
 
 	+media('<tab-lg')
-		right: nth($page-layout-space--mob, 2)
-		top: round($header-height--mod / 2)
-		margin-top: -#{round($sandwich-size--mob/2)}
-		+size($sandwich-size--mob)
-		+font($font-size--mob, $line-height--mob)
+		+size(nth($burger-size--md, 1), nth($burger-size--md, 2))
 
-	.touchevents &
-		// убрать подсветку при клике на тачскринах
-		user-select: none
-		-webkit-tap-highlight-color: transparent
-
-	& > span
-		position: absolute
-		left: 100%
-		top: 0
-		height: 100%
-		+padding-horizontal(5px)
-		+font-bold
-		line-height: $header-height--md
-		display: none
+	+media('<mob-lg')
+		+size(nth($burger-size--mob, 1), nth($burger-size--mob, 2))
 
 	// крест
 	&::before, &::after
-		+pseudo()
-		+position(50%)
-		+size($cross-height, $cross-width)
-		margin-top: -#{round($cross-height / 2)}
-		margin-left: -#{round($cross-width / 2)}
+		content: ""
+		display: block
+		position: absolute
+		left: 50%
+		top: 50%
+		+size(nth($cross-size, 1), nth($cross-size, 2))
+		margin-top: -#{round(nth($cross-size, 1) / 2)}
+		margin-left: -#{round(nth($cross-size, 2) / 2)}
 		background-color: $cross-color
 		opacity: 0
+		// transition
 		$prop: transform, opacity, background-color
 		will-change: $prop
 		transition:
 			property: $prop
-			duration: $animation-speed
+			duration: $burger-animation-speed
 			delay: 0s
 			timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
 
-		+media('<tab-lg')
-			+size($cross-height--mob, $cross-width--mob)
-			margin-top: -#{round($cross-height--mob / 2)}
-			margin-left: -#{round($cross-width--mob / 2)}
-
 	// бутерброд
 	& > i
+		//средний слой бутерброда
 		position: absolute
 		left: 50%
 		top: 50%
-		+size($lines-height, $lines-width + 10)
-		margin-top: -#{round($lines-height / 2)}
-		margin-left: -#{round($lines-width / 2)}
-		background-color: $lines-color
-		$prop: transform, opacity, background-color, max-width
+		+size(#{nth($layer-size, 1)}, #{nth($layer-size, 2)})
+		margin-top: -#{round(nth($layer-size, 1) / 2)}
+		margin-left: -#{round(nth($layer-size, 2) / 2)}
+		background-color: $layer-color
+		// transition
+		$prop: transform, opacity
 		will-change: $prop
 		transition:
 			property: $prop
-			duration: $animation-speed
-			delay: $animation-delay
-
-		+media('<tab-lg')
-			+size($lines-height--mob, $lines-width--mob + 5)
-			margin-top: -#{round($lines-height--mob / 2)}
-			margin-left: -#{round($lines-width--mob / 2)}
+			duration: $burger-animation-speed
+			delay: $burger-animation-delay
 
 		&::before, &::after
 			+pseudo()
 			left: 0
-			+size($lines-height, $lines-width)
-			background-color: inherit
-			$prop: transform, max-width
+			+size(#{nth($layer-size, 1)}, #{nth($layer-size, 2)})
+			background-color: $layer-color
+			// transition
+			$prop: transform
 			will-change: $prop
 			transition:
 				property: $prop
-				duration: $animation-speed
-				delay: $animation-delay
+				duration: $burger-animation-speed
+				delay: $burger-animation-delay
 
-			+media('<tab-lg')
-				+size($lines-height--mob, $lines-width--mob)
-
-		//first line menu
+		//верхний слой бутерброда
 		&::before
-			top: -#{$lines-height + $lines-space}
-			max-width: $lines-width - 5
+			top: -#{nth($layer-size, 1) + $layer-space}
 
-			+media('<tab-lg')
-				top: -#{$lines-height--mob + $lines-space--mob}
-				max-width: $lines-width--mob - 5
-
-		//third line menu
+		//нижний слой бутерброда
 		&::after
-			top: #{$lines-height + $lines-space}
-
-			+media('<tab-lg')
-				top: #{$lines-height--mob + $lines-space--mob}
+			top: #{nth($layer-size, 1) + $layer-space}
 
 	// hover
 	.no-touchevents &:hover
-		//background-color: #f3f3f3
-
-		&::before, &::after
-			background-color: $highlight-color--hover
-
-		& > i
-			background-color: $highlight-color--hover
-			//max-width: $btn-menu-lines-width
-
-			&::before, &::after
-				background-color: inherit
-
-	//&::before
-		max-width: $btn-menu-lines-width
+		background-color: $highlight-color--hover
 
 	// active
-	&.is-open
-
+	.is-open &
 		&::before, &::after
-			transition-delay: $animation-delay
+			transition-delay: $burger-animation-delay
 			//background-color: $base-color
 
 			opacity: 1
@@ -1669,22 +1637,55 @@ a.btn-cont
 				transition-delay: 0s
 
 			&::before
-				transform: translate(0, #{$lines-height + $lines-space}) translateZ(0)
-
-				+media('<tab-lg')
-					transform: translate(0, #{$lines-height--mob + $lines-space--mob}) translateZ(0)
+				transform: translate(0, #{nth($layer-size, 1) + $layer-space}) translateZ(0)
 
 			&::after
-				transform: translate(0, -#{$lines-height + $lines-space}) translateZ(0)
-
-				+media('<tab-lg')
-					transform: translate(0, -#{$lines-height--mob + $lines-space--mob}) translateZ(0)
+				transform: translate(0, -#{nth($layer-size, 1) + $layer-space}) translateZ(0)
 
 // panel
 .rolls__panel
 	display: none // Важно!
+	position: relative
+	padding: nth($page-layout-space, 1) nth($page-layout-space, 2)
+	background-color: $base-color-dark
 
+	+media('<tab-lg')
+		padding: nth($page-layout-space--mob, 1) 6rem nth($page-layout-space--mob, 1) nth($page-layout-space--mob, 2)
+
+	+media('<mob-lg')
+		padding-right: nth($page-layout-space--mob, 2)
+
+	&::before
+		content: ""
+		display: block
+		position: absolute
+		right: 0
+		bottom: 0
+		width: 6rem
+		height: 100%
+		background-color: #488098
+
+		+media('<tab-lg')
+			width: 4rem
+
+		+media('<mob-lg')
+			display: none
+
+	// active
 	&.is-open
 		display: block // Важно!
+
+.rolls__panel__inner
+	opacity: 0
+	pointer-events: none
+	margin: 0 auto
+	max-width: $text-layout-width
+	will-change: opacity
+	transition: opacity $animation-speed * 2 ease-in-out
+
+	// active
+	.is-open &
+		opacity: 1
+		pointer-events: auto
 
 /* rolls end

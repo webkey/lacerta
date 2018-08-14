@@ -998,10 +998,20 @@ function accordionInit() {
 	if ($accordion.length) {
 		$accordion.msRolls({
 			animationSpeed: 250
-			// collapsed: true
+			, collapsed: true
 			, modifiers: {
 				activeClass: 'is-open'
 			}
+			// , afterClose: function (e, el) {
+			//
+			// 	// Удалить класс с элементов
+			// 	// accordion.msRolls('toggleClass', [$('html')], false);
+			// }
+			// , afterOpen: function () {
+			//
+			// 	// Добавить класс на элементы
+			// 	// accordion.msRolls('toggleClass', [$('html')]);
+			// }
 		});
 	}
 }
