@@ -26,6 +26,6 @@
 </ul>
 <ul class="@@bsKey__list">
 	<li class="@@if(currentItem === 'Контакты'){current}">
-		@@include('_tpl_nav-LINK--short.html', { "txt": "Контакты", "href": "#!", "key": "@@bsKey" })
+		@@include('_tpl_nav-LINK--short.html', { "txt": "Контакты", "href": "@@if(currentItem === 'Контакты'){javascript:;}@@if(currentItem !== 'Контакты'){contacts.html}", "key": "@@bsKey", "title": "Контакты" })
 	</li>
 </ul>

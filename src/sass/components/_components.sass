@@ -586,8 +586,8 @@
 
 /* social networks in footer end
 
-/* main sections
-.main-section
+/* section / main sections
+.main-section, .section
 	overflow: hidden
 	+margin-horizontal(-#{nth($page-layout-space, 2)})
 	margin-bottom: $bottom-space--section
@@ -605,6 +605,18 @@
 
 	&:last-child
 		margin-bottom: 0
+
+	&.clear-space
+		+padding-horizontal(0)
+
+	& .clear-space
+		+margin-horizontal(-#{nth($page-layout-space, 2)})
+
+		+media('<desk-lg')
+			+margin-horizontal(-#{nth($page-layout-space--md, 2)})
+
+		+media('<tab-lg')
+			+margin-horizontal(-#{nth($page-layout-space--mob, 2)})
 
 .main-section__heading
 	float: left
@@ -684,7 +696,7 @@
 		text-align: center
 		margin-bottom: 0
 
-/* main sections end
+/* section / main sections end
 
 /* subscription form
 .subs-form
@@ -899,7 +911,7 @@
 	justify-content: center
 	align-items: center
 	background-color: rgba($highlight-color, 0.95)
-	z-index: $z-footer
+	z-index: $z-middle
 	padding: $footer-box-space
 	opacity: 0
 	pointer-events: none
@@ -1295,3 +1307,384 @@ a.btn-cont
 			background-color: $highlight-color--hover
 
 /* news end
+
+/* pop
+.pop
+	display: inline-block
+	vertical-align: top
+	position: relative
+	color: inherit
+	cursor: default
+
+	& > span
+		display: inline-block
+		vertical-align: top
+		position: relative
+		padding: 0 10px
+		white-space: nowrap
+		z-index: 10
+		cursor: pointer
+		// transition
+		transition: color $animation-speed ease-in-out
+
+		&::before
+			content: ""
+			display: block
+			position: absolute
+			left: 0
+			top: -0.1em
+			width: 100%
+			height: calc(100% + 0.2em)
+			border-radius: 15px
+			border: 2px solid $highlight-color
+			// transition
+			$prop: transform, opacity
+			will-change: $prop
+			transition:
+				property: $prop
+				duration: $animation-speed
+				timing-function: ease-in-out
+
+	&.pop-is-open > span
+		&::before
+			opacity: 0
+
+	// hover
+	.no-touchevents & > span:hover
+		color: $highlight-color--hover
+
+	.no-touchevents &.pop-is-open > span:hover
+		color: $base-color
+
+.pop__content
+	position: absolute
+	left: 0
+	top: -0.1em
+	width: 440px
+	padding: round-float(nth($grid-space, 2) * 1.25, 1) nth($grid-space, 2) round-float(nth($grid-space, 2) * 0.75, 1)
+	color: $base-color
+	background-color: $highlight-color
+	border-radius: 15px
+	z-index: 5
+	opacity: 0
+	pointer-events: none
+	$translate: 0, 2em
+	transform: translate($translate)
+	transform: translate3d($translate, 0)
+	// transition
+	$prop: transform, opacity
+	will-change: $prop
+	transition:
+		property: $prop
+		duration: $pop-animation-speed
+		timing-function: cubic-bezier(0.55, 0.085, 0, 0.99)
+
+	.pop-is-open &
+		opacity: 1
+		pointer-events: auto
+		$translate: 0, 0
+		transform: translate($translate)
+		transform: translate3d($translate, 0)
+
+.pop__title
+	display: block
+	margin-bottom: 1em
+
+.pop__close
+	$line-w: 20px
+	$line-h: 2px
+	position: absolute
+	top: 8px
+	right: 8px
+	width: 20px
+	height: 20px
+	color: white
+	text-indent: -9999px
+	cursor: pointer
+	overflow: hidden
+	opacity: 0
+	$rotate: -0.25turn
+	transform: rotate($rotate)
+	transform: rotate($rotate) translateZ(0)
+	// transition
+	$prop: transform, opacity
+	will-change: $prop
+	transition:
+		delay: round-float($pop-animation-speed / 2, 1)
+		property: $prop
+		duration: $pop-animation-speed
+		timing-function: ease-in-out
+
+	.pop-is-open &
+		opacity: 1
+		$rotate: 0turn
+		transform: rotate($rotate)
+		transform: rotate($rotate) translateZ(0)
+		transition-delay: 0.2s
+
+	&::before, &::after
+		content: ""
+		display: block
+		position: absolute
+		height: $line-h
+		width: $line-w
+		margin: -#{round($line-h / 2)} 0 0 -#{round($line-w / 2)}
+		top: 50%
+		left: 50%
+		background-color: currentColor
+		// transition
+		transition: background-color $animation-speed ease-in-out
+
+	&::before
+		transform: rotate(0.125turn)
+
+	&::after
+		transform: rotate(-0.125turn)
+
+	// hover
+	.no-touchevents &:hover
+		&::before, &::after
+			background-color: $base-color
+
+/* pop end
+
+/* rolls
+.rolls
+	margin: 0 auto $bottom-space--element
+	width: $text-layout-width + nth($page-layout-space, 2) * 2
+	max-width: 100%
+
+	+media('<desk-lg')
+		width: $text-layout-width + nth($page-layout-space--md, 2) * 2
+
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--element--mob
+		width: $text-layout-width + nth($page-layout-space--mob, 2) * 2
+
+	&:last-child
+		margin-bottom: 0
+
+// item
+.rolls__item
+	position: relative
+	margin-bottom: nth($grid-space, 2)
+
+	+media('<tab-lg')
+		margin-bottom: nth($grid-space--mob, 2)
+
+	&:last-child
+		margin-bottom: 0
+
+// header
+.rolls__header
+	position: relative
+	background-color: $base-color-alt
+	color: inherit
+	padding: 3rem nth($page-layout-space, 2)
+
+	+media('<desk-lg')
+		padding: 2.5rem nth($page-layout-space--md, 2)
+
+	+media('<tab-lg')
+		padding: 1.5rem nth($page-layout-space--mob, 2)
+
+	.max-wrap-text
+		margin: 0 auto
+
+// angle
+.rolls__angle
+	$sandwich-bg: transparent
+	$sandwich-size: $header-height--md
+	$sandwich-size--mob: $header-height--mod
+	$lines-width: 20px
+	$lines-width--mob: 20px
+	$lines-height: 2px
+	$lines-height--mob: 2px
+	$lines-space: 4px
+	$lines-space--mob: 4px
+	$lines-color: currentColor
+	$animation-speed: $animation-speed
+	$animation-delay: round-float($animation-speed*0.5, 2)
+
+	$cross-width: $lines-width
+	$cross-width--mob: $lines-width--mob
+	$cross-height: $lines-height
+	$cross-height--mob: $lines-height--mob
+	$cross-color: $lines-color
+
+	// =====================
+
+	display: none
+	position: absolute
+	right: nth($page-layout-space--md, 2)
+	top: round($header-height--md / 2)
+	margin-top: -#{round($sandwich-size/2)}
+	+size($sandwich-size)
+	z-index: $z-middle
+	text-decoration: none
+	+font-normal
+	+font($font-size, $line-height)
+	letter-spacing: $letter-spacing
+	color: inherit
+	background-color: $sandwich-bg
+	user-select: none
+	-webkit-tap-highlight-color: transparent
+
+	+media('<desk-lg')
+		display: block
+
+	+media('<tab-lg')
+		right: nth($page-layout-space--mob, 2)
+		top: round($header-height--mod / 2)
+		margin-top: -#{round($sandwich-size--mob/2)}
+		+size($sandwich-size--mob)
+		+font($font-size--mob, $line-height--mob)
+
+	.touchevents &
+		// убрать подсветку при клике на тачскринах
+		user-select: none
+		-webkit-tap-highlight-color: transparent
+
+	& > span
+		position: absolute
+		left: 100%
+		top: 0
+		height: 100%
+		+padding-horizontal(5px)
+		+font-bold
+		line-height: $header-height--md
+		display: none
+
+	// крест
+	&::before, &::after
+		+pseudo()
+		+position(50%)
+		+size($cross-height, $cross-width)
+		margin-top: -#{round($cross-height / 2)}
+		margin-left: -#{round($cross-width / 2)}
+		background-color: $cross-color
+		opacity: 0
+		$prop: transform, opacity, background-color
+		will-change: $prop
+		transition:
+			property: $prop
+			duration: $animation-speed
+			delay: 0s
+			timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
+
+		+media('<tab-lg')
+			+size($cross-height--mob, $cross-width--mob)
+			margin-top: -#{round($cross-height--mob / 2)}
+			margin-left: -#{round($cross-width--mob / 2)}
+
+	// бутерброд
+	& > i
+		position: absolute
+		left: 50%
+		top: 50%
+		+size($lines-height, $lines-width + 10)
+		margin-top: -#{round($lines-height / 2)}
+		margin-left: -#{round($lines-width / 2)}
+		background-color: $lines-color
+		$prop: transform, opacity, background-color, max-width
+		will-change: $prop
+		transition:
+			property: $prop
+			duration: $animation-speed
+			delay: $animation-delay
+
+		+media('<tab-lg')
+			+size($lines-height--mob, $lines-width--mob + 5)
+			margin-top: -#{round($lines-height--mob / 2)}
+			margin-left: -#{round($lines-width--mob / 2)}
+
+		&::before, &::after
+			+pseudo()
+			left: 0
+			+size($lines-height, $lines-width)
+			background-color: inherit
+			$prop: transform, max-width
+			will-change: $prop
+			transition:
+				property: $prop
+				duration: $animation-speed
+				delay: $animation-delay
+
+			+media('<tab-lg')
+				+size($lines-height--mob, $lines-width--mob)
+
+		//first line menu
+		&::before
+			top: -#{$lines-height + $lines-space}
+			max-width: $lines-width - 5
+
+			+media('<tab-lg')
+				top: -#{$lines-height--mob + $lines-space--mob}
+				max-width: $lines-width--mob - 5
+
+		//third line menu
+		&::after
+			top: #{$lines-height + $lines-space}
+
+			+media('<tab-lg')
+				top: #{$lines-height--mob + $lines-space--mob}
+
+	// hover
+	.no-touchevents &:hover
+		//background-color: #f3f3f3
+
+		&::before, &::after
+			background-color: $highlight-color--hover
+
+		& > i
+			background-color: $highlight-color--hover
+			//max-width: $btn-menu-lines-width
+
+			&::before, &::after
+				background-color: inherit
+
+	//&::before
+		max-width: $btn-menu-lines-width
+
+	// active
+	&.is-open
+
+		&::before, &::after
+			transition-delay: $animation-delay
+			//background-color: $base-color
+
+			opacity: 1
+
+		&::before
+			transform: rotate(45deg) translateZ(0)
+
+		&::after
+			transform: rotate(-45deg) translateZ(0)
+
+		& > i
+			opacity: 0
+			transition-delay: 0s
+
+			&::before, &::after
+				transition-delay: 0s
+
+			&::before
+				transform: translate(0, #{$lines-height + $lines-space}) translateZ(0)
+
+				+media('<tab-lg')
+					transform: translate(0, #{$lines-height--mob + $lines-space--mob}) translateZ(0)
+
+			&::after
+				transform: translate(0, -#{$lines-height + $lines-space}) translateZ(0)
+
+				+media('<tab-lg')
+					transform: translate(0, -#{$lines-height--mob + $lines-space--mob}) translateZ(0)
+
+// panel
+.rolls__panel
+	display: none // Важно!
+
+	&.is-open
+		display: block // Важно!
+
+/* rolls end

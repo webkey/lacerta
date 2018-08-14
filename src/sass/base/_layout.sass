@@ -46,7 +46,6 @@ html
 	& > .h2, & > .h3, & > .h4, & > .h5, & > .h6,
 	& > hr, & > blockquote,
 	& > .layout-text
-
 		max-width: $text-layout-width
 		+padding-horizontal(0)
 		+push-auto
@@ -169,8 +168,11 @@ html
 	flex-grow: 1
 	position: relative
 	clear: both
-	z-index: $z-main
+	z-index: $z-high
 	padding-bottom: $bottom-space--section
+
+	+media('<desk-lg')
+		z-index: $z-middle
 
 	+media('<tab-lg')
 		padding-bottom: $bottom-space--section--mob
@@ -217,10 +219,10 @@ html
 	top: 0
 	height: 0
 	width: 100%
-	z-index: $z-header
+	z-index: $z-low
 
 	+media('<desk-lg')
-		z-index: $z-footer
+		z-index: $z-high
 
 .header__layout
 	position: relative
@@ -233,7 +235,7 @@ html
 	height: $header-height
 	width: $header-width
 	padding: nth($page-layout-space, 1) 60px
-	z-index: $z-header
+	z-index: $z-low
 	background-color: $header-bg
 	+clear
 
@@ -243,7 +245,7 @@ html
 		height: 0
 		width: $header-width--md
 		padding: 0
-		z-index: $z-footer
+		z-index: $z-middle
 
 //header top
 .header__top
@@ -259,7 +261,7 @@ html
 		margin: 0
 		padding: 1rem nth($page-layout-space--md, 2)
 		background-color: $header-bg
-		z-index: $z-footer
+		z-index: $z-middle
 
 	+media('<tab-lg')
 		padding: 1rem nth($page-layout-space--mob, 2)
@@ -412,7 +414,7 @@ html
 		top: $header-height--md
 		width: 100%
 		padding: $page-layout-space--md
-		z-index: $z-footer - 1
+		z-index: $z-middle - 1
 
 		$translate: 0, -100%
 		//$translate: 0, 0
@@ -522,7 +524,7 @@ a.nav-opener
 	top: round($header-height--md / 2)
 	margin-top: -#{round($btn-menu-size/2)}
 	+size($btn-menu-size)
-	z-index: $z-footer
+	z-index: $z-middle
 	text-decoration: none
 	+font-normal
 	+font($font-size, $line-height)
@@ -729,13 +731,13 @@ a.nav-opener
 	width: 100%
 	padding-top: nth($page-layout-space, 1)
 	padding-bottom: nth($page-layout-space, 1) + 3rem
-	z-index: $z-footer
+	z-index: $z-middle
 	background-color: $base-color
 	border-top: 5px solid #363c9b
 
 	+media('<desk-lg')
 		+padding-vertical(nth($footer-box-space--md, 1))
-		z-index: $z-header
+		z-index: $z-low
 
 	+media('<tab-lg')
 		+padding-vertical(nth($footer-box-space--mob, 1), round-float(nth($footer-box-space--mob, 1) * 2, 1))
@@ -1057,8 +1059,8 @@ $c-heading-y: 60vh
 
 // c-transition
 .c-transition
-	//background-color: #343399
-	background-color: #2a2971
+	//background-color: #2a2971
+	background-color: $base-color
 	cursor: wait
 	height: 100vh
 	left: 0

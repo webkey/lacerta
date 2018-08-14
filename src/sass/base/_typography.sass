@@ -59,6 +59,10 @@ h3, .h3
 h4, .h4
 	+font-bold
 	+font($font-size-h4, $line-height-h4)
+	margin-bottom: $bottom-space
+
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--mob
 
 h5, .h5
 	+font($font-size-h5, $line-height-h5)
@@ -158,7 +162,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	+hide-text
 
 .hide
-	display: block
+	display: none !important
 
 .hide-desk
 	+media('>=desk-lg')
@@ -168,25 +172,25 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	+media('<desk-lg')
 		display: none !important
 
-.section, .section-bottom
+.section, .bottom-space-section
 	margin-bottom: $bottom-space--section
 
 	+media('<tab-lg')
 		margin-bottom: $bottom-space--section--mob
 
-.article, .article-bottom
+.article, .bottom-space-article
 	margin-bottom: $bottom-space--article
 
 	+media('<tab-lg')
 		margin-bottom: $bottom-space--article--mob
 
-.element-bottom
+.bottom-space-element
 	margin-bottom: $bottom-space--element
 
 	+media('<tab-lg')
 		margin-bottom: $bottom-space--element--mob
 
-.row-bottom
+.bottom-space-row
 	margin-bottom: $bottom-space--row
 
 	+media('<tab-lg')
@@ -321,7 +325,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 			//===================
 			counter-increment: section
 			height: 1%
-			overflow: hidden
+			//overflow: hidden
 			padding-left: $space
 
 			+media('<tab-lg')
