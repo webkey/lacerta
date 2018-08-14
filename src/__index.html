@@ -19,7 +19,7 @@
 <section class="main-section">
 	<div class="main-section__heading">
 		<h3>Новые эмиссии</h3>
-		@@include("_tpl_btn.html", {"value": "Все эмиссии", "classes": "btn-def hide-mob"})
+		@@include("_tpl_btn.html", {"value": "Все эмиссии", "classes": "btn-def show-desk"})
 	</div>
 	<div class="main-section__content">
 		<div class="main-section__body">
@@ -37,7 +37,7 @@
 			</div>
 		</div>
 
-		<div class="main-section__foot show-mob">
+		<div class="main-section__foot hide-desk">
 			@@include("_tpl_btn.html", {"value": "Все эмиссии"})
 		</div>
 	</div>
@@ -46,7 +46,7 @@
 <section class="main-section">
 	<div class="main-section__heading">
 		<h3>Облигации в обращении</h3>
-		@@include("_tpl_btn.html", {"value": "Все облигации", "classes": "btn-def hide-mob"})
+		@@include("_tpl_btn.html", {"value": "Все облигации", "classes": "btn-def show-desk"})
 	</div>
 	<div class="main-section__content">
 		<div class="main-section__body">
@@ -64,12 +64,31 @@
 			</div>
 		</div>
 
-		<div class="main-section__foot show-mob">
+		<div class="main-section__foot hide-desk">
 			@@include("_tpl_btn.html", {"value": "Все облигации"})
 		</div>
 	</div>
 </section>
 
+<section class="main-section">
+	<div class="main-section__heading">
+		<h3>СМИ о нас</h3>
+		@@include("_tpl_btn.html", {"value": "Все материалы", "classes": "btn-def show-desk"})
+	</div>
+	<div class="main-section__content">
+		<div class="main-section__body">
+			<div class="news max-wrap-flood push-auto">
+				<div class="news__list">
+					@@loop("_tpl_news--items.html", "includes/json/news--items--short.json")
+				</div>
+			</div>
+		</div>
+
+		<div class="main-section__foot hide-desk">
+			@@include("_tpl_btn.html", {"value": "Все материалы"})
+		</div>
+	</div>
+</section>
 
 <h2 class="h1">Как купить облигации?</h2>
 <section class="main-section">
