@@ -48,6 +48,8 @@ $(function () {
 					formValidInit();
 					toggleNav();
 					togglePop();
+					accordionInit();
+					offersAccordionInit();
 				}
 			}
 		},
@@ -212,11 +214,11 @@ function equalHeight() {
  * !Initial sliders on the project
  * */
 function slidersInit() {
-	/**info slider*/
-	var $infoSlider = $('.info-slider-js');
+	/**Offers slider*/
+	var $offersSlider = $('.offers-slider-js');
 
-	if($infoSlider.length){
-		$infoSlider.each(function () {
+	if($offersSlider.length){
+		$offersSlider.each(function () {
 			var $curSlider = $(this);
 			var dur = 200;
 
@@ -259,6 +261,55 @@ function slidersInit() {
 				]
 			});
 
+		});
+	}
+
+	/**Extended Offers slider*/
+	var $xOffersSlider = $('.x-offers-slider-js');
+
+	if($xOffersSlider.length){
+		$xOffersSlider.each(function () {
+			var $curSlider = $(this);
+			var dur = 200;
+
+			$curSlider.slick({
+				speed: dur,
+				slidesToShow: 2,
+				slidesToScroll: 2,
+				lazyLoad: 'ondemand',
+				infinite: false,
+				dots: true,
+				arrows: false,
+				// remove touch events
+				accessibility: false,
+				draggable: false,
+				swipe: false,
+				touchMove: false,
+				responsive:[
+					{
+						breakpoint: 992,
+						settings: {
+							// add touch events
+							accessibility: true,
+							draggable: true,
+							swipe: true,
+							touchMove: true
+						}
+					},
+					{
+						breakpoint: 640,
+						settings: {
+							slidesToShow: 1,
+							slidesToScroll: 1,
+							// add touch events
+							accessibility: true,
+							draggable: true,
+							swipe: true,
+							touchMove: true
+						}
+					}
+				]
+			});
 		});
 	}
 }
@@ -564,6 +615,7 @@ function togglePop() {
 			if ($curPop.hasClass(openClass)) {
 				$curPop.removeClass(openClass);
 			} else {
+				$pop.removeClass(openClass);
 				$curPop.addClass(openClass);
 			}
 
@@ -997,21 +1049,32 @@ function accordionInit() {
 
 	if ($accordion.length) {
 		$accordion.msRolls({
-			animationSpeed: 250
-			, collapsed: true
+			animationSpeed: 330
 			, modifiers: {
 				activeClass: 'is-open'
 			}
-			// , afterClose: function (e, el) {
-			//
-			// 	// Удалить класс с элементов
-			// 	// accordion.msRolls('toggleClass', [$('html')], false);
-			// }
-			// , afterOpen: function () {
-			//
-			// 	// Добавить класс на элементы
-			// 	// accordion.msRolls('toggleClass', [$('html')]);
-			// }
+		});
+	}
+}
+
+/**
+ * !Offers Accordion Initial
+ * */
+
+function offersAccordionInit() {
+	var $offersAccord = $('.offers-rolls-js');
+
+	if ($offersAccord.length) {
+		$offersAccord.msRolls({
+			item: '.offers-rolls__item-js'
+			, header: '.offers-rolls__header-js'
+			, hand: '.offers-rolls__hand-js'
+			, panel: '.offers-rolls__panel-js'
+			, animationSpeed: 330
+			, collapsed: false
+			, modifiers: {
+				activeClass: 'is-open'
+			}
 		});
 	}
 }
@@ -1031,5 +1094,6 @@ $(document).ready(function () {
 	toggleNav();
 	togglePop();
 	accordionInit();
+	offersAccordionInit();
 	objectFitImages(); // object-fit-images initial
 });

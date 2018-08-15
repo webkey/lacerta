@@ -7,7 +7,7 @@
 
 // Medium query
 //$breakpoints: ('mob-sm': 320px, 'mob-md': 480px, 'mob-lg': 640px, 'tab-sm': 768px, 'tab-lg': 992px, 'desk-sm': 1200px, 'desk-md': 1366px, 'desk-lg': 1600px, 'desk-hd': 1920px)
-$breakpoints: ('desk-qhd': 2560px, 'desk-hd': 1920px, 'desk-lg': 1600px, 'desk-ml': 1440px, 'desk-md': 1366px, 'desk-sm': 1200px, 'tab-lg': 992px, 'tab-sm': 768px, 'mob-lg': 640px, 'mob-md': 480px, 'mob-sm': 320px)
+$breakpoints: ('desk-qhd': 2560px, 'desk-hd': 1920px, 'desk-lg': 1900px, 'desk-ml': 1440px, 'desk-md': 1366px, 'desk-sm': 1280px, 'tab-lg': 992px, 'tab-sm': 768px, 'mob-lg': 640px, 'mob-md': 480px, 'mob-sm': 320px)
 
 // Fonts style
 // ==========================================================================
@@ -204,7 +204,7 @@ $bottom-space--element--mob: 2rem !default
 $bottom-space--title: 2.4rem !default
 $bottom-space--title--mob: 1.6rem !default
 $bottom-space--row: 1.5rem !default
-$bottom-space--row--mob: 1.2rem !default
+$bottom-space--row--mob: 0.9rem !default
 
 
 // Z-indexes
@@ -236,10 +236,23 @@ $text-layout-space--sm: 1.3rem 1.5rem !default // v h
 $text-layout-space--mob: 0.8rem 1rem !default // v h
 // максимальная ширина текстового блока
 $text-layout-width: 68rem !default
-// максимальная ширина текстового блока выходящего за пределы текста
+// максимальная ширина блока выходящего за пределы текста
 $flood-layout-width: 108rem !default
+// максимальная ширина блока с ограниченной шириной
+$wide-layout-width: 124rem !default
+=wide()
+	max-width: $wide-layout-width
+	margin-left: auto
+	margin-right: auto
+$wide-full-layout-width: 140rem !default
+=wide-full()
+	max-width: $wide-full-layout-width
+	margin-left: auto
+	margin-right: auto
+
 // отступы внутри блочных элементов
 $grid-space: 4rem 4rem !default // v h
+$grid-space--md: 3rem 3rem !default // v h
 $grid-space--mob: 2rem 2rem !default // v h
 // отступы в дефолтных списках
 $list-space: 34px !default
@@ -295,6 +308,11 @@ $btn-font-size: 18px !default
 $btn-font-size--mob: 16px !default
 $btn-line-height: 22px !default
 $btn-line-height--mob: 20px !default
+//------------------------------------
+$btn-height--small: 44px !default
+$btn-font-size--small: 18px !default
+$btn-line-height--small: 22px !default
+//------------------------------------
 $btn-bg-color: $highlight-color !default
 $btn-bg-hover-color: $highlight-color--hover !default
 $btn-text-color: white !default
@@ -473,16 +491,33 @@ $multiple-item-space: 3px !default
 	border-color: $form-border-color--focus
 
 
+// Offers Slider
+// ==========================================================================
+$offers-slider-space: 16px !default
+
+
+// Extended Offers Slider
+// ==========================================================================
+$x-offers-slider-space: 16px !default
+
+
 // Rolls default / Roll up list
 // ==========================================================================
-$rolls-space: 10px 10px !default // v h
-$rolls-angle-size: 24px 24px !default // h w
-$rolls-angle-line-size: 2px 12px !default // h w
+$rolls-angle-size: 100% 6rem !default // h w
+$rolls-angle-size--md: 100% 4rem !default // h w
+$rolls-angle-size--mob: 4rem 100% !default // h w
 
 
-// Info Slider
+// Detail
 // ==========================================================================
-$info-slider-space: 15px !default
+$detail-label-width: 20rem !default
+$detail-item-space-v: 3.5rem 1rem !default
+$detail-item-space-v--md: 3.5rem 1rem !default
+$detail-item-space-v--mob: 1.5rem 0.8rem !default
+$detail-box-space-v: 0 2.5rem !default
+$detail-box-space-v--md: 0 2.5rem !default
+$detail-box-space-v--mob: 0 1.2rem !default
+$detail-box-space-h: 1rem 0 !default
 
 
 // Animation

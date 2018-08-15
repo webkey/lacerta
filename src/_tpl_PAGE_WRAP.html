@@ -21,15 +21,19 @@
 	<!--HEADER end-->
 
 	<!--MAIN-->
-	<div class="main user-content layout@@if(context.classes && context.classes != "@@classes"){ @@classes}@@if(context.pageClass){ @@pageClass}">
-		<div class="heading">
-			<h1>@@title</h1>
-		</div>
+	<div class="main@@if(context.classes && context.classes != "@@classes"){ @@classes}@@if(context.pageClass){ @@pageClass}">
+		<div class="layout content user-content">
+			<div class="heading">
+				<h1>@@title</h1>
+			</div>
 
 }
 @@if(pageWrap === "END")
 {
-		@@if(!context.noBigBtn) {<a href="contacts.html" data-heading="Контакты" class="btn-cont pulse"><span>Контакты</span>@@include("./includes/svg/icon-arrow-right.svg")</a>}
+		</div>
+		@@if(!context.noBigBtn) {
+		<a @@if(context.bigBtn){href="@@bigBtn.href" data-heading="@@bigBtn.title" class="btn-cont pulse"><span>@@bigBtn.text</span>}@@if(!context.bigBtn){href="contacts.html" data-heading="Контакты" class="btn-cont pulse"><span>Контакты</span>}@@include("./includes/svg/icon-arrow-right.svg")</a>
+		}
 	</div>
 	<!--MAIN end-->
 

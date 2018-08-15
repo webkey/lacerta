@@ -123,24 +123,21 @@ html
 	.h2, .h3, .h4, .h5, .h6
 		max-width: none
 
-// элеметы с отступами по бокам
+// елементы с максимальной ограниченной шириной
+.max-wrap-wide
+	max-width: $wide-layout-width
+
 .layout-wide
-	+padding-horizontal((nth($text-layout-space, 2)))
+	max-width: $wide-layout-width
+	+push-auto
 
-	+media('<tab-lg')
-		+padding-horizontal((nth($text-layout-space--md, 2)))
+// елементы с максимальной ограниченной шириной без отступов
+.max-wrap-wide-full
+	max-width: $wide-full-layout-width
 
-	+media('<tab-sm')
-		+padding-horizontal((nth($text-layout-space--sm, 2)))
-
-	p, ul, ol, h1, h2, h3, h4, h5, h6, hr
-		max-width: none
-
-// элеметы без отступов по бокам
-.layout-full-width
-
-	p, ul, ol, h1, h2, h3, h4, h5, h6, hr
-		max-width: none
+.layout-wide-full
+	max-width: $wide-full-layout-width
+	+push-auto
 
 // выравнивание по центру блочных элементов
 .push-auto
@@ -198,16 +195,8 @@ html
 	width: 100%
 
 .content
-	//margin: 0 200px 0 300px
-	min-height: 50px
-
-	background-color: whitesmoke
-
-	+media('<desk-lg')
-		margin-right: 0
-
-	+media('<tab-lg')
-		margin-left: 0
+	overflow: hidden
+	min-height: 5rem
 
 /* === CONTENT end ===
 
@@ -855,6 +844,13 @@ a.nav-opener
 			font-size: 14px
 			line-height: 15px
 
+			+media('<tab-lg')
+				font-size: 12px
+
+			+media('<mob-lg')
+				display: block
+				font-size: 14px
+
 .req
 	+media('<desk-lg')
 		margin-bottom: nth($footer-box-space--md, 1)
@@ -957,6 +953,7 @@ a.nav-opener
 	text-align: center
 	padding: nth($page-layout-space, 1) 0 0
 	margin-bottom: $bottom-space--article
+	+wide
 
 	+media('<desk-lg')
 		padding: nth($page-layout-space--md, 1) 0 0

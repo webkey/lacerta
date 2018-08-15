@@ -99,6 +99,7 @@ a
 	transition: color $animation-speed ease-in-out
 
 	.touchevents &
+		outline: none
 		-webkit-tap-highlight-color: transparent
 
 	&:link
@@ -136,8 +137,17 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 .highlight, .mark
 	color: $highlight-color
 
+.text-color
+	color: $text-color
+
+.text-color-light
+	color: $text-color-light
+
 .text-color-alt
 	color: $base-color-alt
+
+.text-color-dark
+	color: $base-color-dark
 
 .align-center
 	text-align: center
@@ -171,25 +181,25 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	+media('<desk-lg')
 		display: none !important
 
-.section, .bottom-space-section
+.section, .bottom-space-section, .#{$user-content} .bottom-space-section
 	margin-bottom: $bottom-space--section
 
 	+media('<tab-lg')
 		margin-bottom: $bottom-space--section--mob
 
-.article, .bottom-space-article
+.article, .bottom-space-article, .#{$user-content} .bottom-space-article
 	margin-bottom: $bottom-space--article
 
 	+media('<tab-lg')
 		margin-bottom: $bottom-space--article--mob
 
-.bottom-space-element
+.bottom-space-element, .#{$user-content} .bottom-space-element
 	margin-bottom: $bottom-space--element
 
 	+media('<tab-lg')
 		margin-bottom: $bottom-space--element--mob
 
-.bottom-space-row
+.bottom-space-row, .#{$user-content} .bottom-space-row
 	margin-bottom: $bottom-space--row
 
 	+media('<tab-lg')

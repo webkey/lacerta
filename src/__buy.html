@@ -29,16 +29,71 @@
 		.</li>
 	<li>Перечисляете денежные средства, достаточные для покупки облигаций, на счет Lacerta.</li>
 </ol>
+
 <div class="sep">&nbsp;</div>
-<ul>
-	<li>Покупка Lacerta облигаций на торгах ОАО «Белорусская валютно-фондовая биржа».</li>
+
+<ul class="bottom-space-section">
+	<li>Покупка Lacerta облигаций на торгах
+		<div class="pop pop-js" data-tc-only-add>
+			<span class="pop-open-js">ОАО</span>
+			<div class="pop__content pop-content-js">
+				<span class="pop__close pop-close-js">Close</span>
+				<b class="pop__title">ОАО (от фр. oao) —</b>
+				объединенная общим признаком совокупность записей в регистрах депозитария, предназначенная для учета ценных бумаг. На этом счете учитываются права на ценные бумаги, принадлежащие депоненту.
+			</div>
+		</div>
+		 «Белорусская валютно-фондовая биржа».</li>
 	<li>Зачисление купленных облигаций на счет депо инвестора.</li>
 	<li><b><a href="#!">Отчет Lacerta о проделанной работе.</a></b></li>
 </ul>
+
 <section class="section">
 	<h3>Доступные для покупки облигации</h3>
-	{{section content}}
+	<div class="x-offers">
+		<div class="x-offers__heads">
+			<table>
+				<thead>
+					<tr>
+						<td>Компания</td>
+						<td>Валюта</td>
+						<td>Ставка</td>
+						<td>Номинал</td>
+						<td>Срок</td>
+						<td>Ближайшая выплата</td>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="x-offers__list x-offers-slider-js offers-rolls-js">
+			@@loop("_tpl_x-offers--items.html", "includes/json/x-offers--items.json")
+		</div>
+	</div>
 </section>
+
+<section class="section">
+	<h3>sdfsdfsdfdsf dsf dsf dsf</h3>
+	<div class="x-offers">
+		<div class="x-offers__heads">
+			<table>
+				<thead>
+					<tr>
+						<td class="td">Выпуск</td>
+						<td class="td">Валюта</td>
+						<td class="td">Ставка</td>
+						<td class="td">Номинал</td>
+						<td class="td">Начало эмиссии</td>
+						<td class="td">Срок</td>
+						<td class="td">Объем выпуска</td>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="x-offers__list x-offers-slider-js">
+			@@loop("_tpl_x-offers--items.html", "includes/json/x-offers--items.json")
+		</div>
+	</div>
+</section>
+
 <section class="section">
 	<h3>Где можно открыть счет ДЕПО</h3>
 	{{section content}}

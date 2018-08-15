@@ -38,10 +38,6 @@
 		property: $prop
 		duration: $animation-speed
 
-	+media('<tab-lg')
-		padding: floor(($btn-height--mob - $btn-line-height--mob)/2) 32px ceil(($btn-height--mob - $btn-line-height--mob)/2) 18px
-		border-radius: round($btn-height--mob/2)
-
 	.touchevents &
 		user-select: none
 		-webkit-tap-highlight-color: transparent
@@ -69,9 +65,6 @@
 
 	&, & > span
 		+font($btn-font-size, $btn-line-height)
-
-		+media('<tab-lg')
-			+font($btn-font-size--mob, $btn-line-height--mob)
 
 	// hover
 	&:hover:not(:disabled):not(.disabled)
@@ -118,8 +111,27 @@
 		left: 34px
 		transform: translate(-50%, -50%)
 
-
 /* btn with icon end
+
+/* btn-default-small
+.btn-def-small
+	padding: floor(($btn-height--small - $btn-line-height--small)/2) 46px ceil(($btn-height--small - $btn-line-height--small)/2) 32px
+	border-radius: round($btn-height--small/2)
+
+/* btn-default-small end
+
+/* btn for mobile
+[class*="btn-def"],.btn-def-small
+	&
+		+media('<tab-lg')
+			padding: floor(($btn-height--mob - $btn-line-height--mob)/2) 32px ceil(($btn-height--mob - $btn-line-height--mob)/2) 18px
+			border-radius: round($btn-height--mob/2)
+
+	&, & > span
+		+media('<tab-lg')
+			+font($btn-font-size--mob, $btn-line-height--mob)
+
+/* btn for mobile end
 
 /* btn-default-alt
 .btn-default-alt

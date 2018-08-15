@@ -8,6 +8,7 @@
 	background-color: $base-color-alt
 	border-radius: round($form-input-height/2)
 	padding: nth($page-layout-space, 1) nth($page-layout-space, 2)
+	+wide
 
 	+media('<desk-lg')
 		padding: nth($page-layout-space--md, 1) nth($page-layout-space--md, 2)
@@ -205,198 +206,10 @@
 //.no-touchevents &:hover button::before
 /* slick sliders end
 
-/* promo slider
-// slider
-.info
-	margin-bottom: $bottom-space--element
-
-	+media('<tab-lg')
-		margin-bottom: $bottom-space--element--mob
-
-	&:last-child
-		margin-bottom: 0
-
-.info__slider
-	overflow: hidden
-
-	// only for mobile
-	+media('<mob-lg')
-		// before slide load
-		white-space: nowrap
-		overflow: visible
-		opacity: 0
-
-		&.slick-initialized, .no-js &
-			// after slide load
-			white-space: normal
-			opacity: 1
-
-		.slick-list
-			overflow: visible
-			+margin-horizontal(-#{round($info-slider-space / 2)}) // компенсировать отступы между слайдами
-
-	// destroy slider for desktop
-	+media('>=mob-lg')
-		.slick-track
-				opacity: 1 !important
-				width: auto !important
-				transform: none !important
-
-		.slick-slide
-			width: 100% !important
-
-			&.slick-cloned
-				display: none !important
-
-		.slick-dots
-			display: none !important
-
-	&, &.slick-dotted
-		margin: 0
-
-	//&.slick-dotted
-		+media('<mob-lg')
-			margin-bottom: $bottom-space--element
-
-.info__heads, .info__item .tr
-	+clear-spacing
-	.td
-		$item-width: round-float(150 / 960 * 100%, 2)
-		display: inline-block
-		vertical-align: top
-		white-space: normal
-		width: $item-width
-
-		+media('<mob-lg')
-			width: round-float(100% / 2, 2)
-
-		&:first-child
-			position: relative
-			width: round-float(100% - ($item-width * 4), 2)
-
-.info__heads
-	+padding-vertical(0.7rem, 1.5rem)
-
-	+media('<mob-lg')
-		display: none
-
-	.td
-		+font(1.6rem, round-float(24/16, 2))
-		letter-spacing: $letter-spacing
-		color: rgba($text-color, 0.4)
-
-// slide
-.info__item
-	position: relative
-	border-top: 1px solid rgba($text-color, 0.2)
-	color: inherit
-	margin-top: -1px
-
-	// only for mobile
-	+media('<mob-lg')
-		border: none
-		margin: 0
-		+padding-horizontal(round($info-slider-space / 2)) // добавить отступы между слайдами
-		// before slide load
-		float: none
-		display: inline-block
-		vertical-align: top
-		width: 100%
-
-		.slick-initialized &
-			// after slide load
-			float: left
-			display: block
-
-	.td
-		+font-bold
-		+font(2.6rem, round-float(26/26, 2))
-		letter-spacing: $letter-spacing
-		color: inherit
-
-		+media('<mob-lg')
-			+font-medium
-			font-size: 2.0rem
-			padding-top: 1rem
-
-		&::before
-			display: none
-			content: attr(data-label)
-			+font-normal
-			+font(13px, 15px)
-			color: $text-color-light
-			margin-bottom: 0.4em
-
-			+media('<mob-lg')
-				display: block
-
-	.tr
-		+padding-vertical(2rem)
-
-		+media('<mob-lg')
-			padding: nth($grid-space--mob, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 1) * 0.8, 2)
-			background-color: $base-color
-
-		.td.info__item__caption
-			+media('<mob-lg')
-				display: block
-				width: auto
-				background-color: #fff
-				padding: nth($grid-space--mob, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 1) * 0.8, 2)
-				text-align: center
-				margin: -#{nth($grid-space--mob, 1)} -#{nth($grid-space--mob, 2)} 0.5rem
-
-				&::before
-					display: none
-
-.info__item__img
-	position: relative
-	padding: 0
-	margin: 0 0 nth($page-layout-space--mob, 2)
-	display: none
-
-	+media('<mob-lg')
-		display: block
-
-	&::before
-		content: ""
-		display: block
-		+ratio(210, 90)
-
-	img
-		display: block
-		position: absolute
-		left: 0
-		top: 0
-		width: 100%
-		height: 100%
-		max-width: none
-		margin: 0 auto
-		+object-fit(contain)
-
-.info__item__title
-	+font-bold
-	margin-bottom: 0.4em
-
-	+media('<mob-lg')
-		+font(2.0rem, round-float(22/20, 2))
-		color: #242473
-		margin-bottom: 0.1em
-
-.info__item__release
-	color: $highlight-color
-	+font-normal
-	+font(1.4rem, round-float(18/14, 2))
-
-	+media('<mob-lg')
-		+font-medium
-		font-size: 12px
-
-/* promo slider end
-
 /* breadcrumbs
 .breadcrumbs
 	margin-bottom: $bottom-space--section
+	+wide
 
 	+media('<tab-lg')
 		margin-bottom: $bottom-space--section--mob
@@ -461,10 +274,10 @@
 
 		&:hover
 			color: $highlight-color--hover
-			//text-decoration: underline
+//text-decoration: underline
 
-			//span
-				border-color: $highlight-color
+//span
+	border-color: $highlight-color
 
 /* breadcrumbs end
 
@@ -697,6 +510,645 @@
 		margin-bottom: 0
 
 /* section / main sections end
+
+/* offers
+// slider
+.offers
+	margin-bottom: $bottom-space--element
+
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--element--mob
+
+	&:last-child
+		margin-bottom: 0
+
+.offers__list
+	overflow: hidden
+
+	// only for mobile
+	+media('<mob-lg')
+		// before slide load
+		white-space: nowrap
+		overflow: visible
+		opacity: 0
+
+		&.slick-initialized, .no-js &
+			// after slide load
+			white-space: normal
+			opacity: 1
+
+		.slick-list
+			overflow: visible
+			+margin-horizontal(-#{round($offers-slider-space / 2)}) // компенсировать отступы между слайдами
+
+	// destroy slider for desktop
+	+media('>=mob-lg')
+		.slick-track
+				opacity: 1 !important
+				width: auto !important
+				transform: none !important
+
+		.slick-slide
+			width: 100% !important
+
+			&.slick-cloned
+				display: none !important
+
+		.slick-dots
+			display: none !important
+
+	&, &.slick-dotted
+		margin: 0
+
+	//&.slick-dotted
+		+media('<mob-lg')
+			margin-bottom: $bottom-space--element
+
+.offers__heads, .offers__item .tr
+	+clear-spacing
+
+.offers__heads, .offers__item
+	.td
+		$item-width: round-float(150 / 960 * 100%, 2)
+		display: inline-block
+		vertical-align: top
+		white-space: normal
+		width: $item-width
+
+		+media('<mob-lg')
+			width: round-float(100% / 2, 2)
+
+		&:first-child
+			position: relative
+			width: round-float(100% - ($item-width * 4), 2)
+
+.offers__heads
+	+padding-vertical(0.7rem, 1.5rem)
+
+	+media('<mob-lg')
+		display: none
+
+	.td
+		+font(1.6rem, round-float(24/16, 2))
+		letter-spacing: $letter-spacing
+		color: rgba($text-color, 0.4)
+
+// slide
+.offers__item
+	position: relative
+	border-top: 1px solid rgba($text-color, 0.2)
+	color: inherit
+	margin-top: -1px
+
+	// only for mobile
+	+media('<mob-lg')
+		border: none
+		margin: 0
+		+padding-horizontal(round($offers-slider-space / 2)) // добавить отступы между слайдами
+		// before slide load
+		float: none
+		display: inline-block
+		vertical-align: top
+		width: 100%
+
+		.slick-initialized &
+			// after slide load
+			float: left
+			display: block
+
+	.td
+		+font(2.2rem, round-float(30/22, 2))
+		letter-spacing: $letter-spacing
+		color: inherit
+
+		.offers_main &
+			+font-bold
+			+font(2.6rem, round-float(26/26, 2))
+
+		+media('<mob-lg')
+			+font-medium
+			font-size: 2.0rem
+			padding-top: 1rem
+
+		&::before
+			display: none
+			content: attr(data-label)
+			+font-normal
+			+font(13px, 15px)
+			color: $text-color-light
+			margin-bottom: 0.4em
+
+			+media('<mob-lg')
+				display: block
+
+		&.offers__item__caption
+			+media('<mob-lg')
+				display: block
+				width: auto
+				background-color: #fff
+				padding: nth($grid-space--mob, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 1) * 0.8, 2)
+				text-align: center
+				margin: -#{nth($grid-space--mob, 1)} -#{nth($grid-space--mob, 2)} 0.5rem
+
+				&::before
+					display: none
+
+	.tr
+		+padding-vertical(2rem)
+
+		+media('<mob-lg')
+			padding: nth($grid-space--mob, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 1) * 0.8, 2)
+			background-color: $base-color
+
+.offers__item__img
+	position: relative
+	padding: 0
+	margin: 0 0 nth($page-layout-space--mob, 2)
+	display: none
+
+	+media('<mob-lg')
+		display: block
+
+	&::before
+		content: ""
+		display: block
+		+ratio(210, 90)
+
+	img
+		display: block
+		position: absolute
+		left: 0
+		top: 0
+		width: 100%
+		height: 100%
+		max-width: none
+		margin: 0 auto
+		+object-fit(contain)
+
+.offers__item__title
+	+font-bold
+	margin-bottom: 0.4em
+
+	+media('<mob-lg')
+		+font(2.0rem, round-float(22/20, 2))
+		color: #242473
+		margin-bottom: 0.1em
+
+.offers__item__release
+	color: $highlight-color
+	+font-normal
+	+font(1.4rem, round-float(18/14, 2))
+
+	+media('<mob-lg')
+		+font-medium
+		font-size: 12px
+
+/* offers end
+
+/* extended offers
+// slider
+.x-offers
+	margin-bottom: $bottom-space--element
+	+wide
+
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--element--mob
+		padding-bottom: 4.5rem //отступ для пагинации слайдера
+
+	&:last-child
+		margin-bottom: 0
+
+.x-offers__list
+	overflow: hidden
+
+	// only for mobile
+	+media('<tab-lg')
+		// before slide load
+		white-space: nowrap
+		overflow: visible
+		opacity: 0
+
+		&.slick-initialized, .no-js &
+			// after slide load
+			white-space: normal
+			opacity: 1
+
+		.slick-list
+			overflow: visible
+			+margin-horizontal(-#{round($x-offers-slider-space / 2)}) // компенсировать отступы между слайдами
+
+	// destroy slider for desktop
+	+media('>=tab-lg')
+		.slick-track
+				opacity: 1 !important
+				width: auto !important
+				transform: none !important
+
+		.slick-slide
+			width: 100% !important
+
+			&.slick-cloned
+				display: none !important
+
+		.slick-dots
+			display: none !important
+
+	&, &.slick-dotted
+		margin: 0
+
+	//&.slick-dotted
+		+media('<mob-lg')
+			margin-bottom: $bottom-space--element
+
+//.x-offers__heads, .x-offers__item .tr
+	+clear-spacing
+
+.x-offers__heads, .x-offers__item
+	table
+		height: 100%
+		width: 100%
+		table-layout: fixed
+		margin: 0
+
+	td
+		//display: inline-block
+		vertical-align: middle
+		padding: 0
+		//white-space: normal
+		//width: $item-width
+
+		&:first-child
+			//$width: 554px
+			//$width: 514px
+			$width: 44.7%
+			position: relative
+			min-width: $width
+			width: $width
+			padding: 0
+
+.x-offers__heads
+	&
+		+media('<tab-lg')
+			display: none
+
+	td
+		+font(1.6rem, round-float(24/16, 2))
+		letter-spacing: $letter-spacing
+		color: rgba($text-color, 0.4)
+		white-space: nowrap
+		+padding-vertical(1.3rem)
+
+		&:first-child
+			text-align: center
+
+// slide
+.x-offers__item
+	position: relative
+	border-top: 1px solid rgba(white, 0.2)
+
+	// only for mobile
+	+media('<tab-lg')
+		border: none
+		margin: 0
+		+padding-horizontal(round($x-offers-slider-space / 2)) // добавить отступы между слайдами
+		padding-bottom: nth($rolls-angle-size--mob, 1) //отступ для кнопки, открывающей дополнительную информцацию
+		// before slide load
+		float: none
+		display: inline-block
+		vertical-align: top
+		width: 100%
+
+		.slick-initialized &
+			// after slide load
+			float: left
+			display: block
+
+	&:first-child, &.slick-cloned + &
+		border: none
+
+	table, tbody, tr
+		+media('<tab-lg')
+			display: block
+			width: auto
+
+	table
+		+media('<tab-lg')
+			+clear-spacing
+
+	tr
+		+media('<tab-lg')
+			padding: nth($grid-space--mob, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 1) * 0.8, 2)
+			background-color: $base-color
+
+	td
+		+font(2.2rem, round-float(30/22, 2))
+		letter-spacing: $letter-spacing
+		color: inherit
+
+		+media('<desk-sm') // 1280
+			font-size: 1.8rem
+
+		+media('<tab-lg')
+			display: inline-block
+			vertical-align: top
+			+font-medium
+			font-size: 2.0rem
+			padding-top: 1rem
+			width: round-float(100% / 2, 2)
+
+		&::before
+			display: none
+			content: attr(data-label)
+			+font-normal
+			+font(13px, 15px)
+			color: $text-color-light
+			margin-bottom: 0.4em
+
+			+media('<tab-lg')
+				display: block
+
+		&.x-offers__item__caption
+
+			&
+
+				+media('<tab-lg')
+					display: block
+					width: auto
+					min-width: 0
+					background-color: white
+					margin: -#{nth($grid-space--mob, 1)} -#{nth($grid-space--mob, 2)} 0.5rem
+
+					&::before
+						display: none
+
+			.t-val
+				position: relative
+				display: flex
+				align-items: center
+				height: 100%
+				margin-right: 6rem
+				background-color: white
+				padding: $grid-space
+				text-decoration: none
+				color: inherit
+
+				+media('<desk-lg')
+					margin-right: nth($grid-space--md, 2)
+					padding: $grid-space--md
+
+				+media('<tab-lg')
+					display: block
+					height: auto
+					padding: nth($grid-space--mob, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 1) * 0.8, 2)
+					margin-right: 0
+					text-align: center
+
+				&::before
+					content: ""
+					display: block
+					position: absolute
+					left: 100%
+					top: 50%
+					margin: -20px 0 0 -4px
+					+triangle(right, white, 20px, 1)
+
+					+media('<tab-lg')
+						display: none
+
+.x-offers__item__select, .x-offers__heads
+	padding-right: nth($rolls-angle-size, 2)
+
+	+media('<tab-lg')
+		//padding-right: nth($rolls-angle-size--md, 2)
+		padding-right: 0
+
+	//+media('<mob-lg')
+		padding-right: nth($page-layout-space--mob, 2)
+
+// select
+.x-offers__item__select
+	position: relative
+	height: 16rem
+	background-color: $base-color-alt
+	//.touchevents &
+	outline: none
+	-webkit-tap-highlight-color: transparent
+
+	+media('<tab-lg')
+		position: static
+		height: auto
+
+	.rolls__angle
+		box-shadow: none
+
+		+media('<tab-lg')
+			right: round($x-offers-slider-space / 2)
+			+size(nth($rolls-angle-size--mob, 1), calc(100% - #{round($x-offers-slider-space / 2 * 2)}))
+
+// image
+.x-offers__item__img
+	position: relative
+	padding: 0
+	margin: 0 nth($grid-space, 2) 0 0
+	width: 120px
+	max-width: 45%
+
+	+media('<tab-lg')
+		display: block
+		width: 210px
+		max-width: none
+		margin: 0 auto nth($page-layout-space--mob, 2)
+
+	&::before
+		content: ""
+		display: block
+		+ratio(120, 80)
+
+		+media('<tab-lg')
+			+ratio(210, 90)
+
+	img
+		display: block
+		position: absolute
+		left: 0
+		top: 0
+		width: 100%
+		height: 100%
+		max-width: none
+		margin: 0 auto
+		+object-fit(contain)
+
+.x-offers__item__heading
+	position: relative
+
+.x-offers__item__title
+	+font-bold
+	margin-bottom: 0.4em
+	color: #242473
+
+	+media('<mob-lg')
+		+font(2.0rem, round-float(22/20, 2))
+		margin-bottom: 0.1em
+
+.x-offers__item__release
+	color: $highlight-color
+	+font-bold
+	+font(1.4rem, round-float(18/14, 2))
+
+	+media('<mob-lg')
+		+font-medium
+		font-size: 12px
+
+// panel
+.x-offers__item__panel
+	display: none // Важно!
+	position: relative
+	padding: #{round-float(nth($page-layout-space, 2) * 0.7, 2)} #{nth($page-layout-space, 2) + nth($rolls-angle-size, 2)} #{round-float(nth($page-layout-space, 2) * 0.7, 2)} nth($page-layout-space, 2)
+	background-color: $base-color-dark
+
+	+media('<desk-lg')
+		padding: #{round-float(nth($page-layout-space--md, 2) * 0.7, 2)} #{nth($page-layout-space--md, 2) + nth($rolls-angle-size, 2)} #{round-float(nth($page-layout-space--md, 2) * 0.7, 2)} nth($page-layout-space--md, 2)
+
+	+media('<tab-lg')
+		padding: #{round-float(nth($page-layout-space--mob, 2) * 0.7, 2)} nth($page-layout-space--mob, 2)
+
+	//+media('<mob-lg')
+		padding-right: nth($page-layout-space--mob, 2)
+
+	&::before
+		content: ""
+		display: block
+		position: absolute
+		right: 0
+		bottom: 0
+		width: nth($rolls-angle-size, 2)
+		height: 100%
+		background-color: #488098
+
+		//+media('<tab-lg')
+			width: nth($rolls-angle-size--md, 2)
+
+		+media('<tab-lg')
+			display: none
+
+	// active
+	&.is-open
+		display: block // Важно!
+
+.x-offers__item__panel__inner
+	//margin: 0 auto
+	//max-width: $text-layout-width
+	overflow: hidden
+	opacity: 0
+	pointer-events: none
+	will-change: opacity
+	transition: opacity $animation-speed * 2 ease-in-out
+
+	// active
+	.is-open &
+		opacity: 1
+		pointer-events: auto
+		
+.detail
+	position: relative
+	+margin-vertical(-#{nth($detail-item-space-v, 1)}, -#{nth($detail-box-space-v, 2) + nth($detail-item-space-v, 2)})
+
+	+media('<tab-lg')
+		+margin-vertical(-#{nth($detail-item-space-v--mob, 1)}, -#{nth($detail-box-space-v--mob, 2) + nth($detail-item-space-v--mob, 2)})
+
+.detail__item
+	border-top: 1px solid $text-color-light
+	padding-top: nth($detail-item-space-v, 1)
+	padding-bottom: nth($detail-item-space-v, 2)
+	+clear
+
+	+media('<tab-lg')
+		padding-top: nth($detail-item-space-v--mob, 1)
+		padding-bottom: nth($detail-item-space-v--mob, 2)
+
+	&:first-child
+		border: none
+
+.detail__item__label
+	float: left
+	width: $detail-label-width - nth($detail-box-space-h, 1)
+
+	// перекинуть название секции вверх
+	+media('<desk-sm') // 1280
+		float: none
+		width: auto
+		margin-bottom: $bottom-space--row
+
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--row--mob
+
+	h2, h4, h3, .h2, .h4, .h3
+		+font-h4
+
+		+media('<tab-lg')
+			font-size: 2.0rem
+
+.detail__item__body
+	margin-left: $detail-label-width - nth($detail-box-space-h, 1)
+	display: flex
+	flex-wrap: wrap
+
+	+media('<desk-sm') // 1280
+		// компенсировать горизонтальный отступ внутренних елементов
+		margin-left: -#{nth($detail-box-space-h, 1)}
+
+	+media('<tab-lg')
+		margin-left: 0
+		flex-direction: column
+
+.detail__item__box
+	display: inline-block
+	vertical-align: top
+	width: calc(100% / 3)
+	padding: 0 0 nth($detail-box-space-v, 2) nth($detail-box-space-h, 1)
+	font-size: $font-size
+	line-height: round-float(26/22, 2)
+
+	+media('<tab-lg')
+		padding: 0 0 nth($detail-box-space-v--mob, 2)
+		width: 100%
+		+font-medium
+		font-size: $font-size--mob
+
+.detail__item__box_lg
+	width: calc(100% / 3 * 2)
+
+	+media('<tab-lg')
+		width: 100%
+
+.detail__item__box_btn
+
+	+media('<tab-lg')
+		order: 5 //Костыль. Сделать последним
+
+.detail__item__title
+	+font(1.6rem, round-float(24/16, 2))
+	color: rgba($text-color, 0.4)
+	margin-bottom: 0.3em
+
+	+media('<tab-lg')
+		+font-normal
+		+font(13px, 15px)
+		color: $text-color-light
+		margin-bottom: 0.4em
+
+.detail__item__desc
+	.small
+		+font(1.6rem, round-float(24/16, 2))
+		color: rgba($text-color, 0.4)
+
+	small
+		font-size: 0.72em
+
+	[class*="btn-"]
+		display: block
+
+/* extended offers end
 
 /* subscription form
 .subs-form
@@ -1325,7 +1777,6 @@ $scale: round-float(nth($btn-cont-size--max, 2) / nth($btn-cont-size, 2), 2)
 		position: relative
 		padding: 0 10px
 		white-space: nowrap
-		z-index: 10
 		cursor: pointer
 		// transition
 		transition: color $animation-speed ease-in-out
@@ -1348,7 +1799,12 @@ $scale: round-float(nth($btn-cont-size--max, 2) / nth($btn-cont-size, 2), 2)
 				duration: $animation-speed
 				timing-function: ease-in-out
 
+	&:active > span
+		transform: translate(0, 1px)
+
 	&.pop-is-open > span
+		z-index: 10
+
 		+media('>=tab-lg')
 			&::before
 				opacity: 0
@@ -1499,10 +1955,13 @@ $scale: round-float(nth($btn-cont-size--max, 2) / nth($btn-cont-size, 2), 2)
 // header
 .rolls__header
 	position: relative
-	background-color: $base-color-alt
 	color: inherit
+	background-color: $base-color-alt
 	padding: 3rem nth($page-layout-space, 2)
-	-webkit-tap-highlight-color: transparent
+
+	.touchevents &
+		outline: none
+		-webkit-tap-highlight-color: transparent
 
 	+media('<tab-lg')
 		padding: 1.5rem 6rem 1.5rem nth($page-layout-space--mob, 2)
@@ -1520,9 +1979,9 @@ $scale: round-float(nth($btn-cont-size--max, 2) / nth($btn-cont-size, 2), 2)
 
 // angle
 .rolls__angle
-	$burger-size: 100% 6rem
-	$burger-size--md: 100% 4rem
-	$burger-size--mob: 4rem 100%
+	$burger-size: nth($rolls-angle-size, 1) nth($rolls-angle-size, 2)
+	$burger-size--md: nth($rolls-angle-size--md, 1) nth($rolls-angle-size--md, 2)
+	$burger-size--mob: nth($rolls-angle-size--mob, 1) nth($rolls-angle-size--mob, 2)
 	$layer-size: 2px 20px
 	$layer-space: 4px
 	$layer-color: white
@@ -1541,6 +2000,7 @@ $scale: round-float(nth($btn-cont-size--max, 2) / nth($btn-cont-size, 2), 2)
 	background-color: $highlight-color
 	box-shadow: inset 0 0 0 1px $highlight-color--hover
 	cursor: pointer
+	outline: none
 	user-select: none
 	-webkit-tap-highlight-color: transparent
 	transition: background-color $animation-speed ease-in-out
@@ -1676,10 +2136,10 @@ $scale: round-float(nth($btn-cont-size--max, 2) / nth($btn-cont-size, 2), 2)
 		display: block // Важно!
 
 .rolls__panel__inner
-	opacity: 0
-	pointer-events: none
 	margin: 0 auto
 	max-width: $text-layout-width
+	opacity: 0
+	pointer-events: none
 	will-change: opacity
 	transition: opacity $animation-speed * 2 ease-in-out
 
