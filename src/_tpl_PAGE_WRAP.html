@@ -32,7 +32,7 @@
 {
 		</div>
 		@@if(!context.noBigBtn) {
-		<a @@if(context.bigBtn){href="@@bigBtn.href" data-heading="@@bigBtn.title" class="btn-cont pulse"><span>@@bigBtn.text</span>}@@if(!context.bigBtn){href="contacts.html" data-heading="Контакты" class="btn-cont pulse"><span>Контакты</span>}@@include("./includes/svg/icon-arrow-right.svg")</a>
+		<a @@if(context.bigBtn){href="@@bigBtn.href" data-heading="@@bigBtn.title" class="big-btn pulse"><span>@@bigBtn.text</span>}@@if(!context.bigBtn){href="contacts.html" data-heading="Контакты" class="big-btn pulse"><span>Контакты</span>}@@include("./includes/svg/icon-arrow-right.svg")</a>
 		}
 	</div>
 	<!--MAIN end-->

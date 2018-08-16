@@ -1587,16 +1587,16 @@
 /* footer form end
 
 /* big button of contacts
-$btn-cont-size: 876px 880px
-$btn-cont-size--max: 956px 960px
-$scale: round-float(nth($btn-cont-size--max, 2) / nth($btn-cont-size, 2), 2)
-.btn-cont
+$big-btn-size: 876px 880px
+$big-btn-size--max: 956px 960px
+$scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
+.big-btn
 	display: block
 	overflow: hidden
 	position: absolute
 	right: 0
 	bottom: 0
-	+size(round(nth($btn-cont-size--max, 1) / 2), round(nth($btn-cont-size--max, 2) / 2))
+	+size(round(nth($big-btn-size--max, 1) / 2), round(nth($big-btn-size--max, 2) / 2))
 	text-align: left
 	+font-bold
 	+font(2.6rem, round-float(32/26, 2))
@@ -1639,8 +1639,8 @@ $scale: round-float(nth($btn-cont-size--max, 2) / nth($btn-cont-size, 2), 2)
 		position: absolute
 		left: 100%
 		top: 100%
-		+size(nth($btn-cont-size, 1), nth($btn-cont-size, 2))
-		margin: -#{round(nth($btn-cont-size, 1) / 2)} 0 0 -#{round(nth($btn-cont-size, 2) / 2)}
+		+size(nth($big-btn-size, 1), nth($big-btn-size, 2))
+		margin: -#{round(nth($big-btn-size, 1) / 2)} 0 0 -#{round(nth($big-btn-size, 2) / 2)}
 		background-color: $highlight-color
 		border-radius: 50%
 		animation-iteration-count: infinite
@@ -1656,6 +1656,8 @@ $scale: round-float(nth($btn-cont-size--max, 2) / nth($btn-cont-size, 2), 2)
 
 	// hover
 	.no-touchevents &:hover
+		color: white
+
 		svg
 			//$tX: 1rem
 			//transform: translate($tX, 0)

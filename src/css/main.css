@@ -4780,7 +4780,7 @@ form .error + .select2 + .error-note {
 
 /* footer form end */
 /* big button of contacts */
-.btn-cont {
+.big-btn {
 	display: block;
 	overflow: hidden;
 	position: absolute;
@@ -4797,12 +4797,12 @@ form .error + .select2 + .error-note {
 }
 
 @media (max-width: 991px) {
-	.btn-cont {
+	.big-btn {
 		display: none;
 	}
 }
 
-.btn-cont > span {
+.big-btn > span {
 	display: block;
 	position: absolute;
 	width: 330px;
@@ -4810,7 +4810,7 @@ form .error + .select2 + .error-note {
 	bottom: 3.2rem;
 }
 
-.btn-cont svg {
+.big-btn svg {
 	display: block;
 	position: absolute;
 	right: 5.5rem;
@@ -4823,11 +4823,11 @@ form .error + .select2 + .error-note {
 	animation-fill-mode: both;
 }
 
-.btn-cont svg path {
+.big-btn svg path {
 	fill: currentColor;
 }
 
-.btn-cont::before {
+.big-btn::before {
 	content: "";
 	display: block;
 	position: absolute;
@@ -4847,11 +4847,15 @@ form .error + .select2 + .error-note {
 	transition-timing-function: ease-in-out;
 }
 
-.no-touchevents .btn-cont:hover svg {
+.no-touchevents .big-btn:hover {
+	color: white;
+}
+
+.no-touchevents .big-btn:hover svg {
 	animation-name: pulseArr;
 }
 
-.no-touchevents .btn-cont:hover::before {
+.no-touchevents .big-btn:hover::before {
 	background-color: #5eb8b2;
 	animation-name: pulse;
 }
