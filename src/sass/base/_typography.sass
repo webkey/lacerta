@@ -105,11 +105,13 @@ a
 	&:link
 		cursor: pointer
 
-	&:not([class*="btn-"]):not([href*="javascript:;"]):hover
+	//&:not([class*="btn-"]):not([href*="javascript:;"]):hover
+	&:hover
 		text-decoration: none
 		color: $link-color--hover
 
-	&[href^="tel"], .no-touchevents &[href^="tel"]:hover
+	//&[href^="tel"], .no-touchevents &[href^="tel"]:hover
+	&[href^="tel:"]
 		text-decoration: none !important
 		color: inherit
 		cursor: default
@@ -387,7 +389,7 @@ table
 	border-spacing: 0
 	width: auto
 
-	td, th
+	//td, th
 		+font($font-size, $line-height)
 		color: inherit
 		padding: 8px 15px
@@ -395,10 +397,10 @@ table
 		+media('<tab-lg')
 			+font($font-size--mob, $line-height--mob)
 
-	&, td, th
+	//&, td, th
 		border-color: $text-color
 
-.table-auto
+//.table-auto
 	position: relative
 	overflow: auto
 	max-width: 100%
@@ -410,7 +412,7 @@ table
 		width: auto
 		min-width: 100%
 
-.#{$user-content}
+//.#{$user-content}
 	table
 		margin-bottom: $bottom-space
 
@@ -464,9 +466,6 @@ table
 
 /* blockquote
 blockquote
-	$q-size: 5px 46px //h w
-	$q-rotate: -40deg
-
 	display: block
 	position: relative
 	width: 469px
@@ -508,11 +507,11 @@ blockquote
 			display: block
 			position: absolute
 			left: 50%
-			height: nth($q-size, 1)
-			width: nth($q-size, 2)
-			margin-left: -#{round(nth($q-size, 2)/2)}
+			height: nth($sep-size, 1)
+			width: nth($sep-size, 2)
+			margin-left: -#{round(nth($sep-size, 2)/2)}
 			background-color: $highlight-color
-			transform: rotate($q-rotate)
+			transform: rotate($sep-rotate)
 
 		&::before
 			top: 0
@@ -631,3 +630,39 @@ blockquote
 
 	.col-6
 		width: 50%
+
+/* separator
+.sep
+	position: relative
+	height: 50px
+	+margin-vertical($bottom-space--element)
+	text-indent: -9999px
+	overflow: hidden
+
+	+media('<tab-lg')
+		height: 26px
+		+margin-vertical($bottom-space--element--mob)
+
+	&::before, &::after
+		content: ""
+		display: block
+		position: absolute
+		left: 50%
+		height: nth($sep-size, 1)
+		width: nth($sep-size, 2)
+		margin-left: -#{round(nth($sep-size, 2)/2)}
+		background-color: $highlight-color
+		transform: rotate($sep-rotate)
+		+margin-vertical(14px)
+
+		+media('<tab-lg')
+			height: nth($sep-size--mob, 1)
+			width: nth($sep-size--mob, 2)
+			margin-left: -#{round(nth($sep-size--mob, 2)/2)}
+			+margin-vertical(7px)
+
+	&::before
+		top: 0
+
+	&::after
+		bottom: 0

@@ -11,7 +11,7 @@ $(function () {
 		options = {
 			debug: true,
 			prefetch: true,
-			// cacheLength: 4, // The number of pages to cache
+			cacheLength: 10, // The number of pages to cache
 			onBefore: function($currentTarget, $container) {
 				$cover.removeClass('is-leaving').removeClass('is-active');
 
@@ -46,6 +46,8 @@ $(function () {
 
 					customSelect();
 					formValidInit();
+					slidersInit();
+					equalHeight();
 					toggleNav();
 					togglePop();
 					accordionInit();
@@ -205,6 +207,15 @@ function equalHeight() {
 
 	if($equalHeight.length) {
 		$equalHeight.children().matchHeight({
+			byRow: true, property: 'height', target: null, remove: false
+		});
+	}
+
+	// table resp
+	var $tableResp = $('.table-resp').find('tbody');
+
+	if($tableResp.length) {
+		$tableResp.children().matchHeight({
 			byRow: true, property: 'height', target: null, remove: false
 		});
 	}

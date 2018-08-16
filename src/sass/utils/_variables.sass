@@ -116,14 +116,19 @@ $line-height-h1--sm: round-float(3.2rem/$font-size-h1--sm, 2) !default
 	+font-alt-black
 	font-size: $font-size-h1
 	line-height: $line-height-h1
+	text-align: center
 
-	+media('<desk-sm')
+	//+media('<desk-sm')
 		font-size: $font-size-h1--md
 		line-height: $line-height-h1--md
 
-	+media('<mob-lg')
+	+media('<tab-lg')
 		font-size: $font-size-h1--sm
 		line-height: $line-height-h1--sm
+		text-align: left
+
+	.home-page &
+		text-align: left
 
 // Heading h2
 $font-size-h2: 3.6rem !default
@@ -132,7 +137,7 @@ $line-height-h2: round-float(4.2rem/$font-size-h2, 2) !default
 $font-size-h2--md: 3.6rem !default
 $line-height-h2--md: round-float(4.2rem/$font-size-h2--md, 2) !default
 // ----------------------------------------------------
-$font-size-h2--sm: 3.6rem !default
+$font-size-h2--sm: 3.0rem !default
 $line-height-h2--sm: round-float(4.2rem/$font-size-h2--sm, 2) !default
 // ----------------------------------------------------
 =font-h2()
@@ -140,13 +145,14 @@ $line-height-h2--sm: round-float(4.2rem/$font-size-h2--sm, 2) !default
 	line-height: $line-height-h2
 	text-align: center
 
-	+media('<tab-lg')
+	//+media('<tab-lg')
 		font-size: $font-size-h2--md
 		line-height: $line-height-h2--md
 
-	+media('<mob-lg')
+	+media('<tab-lg')
 		font-size: $font-size-h2--sm
 		line-height: $line-height-h2--sm
+		text-align: left
 
 // Heading h3
 $font-size-h3: 2.6rem !default
@@ -165,6 +171,7 @@ $line-height-h3--sm: round-float(2.8rem/$font-size-h3, 2) !default
 	+media('<tab-lg')
 		font-size: $font-size-h3--sm
 		line-height: $line-height-h3--sm
+		text-align: left
 
 // Heading h4
 $font-size-h4: $font-size !default
@@ -191,6 +198,12 @@ $line-height-h5: $line-height !default
 // Heading h6
 $font-size-h6: $font-size--small !default
 $line-height-h6: $line-height--small !default
+
+// Small Title Text
+=small-title()
+	+font-normal
+	+font(1.6rem, round-float(24/16, 2))
+	color: rgba($text-color, 0.4)
 
 // Spaces
 $bottom-space: 1.5rem !default
@@ -244,11 +257,18 @@ $wide-layout-width: 124rem !default
 	max-width: $wide-layout-width
 	margin-left: auto
 	margin-right: auto
+
+	+media('<tab-lg')
+		max-width: none
+
 $wide-full-layout-width: 140rem !default
 =wide-full()
 	max-width: $wide-full-layout-width
 	margin-left: auto
 	margin-right: auto
+
+	+media('<tab-lg')
+		max-width: none
 
 // отступы внутри блочных элементов
 $grid-space: 4rem 4rem !default // v h
@@ -491,6 +511,19 @@ $multiple-item-space: 3px !default
 	border-color: $form-border-color--focus
 
 
+// Pop
+// ==========================================================================
+$pop-opener-space: 0.2em 0.7em
+$pop-animation-speed: 0.6s
+
+
+// Separator
+// ==========================================================================
+$sep-size: 5px 46px !default //h w
+$sep-size--mob: 3px 24px !default //h w
+$sep-rotate: -36deg !default
+
+
 // Offers Slider
 // ==========================================================================
 $offers-slider-space: 16px !default
@@ -524,8 +557,6 @@ $detail-box-space-h: 1rem 0 !default
 // ==========================================================================
 $animation-speed: 0.2s !default
 $animation-speed-mouseleave: 0.35s !default
-// ------------------------
-$pop-animation-speed: 0.6s
 
 
 // Social

@@ -18,7 +18,7 @@
 	<li>Выбираете понравившиеся облигации.</li>
 	<li>Заключаем договор комиссии для покупки облигаций.</li>
 	<li>Вы открываете
-		<div class="pop pop-js" data-tc-only-add>
+		<div class="pop pop-js">
 			<span class="pop-open-js">счет ДЕПО</span>
 			<div class="pop__content pop-content-js">
 				<span class="pop__close pop-close-js">Close</span>
@@ -34,7 +34,7 @@
 
 <ul class="bottom-space-section">
 	<li>Покупка Lacerta облигаций на торгах
-		<div class="pop pop-js" data-tc-only-add>
+		<div class="pop pop-js">
 			<span class="pop-open-js">ОАО</span>
 			<div class="pop__content pop-content-js">
 				<span class="pop__close pop-close-js">Close</span>
@@ -71,32 +71,118 @@
 </section>
 
 <section class="section">
-	<h3>sdfsdfsdfdsf dsf dsf dsf</h3>
-	<div class="x-offers">
-		<div class="x-offers__heads">
-			<table>
-				<thead>
-					<tr>
-						<td class="td">Выпуск</td>
-						<td class="td">Валюта</td>
-						<td class="td">Ставка</td>
-						<td class="td">Номинал</td>
-						<td class="td">Начало эмиссии</td>
-						<td class="td">Срок</td>
-						<td class="td">Объем выпуска</td>
-					</tr>
-				</thead>
-			</table>
-		</div>
-		<div class="x-offers__list x-offers-slider-js">
-			@@loop("_tpl_x-offers--items.html", "includes/json/x-offers--items.json")
-		</div>
-	</div>
-</section>
-
-<section class="section">
 	<h3>Где можно открыть счет ДЕПО</h3>
-	{{section content}}
+
+	<div class="table-resp max-wrap-flood push-auto">
+		<table>
+			<thead>
+				<tr>
+					<th>Город</th>
+					<th>Адрес</th>
+					<th>Время работы</th>
+					<th>Телефон</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td data-label="Город"><b>Буда-Кошелево</b></td>
+					<td data-label="Адрес">
+						<a href="#" class="map-to map-to-js --active">
+							<div class="adr"><b>пр-т Независимости, 126</b></div>
+							<div class="dep">Приорбанк / ЦБУ №12</div>
+						</a>
+					</td>
+					<td data-label="Время работы">
+						<div class="pop pop-js">
+							<span class="pop-open-js">Сегодня до 19:00</span>
+							<div class="pop__content pop-content-js">
+								<span class="pop__close pop-close-js">Close</span>
+								<ul class="schedule">
+									<li><div>Понедельник</div><div>9:00 - 19:00</div></li>
+									<li><div>Вторник</div><div>9:00 - 19:00</div></li>
+									<li><div>Среда</div><div>9:00 - 19:00</div></li>
+									<li class="current"><div>Четверг</div><div>9:00 - 19:00</div></li>
+									<li><div>Пятница</div><div>9:00 - 19:00</div></li>
+									<li><div>Суббота</div><div>9:00 - 19:00</div></li>
+									<li><div>Воскресенье</div><div>Выходной</div></li>
+								</ul>
+							</div>
+						</div>
+					</td>
+					<td data-label="Телефон">
+						<ul>
+							<li><a href="tel:+375 (29) 209-53-74">+375 (29) 209-53-74</a></li>
+							<li><a href="tel:+375 (15 3) 253-745">+375 (15 3) 253-745</a></li>
+							<li><a href="tel:209-53-28">209-53-28</a></li>
+						</ul>
+					</td>
+				</tr>
+				<tr class="is-close">
+					<td data-label="Город"><b>Минск</b></td>
+					<td data-label="Адрес">
+						<a href="#" class="map-to map-to-js --active">
+							<div class="adr"><b>ул. Беды, 1</b></div>
+							<div class="dep">Приорбанк / ЦБУ №11</div>
+						</a>
+					</td>
+					<td data-label="Время работы">
+						<div class="pop pop-js">
+							<span class="pop-open-js">Закрыто</span>
+							<div class="pop__content pop-content-js">
+								<span class="pop__close pop-close-js">Close</span>
+								<ul class="schedule">
+									<li><div>Понедельник</div><div>9:00 - 19:00</div></li>
+									<li><div>Вторник</div><div>9:00 - 19:00</div></li>
+									<li><div>Среда</div><div>9:00 - 19:00</div></li>
+									<li class="current"><div>Четверг</div><div>9:00 - 19:00</div></li>
+									<li><div>Пятница</div><div>9:00 - 19:00</div></li>
+									<li><div>Суббота</div><div>9:00 - 19:00</div></li>
+									<li><div>Воскресенье</div><div>Выходной</div></li>
+								</ul>
+							</div>
+						</div>
+					</td>
+					<td data-label="Телефон">
+						<ul>
+							<li><a href="tel:209-53-74">209-53-74</a></li>
+						</ul>
+					</td>
+				</tr>
+				<tr>
+					<td data-label="Город"><b>пгт. Боровлянские Сказки</b></td>
+					<td data-label="Адрес">
+						<a href="#" class="map-to map-to-js --active">
+							<div class="adr"><b>ул. Лаврентия Николя 153/6</b></div>
+							<div class="dep">Приорбанк / ЦБУ №11</div>
+						</a>
+					</td>
+					<td data-label="Время работы">
+						<div class="pop pop-js">
+							<span class="pop-open-js">Сегодня до 22:00</span>
+							<div class="pop__content pop-content-js">
+								<span class="pop__close pop-close-js">Close</span>
+								<ul class="schedule">
+									<li><div>Понедельник</div><div>9:00 - 19:00</div></li>
+									<li><div>Вторник</div><div>9:00 - 19:00</div></li>
+									<li><div>Среда</div><div>9:00 - 19:00</div></li>
+									<li class="current"><div>Четверг</div><div>9:00 - 19:00</div></li>
+									<li><div>Пятница</div><div>9:00 - 19:00</div></li>
+									<li><div>Суббота</div><div>9:00 - 19:00</div></li>
+									<li><div>Воскресенье</div><div>Выходной</div></li>
+								</ul>
+							</div>
+						</div>
+					</td>
+					<td data-label="Телефон">
+						<ul>
+							<li><a href="tel:8 017 235-49-75">8 017 235-49-75</a></li>
+							<li><a href="tel:+375 (33) 364-85-73">+375 (33) 364-85-73</a></li>
+						</ul>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
 	<div class="map clear-space"><img src="img/map.jpg" alt="location" /></div>
 </section>

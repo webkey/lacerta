@@ -235,6 +235,10 @@
 		text-align: center
 		+font($font-size--small, $line-height--small)
 
+		+media('<tab-lg')
+			font-size: 12px
+			text-align: left
+
 	.layout-article &
 		max-width: none
 
@@ -398,6 +402,171 @@
 			color: $highlight-color--hover
 
 /* social networks in footer end
+
+/* table-resp
+.table-resp
+	margin-bottom: $bottom-space--element
+
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--section--mob
+
+	table, tbody, tr, td, th
+		+media('<tab-lg')
+			display: block
+
+	thead
+		+media('<tab-lg')
+			display: none
+
+	tbody
+		+media('<tab-lg')
+			+clear-spacing
+			+margin-horizontal(-#{round($offers-slider-space / 2)})
+
+	table
+		border: none
+		margin: 0
+		width: 100%
+
+	tr
+		+media('<tab-lg')
+			display: inline-block
+			vertical-align: top
+			padding: nth($grid-space--mob, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 1) * 0.8, 2)
+			background-color: $base-color
+			width: calc(50% - #{$offers-slider-space})
+			margin: 0 round(round($offers-slider-space / 2)) $offers-slider-space
+
+		+media('<mob-lg')
+			width: calc(100% - #{$offers-slider-space})
+
+		&.is-close
+			td, th
+				opacity: 0.4
+
+	td, th
+		color: $text-color
+		border: 0 solid rgba(white, 0.2)
+		+font-normal
+		+font($font-size, round-float(26/22, 1))
+		letter-spacing: $letter-spacing
+		text-align: left
+		vertical-align: top
+		+padding-vertical(0.6rem)
+		padding-left: 1rem
+
+		+media('<tab-lg')
+			font-size: $font-size--mob
+
+		&:first-child
+			padding-left: 0
+
+	td
+		border-bottom-width: 1px
+		+padding-vertical(1.9rem)
+
+		+media('<tab-lg')
+			border: none
+			padding: 0.7em 0 0
+
+		&::before
+			display: none
+			content: attr(data-label)
+			+font-normal
+			+font(12px, 14px)
+			color: $text-color-light
+			margin-bottom: 4px
+
+			+media('<tab-lg')
+				display: block
+
+		&:first-child
+			padding-top: 0
+
+	th, thead td
+		+small-title
+
+	a, a:hover
+		color: inherit
+		text-decoration: none
+
+	.map-to
+		.adr
+			margin-bottom: 1px
+
+			+media('<tab-lg')
+				margin-bottom: 2px
+
+		.dep
+			font-size: 1.4rem
+			line-height: round-float(26/14, 2)
+			color: rgba($text-color, 0.4)
+
+			+media('<tab-lg')
+				+font(12px, 15px)
+
+		&.active
+			cursor: default
+
+			.adr
+				color: $highlight-color--hover
+
+			.dep
+				color: white
+
+	ul
+		list-style: none
+		margin: 0
+		padding: 0
+
+		li
+			padding-left: 0
+			margin-bottom: 0.4rem
+
+			&:last-child
+				margin-bottom: 0
+
+			&::before
+				content: none
+
+	.pop
+		+media('<tab-lg')
+			+margin-vertical(nth($pop-opener-space, 1))
+
+	.pop__content
+		width: 368px
+
+
+/* table-resp end
+
+/* schedule
+.schedule
+	&, .#{$user-content} &
+		list-style: none
+		margin: 0
+		padding: 0
+
+		li
+			padding-left: 0
+			margin-bottom: 0.4rem
+
+			&::before
+				content: none
+
+	&
+		li
+			display: flex
+			justify-content: space-between
+			align-items: flex-start
+			font-size: 2.0rem
+			line-height: round-float(26/20, 1)
+			color: $base-color-dark
+
+			&.current
+				color: white
+
+
+/* schedule end
 
 /* section / main sections
 .main-section, .section
@@ -771,20 +940,21 @@
 		margin: 0
 
 	td
-		//display: inline-block
 		vertical-align: middle
-		padding: 0
+		padding: 0 5px 0 0
 		//white-space: normal
-		//width: $item-width
 
 		&:first-child
-			//$width: 554px
-			//$width: 514px
 			$width: 44.7%
 			position: relative
 			min-width: $width
 			width: $width
 			padding: 0
+
+			.x-offers_detail &
+				$width: 21%
+				min-width: $width
+				width: $width
 
 .x-offers__heads
 	&
@@ -793,13 +963,16 @@
 
 	td
 		+font(1.6rem, round-float(24/16, 2))
-		letter-spacing: $letter-spacing
 		color: rgba($text-color, 0.4)
-		white-space: nowrap
+		//white-space: nowrap
 		+padding-vertical(1.3rem)
 
 		&:first-child
 			text-align: center
+			padding-right: 6rem
+
+			+media('<desk-lg')
+				padding-right: nth($grid-space--md, 2)
 
 // slide
 .x-offers__item
@@ -860,17 +1033,15 @@
 			display: none
 			content: attr(data-label)
 			+font-normal
-			+font(13px, 15px)
+			+font(12px, 15px)
 			color: $text-color-light
-			margin-bottom: 0.4em
 
 			+media('<tab-lg')
 				display: block
 
 		&.x-offers__item__caption
 
-			&
-
+			&, .x-offers_detail &
 				+media('<tab-lg')
 					display: block
 					width: auto
@@ -891,10 +1062,16 @@
 				padding: $grid-space
 				text-decoration: none
 				color: inherit
+				outline: none
+
+				.touchevents &
+					user-select: none
+					-webkit-tap-highlight-color: transparent
 
 				+media('<desk-lg')
 					margin-right: nth($grid-space--md, 2)
 					padding: $grid-space--md
+
 
 				+media('<tab-lg')
 					display: block
@@ -991,13 +1168,16 @@
 		margin-bottom: 0.1em
 
 .x-offers__item__release
-	color: $highlight-color
 	+font-bold
-	+font(1.4rem, round-float(18/14, 2))
+	color: $base-color-dark
 
-	+media('<mob-lg')
-		+font-medium
-		font-size: 12px
+	.x-offers__item__title ~ &
+		color: $highlight-color
+		+font(1.4rem, round-float(18/14, 2))
+
+		+media('<mob-lg')
+			+font-medium
+			font-size: 12px
 
 // panel
 .x-offers__item__panel
@@ -1133,9 +1313,9 @@
 
 	+media('<tab-lg')
 		+font-normal
-		+font(13px, 15px)
+		+font(12px, 15px)
 		color: $text-color-light
-		margin-bottom: 0.4em
+		margin-bottom: 0.1em
 
 .detail__item__desc
 	.small
@@ -1285,7 +1465,7 @@
 		// transition
 		transition: color $animation-speed ease-in-out
 
-		&:not([href*="javascript:;"]):hover
+		&:not([href*="javascript:;"]):not([href^="tel:"]):hover
 			color: $link-color
 
 		&[href^="tel:"]
@@ -1775,7 +1955,8 @@ $scale: round-float(nth($btn-cont-size--max, 2) / nth($btn-cont-size, 2), 2)
 		display: inline-block
 		vertical-align: top
 		position: relative
-		padding: 0 10px
+		padding: 0 nth($pop-opener-space, 2)
+		+font-medium
 		white-space: nowrap
 		cursor: pointer
 		// transition
@@ -1786,10 +1967,10 @@ $scale: round-float(nth($btn-cont-size--max, 2) / nth($btn-cont-size, 2), 2)
 			display: block
 			position: absolute
 			left: 0
-			top: -0.1em
+			top: -#{nth($pop-opener-space, 1)}
 			width: 100%
-			height: calc(100% + 0.2em)
-			border-radius: 15px
+			height: calc(100% + #{nth($pop-opener-space, 1) * 2})
+			border-radius: 20px
 			border: 2px solid $highlight-color
 			// transition
 			$prop: transform, opacity
@@ -1820,7 +2001,7 @@ $scale: round-float(nth($btn-cont-size--max, 2) / nth($btn-cont-size, 2), 2)
 .pop__content
 	position: absolute
 	left: 0
-	top: -0.1em
+	top: -#{nth($pop-opener-space, 1)}
 	width: 440px
 	padding: round-float(nth($grid-space, 2) * 1.25, 1) nth($grid-space, 2) round-float(nth($grid-space, 2) * 0.75, 1)
 	color: $base-color
@@ -1844,7 +2025,7 @@ $scale: round-float(nth($btn-cont-size--max, 2) / nth($btn-cont-size, 2), 2)
 		position: fixed
 		left: 50%
 		top: 50%
-		padding: round-float(nth($grid-space--mob, 2) * 0.75, 1) nth($grid-space--mob, 2)
+		padding: round-float(nth($grid-space--mob, 2) * 1.5, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 2) * 0.75, 1)
 		max-width: calc(100% - #{nth($page-layout-space--mob, 2) * 2})
 		box-shadow: 0 0 30px rgba(black, 0.2)
 		z-index: 15
@@ -1933,7 +2114,8 @@ $scale: round-float(nth($btn-cont-size--max, 2) / nth($btn-cont-size, 2), 2)
 
 	+media('<tab-lg')
 		margin-bottom: $bottom-space--element--mob
-		max-width: $text-layout-width + nth($page-layout-space--mob, 2) * 2
+		//max-width: $text-layout-width + nth($page-layout-space--mob, 2) * 2
+		max-width: none
 
 	&:last-child
 		margin-bottom: 0

@@ -1,6 +1,6 @@
 [
   {
-	"src": "img-clients-01.png",
+	"src": "",
 	"heads": {
 	  "name": "Компания",
 	  "release": "Выпуск",
@@ -9,18 +9,18 @@
 	  "nominal": "Номинал",
 	  "begin": "Начало эмиссии",
 	  "term": "Срок",
-	  "pay": "Ближайшая выплата",
+	  "pay": "",
 	  "size": "Объем выпуска"
 	},
 	"data": {
-	  "name": "Хольцгрупп",
+	  "name": "",
 	  "release": "З выпуск",
 	  "currency": "USD",
 	  "rate": "8%",
 	  "nominal": "100",
 	  "begin": "23 - V - 18",
 	  "term": "2 года",
-	  "pay": "23 - V - 18",
+	  "pay": "",
 	  "size": "300 000 USD"
 	}
   }

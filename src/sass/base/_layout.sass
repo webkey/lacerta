@@ -50,14 +50,23 @@ html
 		+padding-horizontal(0)
 		+push-auto
 
+		+media('<tab-lg')
+			max-width: none
+
+	& > h1, & > .h1
+		max-width: none
+
 	.layout-flood
 		max-width: $flood-layout-width
 		+padding-horizontal(0)
 		+push-auto
 
+		+media('<tab-lg')
+			max-width: none
+
 	// элеметы без отступов по бокам
 	// минусовые маржины по горизонтале имеют значение только внутри .layout-article
-	.layout-full-width, .layout-wide
+	//.layout-full-width, .layout-wide
 
 		+margin-horizontal(-#{nth($text-layout-space, 2)})
 
@@ -72,8 +81,8 @@ html
 	//max-width: #{$text-layout-width + (nth($text-layout-space, 2))*2}
 	max-width: $text-layout-width
 
-	//+media('<tab-lg')
-		max-width: #{$text-layout-width + (nth($text-layout-space--md, 2))*2}
+	+media('<tab-lg')
+		max-width: none
 
 	//+media('<tab-sm')
 		max-width: #{$text-layout-width + (nth($text-layout-space--sm, 2))*2}
@@ -164,7 +173,7 @@ html
 	flex-shrink: 1
 	flex-grow: 1
 	position: relative
-	z-index: $z-high
+	z-index: $z-middle
 	padding-bottom: $bottom-space--section
 
 	+media('<desk-lg')
@@ -185,14 +194,6 @@ html
 
 	+media('<tab-lg')
 		padding-top: $header-height--mod
-
-//.main__holder
-	width: 100%
-	+clear
-
-//.content-wrap
-	float: left
-	width: 100%
 
 .content
 	overflow: hidden
@@ -323,6 +324,9 @@ html
 		color: $base-color
 		transition: color $animation-speed ease-in-out
 
+		.no-touchevents &:not([href*="javascript:;"]):hover
+			color: $highlight-color
+
 	// current
 	li.current
 		a
@@ -330,50 +334,62 @@ html
 
 //egg
 .egg
-	position: absolute
-	top: 380px
-	left: -139px
-	background: url(../../img/egg.png) no-repeat
-	-webkit-background-size: contain
-	background-size: contain
+	bottom: -63px
+	right: 9px
+	position: fixed
+	overflow: hidden
 	width: 590px
-	z-index: $z-egg
 	font-size: 0
 	line-height: 0
-	overflow: hidden
-	//display: none
-	opacity: 0
-	//opacity: 1
-	// transition
-	$prop: transform, opacity
-	will-change: $prop
-	transition:
-		property: $prop
-		duration: $animation-speed * 2
-		timing-function: ease-in-out
+	background: url(../../img/egg.png) no-repeat
+	background-size: contain
+	z-index: $z-high - 5
+	pointer-events: none
 
 	+media('<desk-lg')
-		left: auto
-		right: -190px
-		top: auto
-		bottom: -36px
-		width: 470px
-		$scale: 0.8, 0.8
-		transform: scale($scale)
-		transform: scale3d($scale, 1)
-
-	+media('<mob-lg')
-		left: auto
-		right: -67px
-		top: auto
-		bottom: -6px
-		width: 194px
+		display: none
 
 	&::before
 		content: ""
 		position: relative
 		display: block
 		+ratio(590px, 450px)
+
+	.header &
+		display: none
+		position: absolute
+		bottom: auto
+		top: 380px
+		right: auto
+		left: -139px
+		opacity: 1
+		z-index: $z-egg
+		// transition
+		$prop: transform, opacity
+		will-change: $prop
+		transition:
+			property: $prop
+			duration: $animation-speed * 2
+			timing-function: ease-in-out
+
+		+media('<desk-lg')
+			display: block
+			left: auto
+			right: -190px
+			top: auto
+			bottom: -36px
+			width: 470px
+			opacity: 0
+			$scale: 0.8, 0.8
+			transform: scale($scale)
+			transform: scale3d($scale, 1)
+
+		+media('<mob-lg')
+			left: auto
+			right: -67px
+			top: auto
+			bottom: -6px
+			width: 194px
 
 	.#{$nav-is-open-class} &, // add js
 	.no-js &
@@ -479,7 +495,7 @@ html
 		transition: color $animation-speed ease-in-out
 
 	li.current a,
-	a:hover
+	a:not([href*="javascript:;"]):hover
 		text-decoration: none
 		color: $highlight-color
 
@@ -714,7 +730,7 @@ a.nav-opener
 	width: 100%
 	padding-top: nth($page-layout-space, 1)
 	padding-bottom: nth($page-layout-space, 1) + 3rem
-	z-index: $z-middle
+	z-index: $z-high
 	background-color: $base-color
 	border-top: 5px solid #363c9b
 
@@ -950,17 +966,19 @@ a.nav-opener
 
 // heading
 .heading
-	text-align: center
 	padding: nth($page-layout-space, 1) 0 0
 	margin-bottom: $bottom-space--article
+	text-align: center
 	+wide
 
 	+media('<desk-lg')
 		padding: nth($page-layout-space--md, 1) 0 0
 
-	+media('<desk-lg')
+	+media('<tab-lg')
 		padding: nth($page-layout-space--mob, 1) 0 0
-		margin-bottom: $bottom-space--article--mob
+		//margin-bottom: $bottom-space--article--mob
+		margin-bottom: 1rem
+		text-align: left
 
 .c-heading
 	$tf: cubic-bezier(0.4, 0.6, 0.2, 1)
