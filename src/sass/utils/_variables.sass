@@ -82,7 +82,7 @@ $title-color: white !default
 $link-color: $highlight-color !default
 $link-color--hover: $highlight-color--hover !default
 // ----------------------------------------------------
-$border-color: lightgray !default
+$border-color: #666695 !default
 // ----------------------------------------------------
 
 
@@ -204,10 +204,10 @@ $font-size-h6: $font-size--small !default
 $line-height-h6: $line-height--small !default
 
 // Small Title Text
-=small-title()
+=small-title($color: rgba($text-color, 0.4))
 	+font-normal
 	+font(1.6rem, round-float(24/16, 2))
-	color: rgba($text-color, 0.4)
+	color: $color
 
 // Spaces
 $bottom-space: 1.5rem !default
@@ -292,11 +292,6 @@ $list-space: 34px !default
 $user-content: user-content !default
 
 
-// Main Sections
-// ==========================================================================
-$main-sect-heading-width: 280px
-
-
 // Header
 // ==========================================================================
 $header-width: 520px !default
@@ -312,16 +307,23 @@ $nav-is-open-class: 'nav-is-open'
 $sidebar-width: 260px !default
 
 
-// Aside
+// Main
 // ==========================================================================
-$aside-width: 160px !default
+$main-space-v: 0 $bottom-space--section !default
+$main-space-v--mob: 0 $bottom-space--section--mob !default
 
 
 // Footer
 // ==========================================================================
 $footer-box-space: 2.5rem 4rem !default // v h
 $footer-box-space--md: 4rem 4rem !default // v h
-$footer-box-space--mob: 2rem 2rem !default // v h
+$footer-box-space--mob: 2rem 2rem !default // v
+
+
+// Main Sections
+// ==========================================================================
+$main-sect-heading-width: 280px !default
+
 
 // Buttons
 // ==========================================================================
@@ -353,7 +355,7 @@ $small-field: 'small-field'
 
 // Colors of forms
 $form-text-color: white !default
-$form-placeholder-color: #666695 !default
+$form-placeholder-color: $border-color !default
 $form-bg-color: $base-color-dark !default
 $form-border-color: $form-bg-color !default
 // validation
@@ -517,8 +519,13 @@ $multiple-item-space: 3px !default
 
 // Pop
 // ==========================================================================
-$pop-opener-space: 0.2em 0.7em
-$pop-animation-speed: 0.6s
+$pop-opener-space: 0.2em 0.7em !default
+$pop-animation-speed: 0.6s !default
+
+
+// Clients
+// ==========================================================================
+$clients-item-space: 6rem 6rem !default
 
 
 // Separator
@@ -555,6 +562,12 @@ $detail-box-space-v: 0 2.5rem !default
 $detail-box-space-v--md: 0 2.5rem !default
 $detail-box-space-v--mob: 0 1.2rem !default
 $detail-box-space-h: 1rem 0 !default
+
+
+// Сontacts
+// ==========================================================================
+$cont-map-height: 41.3rem
+$cont-form-width: 46.8rem
 
 
 // Animation

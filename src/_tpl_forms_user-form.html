@@ -1,8 +1,10 @@
 <div class="user-form">
 	<div class="form-title">@@if(context.title){@@title}@@if(!context.title){Закажите звонок}</div>
+	@@if(!context.noteFalse){
 	<p class="bottom-space-element">
 		Чтобы уточнить детали продажи или приступить к оформлению, <b>закажите звонок</b> или свяжитесь с нами в социальнных сетях.
 	</p>
+	}
 	<form action="" method="post" class="validation-form-js">
 		<div class="form-row">
 			@@loop("_tpl_forms_field.html", [{
@@ -33,9 +35,11 @@
 			</div>
 		</div>
 	</form>
+	@@if(!context.socFalse){
 	<div class="social-networks align-center">
 		<div class="social-networks__list">
 			@@loop('_tpl_social-items.html', 'includes/json/social-items.json')
 		</div>
 	</div>
+	}
 </div>

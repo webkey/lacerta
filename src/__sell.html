@@ -14,17 +14,35 @@
 	"last": "Продать облигации"
 })
 
-<ol>
-	<li>Заключение договора комиссии (для продажи облигаций).</li>
-	<li>Выдача инвестором поручения на перевод облигаций на специальный раздел <a href="javascript:;" class="has-info">счет ДЕПО</a>.</li>
-	<li>Продажа Lacerta облигаций на торгах ОАО «Белорусская валютно-фондовая биржа».</li>
-	<li>Зачисление денежных средств на счет инвестора.</li>
-	<li>Отчет Lacerta о проделанной работе.</li>
-</ol>
+<div class="layout-text bottom-space-article">
+	<ol>
+		<li>Заключение договора комиссии (для продажи облигаций).</li>
+		<li>
+			Выдача инвестором поручения на перевод облигаций на специальный раздел
+			<div class="pop pop-js">
+				<span class="pop-open-js">счет ДЕПО</span>
+				<div class="pop__content pop-content-js">
+					<span class="pop__close pop-close-js">Close</span>
+					<b class="pop__title">Счёт депо (от фр. dépôt) —</b> объединенная общим признаком совокупность записей в регистрах депозитария, предназначенная для учета ценных бумаг. На этом счете учитываются права на ценные бумаги, принадлежащие депоненту.
+				</div>
+			</div>
+			.
+		</li>
+		<li>Продажа Lacerta облигаций на торгах ОАО «Белорусская валютно-фондовая биржа».</li>
+		<li>Зачисление денежных средств на счет инвестора.</li>
+		<li>Отчет Lacerta о проделанной работе.</li>
+	</ol>
+</div>
+
 @@include('_tpl_forms_user-form.html', { "title": "Закажите звонок" })
+
 <h2 class="h1">СМИ о нас</h2>
-<p>{{Сми о нас}}</p>
-<p>@@include("_tpl_btn.html", {"value": "Все материалы"})</p>
+<div class="news layout-flood">
+	<div class="news__list">
+		@@loop("_tpl_news--items.html", "includes/json/news--items--short.json")
+	</div>
+	<p>@@include("_tpl_btn.html", {"value": "Все материалы"})</p>
+</div>
 
 @@include('_tpl_PAGE_WRAP.html', {"pageWrap": "END", "currentItem": "Продать облигации"})
 

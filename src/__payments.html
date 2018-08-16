@@ -1,0 +1,69 @@
+@@include('_tpl_layout_head.html', {
+	"title": "Выплаты доходов",
+	"pageClass": ""
+})
+
+@@include('_tpl_PAGE_WRAP.html', {
+	"pageWrap": "START",
+	"currentItem": "Выплаты доходов",
+	"title": "Утром деньги -<br> вечером дивиденты"
+})
+
+@@include('_tpl_breadcrumbs.html', {
+	"items": ["Главная"],
+	"last": "Выплаты доходов"
+})
+
+<p class="bottom-space-article"><strong class="highlight">Выплаты доходов компаниями-партнерами Lacertа</strong> производятся всегда четко и в срок. Мы специально проверяем каждого эмитента, чтобы работать только с честными и порядочными игроками рынка ценных бумаг.</p>
+
+<section class="section">
+	<div class="section__holder">
+		<h3>Ближайшие выплаты</h3>
+		<div class="x-offers">
+			<div class="x-offers__heads">
+				<table>
+					<thead>
+						<tr>
+							<td>Компания</td>
+							<td>Валюта</td>
+							<td>Ставка</td>
+							<td>Номинал</td>
+							<td>Дата</td>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="x-offers__list x-offers-slider-js offers-rolls-js">
+				@@loop("_tpl_x-offers--items.html", "includes/json/x-offers--items--brief.json")
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="section">
+	<div class="section__holder">
+		<h3>Прошедшие выплаты</h3>
+		<div class="x-offers">
+			<div class="x-offers__heads">
+				<table>
+					<thead>
+						<tr>
+							<td>Компания</td>
+							<td>Валюта</td>
+							<td>Ставка</td>
+							<td>Номинал</td>
+							<td>Дата</td>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="x-offers__list x-offers-slider-js offers-rolls-js">
+				@@loop("_tpl_x-offers--items.html", "includes/json/x-offers--items--brief.json")
+			</div>
+		</div>
+	</div>
+</section>
+
+@@include('_tpl_PAGE_WRAP.html', {"pageWrap": "END", "currentItem": "Выплаты доходов", "bigBtn": { "href": "buy.html", "text": "Купить облигации", "title": "Покупка облигаций" } })
+
+@@include('_tpl_layout_foot.html')

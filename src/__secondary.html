@@ -6,7 +6,7 @@
 @@include('_tpl_PAGE_WRAP.html', {
 	"pageWrap": "START",
 	"currentItem": "Вторичный рынок облигаций",
-	"title": "Вторичный - значит “на бис!”"
+	"title": "Вторичный - значит<br> “на бис!”"
 })
 
 @@include('_tpl_breadcrumbs.html', {
@@ -15,7 +15,7 @@
 })
 
 <p class="bottom-space-article"><strong class="highlight">Вторичный рынок ценных бумаг</strong> — это рынок , на котором происходит обращение ценных бумаг. Являясь механизмом перепродажи, он позволяет инвесторам свободно покупать и продавать ценные бумаги.</p>
-<h3 class="text-color">Чем поможет Lacerta?</h3>
+<h3 class="text-color-default">Чем поможет Lacerta?</h3>
 <ul>
 	<li>Совершение сделок по покупке и продаже облигаций белорусских компаний согласно заключенным договорам;</li>
 	<li>Подбор наиболее привлекательных вариантов размещения денежных средств в облигации белорусских эмитентов;</li>
@@ -23,23 +23,25 @@
 </ul>
 
 <section class="section">
-	<h3>Что доступно прямо сейчас</h3>
-	<div class="x-offers">
-		<div class="x-offers__heads">
-			<table>
-				<thead>
-					<tr>
-						<td>Компания</td>
-						<td>Валюта</td>
-						<td>Ставка</td>
-						<td>Номинал</td>
-						<td>Срок</td>
-					</tr>
-				</thead>
-			</table>
-		</div>
-		<div class="x-offers__list x-offers-slider-js offers-rolls-js">
-			@@loop("_tpl_x-offers--items.html", "includes/json/x-offers--items--brief.json")
+	<div class="section__holder">
+		<h3>Что доступно прямо сейчас</h3>
+		<div class="x-offers">
+			<div class="x-offers__heads">
+				<table>
+					<thead>
+						<tr>
+							<td>Компания</td>
+							<td>Валюта</td>
+							<td>Ставка</td>
+							<td>Номинал</td>
+							<td>Срок</td>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="x-offers__list x-offers-slider-js offers-rolls-js">
+				@@loop("_tpl_x-offers--items.html", "includes/json/x-offers--items--brief.json")
+			</div>
 		</div>
 	</div>
 </section>

@@ -11,125 +11,137 @@
 })
 
 <section class="main-section">
-	<div class="main-section__content">
-		<div class="enter-text">Более $1 млрд. привлеченных средств на проверенные эмиссии от надежных партнеров непрерывно с 2011 года для ведущих компаний</div>
-	</div>
-</section>
-
-<section class="main-section">
-	<div class="main-section__heading">
-		<h3>Новые эмиссии</h3>
-		@@include("_tpl_btn.html", {"value": "Все эмиссии", "classes": "btn-def show-desk"})
-	</div>
-	<div class="main-section__content">
-		<div class="main-section__body">
-			<div class="offers offers_main">
-				<div class="offers__heads">
-					<div class="td">Компания</div>
-					<div class="td">Валюта</div>
-					<div class="td">Ставка</div>
-					<div class="td">Номинал</div>
-					<div class="td">Срок</div>
-				</div>
-				<div class="offers__list offers-slider-js">
-					@@loop("_tpl_offers--items.html", "includes/json/offers--items.json")
-				</div>
-			</div>
-		</div>
-
-		<div class="main-section__foot hide-desk">
-			@@include("_tpl_btn.html", {"value": "Все эмиссии"})
+	<div class="main-section__holder">
+		<div class="main-section__content">
+			<div class="enter-text">Более $1 млрд. привлеченных средств на проверенные эмиссии от надежных партнеров непрерывно с 2011 года для ведущих компаний</div>
 		</div>
 	</div>
 </section>
 
 <section class="main-section">
-	<div class="main-section__heading">
-		<h3>Облигации в обращении</h3>
-		@@include("_tpl_btn.html", {"value": "Все облигации", "classes": "btn-def show-desk"})
-	</div>
-	<div class="main-section__content">
-		<div class="main-section__body">
-			<div class="offers">
-				<div class="offers__heads">
-					<div class="td">Компания</div>
-					<div class="td">Валюта</div>
-					<div class="td">Ставка</div>
-					<div class="td">Номинал</div>
-					<div class="td">Срок</div>
-				</div>
-				<div class="offers__list offers-slider-js">
-					@@loop("_tpl_offers--items.html", "includes/json/offers--items.json")
+	<div class="main-section__holder">
+		<div class="main-section__heading">
+			<h3>Новые эмиссии</h3>
+			@@include("_tpl_btn.html", {"value": "Все эмиссии", "classes": "btn-def show-desk"})
+		</div>
+		<div class="main-section__content">
+			<div class="main-section__body">
+				<div class="offers offers_main">
+					<div class="offers__heads">
+						<div class="td">Компания</div>
+						<div class="td">Валюта</div>
+						<div class="td">Ставка</div>
+						<div class="td">Номинал</div>
+						<div class="td">Срок</div>
+					</div>
+					<div class="offers__list offers-slider-js">
+						@@loop("_tpl_offers--items.html", "includes/json/offers--items.json")
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="main-section__foot hide-desk">
-			@@include("_tpl_btn.html", {"value": "Все облигации"})
+			<div class="main-section__foot hide-desk">
+				@@include("_tpl_btn.html", {"value": "Все эмиссии"})
+			</div>
 		</div>
 	</div>
 </section>
 
 <section class="main-section">
-	<div class="main-section__heading">
-		<h3>СМИ о нас</h3>
-		@@include("_tpl_btn.html", {"value": "Все материалы", "classes": "btn-def show-desk"})
-	</div>
-	<div class="main-section__content">
-		<div class="main-section__body">
-			<div class="news max-wrap-flood push-auto">
-				<div class="news__list">
-					@@loop("_tpl_news--items.html", "includes/json/news--items--short.json")
+	<div class="main-section__holder">
+		<div class="main-section__heading">
+			<h3>Облигации в обращении</h3>
+			@@include("_tpl_btn.html", {"value": "Все облигации", "classes": "btn-def show-desk"})
+		</div>
+		<div class="main-section__content">
+			<div class="main-section__body">
+				<div class="offers">
+					<div class="offers__heads">
+						<div class="td">Компания</div>
+						<div class="td">Валюта</div>
+						<div class="td">Ставка</div>
+						<div class="td">Номинал</div>
+						<div class="td">Срок</div>
+					</div>
+					<div class="offers__list offers-slider-js">
+						@@loop("_tpl_offers--items.html", "includes/json/offers--items.json")
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="main-section__foot hide-desk">
-			@@include("_tpl_btn.html", {"value": "Все материалы"})
+			<div class="main-section__foot hide-desk">
+				@@include("_tpl_btn.html", {"value": "Все облигации"})
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="main-section">
+	<div class="main-section__holder">
+		<div class="main-section__heading">
+			<h3>СМИ о нас</h3>
+			@@include("_tpl_btn.html", {"value": "Все материалы", "classes": "btn-def show-desk"})
+		</div>
+		<div class="main-section__content">
+			<div class="main-section__body">
+				<div class="news layout-flood">
+					<div class="news__list">
+						@@loop("_tpl_news--items.html", "includes/json/news--items--short.json")
+					</div>
+				</div>
+			</div>
+
+			<div class="main-section__foot hide-desk">
+				@@include("_tpl_btn.html", {"value": "Все материалы"})
+			</div>
 		</div>
 	</div>
 </section>
 
 <h2 class="h1">Как купить облигации?</h2>
 <section class="main-section">
-	<div class="main-section__content">
-		<div class="main-section__caption highlight">5 простых шагов для того, чтобы стать инвестором</div>
+	<div class="main-section__holder">
+		<div class="main-section__content">
+			<div class="main-section__caption highlight">5 простых шагов для того, чтобы стать инвестором</div>
 
-		<div class="main-section__body">
-			<ol>
-				<li>Выберите облигацию, которую хотите приобрести.</li>
-				<li>Заключите договор для покупки облигаций и откройте счет “депо” для их хранения.</li>
-				<li>Перечислите денежные средства для покупки облигаций, на счет Lacerta.</li>
-				<li>Lacerta приобретает облигации и зачисляет их на ваш счет “депо”.</li>
-				<li>Отчет Lacerta о проделанной работе.</li>
-			</ol>
-		</div>
+			<div class="main-section__body">
+				<ol>
+					<li>Выберите облигацию, которую хотите приобрести.</li>
+					<li>Заключите договор для покупки облигаций и откройте счет “депо” для их хранения.</li>
+					<li>Перечислите денежные средства для покупки облигаций, на счет Lacerta.</li>
+					<li>Lacerta приобретает облигации и зачисляет их на ваш счет “депо”.</li>
+					<li>Отчет Lacerta о проделанной работе.</li>
+				</ol>
+			</div>
 
-		<div class="main-section__foot">
-			@@include("_tpl_btn.html", {"value": "Выбрать доступные облигации"})
+			<div class="main-section__foot">
+				@@include("_tpl_btn.html", {"value": "Выбрать доступные облигации"})
+			</div>
 		</div>
 	</div>
 </section>
 
 <h2 class="h1">Как выпустить облигации?</h2>
 <section class="main-section">
-	<div class="main-section__content">
-		<div class="main-section__caption highlight">7 простых шагов для того, чтобы стать инвестором</div>
+	<div class="main-section__holder">
+		<div class="main-section__content">
+			<div class="main-section__caption highlight">7 простых шагов для того, чтобы стать инвестором</div>
 
-		<div class="main-section__body">
-			<ol>
-				<li>Выберите облигацию, которую хотите приобрести.</li>
-				<li>Заключите договор для покупки облигаций и откройте счет “депо” для их хранения.</li>
-				<li>Перечислите денежные средства для покупки облигаций, на счет Lacerta.</li>
-				<li>Lacerta приобретает облигации и зачисляет их на ваш счет “депо”.</li>
-				<li>Отчет Lacerta о проделанной работе.</li>
-				<li>Выберите облигацию, которую хотите приобрести.</li>
-				<li>Заключите договор для покупки облигаций и откройте счет “депо” для их хранения.</li>
-			</ol>
-		</div>
+			<div class="main-section__body">
+				<ol>
+					<li>Выберите облигацию, которую хотите приобрести.</li>
+					<li>Заключите договор для покупки облигаций и откройте счет “депо” для их хранения.</li>
+					<li>Перечислите денежные средства для покупки облигаций, на счет Lacerta.</li>
+					<li>Lacerta приобретает облигации и зачисляет их на ваш счет “депо”.</li>
+					<li>Отчет Lacerta о проделанной работе.</li>
+					<li>Выберите облигацию, которую хотите приобрести.</li>
+					<li>Заключите договор для покупки облигаций и откройте счет “депо” для их хранения.</li>
+				</ol>
+			</div>
 
-		<div class="main-section__foot">
-			@@include("_tpl_btn.html", {"value": "Выбрать доступные облигации"})
+			<div class="main-section__foot">
+				@@include("_tpl_btn.html", {"value": "Выбрать доступные облигации"})
+			</div>
 		</div>
 	</div>
 </section>

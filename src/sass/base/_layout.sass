@@ -54,7 +54,7 @@ html
 			max-width: none
 
 		.home-page &
-			max-width: none
+			+wide
 
 	& > h1, & > .h1
 		max-width: none
@@ -93,15 +93,16 @@ html
 // выравнивание текстовых элементов на внутренней (текстовой) странице
 // и их максимальная ширина
 .layout-text
-	max-width: #{$text-layout-width + (nth($text-layout-space, 2))*2}
-	+padding-horizontal(nth($text-layout-space, 2))
+	//max-width: #{$text-layout-width + (nth($text-layout-space, 2))*2}
+	max-width: $text-layout-width
+	//+padding-horizontal(nth($text-layout-space, 2))
 	+push-auto
 
-	+media('<tab-lg')
+	//+media('<tab-lg')
 		max-width: #{$text-layout-width + (nth($text-layout-space--md, 2))*2}
 		+padding-horizontal(nth($text-layout-space--md, 2))
 
-	+media('<tab-sm')
+	//+media('<tab-sm')
 		max-width: #{$text-layout-width + (nth($text-layout-space--sm, 2))*2}
 		+padding-horizontal(nth($text-layout-space--sm, 2))
 
@@ -119,15 +120,16 @@ html
 // выравнивание альтернативных элементов на внутренней (текстовой) странице
 // и их максимальная ширина
 .layout-flood
-	max-width: #{$flood-layout-width + (nth($text-layout-space, 2))*2}
-	+padding-horizontal((nth($text-layout-space, 2)))
+	//max-width: #{$flood-layout-width + (nth($text-layout-space, 2))*2}
+	max-width: $flood-layout-width
+	//+padding-horizontal((nth($text-layout-space, 2)))
 	+push-auto
 
-	+media('<tab-lg')
+	//+media('<tab-lg')
 		max-width: #{$flood-layout-width + (nth($text-layout-space--md, 2))*2}
 		+padding-horizontal((nth($text-layout-space--md, 2)))
 
-	+media('<tab-sm')
+	//+media('<tab-sm')
 		max-width: #{$flood-layout-width + (nth($text-layout-space--sm, 2))*2}
 		+padding-horizontal((nth($text-layout-space--sm, 2)))
 
@@ -177,13 +179,13 @@ html
 	flex-grow: 1
 	position: relative
 	z-index: $z-middle
-	padding-bottom: $bottom-space--section
+	padding-bottom: nth($main-space-v, 2)
 
 	+media('<desk-lg')
 		z-index: $z-middle
 
 	+media('<tab-lg')
-		padding-bottom: $bottom-space--section--mob
+		padding-bottom: nth($main-space-v--mob, 2)
 
 .main,
 .c-heading__align
@@ -199,8 +201,11 @@ html
 		padding-top: $header-height--mod
 
 .content
-	overflow: hidden
+	//overflow: hidden // Нельзя использовать overflow: hidden. На странице контактов обрезает карту
 	min-height: 5rem
+
+	.contacts-page &
+		overflow: visible
 
 /* === CONTENT end ===
 
@@ -349,6 +354,7 @@ html
 	background-size: contain
 	z-index: $z-high - 5
 	pointer-events: none
+	//cursor: pointer
 
 	+media('<desk-lg')
 		display: none
@@ -373,7 +379,7 @@ html
 		will-change: $prop
 		transition:
 			property: $prop
-			duration: $animation-speed * 2
+			duration: 0.2s
 			timing-function: ease-in-out
 
 		+media('<desk-lg')
@@ -383,10 +389,10 @@ html
 			top: auto
 			bottom: -36px
 			width: 470px
-			opacity: 0
-			$scale: 0.8, 0.8
-			transform: scale($scale)
-			transform: scale3d($scale, 1)
+			//opacity: 0
+			//$scale: 0.8, 0.8
+			//transform: scale($scale)
+			//transform: scale3d($scale, 1)
 
 		+media('<mob-lg')
 			left: auto
@@ -395,13 +401,15 @@ html
 			bottom: -6px
 			width: 194px
 
-	.#{$nav-is-open-class} &, // add js
-	.no-js &
+	//.#{$nav-is-open-class} &, // add js
+	//.no-js &
 		+media('<desk-lg')
 			opacity: 1
 			$translate: 0, 0
 			transform: translate($translate) // for old browser
 			transform: translate3d($translate, 0)
+			transition-delay: 0.4s
+			transition-duration: 0.4s
 
 /* === HEADER end ===
 
@@ -409,11 +417,12 @@ html
 .nav-wrap
 	position: relative
 	background-color: $header-bg
-	$prop: transform, opacity
+	$prop: transform
 	will-change: $prop
 	transition:
-		property: transform, opacity
-		duration: $animation-speed
+		property: $prop
+		duration: 0.8s
+		timing-function: cubic-bezier(0.4, 0.6, 0.2, 1)
 
 	+media('<desk-lg')
 		overflow: hidden
@@ -423,6 +432,7 @@ html
 		width: 100%
 		padding: $page-layout-space--md
 		z-index: $z-middle - 1
+		height: calc(100vh - #{$header-height--md})
 
 		$translate: 0, -100%
 		//$translate: 0, 0
@@ -432,6 +442,7 @@ html
 	+media('<tab-lg')
 		padding: 3.3rem nth($page-layout-space--mob, 2) 9.3rem
 		top: $header-height--mod
+		height: calc(100vh - #{$header-height--mod})
 
 	&.#{$nav-is-open-class}, // add js
 	.no-js &
@@ -441,27 +452,37 @@ html
 			transform: translate3d($translate, 0)
 
 	.max-wrap-text
+		+media('<desk-lg')
+			height: 100%
+			overflow-x: hidden
+			overflow-y: auto
+			opacity: 0
+			//opacity: 1
+			$translate: 0, -50px
+			transform: translate($translate) // for old browser
+			transform: translate3d($translate, 0)
+			// transition
+			$prop: transform, opacity
+			will-change: $prop
+			transition:
+				delay: 0.6s
+				property: $prop
+				duration: $animation-speed
+				timing-function: cubic-bezier(0.4, 0.6, 0.2, 1)
+
+			.#{$nav-is-open-class} &
+				opacity: 1
+				$translate: 0, 0
+				transform: translate($translate) // for old browser
+				transform: translate3d($translate, 0)
+				//transition-delay: $animation-speed / 2
+				transition-duration: 0.8s
+
 		+media('<tab-lg')
 			max-width: none
 
 .nav
 	position: relative
-
-	+media('<desk-lg')
-		opacity: 0
-		//opacity: 1
-		// transition
-		$prop: transform, opacity
-		will-change: $prop
-		transition:
-			property: $prop
-			duration: $animation-speed * 2
-			timing-function: ease-in-out
-
-	.#{$nav-is-open-class} &
-		+media('<desk-lg')
-			opacity: 1
-			transition-delay: $animation-speed / 2
 
 .nav__list
 	position: relative
@@ -551,6 +572,9 @@ a.nav-opener
 		margin-top: -#{round($burger-size--mob/2)}
 		+size($burger-size--mob)
 		+font($font-size--mob, $line-height--mob)
+
+	+media('<mob-lg')
+		right: 0
 
 	& > span
 		position: absolute
@@ -776,7 +800,7 @@ a.nav-opener
 	width: 50%
 
 .f-col
-	width: calc(80% / 4)
+	width: calc(100% / 4)
 	min-height: 1px
 	+clear
 
@@ -983,6 +1007,9 @@ a.nav-opener
 		//margin-bottom: $bottom-space--article--mob
 		margin-bottom: 1rem
 		text-align: left
+
+	//.home-page &
+		max-width: none
 
 .c-heading
 	$tf: cubic-bezier(0.4, 0.6, 0.2, 1)

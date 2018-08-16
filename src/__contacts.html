@@ -6,7 +6,8 @@
 @@include('_tpl_PAGE_WRAP.html', {
 	"pageWrap": "START",
 	"currentItem": "Контакты",
-	"title": "Контакты"
+	"title": "Контакты",
+	"classes": "contacts-page"
 })
 
 @@include('_tpl_breadcrumbs.html', {
@@ -14,19 +15,67 @@
 	"last": "Контакты"
 })
 
-<section class="section">
-	<h3>Контакты</h3>
-	{{section content}}
+<div class="contacts">
 
-	<div class="map clear-space"><img src="img/map.jpg" alt="location" /></div>
-</section>
+	<div class="contacts__holder layout-flood">
+		<div class="contact-share">
+			<div class="contact-share__box">
+				<div class="social-networks">
+					<div class="social-networks__list">
+						@@loop('_tpl_social-items.html', 'includes/json/social-items.json')
+					</div>
+				</div>
+			</div>
+			<div class="contact-share__box">
+				<div class="cont">
+					<ul>
+						<li>
+							@@include('./includes/svg/icon-email.svg')
+							<a href="mailto:info@lacerta.by">info@lacerta.by</a>
+						</li>
+						<li>
+							@@include('./includes/svg/icon-phone.svg')
+							<ul>
+								<li><a href="tel:+375 29 776-74-79"><span>+375 29</span> 776-74-79</a></li>
+								<li><a href="tel:+375 17 224-74-79"><span>+375 17</span> 224-74-79</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
 
-<section class="section">
-	<h3 class="hide">Закажите звонок</h3>
+		<address class="contacts-adr">
+			<strong>проспект Победителей, 121</strong>
+			г. Минск, Республика Беларусь, 220062
+		</address>
+	</div>
 
-	@@include("_tpl_forms_user-form.html")
-</section>
+	<!--Map Locations-->
+	<script>
+		// Initial setting
+		var pinMap = '../img/pin-map-24px.svg';
+		var localObjectsCont = [
+			[
+				{lat: 53.9382983, lng: 27.4715924}, //coordinates of marker
+				{latBias: 0, lngBias: 0}, //move marker
+				pinMap,
+				14,
+				{title: 'Lacerta'}
+			]
+		];
+	</script>
+	<div class="contacts-map clear-space">
+		<div id="contacts-map" class="map-box"></div>
+	</div>
+
+	<div class="contacts-form">
+		<div class="contacts-form__holder layout-flood">
+			@@include("_tpl_forms_user-form.html", {"noteFalse": "true", "socFalse": "true"})
+		</div>
+	</div>
+</div>
 
 @@include('_tpl_PAGE_WRAP.html', {"pageWrap": "END", "currentItem": "Контакты", "noBigBtn": "true" })
 
-@@include('_tpl_layout_foot.html')
+@@include('_tpl_layout_foot.html', {"hasMap": "true"})
