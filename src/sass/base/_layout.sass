@@ -40,17 +40,20 @@ html
 // выравнивание текстовых элементов на странице статьи (контент обернут в .layout-article)
 // и их максимальная ширина
 //.layout-article
-.#{$user-content}:not(.home-page)
+.#{$user-content}
 	& > p, & > ul, & > ol,
 	& > h2, & > h3, & > h4, & > h5, & > h6,
 	& > .h2, & > .h3, & > .h4, & > .h5, & > .h6,
-	& > hr, & > blockquote,
+	& > hr,
 	& > .layout-text
 		max-width: $text-layout-width
 		+padding-horizontal(0)
 		+push-auto
 
 		+media('<tab-lg')
+			max-width: none
+
+		.home-page &
 			max-width: none
 
 	& > h1, & > .h1
@@ -334,7 +337,8 @@ html
 
 //egg
 .egg
-	bottom: -63px
+	//bottom: -63px
+	top: 555px
 	right: 9px
 	position: fixed
 	overflow: hidden
@@ -772,7 +776,7 @@ a.nav-opener
 	width: 50%
 
 .f-col
-	width: calc(100% / 4)
+	width: calc(80% / 4)
 	min-height: 1px
 	+clear
 

@@ -69,6 +69,7 @@
 	// hover
 	&:hover:not(:disabled):not(.disabled)
 		background-color: $btn-bg-hover-color
+		color: $btn-text-color
 
 	// disabled
 	&:disabled, &.disabled
@@ -104,12 +105,18 @@
 		right: 34px
 		transform: translate(50%, -50%)
 
+		+media('<tab-lg')
+			right: 20px
+
 .btn-def_icon_left
 	padding-left: 60px
 
 	svg
 		left: 34px
 		transform: translate(-50%, -50%)
+
+		+media('<tab-lg')
+			left: 20px
 
 /* btn with icon end
 

@@ -450,12 +450,12 @@
 								<tr>
 									<td data-label="Город"><b>Буда-Кошелево</b></td>
 									<td data-label="Адрес">
-										<a href="#" class="map-to map-to-js --active">
+										<a href="#" class="map-to map-to-js" data-location="0">
 											<div class="adr"><b>пр-т Независимости, 126</b></div>
 											<div class="dep">Приорбанк / ЦБУ №12</div>
 										</a>
 									</td>
-									<td data-label="Время работы">
+									<td data-label="Время работы" class="td-schedule">
 										<div class="pop pop-js">
 											<span class="pop-open-js">Сегодня до 19:00</span>
 											<div class="pop__content pop-content-js">
@@ -501,15 +501,15 @@
 										</ul>
 									</td>
 								</tr>
-								<tr class="is-close">
+								<tr class="closed">
 									<td data-label="Город"><b>Минск</b></td>
 									<td data-label="Адрес">
-										<a href="#" class="map-to map-to-js --active">
+										<a href="#" class="map-to map-to-js" data-location="1">
 											<div class="adr"><b>ул. Беды, 1</b></div>
 											<div class="dep">Приорбанк / ЦБУ №11</div>
 										</a>
 									</td>
-									<td data-label="Время работы">
+									<td data-label="Время работы" class="td-schedule">
 										<div class="pop pop-js">
 											<span class="pop-open-js">Закрыто</span>
 											<div class="pop__content pop-content-js">
@@ -556,12 +556,12 @@
 								<tr>
 									<td data-label="Город"><b>пгт. Боровлянские Сказки</b></td>
 									<td data-label="Адрес">
-										<a href="#" class="map-to map-to-js --active">
+										<a href="#" class="map-to map-to-js" data-location="2">
 											<div class="adr"><b>ул. Лаврентия Николя 153/6</b></div>
 											<div class="dep">Приорбанк / ЦБУ №11</div>
 										</a>
 									</td>
-									<td data-label="Время работы">
+									<td data-label="Время работы" class="td-schedule">
 										<div class="pop pop-js">
 											<span class="pop-open-js">Сегодня до 22:00</span>
 											<div class="pop__content pop-content-js">
@@ -609,13 +609,78 @@
 							</tbody>
 						</table>
 					</div>
-					<div class="map clear-space"><img src="img/map.jpg" alt="location" /></div>
+					<script>
+						// Pin of Map
+						var pinMap = '../img/pin-map-24px.svg';
+						// Center coordinates and Zoom of Map
+						var initialMap = {
+							"coords": [53.932987, 27.615747],
+							"zoom": 14
+						};
+						// Objects of Map
+						var localObjects = [
+							[{
+									lat: 53.9338787,
+									lng: 27.650308
+								}, //coordinates of marker
+								{
+									latBias: 0,
+									lngBias: 0
+								}, //bias coordinates for center map
+								pinMap,
+								18,
+								{
+									title: 'Головной офис',
+									address: '<b>Адрес:</b> <div>Буда-Кошелево,<br> пр-т Независимости, 126</div>',
+									phone: '<b>Тел.:</b> <div><a href="tel:+375 (29) 209-53-74">+375 (29) 209-53-74</a>, <a href="tel:+375 (15 3) 253-745">+375 (15 3) 253-745</a>, <a href="tel:209-53-28">209-53-28</a></div>',
+									works: ''
+								}
+							],
+							[{
+									lat: 53.9294208,
+									lng: 27.5858438
+								}, //coordinates of marker
+								{
+									latBias: 0,
+									lngBias: 0
+								}, //bias coordinates for center map
+								pinMap,
+								18,
+								{
+									title: 'Офис в Москве',
+									address: '<b>Адрес:</b> <div>Минск,<br> ул. Беды, 1</div>',
+									phone: '<b>Тел.:</b> <div><a href="tel:209-53-74">209-53-74</a></div>',
+									works: ''
+								}
+							],
+							[{
+									lat: 53.929082,
+									lng: 27.613372
+								}, //coordinates of marker
+								{
+									latBias: 0,
+									lngBias: 0
+								}, //bias coordinates for center map
+								pinMap,
+								18,
+								{
+									title: 'Офис в Минске',
+									address: '<b>Адрес:</b> <div>пгт. Боровлянские Сказки, <br> ул. Лаврентия Николя 153/6</div>',
+									phone: '<b>Тел.:</b> <div><a href="tel:8 017 235-49-75">8 017 235-49-75</a>, <a href="tel:+375 (33) 364-85-73">+375 (33) 364-85-73</a></div>',
+									works: ''
+								}
+							]
+						];
+					</script>
+					<div class="map clear-space">
+						<div id="locations-map" class="map__container"></div>
+					</div>
 				</section>
 				<section class="section">
 					<h3 class="hide">Закажите звонок</h3>
 					<div class="user-form">
 						<div class="form-title">Закажите звонок</div>
-						<p class="bottom-space-article">
+						<p class="bottom-space-element">
 							Чтобы уточнить детали продажи или приступить к оформлению, <b>закажите звонок</b> или свяжитесь с нами в социальнных сетях.
 						</p>
 						<form action="" method="post" class="validation-form-js">
@@ -896,6 +961,8 @@
 	<script src="js/libs.min.js"></script>
 	<script src="js/form-validation.js?rev=@@hash"></script>
 	<script src="js/common.js?rev=@@hash"></script>
+	<!--Map-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnFqiG7GVEuZZeE5XCILGj1Tqz1KOMye8&sensor=false&extension=.js&language=en"></script>
 </body>
 
 </html>

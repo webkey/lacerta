@@ -4,7 +4,7 @@
 
 /* user form
 .user-form
-	margin-bottom: $bottom-space
+	margin-bottom: $bottom-space--section
 	background-color: $base-color-alt
 	border-radius: round($form-input-height/2)
 	padding: nth($page-layout-space, 1) nth($page-layout-space, 2)
@@ -15,6 +15,12 @@
 
 	+media('<tab-lg')
 		padding: nth($page-layout-space--mob, 1) nth($page-layout-space--mob, 2)
+		margin-bottom: $bottom-space--section--mob
+		border-radius: 0
+
+	.layout &
+		+media('<tab-lg')
+			+margin-horizontal(-#{nth($page-layout-space--mob, 2)})
 
 	&:last-child
 		margin-bottom: 0
@@ -22,8 +28,6 @@
 	.form-title
 		display: block
 		text-align: center
-		max-width: $text-layout-width
-		+push-auto
 		margin-bottom: $bottom-space--title
 
 		+media('<tab-lg')
@@ -33,24 +37,43 @@
 		&
 			+font-h3
 
-	p
+	.form-title, p
 		max-width: $text-layout-width
 		+push-auto
+
+		+media('<tab-lg')
+			max-width: none
 
 		&:last-child
 			margin-bottom: 0
 
 	form
 		display: block
-		margin-bottom: 6rem
+		margin-bottom: $bottom-space--article
+
+		+media('<tab-lg')
+			margin-bottom: 0
 
 		&:last-child
 			margin-bottom: 0
 
-	.form-row .input-wrap
-		button
-			display: block
-			width: 100%
+	.form-buttons
+		+media('<tab-lg')
+			margin-bottom: 0
+
+		label, .label-holder
+			+media('<tab-lg')
+				display: none
+
+	button
+		display: block
+		width: 100%
+		+push-auto
+		max-width: 320px
+
+	.social-networks
+		+media('<tab-lg')
+			display: none
 
 	//.input-wrap
 		&:last-child
@@ -224,7 +247,7 @@
 		list-style: none
 
 		li
-			padding: 0 6px 0 0
+			padding: 0 0em 0 0
 			margin: 0
 
 			&::before, &:first-child::before
@@ -252,7 +275,7 @@
 			content: '/'
 			border: none
 			color: $highlight-color
-			padding-left: 10px
+			padding-left: 0.25em
 
 		&:last-child::after
 			content: none
@@ -284,6 +307,170 @@
 	border-color: $highlight-color
 
 /* breadcrumbs end
+
+/* pop
+.pop
+	display: inline-block
+	vertical-align: top
+	position: relative
+	color: inherit
+	cursor: default
+
+	& > span
+		display: inline-block
+		vertical-align: top
+		position: relative
+		padding: 0 nth($pop-opener-space, 2)
+		+font-medium
+		white-space: nowrap
+		cursor: pointer
+		// transition
+		transition: color $animation-speed ease-in-out
+
+		&::before
+			content: ""
+			display: block
+			position: absolute
+			left: 0
+			top: -#{nth($pop-opener-space, 1)}
+			width: 100%
+			height: calc(100% + #{nth($pop-opener-space, 1) * 2})
+			border-radius: 20px
+			border: 2px solid $highlight-color
+			// transition
+			$prop: transform, opacity
+			will-change: $prop
+			transition:
+				property: $prop
+				duration: $animation-speed
+				timing-function: ease-in-out
+
+	&:active > span
+		transform: translate(0, 1px)
+
+	&.pop-is-open > span
+		z-index: 10
+
+		+media('>=tab-lg')
+			&::before
+				opacity: 0
+
+	// hover
+	.no-touchevents & > span:hover
+		color: $highlight-color--hover
+
+	.no-touchevents &.pop-is-open > span:hover
+		+media('>=tab-lg')
+			color: $base-color
+
+.pop__content
+	position: absolute
+	left: 0
+	top: -#{nth($pop-opener-space, 1)}
+	width: 440px
+	padding: round-float(nth($grid-space, 2) * 1.25, 1) nth($grid-space, 2) round-float(nth($grid-space, 2) * 0.75, 1)
+	color: $base-color
+	background-color: $highlight-color
+	border-radius: 15px
+	z-index: 5
+	opacity: 0
+	pointer-events: none
+	$translate: 0, 2em
+	transform: translate($translate)
+	transform: translate3d($translate, 0)
+	// transition
+	$prop: transform, opacity
+	will-change: $prop
+	transition:
+		property: $prop
+		duration: $pop-animation-speed
+		timing-function: cubic-bezier(0.55, 0.085, 0, 0.99)
+
+	+media('<tab-lg')
+		position: fixed
+		left: 50%
+		top: 50%
+		padding: round-float(nth($grid-space--mob, 2) * 1.5, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 2) * 0.75, 1)
+		max-width: calc(100% - #{nth($page-layout-space--mob, 2) * 2})
+		box-shadow: 0 0 30px rgba(black, 0.2)
+		z-index: 15
+		$translate: -50%, calc(-50% + 2em + #{round($header-height--mod / 2)})
+		transform: translate($translate)
+		transform: translate3d($translate, 0)
+
+	.pop-is-open &
+		opacity: 1
+		pointer-events: auto
+		$translate: 0, 0
+		transform: translate($translate)
+		transform: translate3d($translate, 0)
+
+		+media('<tab-lg')
+			$translate: -50%, calc(-50% + #{round($header-height--mod / 2)})
+			transform: translate($translate)
+			transform: translate3d($translate, 0)
+
+.pop__title
+	display: block
+	margin-bottom: 1em
+
+.pop__close
+	$line-w: 20px
+	$line-h: 2px
+	position: absolute
+	top: 8px
+	right: 8px
+	width: 20px
+	height: 20px
+	color: white
+	text-indent: -9999px
+	cursor: pointer
+	overflow: hidden
+	opacity: 0
+	$rotate: -0.25turn
+	transform: rotate($rotate)
+	transform: rotate($rotate) translateZ(0)
+	// transition
+	$prop: transform, opacity
+	will-change: $prop
+	transition:
+		delay: round-float($pop-animation-speed / 2, 1)
+		property: $prop
+		duration: $pop-animation-speed
+		timing-function: ease-in-out
+
+	.pop-is-open &
+		opacity: 1
+		$rotate: 0turn
+		transform: rotate($rotate)
+		transform: rotate($rotate) translateZ(0)
+		transition-delay: 0.2s
+
+	&::before, &::after
+		content: ""
+		display: block
+		position: absolute
+		height: $line-h
+		width: $line-w
+		margin: -#{round($line-h / 2)} 0 0 -#{round($line-w / 2)}
+		top: 50%
+		left: 50%
+		background-color: currentColor
+		// transition
+		transition: background-color $animation-speed ease-in-out
+
+	&::before
+		transform: rotate(0.125turn)
+
+	&::after
+		transform: rotate(-0.125turn)
+
+	// hover
+	.no-touchevents &:hover
+		&::before, &::after
+			background-color: $base-color
+
+/* pop end
 
 /* social networks
 .social-networks
@@ -405,10 +592,10 @@
 
 /* table-resp
 .table-resp
-	margin-bottom: $bottom-space--element
+	margin-bottom: $bottom-space--article
 
 	+media('<tab-lg')
-		margin-bottom: $bottom-space--section--mob
+		margin-bottom: $bottom-space--article--mob
 
 	table, tbody, tr, td, th
 		+media('<tab-lg')
@@ -440,9 +627,15 @@
 		+media('<mob-lg')
 			width: calc(100% - #{$offers-slider-space})
 
-		&.is-close
+		&.closed
 			td, th
 				opacity: 0.4
+
+			.td-schedule
+				opacity: 1
+
+				.pop > span
+					opacity: 0.4
 
 	td, th
 		color: $text-color
@@ -481,7 +674,8 @@
 				display: block
 
 		&:first-child
-			padding-top: 0
+			+media('<tab-lg')
+				padding-top: 0
 
 	th, thead td
 		+small-title
@@ -493,6 +687,7 @@
 	.map-to
 		.adr
 			margin-bottom: 1px
+			transition: color $animation-speed
 
 			+media('<tab-lg')
 				margin-bottom: 2px
@@ -501,9 +696,14 @@
 			font-size: 1.4rem
 			line-height: round-float(26/14, 2)
 			color: rgba($text-color, 0.4)
+			transition: color $animation-speed
 
 			+media('<tab-lg')
 				+font(12px, 15px)
+
+		&:hover
+			.adr
+				color: $highlight-color
 
 		&.active
 			cursor: default
@@ -538,6 +738,13 @@
 
 
 /* table-resp end
+
+/* map
+.map__container
+	height: 320px
+	background-color: #e5e5e5
+
+/* map end
 
 /* schedule
 .schedule
@@ -1721,6 +1928,13 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 	position: relative
 	overflow: hidden
 	+clear-spacing
+	margin-bottom: $bottom-space--article
+
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--element--mob
+
+	&:last-child
+		margin-bottom: 0
 
 .news__item
 	display: inline-block
@@ -1944,170 +2158,6 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 			background-color: $highlight-color--hover
 
 /* news end
-
-/* pop
-.pop
-	display: inline-block
-	vertical-align: top
-	position: relative
-	color: inherit
-	cursor: default
-
-	& > span
-		display: inline-block
-		vertical-align: top
-		position: relative
-		padding: 0 nth($pop-opener-space, 2)
-		+font-medium
-		white-space: nowrap
-		cursor: pointer
-		// transition
-		transition: color $animation-speed ease-in-out
-
-		&::before
-			content: ""
-			display: block
-			position: absolute
-			left: 0
-			top: -#{nth($pop-opener-space, 1)}
-			width: 100%
-			height: calc(100% + #{nth($pop-opener-space, 1) * 2})
-			border-radius: 20px
-			border: 2px solid $highlight-color
-			// transition
-			$prop: transform, opacity
-			will-change: $prop
-			transition:
-				property: $prop
-				duration: $animation-speed
-				timing-function: ease-in-out
-
-	&:active > span
-		transform: translate(0, 1px)
-
-	&.pop-is-open > span
-		z-index: 10
-
-		+media('>=tab-lg')
-			&::before
-				opacity: 0
-
-	// hover
-	.no-touchevents & > span:hover
-		color: $highlight-color--hover
-
-	.no-touchevents &.pop-is-open > span:hover
-		+media('>=tab-lg')
-			color: $base-color
-
-.pop__content
-	position: absolute
-	left: 0
-	top: -#{nth($pop-opener-space, 1)}
-	width: 440px
-	padding: round-float(nth($grid-space, 2) * 1.25, 1) nth($grid-space, 2) round-float(nth($grid-space, 2) * 0.75, 1)
-	color: $base-color
-	background-color: $highlight-color
-	border-radius: 15px
-	z-index: 5
-	opacity: 0
-	pointer-events: none
-	$translate: 0, 2em
-	transform: translate($translate)
-	transform: translate3d($translate, 0)
-	// transition
-	$prop: transform, opacity
-	will-change: $prop
-	transition:
-		property: $prop
-		duration: $pop-animation-speed
-		timing-function: cubic-bezier(0.55, 0.085, 0, 0.99)
-
-	+media('<tab-lg')
-		position: fixed
-		left: 50%
-		top: 50%
-		padding: round-float(nth($grid-space--mob, 2) * 1.5, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 2) * 0.75, 1)
-		max-width: calc(100% - #{nth($page-layout-space--mob, 2) * 2})
-		box-shadow: 0 0 30px rgba(black, 0.2)
-		z-index: 15
-		$translate: -50%, calc(-50% + 2em + #{round($header-height--mod / 2)})
-		transform: translate($translate)
-		transform: translate3d($translate, 0)
-
-	.pop-is-open &
-		opacity: 1
-		pointer-events: auto
-		$translate: 0, 0
-		transform: translate($translate)
-		transform: translate3d($translate, 0)
-
-		+media('<tab-lg')
-			$translate: -50%, calc(-50% + #{round($header-height--mod / 2)})
-			transform: translate($translate)
-			transform: translate3d($translate, 0)
-
-.pop__title
-	display: block
-	margin-bottom: 1em
-
-.pop__close
-	$line-w: 20px
-	$line-h: 2px
-	position: absolute
-	top: 8px
-	right: 8px
-	width: 20px
-	height: 20px
-	color: white
-	text-indent: -9999px
-	cursor: pointer
-	overflow: hidden
-	opacity: 0
-	$rotate: -0.25turn
-	transform: rotate($rotate)
-	transform: rotate($rotate) translateZ(0)
-	// transition
-	$prop: transform, opacity
-	will-change: $prop
-	transition:
-		delay: round-float($pop-animation-speed / 2, 1)
-		property: $prop
-		duration: $pop-animation-speed
-		timing-function: ease-in-out
-
-	.pop-is-open &
-		opacity: 1
-		$rotate: 0turn
-		transform: rotate($rotate)
-		transform: rotate($rotate) translateZ(0)
-		transition-delay: 0.2s
-
-	&::before, &::after
-		content: ""
-		display: block
-		position: absolute
-		height: $line-h
-		width: $line-w
-		margin: -#{round($line-h / 2)} 0 0 -#{round($line-w / 2)}
-		top: 50%
-		left: 50%
-		background-color: currentColor
-		// transition
-		transition: background-color $animation-speed ease-in-out
-
-	&::before
-		transform: rotate(0.125turn)
-
-	&::after
-		transform: rotate(-0.125turn)
-
-	// hover
-	.no-touchevents &:hover
-		&::before, &::after
-			background-color: $base-color
-
-/* pop end
 
 /* rolls
 .rolls

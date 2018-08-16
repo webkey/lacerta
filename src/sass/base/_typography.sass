@@ -468,10 +468,9 @@ table
 blockquote
 	display: block
 	position: relative
-	width: 469px
+	max-width: 52rem
 	margin: $bottom-space--element auto
 	padding: 0
-	//background-color: lightcoral
 
 	+media('<tab-lg')
 		margin: $bottom-space--element--mob auto
@@ -480,11 +479,15 @@ blockquote
 		display: block
 		position: relative
 		margin: 0
-		padding: 9rem 0
+		padding: 9.4rem 0
 		font-family: inherit
 		+font-medium
-		+font(3.0rem, round-float(36/30, 2))
+		+font(3.0rem, 3.6rem)
 		color: $text-color
+
+		+media('<tab-lg')
+			padding: 4.5rem 0
+			+font(2.0rem, 2.6rem)
 
 	cite
 		position: absolute
@@ -509,24 +512,29 @@ blockquote
 			left: 50%
 			height: nth($sep-size, 1)
 			width: nth($sep-size, 2)
-			margin-left: -#{round(nth($sep-size, 2)/2)}
+			margin: 1.4rem -#{round(nth($sep-size, 2)/2)}
 			background-color: $highlight-color
 			transform: rotate($sep-rotate)
 
+			+media('<tab-lg')
+				height: nth($sep-size--mob, 1)
+				width: nth($sep-size--mob, 2)
+				margin: 0.7rem -#{round(nth($sep-size--mob, 2)/2)}
+
 		&::before
 			top: 0
-			margin-top: 14px
 
 		&::after
 			bottom: 0
-			margin-bottom: 14px
 
 	q
-		&::before
-			margin-top: 30px
+		&::before, &::after
+			margin-top: 3rem
+			margin-bottom: 3rem
 
-		&::after
-			margin-bottom: 30px
+			+media('<tab-lg')
+				margin-top: 1.8rem
+				margin-bottom: 1.8rem
 
 /* blockquote end
 
@@ -589,10 +597,12 @@ blockquote
 .cols
 	position: relative
 	+clear
-	margin: $bottom-space--article 0 $bottom-space--section
+	margin-top: $bottom-space--article
+	margin-bottom: $bottom-space--section
 
 	+media('<tab-lg')
-		margin: $bottom-space--article--mob 0 $bottom-space--section--mob
+		margin-top: $bottom-space--article--mob
+		margin-bottom: $bottom-space--section--mob
 
 	&::before
 		content: ""
@@ -604,6 +614,9 @@ blockquote
 		border-right: 1px solid $text-color
 		opacity: 0.2
 
+		+media('<tab-lg')
+			content: none
+
 	.col
 		float: left
 		width: calc(50% - #{nth($page-layout-space, 2)})
@@ -613,11 +626,28 @@ blockquote
 			width: calc(50% - #{nth($page-layout-space--md, 2)})
 			margin: 0 nth($page-layout-space--md, 2)
 
+		+media('<tab-lg')
+			float: none
+			width: auto
+			margin: 0
+			padding: nth($page-layout-space--mob, 1) 0
+			border-top: 1px solid $text-color
+
 		&:nth-child(odd)
 			margin-left: 0
 
+			+media('<tab-lg')
+				padding-top: 0
+				border: none
+
 		&:nth-child(even)
 			margin-right: 0
+
+			+media('<tab-lg')
+				padding-bottom: 0
+
+		h2, .h2, h3, .h3
+			text-align: left
 
 /* columns end
 
