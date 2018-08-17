@@ -24,10 +24,12 @@
 	<!--MAIN-->
 	<div class="main@@if(context.classes && context.classes != "@@classes"){ @@classes}@@if(context.pageClass){ @@pageClass}">
 		<div class="layout content user-content">
+			@@if(context.title){
 			<div class="heading">
 				@@if(context.titleImg){<figure><div><img src="@@titleImg" alt="@@title" /></div></figure>}
 				<h1>@@title</h1>
 			</div>
+			}
 
 }
 @@if(pageWrap === "END")

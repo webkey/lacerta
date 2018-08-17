@@ -114,6 +114,7 @@ gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () { // Таск �
 		, 'src/libs/matchHeight/dist/jquery.matchHeight-min.js' // скрипт для выравнивания элементов по максимальному
 		, 'node_modules/object-fit-images/dist/ofi.min.js' // object-fit fix for a non-support browsers
 		, 'src/libs/jquery-validation/dist/jquery.validate.min.js' // валидация форм
+		// , 'src/libs/wow/dist/wow.min.js' // wow
 	])
 		.pipe(concat('libs.js')) // Собираем их в кучу в новом файле libs.min.js
 		.pipe(gulp.dest('src/js'))
@@ -164,7 +165,11 @@ gulp.task('copyImgToDist', function () {
 		.pipe(gulp.dest(path.dist + '/img')); // Выгружаем на продакшен
 });
 
-gulp.task('buildDist', ['cleanDist', 'htmlCompilation', 'copyImgToDist', 'sassCompilation', 'mergeCssLibs', 'createCustomModernizr', 'copyLibsScriptsToJs'], function () {
+gulp.task('copyImgToDistFinal', ['copyImgToDist'], function () {
+	return del.sync([path.dist + '/img/temp']); // Удаляем папку img/temp
+});
+
+gulp.task('buildDist', ['cleanDist', 'htmlCompilation', 'copyImgToDistFinal', 'sassCompilation', 'mergeCssLibs', 'createCustomModernizr', 'copyLibsScriptsToJs'], function () {
 
 	gulp.src(['src/ajax/**/*'])
 		.pipe(gulp.dest(path.dist + '/ajax')); // Переносим ajax-файлы в продакшен

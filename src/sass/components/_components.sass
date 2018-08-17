@@ -1541,7 +1541,8 @@
 .detail__item__box
 	display: inline-block
 	vertical-align: top
-	width: calc(100% / 3)
+	//width: calc(100% / 3)
+	width: round-float($hundred / 3, 2)
 	padding: 0 0 nth($detail-box-space-v, 2) nth($detail-box-space-h, 1)
 	font-size: $font-size
 	line-height: round-float(26/22, 2)
@@ -1553,7 +1554,8 @@
 		font-size: $font-size--mob
 
 .detail__item__box_lg
-	width: calc(100% / 3 * 2)
+	//width: calc(100% / 3 * 2)
+	width: round-float($hundred / 3 * 2, 2)
 
 	+media('<tab-lg')
 		width: 100%
@@ -2150,7 +2152,8 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 .news__item
 	display: inline-block
 	vertical-align: top
-	width: calc(100% / 2)
+	//width: calc(100% / 2)
+	width: round-float($hundred / 2, 2)
 	+font-light
 	+font($font-size, $line-height)
 	letter-spacing: $letter-spacing
@@ -2304,6 +2307,7 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 
 .news__item__title
 	+font(3.2rem, round-float(38/32, 2))
+	width: 100%
 	overflow: hidden
 
 	+media('<tab-lg')
@@ -2387,6 +2391,7 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 .rolls__item
 	position: relative
 	margin-bottom: nth($grid-space, 2)
+	border: 1px solid $border-color
 
 	+media('<tab-lg')
 		margin-bottom: nth($grid-space--mob, 2)
@@ -2817,3 +2822,45 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 			display: none
 
 /* contacts end
+
+/* error page
+.error-404
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	text-align: center
+	min-height: 60rem
+	padding-top: nth($main-space-v, 2)
+
+	+media('<tab-lg')
+		min-height: 40rem
+		padding-top: nth($main-space-v--mob, 2)
+
+	& > *
+		width: 100%
+
+	figure
+		display: block
+		padding: 0
+		margin: 0 0 $bottom-space--element
+
+		+media('<tab-lg')
+			margin-bottom: $bottom-space--element--mob
+
+		img
+			+push-auto
+
+			+media('<tab-lg')
+				max-width: 240px
+
+	h1
+		margin-bottom: $bottom-space--title
+		text-align: center
+
+		+media('<tab-lg')
+			margin-bottom: $bottom-space--title--mob
+	p
+		max-width: 400px
+
+/* error page end

@@ -5,6 +5,9 @@
 // Variables
 // ==========================================================================
 
+// One hundred percent
+$hundred: 100%
+
 // Medium query
 //$breakpoints: ('mob-sm': 320px, 'mob-md': 480px, 'mob-lg': 640px, 'tab-sm': 768px, 'tab-lg': 992px, 'desk-sm': 1200px, 'desk-md': 1366px, 'desk-lg': 1600px, 'desk-hd': 1920px)
 $breakpoints: ('desk-qhd': 2560px, 'desk-hd': 1920px, 'desk-lg': 1900px, 'desk-ml': 1440px, 'desk-md': 1366px, 'desk-sm': 1280px, 'tab-lg': 992px, 'tab-sm': 768px, 'mob-lg': 640px, 'mob-md': 480px, 'mob-sm': 320px)
@@ -148,6 +151,8 @@ $font-size-h2--sm: 3.0rem !default
 $line-height-h2--sm: round-float(4.2rem/$font-size-h2--sm, 2) !default
 // ----------------------------------------------------
 =font-h2()
+	font-family: $font-norm
+	+font-bold
 	font-size: $font-size-h2
 	line-height: $line-height-h2
 	text-align: center
