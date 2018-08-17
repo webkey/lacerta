@@ -1380,6 +1380,12 @@ blockquote q::before, blockquote q::after {
 	z-index: 1;
 }
 
+@media (max-width: 639px) {
+	.form-row, .input-wrap {
+		margin-bottom: 1.5rem;
+	}
+}
+
 .form-row:last-child, .input-wrap:last-child {
 	margin-bottom: 0;
 }
@@ -1415,9 +1421,9 @@ blockquote q::before, blockquote q::after {
 
 @media (max-width: 639px) {
 	.small-field .label-holder, .label-holder, .small-field label, label {
-		font-size: 10px;
-		line-height: 18px;
-		margin-bottom: 0.9rem;
+		font-size: 12px;
+		line-height: 16px;
+		margin-bottom: 0.6rem;
 	}
 }
 
@@ -1447,8 +1453,8 @@ label {
 
 @media (max-width: 639px) {
 	.small-field label, label {
-		padding-left: 10px;
-		margin-left: 1px;
+		padding-left: 18px;
+		margin-left: 2px;
 	}
 }
 
@@ -1488,7 +1494,7 @@ label {
 	.form-row .input-wrap {
 		display: block;
 		width: auto;
-		margin-bottom: 0.5rem;
+		margin-bottom: 1.5rem;
 	}
 }
 
@@ -1522,10 +1528,10 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 
 @media (max-width: 639px) {
 	.small-field input[type="text"], input[type="text"], .small-field input[type="password"], input[type="password"], .small-field input[type="email"], input[type="email"], .small-field input[type="search"], input[type="search"], .small-field textarea, textarea {
-		padding: 4px 10px 4px;
-		height: 30px;
-		border-radius: 15px;
-		border-width: 1px;
+		padding: 8px 18px 8px;
+		height: 40px;
+		border-radius: 20px;
+		border-width: 2px;
 	}
 }
 
@@ -1543,7 +1549,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 
 @media (max-width: 639px) {
 	.small-field input[type="text"], input[type="text"], .small-field input[type="password"], input[type="password"], .small-field input[type="email"], input[type="email"], .small-field input[type="search"], input[type="search"], .small-field textarea, textarea {
-		font-size: 10px;
+		font-size: 16px;
 		line-height: 20px;
 	}
 }
@@ -1554,7 +1560,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 
 @media (max-width: 639px) {
 	input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea {
-		margin: 0 0 0.5rem;
+		margin: 0 0 1.5rem;
 	}
 }
 
@@ -1564,7 +1570,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 
 @media (max-width: 639px) {
 	.small-field input[type="text"], .small-field input[type="password"], .small-field input[type="email"], .small-field input[type="search"], .small-field textarea {
-		margin: 0 0 0.5rem;
+		margin: 0 0 1.5rem;
 	}
 }
 
@@ -1585,8 +1591,8 @@ textarea {
 
 @media (max-width: 639px) {
 	.small-field textarea, textarea {
-		min-height: 110px;
-		height: 110px;
+		min-height: 120px;
+		height: 120px;
 	}
 }
 
@@ -2040,22 +2046,22 @@ input[type="radio"]:disabled ~ i::after {
 
 @media (max-width: 639px) {
 	.user-content .small-field select, .small-field .select select, .user-content .small-field .select select {
-		height: 30px;
-		padding: 4px 40px 4px 10px;
-		border-radius: 15px;
-		border-width: 1px;
-		font-size: 10px;
+		height: 40px;
+		padding: 8px 40px 8px 18px;
+		border-radius: 20px;
+		border-width: 2px;
+		font-size: 16px;
 		line-height: 20px;
 	}
 }
 
 @media (max-width: 639px) {
 	.user-content select, .select select, .user-content .select select {
-		height: 30px;
-		padding: 4px 40px 4px 10px;
-		border-radius: 15px;
-		border-width: 1px;
-		font-size: 10px;
+		height: 40px;
+		padding: 8px 40px 8px 18px;
+		border-radius: 20px;
+		border-width: 2px;
+		font-size: 16px;
 		line-height: 20px;
 	}
 }
@@ -2070,7 +2076,7 @@ input[type="radio"]:disabled ~ i::after {
 
 @media (max-width: 639px) {
 	.user-content select, .select {
-		margin: 0 0 0.5rem;
+		margin: 0 0 1.5rem;
 	}
 }
 
@@ -2084,7 +2090,7 @@ input[type="radio"]:disabled ~ i::after {
 
 @media (max-width: 639px) {
 	.user-content .small-field select, .small-field .select {
-		margin: 0 0 0.5rem;
+		margin: 0 0 1.5rem;
 	}
 }
 
@@ -2108,6 +2114,12 @@ input[type="radio"]:disabled ~ i::after {
 	z-index: 1;
 }
 
+@media (max-width: 639px) {
+	.select::before, .select::after {
+		right: 18px;
+	}
+}
+
 .input-holder.error .select::before, .input-holder.success .select::before, .input-holder.error .select::after, .input-holder.success .select::after {
 	display: none;
 }
@@ -2121,6 +2133,12 @@ input[type="radio"]:disabled ~ i::after {
 	-ms-transform: rotate(-45deg);
 	    transform: rotate(-45deg);
 	right: 23px;
+}
+
+@media (max-width: 639px) {
+	.select::after {
+		right: 15px;
+	}
 }
 
 .select select {
@@ -2255,7 +2273,7 @@ label.error {
 
 @media (max-width: 639px) {
 	.select2 {
-		margin: 0 0 0.5rem;
+		margin: 0 0 1.5rem;
 	}
 }
 
@@ -2280,7 +2298,7 @@ label.error {
 
 @media (max-width: 639px) {
 	.small-field .select2-container::before, .select2-container::before {
-		height: 35px;
+		height: 45px;
 	}
 }
 
@@ -2297,8 +2315,8 @@ label.error {
 
 @media (max-width: 639px) {
 	.small-field .select2-container.select2-container--below::before, .select2-container.select2-container--below::before {
-		border-top-left-radius: 15px;
-		border-top-right-radius: 15px;
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
 	}
 }
 
@@ -2315,8 +2333,8 @@ label.error {
 
 @media (max-width: 639px) {
 	.small-field .select2-container.select2-container--above::before, .select2-container.select2-container--above::before {
-		border-bottom-left-radius: 15px;
-		border-bottom-right-radius: 15px;
+		border-bottom-left-radius: 20px;
+		border-bottom-right-radius: 20px;
 	}
 }
 
@@ -2350,10 +2368,10 @@ label.error {
 
 @media (max-width: 639px) {
 	.small-field .select2-container--default .select2-selection, .select2-container--default .select2-selection {
-		height: 30px;
-		padding: 4px 40px 4px 10px;
-		border-radius: 15px;
-		border-width: 1px;
+		height: 40px;
+		padding: 8px 40px 8px 18px;
+		border-radius: 20px;
+		border-width: 2px;
 	}
 }
 
@@ -2371,7 +2389,7 @@ label.error {
 
 @media (max-width: 639px) {
 	.small-field .select2-container--default .select2-selection .select2-selection__rendered, .select2-container--default .select2-selection .select2-selection__rendered {
-		font-size: 10px;
+		font-size: 16px;
 		line-height: 20px;
 	}
 }
@@ -2428,6 +2446,12 @@ label.error {
 	z-index: 1;
 }
 
+@media (max-width: 639px) {
+	.select2-container--default .select2-selection--single .select2-selection__arrow b::before, .select2-container--default .select2-selection--single .select2-selection__arrow b::after {
+		right: 18px;
+	}
+}
+
 .input-holder.error .select2-container--default .select2-selection--single .select2-selection__arrow b::before, .input-holder.success .select2-container--default .select2-selection--single .select2-selection__arrow b::before, .input-holder.error .select2-container--default .select2-selection--single .select2-selection__arrow b::after, .input-holder.success .select2-container--default .select2-selection--single .select2-selection__arrow b::after {
 	display: none;
 }
@@ -2441,6 +2465,12 @@ label.error {
 	-ms-transform: rotate(-45deg);
 	    transform: rotate(-45deg);
 	right: 23px;
+}
+
+@media (max-width: 639px) {
+	.select2-container--default .select2-selection--single .select2-selection__arrow b::after {
+		right: 15px;
+	}
 }
 
 .select2-container--default.select2-container--open .select2-selection__arrow {
@@ -2496,7 +2526,7 @@ label.error {
 
 @media (max-width: 639px) {
 	.select2-container--default.small-field .select2-selection--multiple, .select2-container--default .select2-selection--multiple {
-		padding: 1px 10px 1px;
+		padding: 5px 18px 5px;
 	}
 }
 
@@ -2517,8 +2547,8 @@ label.error {
 
 @media (max-width: 639px) {
 	.small-field .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple, .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple, .small-field .select2-container--default.select2-container--open.select2-container--below .select2-selection--single, .select2-container--default.select2-container--open.select2-container--below .select2-selection--single {
-		border-bottom-left-radius: 15px;
-		border-bottom-right-radius: 15px;
+		border-bottom-left-radius: 20px;
+		border-bottom-right-radius: 20px;
 	}
 }
 
@@ -2534,8 +2564,8 @@ label.error {
 
 @media (max-width: 639px) {
 	.small-field .select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple, .select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple, .small-field .select2-container--default.select2-container--open.select2-container--above .select2-selection--single, .select2-container--default.select2-container--open.select2-container--above .select2-selection--single {
-		border-top-left-radius: 15px;
-		border-top-right-radius: 15px;
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
 	}
 }
 
@@ -2549,7 +2579,7 @@ label.error {
 
 @media (max-width: 639px) {
 	.small-field .select2-container--default.select2-container--focus .select2-selection--multiple, .select2-container--default.select2-container--focus .select2-selection--multiple, .small-field .select2-container--default.select2-container--focus .select2-selection--single, .select2-container--default.select2-container--focus .select2-selection--single, .small-field .select2-container--default.select2-container--open .select2-selection--multiple, .select2-container--default.select2-container--open .select2-selection--multiple, .small-field .select2-container--default.select2-container--open .select2-selection--single, .select2-container--default.select2-container--open .select2-selection--single {
-		border-width: 1px;
+		border-width: 2px;
 	}
 }
 
@@ -2590,7 +2620,7 @@ label.error {
 
 @media (max-width: 639px) {
 	.select2-container--default.small-field .select2-results > .select2-results__options, .select2-container--default .select2-results > .select2-results__options {
-		max-height: 180px;
+		max-height: 240px;
 	}
 }
 
@@ -2622,7 +2652,7 @@ label.error {
 
 @media (max-width: 639px) {
 	.small-field .select2-dropdown, .select2-dropdown {
-		border: 1px;
+		border: 2px;
 	}
 }
 
@@ -2637,8 +2667,8 @@ label.error {
 
 @media (max-width: 639px) {
 	.select2-dropdown.select2-dropdown--below.small-field, .select2-dropdown.select2-dropdown--below {
-		border-bottom-left-radius: 15px;
-		border-bottom-right-radius: 15px;
+		border-bottom-left-radius: 20px;
+		border-bottom-right-radius: 20px;
 	}
 }
 
@@ -2649,8 +2679,8 @@ label.error {
 
 @media (max-width: 639px) {
 	.select2-dropdown.select2-dropdown--above.small-field, .select2-dropdown.select2-dropdown--above {
-		border-top-left-radius: 15px;
-		border-top-right-radius: 15px;
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
 	}
 }
 
@@ -2670,8 +2700,8 @@ label.error {
 
 @media (max-width: 639px) {
 	.select2-dropdown--below.small-field .select2-results, .select2-dropdown--below .select2-results {
-		border-bottom-left-radius: 15px;
-		border-bottom-right-radius: 15px;
+		border-bottom-left-radius: 20px;
+		border-bottom-right-radius: 20px;
 	}
 }
 
@@ -2687,8 +2717,8 @@ label.error {
 
 @media (max-width: 639px) {
 	.select2-dropdown--above.small-field .select2-results, .select2-dropdown--above .select2-results {
-		border-top-left-radius: 15px;
-		border-top-right-radius: 15px;
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
 	}
 }
 
@@ -2709,7 +2739,7 @@ label.error {
 
 @media (max-width: 639px) {
 	.small-field .select2-results__options, .select2-results__options {
-		font-size: 10px;
+		font-size: 16px;
 		line-height: 20px;
 	}
 }
@@ -2729,8 +2759,8 @@ label.error {
 
 @media (max-width: 639px) {
 	.small-field .select2-results__option, .select2-results__option {
-		padding: 5px 10px 5px;
-		border-radius: 15px;
+		padding: 10px 18px 10px;
+		border-radius: 20px;
 	}
 }
 
@@ -2841,14 +2871,14 @@ label.error {
 
 @media (max-width: 639px) {
 	.small-field .error-note, .error-note, .small-field .success-note, .success-note {
-		padding-right: 15px;
-		padding-left: 15px;
-		margin-right: 1px;
-		margin-left: 1px;
-		height: 18px;
-		font-size: 10px;
-		line-height: 18px;
-		margin-top: -0.5rem;
+		padding-right: 20px;
+		padding-left: 20px;
+		margin-right: 2px;
+		margin-left: 2px;
+		height: 16px;
+		font-size: 12px;
+		line-height: 16px;
+		margin-top: -1.5rem;
 	}
 }
 
@@ -2864,7 +2894,7 @@ label.error {
 
 @media (max-width: 639px) {
 	.input-wrap .error-note, .input-holder .error-note, .select .error-note, .input-wrap .success-note, .input-holder .success-note, .select .success-note {
-		margin-bottom: 0.9rem;
+		margin-bottom: 0.6rem;
 	}
 }
 
@@ -2882,7 +2912,7 @@ label.error {
 	.input-holder.small-field .error-note, .small-field .input-wrap .success-note,
 	.small-field .select .success-note,
 	.input-holder.small-field .success-note {
-		margin-bottom: 0.9rem;
+		margin-bottom: 0.6rem;
 	}
 }
 
@@ -2925,7 +2955,7 @@ form .error + .select2 + .error-note {
 @media (max-width: 639px) {
 	.small-field .input-holder::before, .input-holder::before, .small-field .input-holder::after, .input-holder::after {
 		right: 15px;
-		top: 15px;
+		top: 20px;
 	}
 }
 
@@ -3087,6 +3117,12 @@ form .error + .select2 + .error-note {
 	margin-right: auto;
 	margin-left: auto;
 	max-width: 420px;
+}
+
+@media (max-width: 639px) {
+	.user-form button {
+		max-width: none;
+	}
 }
 
 @media (max-width: 991px) {
@@ -5310,11 +5346,11 @@ form .error + .select2 + .error-note {
 
 @media (max-width: 639px) {
 	.subs-form .label-holder, .subs-form label, .subs-form .error-note, .subs-form .success-note {
-		font-size: 10px;
-		line-height: 18px;
-		margin-bottom: 0.9rem;
-		padding-right: 10px;
-		padding-left: 10px;
+		font-size: 12px;
+		line-height: 16px;
+		margin-bottom: 0.6rem;
+		padding-right: 18px;
+		padding-left: 18px;
 	}
 }
 
@@ -5328,6 +5364,12 @@ form .error + .select2 + .error-note {
 	opacity: 0;
 }
 
+@media (max-width: 639px) {
+	.subs-form .input-holder.success::before, .subs-form .input-holder.success::after {
+		right: 8px;
+	}
+}
+
 .subs-form input[type="email"], .subs-form input[type="input"] {
 	padding-right: 20px;
 	padding-left: 20px;
@@ -5335,8 +5377,8 @@ form .error + .select2 + .error-note {
 
 @media (max-width: 639px) {
 	.subs-form input[type="email"], .subs-form input[type="input"] {
-		padding-right: 10px;
-		padding-left: 10px;
+		padding-right: 18px;
+		padding-left: 18px;
 	}
 }
 
@@ -5357,6 +5399,14 @@ form .error + .select2 + .error-note {
 	transition-property: color, background-color;
 	transition-duration: 0.2s;
 	transition-timing-function: ease-in-out;
+}
+
+@media (max-width: 639px) {
+	.subs-form button {
+		height: 40px;
+		width: 40px;
+		border-radius: 20px;
+	}
 }
 
 .subs-form button:hover {
@@ -6637,7 +6687,7 @@ form .error + .select2 + .error-note {
 	width: auto;
 	margin-right: 0;
 	margin-left: 0;
-	margin-bottom: 0.5rem;
+	margin-bottom: 1.5rem;
 }
 
 .contacts-form .user-form .form-row .input-wrap:last-child {
@@ -6649,7 +6699,7 @@ form .error + .select2 + .error-note {
 }
 
 .contacts-form .user-form .form-buttons {
-	margin-top: 1rem;
+	margin-top: 3rem;
 }
 
 .contacts-form .user-form .form-buttons label, .contacts-form .user-form .form-buttons .label-holder {
@@ -7187,7 +7237,7 @@ html.css-scroll-fixed:not(.open-only-mob) {
 		    transform: translate(0, -50px);
 		transform: translate3d(0, -50px, 0);
 		will-change: transform, opacity;
-		transition-delay: 0.6s;
+		transition-delay: 0.35s;
 		transition-property: transform, opacity;
 		transition-duration: 0.2s;
 		transition-timing-function: cubic-bezier(0.4, 0.6, 0.2, 1);

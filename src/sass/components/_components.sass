@@ -71,6 +71,9 @@
 		+push-auto
 		max-width: 420px
 
+		+media($form-media--mob)
+			max-width: none
+
 	.social-networks
 		+media('<tab-lg')
 			display: none
@@ -1765,6 +1768,9 @@
 				right: 17px
 				opacity: 0
 
+				+media($form-media--mob)
+					right: 8px
+
 	input[type="email"], input[type="input"]
 		+padding-horizontal($form-input-space-h--small)
 
@@ -1790,6 +1796,10 @@
 			property: $prop
 			duration: $animation-speed
 			timing-function: ease-in-out
+
+		+media($form-media--mob)
+			+size($form-input-height--mob)
+			border-radius: round($form-input-height--mob / 2)
 
 		&:hover
 			background-color: $highlight-color--hover

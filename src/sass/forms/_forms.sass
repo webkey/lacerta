@@ -9,6 +9,9 @@
 	margin-bottom: $form-bottom-space
 	z-index: 1 // Важно! Отметка подтверждения полей формы имеет z-index: -1
 
+	+media($form-media--mob)
+		margin-bottom: $form-bottom-space--mob
+
 	// Чтобы убрать в футере в подписке лишний отступ снизу
 	&:last-child
 		margin-bottom: 0
