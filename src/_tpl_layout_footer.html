@@ -48,69 +48,72 @@
 
 		<div class="f-col f-col_cont">
 			<div class="f-box f-box_form">
-				<div class="f-box__title">Напишите нам</div>
-				<div class="appeal-form">
+				<div class="f-box__title single-drop__select-js">
+					Напишите нам
+					<div class="f-box__angle single-drop__angle-js"><i>&nbsp;</i></div>
+				</div>
+				<div class="appeal-form single-drop__panel-js">
 					<!--form-success - add after success sent-->
 					<form action="#" method="post" class="validation-form-js">
 						<div class="appeal-form__cols">
 							<div class="appeal-form__col">
 								@@loop("_tpl_forms_field.html", [
 								{
-								"wrap": "small-field",
-								"type": "text",
-								"ph": "Введите Ваше имя...",
-								"id": "f-form-name",
-								"label": "Имя",
-								"valid": "true",
-								"required": "required"
+									"wrap": "small-field",
+									"type": "text",
+									"ph": "Введите Ваше имя...",
+									"id": "f-form-name",
+									"label": "Имя",
+									"valid": "true",
+									"required": "required"
 								}, {
-								"wrap": "small-field",
-								"type": "email",
-								"ph": "email@mail.com",
-								"id": "f-form-email",
-								"label": "Email",
-								"valid": "true",
-								"required": "required"
+									"wrap": "small-field",
+									"type": "email",
+									"ph": "email@mail.com",
+									"id": "f-form-email",
+									"label": "Email",
+									"valid": "true",
+									"required": "required"
 								}, {
-								"wrap": "small-field",
-								"type": "text",
-								"ph": "+375 00 111-22-33",
-								"id": "f-form-phone",
-								"label": "Телефон",
-								"valid": "true",
-								"required": "required"
+									"wrap": "small-field",
+									"type": "text",
+									"ph": "+375 00 111-22-33",
+									"id": "f-form-phone",
+									"label": "Телефон",
+									"valid": "true",
+									"required": "required"
 								}
 								])
 							</div>
 							<div class="appeal-form__col">
 								@@loop("_tpl_forms_field.html", [
 								{
-								"wrap": "small-field",
-								"type": "select",
-								"id": "f-form-services",
-								"classes": "cselect",
-								"ph": "Выберите услугу из списка",
-								"label": "Услуга",
-								"valid": "true",
-								"required": "required",
-								"options": "<option value=''>Выберите услугу из списка</option><option value='1'>Купить облигации</option><option value='2'>Продать облигации</option><option value='3'>Консультация</option><option value='4'>Запросить информацию</option><option value='5'>Другое</option>"
+									"wrap": "small-field",
+									"type": "select",
+									"id": "f-form-services",
+									"classes": "cselect",
+									"ph": "Выберите услугу из списка",
+									"label": "Услуга",
+									"valid": "true",
+									"required": "required",
+									"options": "<option value=''>Выберите услугу из списка</option><option value='1'>Купить облигации</option><option value='2'>Продать облигации</option><option value='3'>Консультация</option><option value='4'>Запросить информацию</option><option value='5'>Другое</option>"
 								}, {
-								"wrap": "small-field",
-								"type": "select",
-								"id": "f-form-issuer",
-								"classes": "cselect",
-								"ph": "Выберите эмитент из списка",
-								"label": "Эмитент",
-								"required": "required",
-								"options": "<option value=''>Выберите эмитент из списка</option><option value='1'>Купить облигации</option><option value='2'>Продать облигации</option><option value='3'>Консультация</option><option value='4'>Запросить информацию</option><option value='5'>Другое</option>"
+									"wrap": "small-field",
+									"type": "select",
+									"id": "f-form-issuer",
+									"classes": "cselect",
+									"ph": "Выберите эмитент из списка",
+									"label": "Эмитент",
+									"required": "required",
+									"options": "<option value=''>Выберите эмитент из списка</option><option value='1'>Купить облигации</option><option value='2'>Продать облигации</option><option value='3'>Консультация</option><option value='4'>Запросить информацию</option><option value='5'>Другое</option>"
 								}, {
-								"wrap": "small-field",
-								"type": "textarea",
-								"ph": "Введите сообщение...",
-								"id": "f-form-message",
-								"label": "Ваше сообщение",
-								"valid": "true",
-								"required": "required"
+									"wrap": "small-field",
+									"type": "textarea",
+									"ph": "Введите сообщение...",
+									"id": "f-form-message",
+									"label": "Ваше сообщение",
+									"valid": "true",
+									"required": "required"
 								}
 								])
 								@@include("_tpl_btn.html", {"type": "button!", "value": "Отправить", "iconRight": "@@include('./includes/svg/icon-send.svg')"})

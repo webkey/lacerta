@@ -831,12 +831,166 @@ a.nav-opener
 		+media('<tab-lg')
 			font-size: 2.0rem
 
+// f-box__angle
+.f-box__angle
+	$burger-size: 100% 6rem
+	$burger-size: nth($f-box--angle-size, 1) nth($f-box--angle-size, 2)
+	//$burger-size--md: nth($rolls-angle-size--md, 1) nth($rolls-angle-size--md, 2)
+	//$burger-size--mob: nth($rolls-angle-size--mob, 1) nth($rolls-angle-size--mob, 2)
+	$layer-size: 2px 20px
+	$layer-space: 4px
+	$layer-color: white
+	$burger-animation-speed: $animation-speed
+	$burger-animation-delay: round-float($burger-animation-speed*0.5, 2)
+
+	$cross-size: nth($layer-size, 1) nth($layer-size, 2)
+	$cross-color: $layer-color
+
+	// =====================
+
+	display: none
+	position: absolute
+	right: 0
+	bottom: 0
+	+size(nth($burger-size, 1), nth($burger-size, 2))
+	background-color: $highlight-color
+	//box-shadow: inset 0 0 0 1px $highlight-color--hover
+	box-shadow: inset 0 0 0 $border-color
+	cursor: pointer
+	outline: none
+	user-select: none
+	-webkit-tap-highlight-color: transparent
+	transition: background-color $animation-speed ease-in-out
+
+	//+media('<tab-lg')
+		+size(nth($burger-size--md, 1), nth($burger-size--md, 2))
+
+	+media('<tab-sm')
+		display: block
+
+	//+media('<mob-lg')
+		+size(nth($burger-size--mob, 1), nth($burger-size--mob, 2))
+
+	// крест
+	&::before, &::after
+		content: ""
+		display: block
+		position: absolute
+		left: 50%
+		top: 50%
+		+size(nth($cross-size, 1), nth($cross-size, 2))
+		margin-top: -#{round(nth($cross-size, 1) / 2)}
+		margin-left: -#{round(nth($cross-size, 2) / 2)}
+		background-color: $cross-color
+		opacity: 0
+		// transition
+		$prop: transform, opacity, background-color
+		will-change: $prop
+		transition:
+			property: $prop
+			duration: $burger-animation-speed
+			delay: 0s
+			timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
+
+	// бутерброд
+	& > i
+		//средний слой бутерброда
+		position: absolute
+		left: 50%
+		top: 50%
+		+size(#{nth($layer-size, 1)}, #{nth($layer-size, 2)})
+		margin-top: -#{round(nth($layer-size, 1) / 2)}
+		margin-left: -#{round(nth($layer-size, 2) / 2)}
+		background-color: $layer-color
+		// transition
+		$prop: transform, opacity
+		will-change: $prop
+		transition:
+			property: $prop
+			duration: $burger-animation-speed
+			delay: $burger-animation-delay
+
+		&::before, &::after
+			+pseudo()
+			left: 0
+			+size(#{nth($layer-size, 1)}, #{nth($layer-size, 2)})
+			background-color: $layer-color
+			// transition
+			$prop: transform
+			will-change: $prop
+			transition:
+				property: $prop
+				duration: $burger-animation-speed
+				delay: $burger-animation-delay
+
+		//верхний слой бутерброда
+		&::before
+			top: -#{nth($layer-size, 1) + $layer-space}
+
+		//нижний слой бутерброда
+		&::after
+			top: #{nth($layer-size, 1) + $layer-space}
+
+	// hover
+	.no-touchevents &:hover
+		background-color: $highlight-color--hover
+
+	// active
+	.is-open &
+		&::before, &::after
+			transition-delay: $burger-animation-delay
+			//background-color: $base-color
+
+			opacity: 1
+
+		&::before
+			transform: rotate(45deg) translateZ(0)
+
+		&::after
+			transform: rotate(-45deg) translateZ(0)
+
+		& > i
+			opacity: 0
+			transition-delay: 0s
+
+			&::before, &::after
+				transition-delay: 0s
+
+			&::before
+				transform: translate(0, #{nth($layer-size, 1) + $layer-space}) translateZ(0)
+
+			&::after
+				transform: translate(0, -#{nth($layer-size, 1) + $layer-space}) translateZ(0)
+
 // footer box appeal form
 .f-box_form
 	background-color: $base-color-alt
 
 	+media('<desk-lg')
 		position: relative
+
+	+media('<tab-sm')
+		padding: 0
+
+	.f-box__title
+		+media('<tab-sm')
+			position: relative
+			padding: $footer-box-space--mob
+			padding-right: nth($f-box--angle-size, 2) + nth($footer-box-space--mob, 2)
+			margin-bottom: 0
+			background-color: $base-color-dark
+
+	.appeal-form
+		+media('>=tab-sm')
+			display: block !important
+
+		+media('<tab-sm')
+			display: none
+
+	form
+		+media('<tab-sm')
+			display: block
+			padding: $footer-box-space--mob
 
 // footer box developer
 .developer

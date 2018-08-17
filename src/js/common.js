@@ -53,6 +53,7 @@ $(function () {
 					togglePop();
 					accordionInit();
 					offersAccordionInit();
+					singleDrop();
 					locationsMap();
 					contactsMap();
 				}
@@ -1080,7 +1081,6 @@ function accordionInit() {
 /**
  * !Offers Accordion Initial
  * */
-
 function offersAccordionInit() {
 	var $offersAccord = $('.offers-rolls-js');
 
@@ -1097,6 +1097,35 @@ function offersAccordionInit() {
 			}
 		});
 	}
+}
+
+/**
+ * !Appeal Form Drop Initial
+ * */
+function singleDrop() {
+	var $opener = $('.single-drop__angle-js'),
+		$select = $('.single-drop__select-js'),
+		$panel = $('.single-drop__panel-js'),
+		activeClass = 'is-open',
+		speed = 300;
+
+	$opener.on('click', function (e) {
+		e.preventDefault();
+
+		var $curOpener = $(this),
+			$curSelect = $curOpener.closest($select),
+			$curPanel = $curSelect.next($panel);
+
+		if($curOpener.hasClass(activeClass)){
+			$curOpener.removeClass(activeClass);
+			$curSelect.removeClass(activeClass);
+			$curPanel.stop().slideUp(speed);
+		} else {
+			$curOpener.addClass(activeClass);
+			$curSelect.addClass(activeClass);
+			$curPanel.stop().slideDown(speed);
+		}
+	})
 }
 
 /**
@@ -1367,6 +1396,7 @@ $(document).ready(function () {
 	togglePop();
 	accordionInit();
 	offersAccordionInit();
+	singleDrop();
 	locationsMap();
 	contactsMap();
 });
