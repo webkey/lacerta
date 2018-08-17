@@ -187,19 +187,6 @@ html
 	+media('<tab-lg')
 		padding-bottom: nth($main-space-v--mob, 2)
 
-.main,
-.c-heading__align
-	margin-right: $header-width
-	width: calc(100% - #{$header-width})
-
-	+media('<desk-lg')
-		margin-right: 0
-		width: 100%
-		padding-top: $header-height--md
-
-	+media('<tab-lg')
-		padding-top: $header-height--mod
-
 .content
 	//overflow: hidden // Нельзя использовать overflow: hidden. На странице контактов обрезает карту
 	min-height: 5rem
@@ -1137,17 +1124,9 @@ a.nav-opener
 
 /* === FOOTER end ===
 
-//.header
-	transition: 0.3s width ease-in-out
-
-//.header.main-homepage
-	width: 50vw
-
-//.main.main-homepage
-	margin-right: 55vw
-
 // heading
 .heading
+	position: relative
 	padding: nth($page-layout-space, 1) 0 0
 	margin-bottom: $bottom-space--article
 	text-align: center
@@ -1162,11 +1141,60 @@ a.nav-opener
 		margin-bottom: 1rem
 		text-align: left
 
-	//.home-page &
-		max-width: none
+	figure
+		display: block
+		width: 42rem
+		padding: $text-layout-space
+		margin: -#{nth($page-layout-space, 1)} auto $bottom-space--element
+		background-color: white
+		user-select: none
+		overflow: hidden
+		font-size: 0
+		line-height: 0
 
+		+media('<desk-lg')
+			width: 32rem
+			padding: $text-layout-space--md
+			border-top: 1px solid #dcdcdc
+
+		+media('<tab-lg')
+			width: 20rem
+			padding: $text-layout-space--mob
+			margin: -#{nth($page-layout-space--mob, 1)} auto $bottom-space--element--mob
+			//background: none
+			//border: none
+
+		& > div
+			position: relative
+			//background-color: lightcoral
+
+			&::before
+				content: ""
+				display: block
+				position: relative
+				+ratio(300, 200)
+
+			img
+				display: block
+				position: absolute
+				left: 0
+				top: 0
+				width: 100%
+				height: 100%
+				max-width: none
+				margin: 0 auto
+				+object-fit(contain)
+
+// preparation heading
 .c-heading
 	$tf: cubic-bezier(0.4, 0.6, 0.2, 1)
+	position: fixed
+	height: 0
+	top: 0
+	left: 0
+	width: 100%
+	z-index: $z-heading
+	pointer-events: none
 	opacity: 0
 	transition:
 		property: opacity, animation
@@ -1195,6 +1223,31 @@ a.nav-opener
 
 		transition:
 			timing-function: ease-in-out
+
+	figure
+		display: none
+		opacity: 0
+		pointer-events: none
+		visibility: hidden
+
+	&.has-logo figure
+		display: block
+
+.c-heading__layout
+	position: relative
+
+.main,
+.c-heading__align
+	margin-right: $header-width
+	width: calc(100% - #{$header-width})
+
+	+media('<desk-lg')
+		margin-right: 0
+		width: 100%
+		padding-top: $header-height--md
+
+	+media('<tab-lg')
+		padding-top: $header-height--mod
 
 $c-heading-y: 60vh
 @keyframes showHeading
@@ -1308,21 +1361,3 @@ $c-heading-y: 60vh
 
 	to
 		transform: translateZ(0)
-
-/* heading
-.c-heading
-	position: fixed
-	height: 0
-	top: 0
-	left: 0
-	width: 100%
-	z-index: $z-heading
-	pointer-events: none
-
-	//h1
-		color: red
-
-.c-heading__layout
-	position: relative
-
-/* heading end

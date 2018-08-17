@@ -16,11 +16,12 @@ $(function () {
 
 				$heading.removeClass('is-leaving').removeClass('is-active');
 				var title = $currentTarget.attr('data-heading') || '';
-				// console.log("title: ", title);
 				$title.html(title);
-
-				// console.log("$currentTarget: ", $container.attr());
-				// heading.text($currentTarget[0].pathname.substr(1));
+				// Align heading
+				var dataHeadingAlign = $currentTarget.attr('data-heading-align') || '';
+				$heading.attr('data-heading-align', dataHeadingAlign);
+				// Add logotype
+				$heading.toggleClass('has-logo', $currentTarget.attr('data-has-logo') !== undefined);
 			},
 			onStart: {
 				duration: 1100, // Duration of our animation

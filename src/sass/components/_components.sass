@@ -1745,10 +1745,14 @@
 		display: block
 
 	.label-holder, label, .error-note, .success-note
-		font-size: 14px
 		+font($form-label-font-size--small, $form-label-line-height--small)
 		margin-bottom: $form-label-vsb--small
 		+padding-horizontal($form-input-space-h--small)
+		
+		+media($form-media--mob)
+			+font($form-label-font-size--mob, $form-label-line-height--mob)
+			margin-bottom: $form-label-vsb--mob
+			+padding-horizontal($form-input-space-h--mob)
 
 	.input-holder
 		&.error
@@ -1763,6 +1767,9 @@
 
 	input[type="email"], input[type="input"]
 		+padding-horizontal($form-input-space-h--small)
+
+		+media($form-media--mob)
+			+padding-horizontal($form-input-space-h--mob)
 
 	button
 		display: block

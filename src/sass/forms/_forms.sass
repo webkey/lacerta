@@ -37,6 +37,11 @@
 		+font($form-label-font-size--small, $form-label-line-height--small)
 		margin-bottom: $form-label-vsb--small
 
+	.#{$small-field} &, &
+		+media($form-media--mob)
+			+font($form-label-font-size--mob, $form-label-line-height--mob)
+			margin-bottom: $form-label-vsb--mob
+
 label, .label
 	+display-inline-block-top
 	user-select: none
@@ -54,6 +59,12 @@ label
 		padding-left: $form-input-space-h--small
 		@if $form-border-width--small
 			margin-left: $form-border-width--small
+
+	.#{$small-field} &, &
+		+media($form-media--mob)
+			padding-left: $form-input-space-h--mob
+			@if $form-border-width--mob
+				margin-left: $form-border-width--mob
 
 .form-mark
 	+display-inline-block-top
@@ -116,13 +127,25 @@ label
 		@if $form-border-width--small
 			border-width: $form-border-width--small
 
+	.#{$small-field} &, &
+		+media($form-media--mob)
+			padding: $form-input-space-vt--mob $form-input-space-h--mob $form-input-space-vb--mob
+			height: $form-input-height--mob
+			border-radius: round($form-input-height--mob/2)
+			@if $form-border-width--mob
+				border-width: $form-border-width--mob
+
 	// Стили для текста полей ввода прописываем отдельно через миксин,
 	// чтобы была возможность добавить медиа развилки через тот же миксин
 	&
 		+inputs-font
 
-		//.#{$small-field} &
+		.#{$small-field} &
 			+inputs-font--small
+
+		.#{$small-field} &, &
+			+media($form-media--mob)
+				+inputs-font--mob
 
 	// Стили вертикальных отступов для полей ввода прописываем отдельно через миксин,
 	// чтобы была возможность добавить медиа развилки через тот же миксин
@@ -155,6 +178,12 @@ textarea
 		$height: round($form-line-height--small*$lines) + $form-input-space-vt--small + $form-input-space-vb--small + round($form-border-width--small*2)
 		min-height: $height
 		height: $height
+
+	.#{$small-field} &, &
+		+media($form-media--mob)
+			$height: round($form-line-height--mob*$lines) + $form-input-space-vt--mob + $form-input-space-vb--mob + round($form-border-width--mob*2)
+			min-height: $height
+			height: $height
 
 	&[disabled]
 		resize: none

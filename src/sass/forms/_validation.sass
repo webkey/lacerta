@@ -26,8 +26,14 @@
 		height: $form-label-line-height--small
 		+font($form-label-font-size--small, $form-label-line-height--small)
 
-	+media('<mob-lg')
-		margin-top: -#{$form-bottom-space--mob}
+	.#{$small-field} &, &
+		+media($form-media--mob)
+			+padding-horizontal(round($form-input-height--mob/2))
+			@if $form-border-width--mob
+				+margin-horizontal($form-border-width--mob)
+			height: $form-label-line-height--mob
+			+font($form-label-font-size--mob, $form-label-line-height--mob)
+			margin-top: -#{$form-bottom-space--mob}
 
 	.input-wrap &, .input-holder &, .select &
 		float: none
@@ -39,10 +45,16 @@
 		padding-left: 0
 		margin-bottom: $form-label-vsb
 
+		+media($form-media--mob)
+			margin-bottom: $form-label-vsb--mob
+
 	.#{$small-field} .input-wrap &,
 	.#{$small-field} .select &,
 	.input-holder.#{$small-field} &
 		margin-bottom: $form-label-vsb--small
+
+		+media($form-media--mob)
+			margin-bottom: $form-label-vsb--mob
 
 .error-note
 	color: $form-error-color
@@ -88,6 +100,11 @@
 		.#{$small-field} &
 			right: 15px
 			top: round($form-input-height--small / 2)
+
+		.#{$small-field} &, &
+			+media($form-media--mob)
+				right: 15px
+				top: round($form-input-height--mob / 2)
 
 	&::before
 		//+size($this-icon-lines-height, round($this-icon-lines-width*0.44))

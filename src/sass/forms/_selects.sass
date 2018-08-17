@@ -29,6 +29,16 @@
 			+selectSelection--small
 			+selects-font--small
 
+			+media($form-media--mob)
+				+selectSelection--mob
+				+selects-font--mob
+
+.#{$user-content}, .select, .#{$user-content} .select
+	select
+		+media($form-media--mob)
+			+selectSelection--mob
+			+selects-font--mob
+
 .#{$user-content} select
 	padding-right: 0
 
@@ -38,7 +48,7 @@
 	&:last-child
 		margin-bottom: 0
 
-//.#{$small-field}
+.#{$small-field}
 	.#{$user-content} & select, & .select
 		+forms-space--small
 
