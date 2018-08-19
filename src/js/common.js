@@ -47,6 +47,7 @@ $(function () {
 					$heading.addClass('is-leaving');
 
 					customSelect();
+					formMaskInit();
 					formValidInit();
 					slidersInit();
 					equalHeight();

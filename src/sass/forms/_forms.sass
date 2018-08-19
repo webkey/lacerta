@@ -122,6 +122,12 @@ label
 	@if $form-border-width
 		border: $form-border-width solid $form-border-color
 	cursor: pointer
+	// transition
+	$prop: color, border-color, background-color
+	transition:
+		property: $prop
+		duration: $animation-speed
+		timing-function: ease-in-out
 
 	.#{$small-field} &
 		padding: $form-input-space-vt--small $form-input-space-h--small $form-input-space-vb--small

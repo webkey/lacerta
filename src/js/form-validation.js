@@ -1,4 +1,16 @@
 /**
+ * !Form mask
+ * */
+var formMaskInit = function(){
+	$.each($('.has-phone-mask'), function () {
+		$(this).inputmask({
+			"mask": "+375 99 999-99-99"
+			// , clearMaskOnLostFocus: false
+		});
+	})
+};
+
+/**
  * !Form validation
  * */
 var formValidInit = function (){
@@ -53,5 +65,6 @@ var formValidInit = function (){
 };
 
 $(document).ready(function () {
+	formMaskInit();
 	formValidInit();
 });

@@ -114,6 +114,8 @@ gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () { // Таск �
 		, 'src/libs/matchHeight/dist/jquery.matchHeight-min.js' // скрипт для выравнивания элементов по максимальному
 		, 'node_modules/object-fit-images/dist/ofi.min.js' // object-fit fix for a non-support browsers
 		, 'src/libs/jquery-validation/dist/jquery.validate.min.js' // валидация форм
+		// , 'src/libs/inputmask/dist/min/inputmask/jquery.inputmask.min.js' // маска для форм
+		, 'src/libs/inputmask/dist/min/jquery.inputmask.bundle.min.js' // маска для форм
 		// , 'src/libs/wow/dist/wow.min.js' // wow
 	])
 		.pipe(concat('libs.js')) // Собираем их в кучу в новом файле libs.min.js

@@ -29,6 +29,7 @@
     "wow": "wowjs#^1.1.2"
   },
   "devDependencies": {
-    "mathsass": "^0.9.5"
+    "mathsass": "^0.9.5",
+    "inputmask": "^4.0.0"
   }
 }

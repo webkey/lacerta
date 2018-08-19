@@ -63,6 +63,12 @@ $font-alt: 'Playfair Display', serif !default
 	font-family: $font-alt
 
 
+// Animation
+// ==========================================================================
+$animation-speed: 0.2s !default
+$animation-speed-mouseleave: 0.35s !default
+
+
 // Colors
 // ==========================================================================
 
@@ -417,9 +423,9 @@ $form-label-vsb--mob: 0.6rem // vertical space bottom
 	font-family: inherit
 	font-size: $form-font-size
 	line-height: $form-line-height
+	color: $form-text-color
 	@if $form-letter-spacing
 		letter-spacing: $form-letter-spacing
-	color: $form-text-color
 
 =inputs-font--small()
 	font-size: $form-font-size--small
@@ -503,6 +509,12 @@ $multiple-item-space: 3px !default
 	box-shadow: none
 	text-indent: 0
 	outline: none
+	// transition
+	$prop: border-color, color, background-color
+	transition:
+		property: $prop
+		duration: $animation-speed
+		timing-function: ease-in-out
 	user-select: none
 	-webkit-tap-highlight-color: transparent
 
@@ -618,12 +630,6 @@ $detail-box-space-h: 1rem 0 !default
 // ==========================================================================
 $cont-map-height: 41.3rem
 $cont-form-width: 46.8rem
-
-
-// Animation
-// ==========================================================================
-$animation-speed: 0.2s !default
-$animation-speed-mouseleave: 0.35s !default
 
 
 // Social

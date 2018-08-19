@@ -1518,6 +1518,9 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 	box-shadow: none;
 	border: 2px solid #242473;
 	cursor: pointer;
+	transition-property: color, border-color, background-color;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
 	/* Change autocomplete styles in WebKit */
 }
 
@@ -2017,6 +2020,9 @@ input[type="radio"]:disabled ~ i::after {
 	box-shadow: none;
 	text-indent: 0;
 	outline: none;
+	transition-property: border-color, color, background-color;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
 	-webkit-user-select: none;
 	   -moz-user-select: none;
 	    -ms-user-select: none;
@@ -2354,6 +2360,9 @@ label.error {
 	box-shadow: none;
 	text-indent: 0;
 	outline: none;
+	transition-property: border-color, color, background-color;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
 	-webkit-user-select: none;
 	   -moz-user-select: none;
 	    -ms-user-select: none;
@@ -2764,6 +2773,10 @@ label.error {
 		padding: 10px 18px 10px;
 		border-radius: 20px;
 	}
+}
+
+.select2 .select2-selection:hover, .select2 .select2-selection__rendered:hover, .select2 .select2-selection__placeholder:hover {
+	border-color: #4949a7;
 }
 
 .input--has-value + .select2 .select2-selection, .input--has-value + .select2 .select2-selection__rendered, .input--has-value + .select2 .select2-selection__placeholder {
