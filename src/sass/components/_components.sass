@@ -1329,6 +1329,7 @@
 				display: flex
 				align-items: center
 				height: 100%
+				min-height: 160px
 				margin-right: 6rem
 				background-color: white
 				padding: $grid-space
@@ -1344,10 +1345,10 @@
 					margin-right: nth($grid-space--md, 2)
 					padding: $grid-space--md
 
-
 				+media('<tab-lg')
 					display: block
 					height: auto
+					min-height: 0
 					padding: nth($grid-space--mob, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 1) * 0.8, 2)
 					margin-right: 0
 					text-align: center
@@ -1903,7 +1904,8 @@
 		// transition
 		transition: color $animation-speed ease-in-out
 
-		&:not([href*="javascript:;"]):not([href^="tel:"]):hover
+		//&:not([href*="javascript:;"]):not([href^="tel:"]):hover // если не нужен ховаер на телефоны
+		&:not([href*="javascript:;"]):hover
 			color: $link-color
 
 		&[href^="tel:"]
@@ -2669,7 +2671,8 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 		a
 			color: currentColor
 
-			.no-touchevents &:not([href^="tel:"]):hover
+			//.no-touchevents &:not([href^="tel:"]):hover // если не нужнен ховер на телефоны
+			.no-touchevents &:hover
 				color: $highlight-color
 
 			&[href^="tel:"]
