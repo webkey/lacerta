@@ -319,52 +319,56 @@
 	color: inherit
 	cursor: default
 
-	& > span
-		display: inline-block
-		vertical-align: top
-		position: relative
-		padding: 0 nth($pop-opener-space, 2)
-		+font-medium
-		white-space: nowrap
-		cursor: pointer
+.pop__open
+	display: inline-block
+	vertical-align: top
+	position: relative
+	padding: 0 nth($pop-opener-space, 2)
+	+font-medium
+	color: inherit
+	white-space: nowrap
+	cursor: pointer
+	// transition
+	transition: color $animation-speed ease-in-out
+
+	&::before
+		content: ""
+		display: block
+		position: absolute
+		left: 0
+		top: -#{nth($pop-opener-space, 1)}
+		width: 100%
+		height: calc(100% + #{nth($pop-opener-space, 1) * 2})
+		border-radius: 20px
+		border: 2px solid $highlight-color
 		// transition
-		transition: color $animation-speed ease-in-out
+		$prop: transform, opacity
+		will-change: $prop
+		transition:
+			property: $prop
+			duration: $animation-speed
+			timing-function: ease-in-out
 
-		&::before
-			content: ""
-			display: block
-			position: absolute
-			left: 0
-			top: -#{nth($pop-opener-space, 1)}
-			width: 100%
-			height: calc(100% + #{nth($pop-opener-space, 1) * 2})
-			border-radius: 20px
-			border: 2px solid $highlight-color
-			// transition
-			$prop: transform, opacity
-			will-change: $prop
-			transition:
-				property: $prop
-				duration: $animation-speed
-				timing-function: ease-in-out
-
-	&:active > span
+	//.pop-open:active
 		transform: translate(0, 1px)
 
-	&.pop-is-open > span
+	.pop-is-open &
 		z-index: 10
+		cursor: default
+		pointer-events: none
 
 		+media('>=tab-lg')
 			&::before
 				opacity: 0
 
 	// hover
-	.no-touchevents & > span:hover
-		color: $highlight-color--hover
+	.no-touchevents &:hover
+		//color: $highlight-color--hover
+		color: currentColor
 
-	.no-touchevents &.pop-is-open > span:hover
-		+media('>=tab-lg')
-			color: $base-color
+//.no-touchevents .pop-open:hover
+	+media('>=tab-lg')
+		color: $base-color
 
 .pop__content
 	position: absolute
@@ -388,6 +392,10 @@
 		property: $prop
 		duration: $pop-animation-speed
 		timing-function: cubic-bezier(0.55, 0.085, 0, 0.99)
+
+	.position-right &
+		left: auto
+		right: 0
 
 	+media('<tab-lg')
 		position: fixed
@@ -420,11 +428,12 @@
 .pop__close
 	$line-w: 20px
 	$line-h: 2px
+	$pos: 8px
 	position: absolute
-	top: 8px
-	right: 8px
-	width: 20px
-	height: 20px
+	top: $pos
+	right: $pos
+	width: $line-w
+	height: $line-w
 	color: white
 	text-indent: -9999px
 	cursor: pointer
@@ -437,10 +446,15 @@
 	$prop: transform, opacity
 	will-change: $prop
 	transition:
-		delay: round-float($pop-animation-speed / 2, 1)
+		//delay: round-float($pop-animation-speed / 2, 1)
+		delay: 0s
 		property: $prop
 		duration: $pop-animation-speed
 		timing-function: ease-in-out
+
+	.position-right &
+		right: auto
+		left: $pos
 
 	.pop-is-open &
 		opacity: 1
@@ -649,7 +663,7 @@
 			.td-schedule
 				opacity: 1
 
-				.pop > span
+				.pop__open
 					opacity: 0.4
 
 	td, th
@@ -797,6 +811,7 @@
 	//margin-bottom: $bottom-space--section
 	margin-bottom: $bottom-space--section
 	+padding-horizontal(#{nth($page-layout-space, 2)})
+	padding-bottom: 2px
 	+clear
 
 	+media('<desk-lg')

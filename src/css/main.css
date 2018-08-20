@@ -2643,7 +2643,7 @@ label.error {
 	border: 2px solid #4949a7;
 	background-color: #4949a7;
 	border-radius: 30px;
-	z-index: 9999;
+	z-index: 39;
 	opacity: 0;
 	will-change: transform, opacity;
 	transition-property: transform, opacity;
@@ -2735,17 +2735,20 @@ label.error {
 	font-size: 18px;
 	line-height: 20px;
 	background-color: #4949a7;
+	border-radius: 30px;
 }
 
 .small-field .select2-results__options {
 	font-size: 18px;
 	line-height: 20px;
+	border-radius: 22px;
 }
 
 @media (max-width: 639px) {
 	.small-field .select2-results__options, .select2-results__options {
 		font-size: 16px;
 		line-height: 20px;
+		border-radius: 20px;
 	}
 }
 
@@ -3363,18 +3366,19 @@ form .error + .select2 + .error-note {
 	cursor: default;
 }
 
-.pop > span {
+.pop__open {
 	display: inline-block;
 	vertical-align: top;
 	position: relative;
 	padding: 0 0.7em;
 	font-weight: 500;
+	color: inherit;
 	white-space: nowrap;
 	cursor: pointer;
 	transition: color 0.2s ease-in-out;
 }
 
-.pop > span::before {
+.pop__open::before {
 	content: "";
 	display: block;
 	position: absolute;
@@ -3390,29 +3394,20 @@ form .error + .select2 + .error-note {
 	transition-timing-function: ease-in-out;
 }
 
-.pop:active > span {
-	-ms-transform: translate(0, 1px);
-	    transform: translate(0, 1px);
-}
-
-.pop.pop-is-open > span {
+.pop-is-open .pop__open {
 	z-index: 10;
+	cursor: default;
+	pointer-events: none;
 }
 
 @media (min-width: 992px) {
-	.pop.pop-is-open > span::before {
+	.pop-is-open .pop__open::before {
 		opacity: 0;
 	}
 }
 
-.no-touchevents .pop > span:hover {
-	color: #5eb8b2;
-}
-
-@media (min-width: 992px) {
-	.no-touchevents .pop.pop-is-open > span:hover {
-		color: #333399;
-	}
+.no-touchevents .pop__open:hover {
+	color: currentColor;
 }
 
 .pop__content {
@@ -3434,6 +3429,11 @@ form .error + .select2 + .error-note {
 	transition-property: transform, opacity;
 	transition-duration: 0.6s;
 	transition-timing-function: cubic-bezier(0.55, 0.085, 0, 0.99);
+}
+
+.position-right .pop__content {
+	left: auto;
+	right: 0;
 }
 
 @media (max-width: 991px) {
@@ -3487,10 +3487,15 @@ form .error + .select2 + .error-note {
 	    transform: rotate(-0.25turn);
 	transform: rotate(-0.25turn) translateZ(0);
 	will-change: transform, opacity;
-	transition-delay: 0.3s;
+	transition-delay: 0s;
 	transition-property: transform, opacity;
 	transition-duration: 0.6s;
 	transition-timing-function: ease-in-out;
+}
+
+.position-right .pop__close {
+	right: auto;
+	left: 8px;
 }
 
 .pop-is-open .pop__close {
@@ -3804,7 +3809,7 @@ form .error + .select2 + .error-note {
 	opacity: 1;
 }
 
-.table-resp tr.closed .td-schedule .pop > span {
+.table-resp tr.closed .td-schedule .pop__open {
 	opacity: 0.4;
 }
 
@@ -4005,6 +4010,7 @@ form .error + .select2 + .error-note {
 	margin-bottom: 14rem;
 	padding-right: 8rem;
 	padding-left: 8rem;
+	padding-bottom: 2px;
 }
 
 .main-section::after, .section::after {
@@ -7125,17 +7131,26 @@ html.css-scroll-fixed:not(.open-only-mob) {
 	display: block;
 	position: relative;
 	background-image: url(../img/logo.png);
-	width: 341px;
-	text-indent: -9999px;
-	overflow: hidden;
+	background-repeat: no-repeat;
+	background-size: contain;
+	width: 155px;
+	color: #cccddb;
 	z-index: 5;
+}
+
+@media (max-width: 1899px) {
+	.logo {
+		background-image: url(../img/logo-sm-2x.png);
+		width: 165px;
+		margin-top: -13px;
+	}
 }
 
 @media (max-width: 991px) {
 	.logo {
-		background-image: url(../img/logo-sm.png);
-		width: 200px;
-		height: 33px;
+		width: 93px;
+		margin-top: 0;
+		color: #a7a7ce;
 	}
 }
 
@@ -7143,14 +7158,7 @@ html.css-scroll-fixed:not(.open-only-mob) {
 	content: "";
 	display: block;
 	height: 0;
-	padding-top: 10.56%;
-}
-
-@media (max-width: 991px) {
-	.logo::before {
-		height: 0;
-		padding-top: 16.5%;
-	}
+	padding-top: 21.29%;
 }
 
 .logo a, .logo > span {
@@ -7158,8 +7166,46 @@ html.css-scroll-fixed:not(.open-only-mob) {
 	position: absolute;
 	left: 0;
 	top: 0;
+	color: inherit;
+	text-decoration: none;
 	height: 100%;
 	width: 100%;
+}
+
+.logo a > em, .logo > span > em {
+	display: block;
+	width: 200px;
+	position: absolute;
+	left: 100%;
+	top: 0;
+	padding-left: 36px;
+	margin-top: -1px;
+	font-family: "Roboto", sans-serif;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 16px;
+	line-height: 19px;
+}
+
+@media (max-width: 1899px) {
+	.logo a > em, .logo > span > em {
+		padding-left: 41px;
+		margin-top: 4px;
+	}
+}
+
+@media (max-width: 991px) {
+	.logo a > em, .logo > span > em {
+		width: 110px;
+		padding-left: 14px;
+		margin-top: -1px;
+		font-size: 10px;
+		line-height: 12px;
+	}
+}
+
+.logo > span {
+	cursor: default;
 }
 
 .header-menu {
@@ -7253,7 +7299,7 @@ html.css-scroll-fixed:not(.open-only-mob) {
 	right: auto;
 	left: -139px;
 	opacity: 1;
-	z-index: 10;
+	z-index: -1;
 	will-change: transform, opacity;
 	transition-property: transform, opacity;
 	transition-duration: 0.2s;
@@ -7266,17 +7312,17 @@ html.css-scroll-fixed:not(.open-only-mob) {
 		left: auto;
 		right: -190px;
 		top: auto;
-		bottom: -36px;
+		bottom: 0;
 		width: 470px;
 	}
 }
 
-@media (max-width: 639px) {
+@media (max-width: 991px) {
 	.header .egg {
 		left: auto;
 		right: -67px;
 		top: auto;
-		bottom: -6px;
+		bottom: 30px;
 		width: 194px;
 	}
 }
@@ -8357,21 +8403,12 @@ a.nav-opener.nav-is-open > i::after {
 	overflow: hidden;
 	pointer-events: none;
 	position: fixed;
-	top: 100vh;
+	top: 0;
+	-ms-transform: translate(0, 100%);
+	    transform: translate(0, 100%);
 	transform: translate3d(0, 100%, 0);
 	width: 100%;
 	z-index: 1100;
-}
-
-.c-transition .u-h1 {
-	left: 50%;
-	position: absolute;
-	text-align: center;
-	top: 50%;
-	-ms-transform: translate(-50%, 100vh);
-	    transform: translate(-50%, 100vh);
-	transition: transform 1s cubic-bezier(0.4, 0.6, 0.2, 1);
-	transition-delay: 0.2s;
 }
 
 .c-transition.is-active {
@@ -8383,37 +8420,30 @@ a.nav-opener.nav-is-open > i::after {
 	top: 0;
 }
 
-.c-transition.is-active .u-h1 {
-	-ms-transform: translate(-50%, -50%);
-	    transform: translate(-50%, -50%);
-}
-
 .c-transition.is-leaving {
 	animation-duration: 1s;
 	animation-name: fade-out;
 }
 
-.c-transition.is-leaving .u-h1 {
-	-ms-transform: translate(-50%, -100vh);
-	    transform: translate(-50%, -100vh);
-	transition-delay: 0s;
-}
-
 @keyframes fade-out {
 	0% {
-		transform: translateZ(0);
+		transform: translate(0, 0);
+		transform: translate3d(0, 0, 0);
 	}
 	to {
+		transform: translate(0, -100%);
 		transform: translate3d(0, -100%, 0);
 	}
 }
 
 @keyframes fade-in {
 	0% {
+		transform: translate(0, 100%);
 		transform: translate3d(0, 100%, 0);
 	}
 	to {
-		transform: translateZ(0);
+		transform: translate(0, 0);
+		transform: translate3d(0, 0, 0);
 	}
 }
 

@@ -288,7 +288,8 @@
 		border: #{$form-border-width} solid #{$form-border-color--focus}
 	background-color: $form-border-color--focus
 	border-radius: round($form-input-height / 2)
-	z-index: 9999
+	//z-index: 9999
+	z-index: $z-high - 1
 	opacity: 0
 	// transition
 	$prop: transform, opacity
@@ -380,13 +381,16 @@
 	+font-normal
 	+font($form-font-size, $form-line-height)
 	background-color: $form-border-color--focus
+	border-radius: round($form-input-height/2)
 
 	.#{$small-field} &
 		+font($form-font-size--small, $form-line-height--small)
+		border-radius: round($form-input-height--small/2)
 
 	.#{$small-field} &, &
 		+media($form-media--mob)
 			+font($form-font-size--mob, $form-line-height--mob)
+			border-radius: round($form-input-height--mob/2)
 
 .select2-results__option
 	padding: floor(($form-input-height - $form-line-height) / 2) $form-input-space-h ceil(($form-input-height - $form-line-height) / 2)

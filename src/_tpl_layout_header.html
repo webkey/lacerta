@@ -3,7 +3,7 @@
 		<div class="header__holder">
 			<div class="header__top">
 				<strong class="logo">
-					<@@if(currentItem == "Главная"){span}@@if(currentItem != "Главная"){a href="index.html" data-heading="Размещение облигаций белорусских компаний" data-heading-align="left"}>Lacerta. Покупка и продажа облигаций</@@if(currentItem == "Главная"){span}@@if(currentItem != "Главная"){a}>
+					<@@if(currentItem == "Главная"){span}@@if(currentItem != "Главная"){a href="index.html" data-heading="Размещение облигаций белорусских компаний" data-heading-align="left"}><em>Покупка и<br> продажа облигаций</em></span></@@if(currentItem == "Главная"){span}@@if(currentItem != "Главная"){a}>
 				</strong>
 				<ul class="header-menu">
 					<li@@if(currentItem === 'Купить облигации'){ class="current"}><a href="@@if(currentItem === 'Купить облигации'){javascript:;}@@if(currentItem !== 'Купить облигации'){buy.html}" data-heading="Покупка облигаций">Купить</a></li>

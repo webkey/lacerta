@@ -70,7 +70,7 @@ $(function () {
 var resizeByWidth = true;
 
 var prevWidth = -1;
-$(window).resize(function () {
+$(window).on('debouncedresize', function () {
 	var currentWidth = $('body').outerWidth();
 	resizeByWidth = prevWidth !== currentWidth;
 	if (resizeByWidth) {
@@ -334,9 +334,7 @@ function slidersInit() {
 /**
  * !Toggle classes plugin
  * */
-;(function($){
-	'use strict';
-
+(function($){
 	var $doc = $(document),
 		$html = $('html'),
 		countFixedScroll = 0;
@@ -623,24 +621,74 @@ function toggleNav() {
  * !Toggle Popup
  * */
 function togglePop() {
-	var $pop = $('.pop-js');
+	var $open = $('.pop__open');
 
-	if ($pop.length) {
-		var $cont = $('.pop-content-js'),
-			$open = $('.pop-open-js'),
+	var addAlignClass = function ($curPop, $curDrop) {
+		if (!$curPop.hasClass(alignClass)) {
+			var containerPosRight = $container.offset().left + $container.outerWidth(), navDropPosRight = $curDrop.offset().left + $curDrop.outerWidth();
+
+			if (containerPosRight < navDropPosRight) {
+				$curPop.addClass(alignClass);
+			}
+		}
+	};
+
+	if ($open.length) {
+		var $container = $('.content'),
+			$tplWrap = $('<div>', {
+			class: 'pop pop-js'
+		}),
+			pop = '.pop-js',
+			drop = '.pop-content-js',
+			alignClass = 'position-right',
+			createdClass = 'pop-open-js';
+
+		$.each($open, function () {
+			var $cur = $(this);
+
+			if(!$cur.hasClass(createdClass)){
+				$cur.addClass(createdClass).wrap($tplWrap);
+				$('<div class="pop__content pop-content-js">' +
+					'<span class="pop__close pop-close-js">Close</span>' +
+					'<strong class="pop__title">' + $cur.attr('data-title') + '</strong> ' + $cur.attr('data-description') +
+					'</div>').insertAfter($cur);
+			}
+
+			var $curPop = $cur.closest(pop),
+				$curDrop = $curPop.find(drop);
+			addAlignClass($curPop, $curDrop);
+		});
+
+		$(window).on('resizeByWidth', function () {
+			$(pop).removeClass(alignClass);
+
+			$.each($open, function () {
+				var $curPop = $(this).closest(pop),
+					$curDrop = $curPop.find(drop);
+				addAlignClass($curPop, $curDrop);
+			})
+		});
+
+		var $pop = $(pop),
+			$cont = $(drop),
 			$close = $('.pop-close-js'),
 			openClass = 'pop-is-open';
 
-		$open.on('click', function (e) {
+		$open.on('mouseenter', function (e) {
 			e.preventDefault();
 
-			var $cur = $(this), $curPop = $cur.closest($pop);
-			if ($curPop.hasClass(openClass)) {
-				$curPop.removeClass(openClass);
-			} else {
-				$pop.removeClass(openClass);
-				$curPop.addClass(openClass);
-			}
+			var $cur = $(this),
+				$curPop = $cur.closest($pop);
+
+			// if ($curPop.hasClass(openClass)) {
+			// 	$curPop.removeClass(openClass);
+			// } else {
+			// 	$pop.removeClass(openClass);
+			// 	$curPop.addClass(openClass);
+			// }
+
+			$pop.removeClass(openClass);
+			$curPop.addClass(openClass);
 
 			event.stopPropagation();
 		});
@@ -653,8 +701,12 @@ function togglePop() {
 			event.stopPropagation();
 		});
 
+		$cont.on('mouseleave', function () {
+			$(this).closest($pop).removeClass(openClass);
+		});
+
 		$(document).on('click', function(e){
-			if( $(e.target).closest($cont).length )
+			if( $(e.target).closest($cont).length || $(e.target).closest($open).length )
 				return;
 			$pop.removeClass(openClass);
 			e.stopPropagation();
@@ -666,8 +718,6 @@ function togglePop() {
  * !Rolls Up plugin
  * */
 (function($){
-	'use strict';
-
 	var MsRolls = function(element, config){
 		var self,
 			$element = $(element),
@@ -1066,7 +1116,6 @@ function togglePop() {
 /**
  * !Accordion Initial
  * */
-
 function accordionInit() {
 	var $accordion = $('.rolls-js');
 
