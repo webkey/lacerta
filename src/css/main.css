@@ -4279,6 +4279,14 @@ form .error + .select2 + .error-note {
 }
 
 @media (min-width: 640px) {
+	.offers__list.slick-slider {
+		-webkit-user-select: auto;
+		-moz-user-select: auto;
+		-ms-user-select: auto;
+		user-select: auto;
+		touch-action: auto;
+		-ms-touch-action: auto;
+	}
 	.offers__list .slick-track {
 		opacity: 1 !important;
 		width: auto !important;
@@ -4533,6 +4541,14 @@ form .error + .select2 + .error-note {
 }
 
 @media (min-width: 992px) {
+	.x-offers__list.slick-slider {
+		-webkit-user-select: auto;
+		-moz-user-select: auto;
+		-ms-user-select: auto;
+		user-select: auto;
+		touch-action: auto;
+		-ms-touch-action: auto;
+	}
 	.x-offers__list .slick-track {
 		opacity: 1 !important;
 		width: auto !important;
