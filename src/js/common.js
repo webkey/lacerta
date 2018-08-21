@@ -674,7 +674,7 @@ function togglePop() {
 			$close = $('.pop-close-js'),
 			openClass = 'pop-is-open';
 
-		$open.on('mouseenter', function (e) {
+		$open.on('mouseenter touchstart', function (e) {
 			e.preventDefault();
 
 			var $cur = $(this),

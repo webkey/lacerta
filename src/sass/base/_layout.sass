@@ -1352,7 +1352,7 @@ $c-heading-y: 60vh
 	//background-color: #2a2971
 	background-color: $base-color
 	cursor: wait
-	height: 100vh
+	height: 100%
 	left: 0
 
 	overflow: hidden
@@ -1360,11 +1360,13 @@ $c-heading-y: 60vh
 	position: fixed
 	//top: 100vh
 	top: 0
+	opacity: 0
 	$translate: 0, 100%
 	transform: translate($translate)
 	transform: translate3d($translate, 0)
 	width: 100%
 	z-index: $z-loader
+	will-change: opacity, transform
 
 .c-transition.is-active
 	animation-delay: 0s
@@ -1378,28 +1380,40 @@ $c-heading-y: 60vh
 	animation-duration: 1s
 	animation-name: fade-out
 
-@keyframes fade-out
+//@keyframes fade-out
++keyframes(fade-out)
 	0%
+		opacity: 1
 		//background-color: #2a2971
 		//transform: translateZ(0)
 		$translate: 0, 0
 		transform: translate($translate)
 		transform: translate3d($translate, 0)
 
-	to
+	99%
+		opacity: 1
 		//background-color: $base-color
 		$translate: 0, -100%
 		transform: translate($translate)
 		transform: translate3d($translate, 0)
 
-@keyframes fade-in
+	to
+		opacity: 0
+
+//@keyframes fade-in
++keyframes(fade-in)
 	0%
+		opacity: 0
+
+	1%
+		opacity: 1
 		//background-color: $base-color
 		$translate: 0, 100%
 		transform: translate($translate)
 		transform: translate3d($translate, 0)
 
 	to
+		opacity: 1
 		//background-color: #2a2971
 		//transform: translateZ(0)
 		$translate: 0, 0

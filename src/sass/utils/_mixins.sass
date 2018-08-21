@@ -1092,6 +1092,24 @@
 		font-weight: $weight
 		src: $src
 
+/// keyframes mixin
+/// @example Sass - Использование
+///
+///+keyframes(bgcolor)
+///	0%
+///		background-color: #ffccf2
+///	50%
+///		background-color: #ccffcc
+///	100%
+///		background-color: #ccffff
+///
+/// @example css - Вывод CSS
+=keyframes($name)
+	@-webkit-keyframes #{$name}
+		@content
+	@keyframes #{$name}
+		@content
+
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++//
 // ПРИМЕСИ ИСПОЛЬЗУЕМЫЕ В ТИОПОГРАФИЧЕСКИХ СТИЛЯХ
