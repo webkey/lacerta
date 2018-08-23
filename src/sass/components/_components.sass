@@ -2,6 +2,16 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
+/* reset default focusing
+input, button, [class|="btn"], [class*=" btn-"],
+.social-networks__item a, .f-soc__item a,
+.pop__open, .rolls__angle, .rolls__header, .big-btn,
+.clients__item__inner
+	&:focus
+		outline: none
+
+/* reset default focusing end
+
 /* user form
 .user-form
 	margin-bottom: $bottom-space--section
@@ -60,6 +70,7 @@
 	.form-buttons
 		+media('<tab-lg')
 			margin-bottom: 0
+			padding-top: 0.5rem
 
 		label, .label-holder
 			+media('<tab-lg')
@@ -68,10 +79,10 @@
 	button
 		display: block
 		width: 100%
-		+push-auto
-		max-width: 420px
+		margin-left: auto
+		max-width: 300px
 
-		+media($form-media--mob)
+		+media('<mob-lg')
 			max-width: none
 
 	.social-networks
@@ -1785,11 +1796,13 @@
 
 	.label-holder, label, .error-note, .success-note
 		+font($form-label-font-size--small, $form-label-line-height--small)
+		height: $form-label-line-height--small
 		margin-bottom: $form-label-vsb--small
 		+padding-horizontal($form-input-space-h--small)
 		
 		+media($form-media--mob)
 			+font($form-label-font-size--mob, $form-label-line-height--mob)
+			height: $form-label-line-height--mob
 			margin-bottom: $form-label-vsb--mob
 			+padding-horizontal($form-input-space-h--mob)
 
@@ -1801,7 +1814,7 @@
 		&.success
 			&::before, &::after
 				background-color: $base-color
-				right: 17px
+				right: 18px
 				opacity: 0
 
 				+media($form-media--mob)
@@ -2341,31 +2354,65 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 			margin-bottom: 0
 
 .news__item__title
-	+font(3.2rem, round-float(38/32, 2))
+	$news-font--norm: 3.2rem, 3.8rem
+	$news-font--small: 2.4rem, 2.8rem
+	$news-font--less: 2.0rem, 2.4rem
+	+font(nth($news-font--norm, 1), nth($news-font--norm, 2))
 	width: 100%
 	overflow: hidden
 
 	+media('<tab-lg')
-		+font(2.0rem, round-float(24/20, 2))
+		+font(nth($news-font--less, 1), nth($news-font--less, 2))
+
+	+media('<mob-lg')
+		+font(nth($news-font--norm, 1), nth($news-font--norm, 2))
+
+	+media('<mob-md')
+		+font(nth($news-font--small, 1), nth($news-font--small, 2))
+
+	+media('<mob-ml')
+		+font(nth($news-font--less, 1), nth($news-font--less, 2))
 
 	.news__item_has-img &
-		+font(2.4rem, round-float(29/24, 2))
+		$news-font-img--norm: 2.4rem, 2.9rem
+		$news-font-img--small: 2.0rem, 2.4rem
+		$news-font-img--less: 1.6rem, 1.9rem
+		+font(nth($news-font-img--norm, 1), nth($news-font-img--norm, 2))
 		color: white
 
 		+media('<tab-lg')
-			+font(1.6rem, round-float(19/16, 2))
+			+font(nth($news-font-img--less, 1), nth($news-font-img--less, 2))
+
+		+media('<mob-lg')
+			+font(nth($news-font-img--norm, 1), nth($news-font-img--norm, 2))
+
+		+media('<mob-md')
+			+font(nth($news-font-img--small, 1), nth($news-font-img--small, 2))
+
+		+media('<mob-ml')
+			+font(nth($news-font-img--less, 1), nth($news-font-img--less, 2))
 
 	.news__item_wide &
-		+font(4.8rem, round-float(48/48, 2))
+		$news-font-wide--norm: 4.8rem, 4.8rem
+		$news-font-wide--middle: 3.0rem, 3.2rem
+		$news-font-wide--small: 2.4rem, 2.8rem
+		$news-font-wide--less: 2.0rem, 2.4rem
+		+font(nth($news-font-wide--norm, 1), nth($news-font-wide--norm, 2))
 		max-width: 780px
 		+push-auto
 
 		+media('<tab-lg')
 			max-width: 480px
-			+font(3.0rem, round-float(32/30, 2))
+			+font(nth($news-font-wide--middle, 1), nth($news-font-wide--middle, 2))
 
-		+media('<mob-lg')
-			+font(2.0rem, round-float(24/20, 2))
+		//+media('<mob-lg')
+			+font(nth($news-font-wide--less, 1), nth($news-font-wide--less, 2))
+
+		+media('<mob-md')
+			+font(nth($news-font-wide--small, 1), nth($news-font-wide--small, 2))
+
+		+media('<mob-ml')
+			+font(nth($news-font-wide--less, 1), nth($news-font-wide--less, 2))
 
 .btn-source
 	display: inline-block

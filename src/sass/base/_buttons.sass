@@ -52,8 +52,10 @@
 		margin: 2px -1px
 		background-color: $base-color
 
-		+media('<tab-lg')
-			right: 18px
+		+media($btn-media--mob)
+			right: 16px
+			width: 5px
+			margin: 1px 0
 
 	&::before
 		bottom: 50%
@@ -105,7 +107,7 @@
 		right: 34px
 		transform: translate(50%, -50%)
 
-		+media('<tab-lg')
+		+media($btn-media--mob)
 			right: 20px
 
 .btn-def_icon_left
@@ -115,7 +117,7 @@
 		left: 34px
 		transform: translate(-50%, -50%)
 
-		+media('<tab-lg')
+		+media($btn-media--mob)
 			left: 20px
 
 /* btn with icon end
@@ -128,14 +130,14 @@
 /* btn-default-small end
 
 /* btn for mobile
-[class*="btn-def"],.btn-def-small
+[class*="btn-def"], .btn-def-small
 	&
-		+media('<tab-lg')
-			padding: floor(($btn-height--mob - $btn-line-height--mob)/2) 32px ceil(($btn-height--mob - $btn-line-height--mob)/2) 18px
+		+media($btn-media--mob)
+			padding: floor(($btn-height--mob - $btn-line-height--mob)/2) 30px ceil(($btn-height--mob - $btn-line-height--mob)/2) 15px
 			border-radius: round($btn-height--mob/2)
 
 	&, & > span
-		+media('<tab-lg')
+		+media($btn-media--mob)
 			+font($btn-font-size--mob, $btn-line-height--mob)
 
 /* btn for mobile end

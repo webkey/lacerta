@@ -11,6 +11,7 @@
 		+margin-horizontal($form-border-width)
 	height: $form-label-line-height
 	width: 100%
+	+font-normal
 	+font($form-label-font-size, $form-label-line-height)
 	text-align: right
 	letter-spacing: normal // Важно!
@@ -48,9 +49,9 @@
 		+media($form-media--mob)
 			margin-bottom: $form-label-vsb--mob
 
-	.#{$small-field} .input-wrap &,
-	.#{$small-field} .select &,
-	.input-holder.#{$small-field} &
+	.input-wrap.#{$small-field} &,
+	.#{$small-field} .input-holder &,
+	.#{$small-field} .select &
 		margin-bottom: $form-label-vsb--small
 
 		+media($form-media--mob)
@@ -82,7 +83,7 @@
 		display: block
 		position: absolute
 		right: 22px
-		top: round($form-input-height / 2)
+		top: round($form-input-height / 2 - 1)
 		height: $this-icon-lines-height
 		width: $this-icon-lines-width
 		max-width: $this-icon-lines-width
@@ -99,7 +100,7 @@
 
 		.#{$small-field} &
 			right: 15px
-			top: round($form-input-height--small / 2)
+			top: round($form-input-height--small / 2 - 1)
 
 		.#{$small-field} &, &
 			+media($form-media--mob)

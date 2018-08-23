@@ -358,7 +358,7 @@ html
 .egg
 	//bottom: -63px
 	top: 555px
-	right: 9px
+	right: -1px
 	position: fixed
 	overflow: hidden
 	width: 590px
@@ -417,7 +417,8 @@ html
 			left: auto
 			right: -67px
 			top: auto
-			bottom: 30px
+			//bottom: 30px
+			bottom: -6px
 			width: 194px
 
 	//.#{$nav-is-open-class} &, // add js
@@ -459,7 +460,8 @@ html
 		transform: translate3d($translate, 0)
 
 	+media('<tab-lg')
-		padding: 3.3rem nth($page-layout-space--mob, 2) 9.3rem
+		//padding: 3.3rem nth($page-layout-space--mob, 2) 9.3rem
+		padding: 3.3rem nth($page-layout-space--mob, 2)
 		top: $header-height--mod
 		height: calc(100vh - #{$header-height--mod})
 
@@ -1047,7 +1049,7 @@ a.nav-opener
 			display: inline-block
 			vertical-align: top
 			+size(15px, 70px)
-			margin-right: 5px
+			margin-right: 8px
 
 			+media('<mob-lg')
 				margin: 0 0 5px
@@ -1060,6 +1062,8 @@ a.nav-opener
 			vertical-align: top
 			font-size: 14px
 			line-height: 15px
+			height: 15px
+			margin-top: -1px
 
 			+media('<tab-lg')
 				font-size: 12px
@@ -1067,6 +1071,7 @@ a.nav-opener
 			+media('<mob-lg')
 				display: block
 				font-size: 14px
+				margin-top: 0
 
 .req
 	+media('<desk-lg')

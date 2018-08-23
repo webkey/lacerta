@@ -10,7 +10,7 @@ $hundred: 100%
 
 // Medium query
 //$breakpoints: ('mob-sm': 320px, 'mob-md': 480px, 'mob-lg': 640px, 'tab-sm': 768px, 'tab-lg': 992px, 'desk-sm': 1200px, 'desk-md': 1366px, 'desk-lg': 1600px, 'desk-hd': 1920px)
-$breakpoints: ('desk-qhd': 2560px, 'desk-hd': 1920px, 'desk-lg': 1900px, 'desk-ml': 1440px, 'desk-md': 1366px, 'desk-sm': 1280px, 'tab-lg': 992px, 'tab-sm': 768px, 'mob-lg': 640px, 'mob-md': 480px, 'mob-sm': 320px)
+$breakpoints: ('desk-qhd': 2560px, 'desk-hd': 1920px, 'desk-lg': 1900px, 'desk-ml': 1440px, 'desk-md': 1366px, 'desk-sm': 1280px, 'tab-lg': 992px, 'tab-sm': 768px, 'mob-lg': 640px, 'mob-md': 480px, 'mob-ml': 400px, 'mob-sm': 320px)
 
 // Fonts style
 // ==========================================================================
@@ -343,6 +343,9 @@ $main-sect-heading-width: 280px !default
 // Buttons
 // ==========================================================================
 
+// Media Query for Forms
+$btn-media--mob: '<mob-lg'
+
 $btn-height: 60px !default
 $btn-height--mob: 39px !default
 $btn-font-size: 18px !default
@@ -373,7 +376,8 @@ $small-field: 'small-field'
 
 // Colors of forms
 $form-text-color: white !default
-$form-placeholder-color: $border-color !default
+//$form-placeholder-color: $border-color !default
+$form-placeholder-color: rgba($text-color, 0.1) !default
 $form-bg-color: $base-color-dark !default
 $form-border-color: $form-bg-color !default
 // validation
@@ -420,7 +424,7 @@ $form-label-vsb--mob: 0.6rem // vertical space bottom
 // @example css - Вывод CSS
 // Inputs Font
 =inputs-font()
-	font-family: inherit
+	+font-normal
 	font-size: $form-font-size
 	line-height: $form-line-height
 	color: $form-text-color

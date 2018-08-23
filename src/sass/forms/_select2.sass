@@ -279,7 +279,7 @@
 		color: $text-color
 
 	.select2-results__option--highlighted[aria-selected]
-		background-color: $highlight-color
+		background-color: $highlight-color--hover
 		color: $text-color
 
 // dropdown
@@ -289,7 +289,7 @@
 	background-color: $form-border-color--focus
 	border-radius: round($form-input-height / 2)
 	//z-index: 9999
-	z-index: $z-high - 1
+	z-index: $z-high
 	opacity: 0
 	// transition
 	$prop: transform, opacity
@@ -298,6 +298,9 @@
 		property: $prop
 		duration: $animation-speed
 		timing-function: ease-in-out
+
+	+media('<desk-lg')
+		z-index: $z-high - 1
 
 	.#{$small-field} &
 		@if $form-border-width--small
