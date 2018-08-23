@@ -1020,7 +1020,7 @@ blockquote {
 	display: block;
 	position: relative;
 	max-width: 52rem;
-	margin: 4.5rem auto;
+	margin: 4.5rem auto 5.1rem;
 	padding: 0;
 }
 
@@ -1123,8 +1123,8 @@ blockquote q::before, blockquote q::after {
 /* columns */
 .cols {
 	position: relative;
-	margin-top: 7rem;
-	margin-bottom: 14rem;
+	margin-top: 6.1rem;
+	margin-bottom: 16.2rem;
 }
 
 .cols::after {
@@ -1133,7 +1133,7 @@ blockquote q::before, blockquote q::after {
 	clear: both;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 639px) {
 	.cols {
 		margin-top: 3rem;
 		margin-bottom: 5rem;
@@ -1145,8 +1145,8 @@ blockquote q::before, blockquote q::after {
 	display: block;
 	position: absolute;
 	left: 50%;
-	top: 8px;
-	bottom: 0;
+	top: 11px;
+	bottom: -2px;
 	border-right: 1px solid white;
 	opacity: 0.2;
 }
@@ -1174,9 +1174,17 @@ blockquote q::before, blockquote q::after {
 	.cols .col {
 		float: none;
 		width: auto;
-		margin: 0;
-		padding: 2.7rem 0;
+		max-width: 68rem;
+		margin: 0 auto;
+		padding: 5rem 0;
 		border-top: 1px solid rgba(255, 255, 255, 0.2);
+	}
+}
+
+@media (max-width: 639px) {
+	.cols .col {
+		max-width: none;
+		padding: 2.5rem 0;
 	}
 }
 
@@ -1188,6 +1196,7 @@ blockquote q::before, blockquote q::after {
 	.cols .col:nth-child(odd) {
 		padding-top: 0;
 		border: none;
+		margin-left: auto;
 	}
 }
 
@@ -1198,11 +1207,46 @@ blockquote q::before, blockquote q::after {
 @media (max-width: 991px) {
 	.cols .col:nth-child(even) {
 		padding-bottom: 0;
+		margin-right: auto;
 	}
 }
 
 .cols .col h2, .cols .col .h2, .cols .col h3, .cols .col .h3 {
 	text-align: left;
+	margin-bottom: 4.3rem;
+}
+
+@media (max-width: 991px) {
+	.cols .col h2, .cols .col .h2, .cols .col h3, .cols .col .h3 {
+		text-align: center;
+	}
+}
+
+@media (max-width: 639px) {
+	.cols .col h2, .cols .col .h2, .cols .col h3, .cols .col .h3 {
+		text-align: left;
+		margin-bottom: 1.3rem;
+	}
+}
+
+.cols .col ul {
+	margin: 0 0 5.2rem;
+}
+
+@media (max-width: 639px) {
+	.cols .col ul {
+		margin-bottom: 2rem;
+	}
+}
+
+.cols .col ul li {
+	padding-left: 33px;
+}
+
+@media (max-width: 639px) {
+	.cols .col ul li {
+		padding-left: 23px;
+	}
 }
 
 /* columns end */
@@ -3121,7 +3165,7 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 /* user form */
 .user-form {
 	position: relative;
-	margin-bottom: 14rem;
+	margin-bottom: 14.4rem;
 	background-color: #2b2b8b;
 	border-radius: 30px;
 	padding: 6.9rem 8rem 8rem;
@@ -3145,9 +3189,14 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 @media (max-width: 991px) {
 	.user-form {
 		padding: 0;
-		margin-bottom: 5rem;
 		border-radius: 0;
 		background: none;
+	}
+}
+
+@media (max-width: 639px) {
+	.user-form {
+		margin-bottom: 5rem;
 	}
 }
 
@@ -3170,9 +3219,15 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 
 @media (max-width: 991px) {
 	.user-form .form-title {
-		margin-bottom: 0.7rem;
+		margin-bottom: 3.1rem;
 		padding-right: 2rem;
 		padding-left: 2rem;
+	}
+}
+
+@media (max-width: 639px) {
+	.user-form .form-title {
+		margin-bottom: 0.7rem;
 	}
 }
 
@@ -3286,6 +3341,12 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	.user-form__note {
 		padding-right: 2rem;
 		padding-left: 2rem;
+		margin-bottom: 4rem;
+	}
+}
+
+@media (max-width: 639px) {
+	.user-form__note {
 		margin-bottom: 2.3rem;
 	}
 }
@@ -4712,6 +4773,16 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 @media (max-width: 639px) {
 	.section.section_user-form {
 		margin-bottom: 5.2rem;
+	}
+}
+
+.section.section_news h1, .section.section_news .h1 {
+	margin-bottom: 7.3rem;
+}
+
+@media (max-width: 639px) {
+	.section.section_news h1, .section.section_news .h1 {
+		margin-bottom: 2rem;
 	}
 }
 
@@ -6851,12 +6922,12 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	overflow: hidden;
 	font-size: 0;
 	letter-spacing: -4px;
-	margin-bottom: 7rem;
+	margin-bottom: 6rem;
 }
 
 @media (max-width: 991px) {
 	.news__list {
-		margin-bottom: 2rem;
+		margin-bottom: 2.1rem;
 	}
 }
 

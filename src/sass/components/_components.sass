@@ -18,7 +18,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 /* user form
 .user-form
 	position: relative
-	margin-bottom: $bottom-space--section
+	margin-bottom: $bottom-space--section + 0.4 //костыль для подгонки отступов под дизайн
 	background-color: $base-color-alt
 	border-radius: round($form-input-height/2)
 	padding: 6.9rem nth($page-layout-space, 2) 8rem
@@ -29,9 +29,11 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 	+media('<tab-lg')
 		padding: 0
-		margin-bottom: $bottom-space--section--mob
 		border-radius: 0
 		background: none
+
+	+media('<mob-lg')
+		margin-bottom: $bottom-space--section--mob
 
 	.layout &
 		+media('<tab-lg')
@@ -46,9 +48,11 @@ input, button, [class|="btn"], [class*=" btn-"],
 		margin-bottom: $bottom-space--title
 
 		+media('<tab-lg')
-			margin-bottom: 0.7rem
+			margin-bottom: 3.1rem
 			+padding-horizontal(#{nth($page-layout-space--mob, 2)})
 
+		+media('<mob-lg')
+			margin-bottom: 0.7rem
 		// font size
 		&
 			+font-h3
@@ -115,6 +119,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 	+media('<tab-lg')
 		+padding-horizontal(nth($page-layout-space--mob, 2))
+		margin-bottom: 4rem
+
+	+media('<mob-lg')
 		margin-bottom: 2.3rem
 
 .user-form__msg
@@ -1121,6 +1128,13 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 		+media('<mob-lg')
 			margin-bottom: 5.2rem
+
+	&.section_news
+		h1, .h1
+			margin-bottom: 7.3rem
+
+			+media('<mob-lg')
+				margin-bottom: 2rem
 
 .main-section__holder, .section__holder
 	margin-bottom: $bottom-space--article - 1
@@ -2703,10 +2717,10 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 	position: relative
 	overflow: hidden
 	+clear-spacing
-	margin-bottom: $bottom-space--article
+	margin-bottom: 6rem
 
 	+media('<tab-lg')
-		margin-bottom: $bottom-space--element--mob
+		margin-bottom: 2.1rem
 
 	&:last-child
 		margin-bottom: 0

@@ -539,7 +539,7 @@ blockquote
 	display: block
 	position: relative
 	max-width: 52rem
-	margin: $bottom-space--element auto
+	margin: $bottom-space--element auto 5.1rem
 	padding: 0
 
 	+media('<mob-lg')
@@ -667,10 +667,10 @@ blockquote
 .cols
 	position: relative
 	+clear
-	margin-top: $bottom-space--article
-	margin-bottom: $bottom-space--section
+	margin-top: $bottom-space--article - 0.9 // костыль для подгонки отступов под дизайн
+	margin-bottom: $bottom-space--section + 2.2 //костыль для подгонки отступов под дизайн
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		margin-top: $bottom-space--article--mob
 		margin-bottom: $bottom-space--section--mob
 
@@ -679,8 +679,8 @@ blockquote
 		display: block
 		position: absolute
 		left: 50%
-		top: 8px
-		bottom: 0
+		top: 11px
+		bottom: -2px
 		border-right: 1px solid $text-color
 		opacity: 0.2
 
@@ -699,9 +699,14 @@ blockquote
 		+media('<tab-lg')
 			float: none
 			width: auto
-			margin: 0
-			padding: nth($page-layout-space--mob, 1) 0
+			max-width: $text-layout-width
+			margin: 0 auto
+			padding: 5rem 0
 			border-top: 1px solid rgba($text-color, 0.2)
+
+		+media('<mob-lg')
+			max-width: none
+			padding: 2.5rem 0
 
 		&:nth-child(odd)
 			margin-left: 0
@@ -709,15 +714,37 @@ blockquote
 			+media('<tab-lg')
 				padding-top: 0
 				border: none
+				margin-left: auto
 
 		&:nth-child(even)
 			margin-right: 0
 
 			+media('<tab-lg')
 				padding-bottom: 0
+				margin-right: auto
 
 		h2, .h2, h3, .h3
 			text-align: left
+			margin-bottom: 4.3rem //костыль для подгонки отступов под дизайн
+
+			+media('<tab-lg')
+				text-align: center
+
+			+media('<mob-lg')
+				text-align: left
+				margin-bottom: 1.3rem
+
+		ul
+			margin: 0 0 5.2rem //костыль для подгонки отступов под дизайн
+
+			+media('<mob-lg')
+				margin-bottom: 2rem
+
+			li
+				padding-left: 33px
+
+				+media('<mob-lg')
+					padding-left: 23px
 
 /* columns end
 
