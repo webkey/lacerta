@@ -341,7 +341,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 /* breadcrumbs
 .breadcrumbs
-	margin-top: -0.7rem //костыль для подгонки отступов под дизайн
+	margin-top: -0.9rem //костыль для подгонки отступов под дизайн
 	margin-bottom: $bottom-space--section + 0.2 //костыль для подгонки отступов под дизайн
 	+wide
 
@@ -1014,22 +1014,36 @@ input, button, [class|="btn"], [class*=" btn-"],
 		+margin-horizontal(-#{nth($page-layout-space--md, 2)})
 		+padding-horizontal(#{nth($page-layout-space--md, 2)})
 
-	+media('<tab-lg')
+	+media('<desk-sm')
 		+margin-horizontal(-#{nth($page-layout-space--mob, 2)})
-		margin-bottom: $bottom-space--section--mob
 		+padding-horizontal(#{nth($page-layout-space--mob, 2)})
+
+	+media('<mob-lg')
+		margin-bottom: 4.5rem
 
 	&.main-section_enter // костыль для подгонки отступов под дизайн
 		margin-bottom: $bottom-space--section + 0.4
 
+		+media('<mob-lg')
+			margin-bottom: 4.3rem
+
 	&.main-section_before-news // костыль для подгонки отступов под дизайн
 		margin-bottom: $bottom-space--section - 0.7
+
+		+media('<mob-lg')
+			margin-bottom: 5.1rem
 
 	&.main-section_news // костыль для подгонки отступов под дизайн
 		margin-bottom: $bottom-space--section + 0.3
 
+		+media('<mob-lg')
+			margin-bottom: 4.7rem
+
 	&.main-section_with-list // костыль для подгонки отступов под дизайн
 		margin-bottom: $bottom-space--section - 3.9
+
+		+media('<mob-lg')
+			margin-bottom: 4.8rem
 
 	&:last-child
 		margin-bottom: 0
@@ -1054,9 +1068,28 @@ input, button, [class|="btn"], [class*=" btn-"],
 		.home-page &
 			max-width: none
 
+			+media('<desk-sm') //1280
+				text-align: center
+
+			+media('<mob-lg')
+				text-align: left
+
+	h3, .h3
+		.home-page &
+			+media('<desk-sm') //1280
+				max-width: $text-layout-width
+				text-align: center
+
+			+media('<mob-lg')
+				max-width: none
+				text-align: left
+
 .main-section
 	.h1
 		margin-bottom: $bottom-space--article - 0.6
+
+		+media('<mob-lg')
+			margin-bottom: 2rem
 
 .section
 	margin-bottom: $bottom-space--section + 0.7 //костыль для подгонки отступов под дизайн
@@ -1113,13 +1146,16 @@ input, button, [class|="btn"], [class*=" btn-"],
 		width: auto
 		min-height: 0
 		padding-right: 0
-		margin-bottom: $bottom-space--title
+		margin-bottom: 3.9rem
 
-	+media('<tab-lg')
-		margin-bottom: $bottom-space--title--mob
+	+media('<mob-lg')
+		margin-bottom: 1.1rem
 
 	.main-section_news & // костыль для подгонки отступов под дизайн
 		margin-top: -3px
+
+		+media('<desk-sm') // 1280
+			margin-top: 0
 
 	h2, h3, h4,
 	.h2, .h3, .h4
@@ -1130,16 +1166,12 @@ input, button, [class|="btn"], [class*=" btn-"],
 		+media('<desk-sm')
 			margin-bottom: 0
 
+		+media('<mob-lg')
+			+font(2.0rem, 2.8rem)
+			text-align: left
+
 		&:last-child
 			margin-bottom: 0
-
-	//[class*="btn-def"], [class*="btn-def"]
-		padding-left: 21px
-		padding-right: 39px
-
-		// arrow
-		&::before, &::after
-			right: 25px
 
 .main-section__content
 	display: flex
@@ -1167,10 +1199,12 @@ input, button, [class|="btn"], [class*=" btn-"],
 	+media('<desk-sm')
 		max-width: none
 		order: unset
+		text-align: center
 
-	+media('<tab-lg')
-		margin-bottom: $bottom-space--element--mob
-		font-size: 1.6rem
+	+media('<mob-lg')
+		margin-bottom: 1.7rem
+		+font(1.6rem, 1.9rem)
+		text-align: left
 
 .main-section__body
 	width: 100%
@@ -1178,7 +1212,13 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 	+media('<desk-sm')
 		order: unset
-		margin-bottom: 4.5rem
+		//margin-bottom: 4rem //костыль для подгонки отступов под дизайн
+
+	.main-section_news &
+		margin-bottom: 4rem //костыль для подгонки отступов под дизайн
+
+		+media('<mob-lg')
+			margin-bottom: 2.1rem
 
 	&:last-child
 		margin-bottom: 0
@@ -1187,13 +1227,29 @@ input, button, [class|="btn"], [class*=" btn-"],
 		margin-top: 0
 		max-width: $text-layout-width-alt
 
+		+media('<desk-sm')
+			max-width: $text-layout-width
+			+push-auto
+
 		&:last-child
 			margin-bottom: 0
 
-	ol > li
-		+font-light
-		line-height: 2.6rem
-		margin-bottom: 2.1rem
+	ol
+		&:last-child
+			+media('<desk-sm')
+				margin-bottom: 5rem
+
+			+media('<mob-lg')
+				margin-bottom: 0
+
+		& > li
+			+font-light
+			line-height: 2.6rem
+			margin-bottom: 2.1rem
+
+			+media('<mob-lg')
+				+font(1.6rem, 1.9rem)
+				margin-bottom: 1.3rem
 
 .main-section__foot
 	order: 2
@@ -1211,8 +1267,8 @@ input, button, [class|="btn"], [class*=" btn-"],
 .offers
 	margin-bottom: $bottom-space--element
 
-	+media('<tab-lg')
-		margin-bottom: $bottom-space--element--mob
+	+media('<mob-lg')
+		padding: 0 1.5rem 4.5rem //нижний отступ - для пагинации слайдера
 
 	&:last-child
 		margin-bottom: 0
@@ -1323,29 +1379,50 @@ input, button, [class|="btn"], [class*=" btn-"],
 			display: block
 
 	.td
-		+font(2.2rem, round-float(30/22, 2))
+		+font(2.2rem, 3.0rem)
 		letter-spacing: $letter-spacing
 		color: inherit
+
+		+media('<mob-lg')
+			display: inline-block
+			vertical-align: top
+			+font-medium
+			+font(2.0rem, 2.4rem)
+			padding-top: 1.1rem
+			width: round-float(100% / 2, 2)
+			box-shadow: none
 
 		.offers_main &
 			+font-bold
 			+font(2.6rem, 2.6rem)
 
-		+media('<mob-lg')
-			+font-medium
-			font-size: 2.0rem
-			padding-top: 1rem
+			+media('<mob-lg')
+				+font-medium
+				font-size: 2.0rem
+				+font(2.0rem, 2.4rem)
+
+			+media('<mob-lg')
 
 		&::before
 			display: none
 			content: attr(data-label)
+			margin-bottom: 1px
 			+font-normal
-			+font(13px, 15px)
+			+font(12px, 15px)
 			color: $text-color-light
-			margin-bottom: 0.4em
 
 			+media('<mob-lg')
 				display: block
+
+		&:nth-child(even)
+			+media('<mob-lg')
+				padding-left: 0
+				padding-right: 11px
+
+		&:nth-child(odd)
+			+media('<mob-lg')
+				padding-left: 11px
+				padding-right: 0
 
 		&.offers__item__caption
 			+media('<mob-lg')
@@ -1361,27 +1438,43 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 	.tr
 		+padding-vertical(nth($space-v, 1), nth($space-v, 2))
+		// transition
+		$prop: opacity
+		will-change: $prop
+		transition:
+			property: $prop
+			duration: $animation-speed
+			timing-function: ease-in-out
+
+		+media('<mob-lg')
+			padding: nth($grid-space--mob, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 1) * 0.8, 2)
+			background-color: $base-color-alt
 
 		.offers_main &
 			+padding-vertical(nth($space-v, 1) + 0.3, nth($space-v, 2))
 
-		+media('<mob-lg')
-			padding: nth($grid-space--mob, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 1) * 0.8, 2)
-			background-color: $base-color
+			+media('<mob-lg')
+				padding-bottom: 1.5rem
+
+		// hover
+		.no-touchevents &:hover
+			+media('>=mob-lg')
+				opacity: 0.5
 
 	&:first-child, &.slick-cloned + &
-		.tr
-			padding-top: 0
-
-		// если у "таблицы" есть шапка
-		.offers__heads + .offers__list &
+		+media('>=mob-lg')
 			.tr
-				padding-top: nth($space-v, 1)
+				padding-top: 0
+
+			// если у "таблицы" есть шапка
+			.offers__heads + .offers__list &
+				.tr
+					padding-top: nth($space-v, 1)
 
 .offers__item__img
 	position: relative
 	padding: 0
-	margin: 0 0 nth($page-layout-space--mob, 2)
+	margin: 0 0 1.3rem
 	display: none
 
 	+media('<mob-lg')
@@ -1414,6 +1507,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 	.offers_main &
 		margin-bottom: 10px
+
+		+media('<mob-lg')
+			margin-bottom: 2px
 
 .offers__item__release
 	color: $highlight-color
@@ -1580,7 +1676,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 	tr
 		+media($sliders-media--mob)
 			padding: nth($grid-space--mob, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 1) * 0.8, 2)
-			background-color: $base-color
+			background-color: $base-color-alt
 
 	td
 		padding-top: 1px
@@ -1645,6 +1741,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 					min-width: 0
 					background-color: white
 					margin: -#{nth($grid-space--mob, 1)} -#{nth($grid-space--mob, 2)} 0.5rem
+					padding: 0
 
 					&::before
 						display: none
@@ -1679,7 +1776,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 					display: block
 					height: auto
 					min-height: 0
-					padding: 1.4rem nth($grid-space--mob, 2) 1.6rem
+					padding: nth($grid-space--mob, 2) nth($grid-space--mob, 2) 1.6rem
 					margin-right: 0
 					text-align: center
 
@@ -1713,6 +1810,13 @@ input, button, [class|="btn"], [class*=" btn-"],
 	position: relative
 	//height: 16rem
 	background-color: $base-color-alt
+	// transition
+	$prop: background-color
+	will-change: $prop
+	transition:
+		property: $prop
+		duration: $animation-speed
+		timing-function: ease-in-out
 	//.touchevents &
 	outline: none
 	-webkit-tap-highlight-color: transparent
@@ -1731,6 +1835,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 		& > i
 			margin-top: -2px
 
+	.no-touchevents &:not(.is-open):hover
+		background: $base-color-dark
+
 	&.is-open
 		.rolls__angle
 			box-shadow: inset -1px 0 0 $table-slide-border-color, inset 0 -1px 0 transparent
@@ -1747,7 +1854,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 		display: block
 		width: 210px
 		max-width: none
-		margin: 0 auto 1.9rem
+		margin: 0 auto 1.3rem
 
 	&::before
 		content: ""
@@ -2303,6 +2410,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 		+media('<tab-lg')
 			margin-bottom: 0.9rem
 
+		+media('<mob-lg')
+			margin-bottom: 1.2rem
+
 		&:last-child
 			margin-bottom: 0
 
@@ -2765,7 +2875,8 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 	width: 100%
 	overflow: hidden
 
-	+media('<tab-lg')
+	//+media('<tab-lg')
+	+media('<880px')
 		+font(nth($news-font--less, 1), nth($news-font--less, 2))
 
 	+media('<mob-lg')
@@ -2784,7 +2895,8 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 		+font(nth($news-font-img--norm, 1), nth($news-font-img--norm, 2))
 		color: white
 
-		+media('<tab-lg')
+		//+media('<tab-lg')
+		+media('<880px')
 			+font(nth($news-font-img--less, 1), nth($news-font-img--less, 2))
 
 		+media('<mob-lg')
@@ -2805,7 +2917,8 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 		max-width: 780px
 		+push-auto
 
-		+media('<tab-lg')
+		//+media('<tab-lg')
+		+media('<880px')
 			max-width: 480px
 			+font(nth($news-font-wide--middle, 1), nth($news-font-wide--middle, 2))
 
@@ -2828,6 +2941,11 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 	color: $highlight-color
 	background-color: $base-color
 	border-radius: 17px
+
+	+media('<mob-lg')
+		font-size: 12px
+		min-width: 74px
+		padding: 2px 12px 3px
 
 	.news__item__body &
 		//margin-bottom: 2.8rem

@@ -188,6 +188,12 @@ html
 	+media('<tab-lg')
 		padding-bottom: nth($main-space-v--mob, 2)
 
+	&.home-page
+		padding-bottom: 13.1rem
+
+		+media('<tab-lg')
+			padding-bottom: nth($main-space-v--mob, 2)
+
 .content
 	//overflow: hidden // Нельзя использовать overflow: hidden. На странице контактов обрезает карту
 	min-height: 5rem
@@ -1199,6 +1205,10 @@ a.nav-opener
 		//margin-bottom: $bottom-space--article--mob
 		margin-bottom: 1.6rem
 		text-align: left
+
+	.home-page &
+		+media('<mob-lg')
+			margin-bottom: 2rem
 
 	figure
 		display: block
