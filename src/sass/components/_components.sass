@@ -1136,6 +1136,40 @@ input, button, [class|="btn"], [class*=" btn-"],
 			+media('<mob-lg')
 				margin-bottom: 2rem
 
+.text-section
+	margin-bottom: 14rem
+
+	+media('<mob-lg')
+		margin-bottom: 2rem
+
+	&:last-child
+		margin-bottom: 0
+
+	ul, ol, p
+		max-width: $text-layout-width
+		+push-auto
+
+.gain-section
+	margin-bottom: 14rem
+
+	+media('<mob-lg')
+		margin-bottom: 2rem
+
+	&:last-child
+		margin-bottom: 0
+
+	ul, ol, p
+		max-width: $text-layout-width
+		+push-auto
+
+.gain-section__text
+	margin-bottom: 3.2rem
+	max-width: $text-layout-width
+	+push-auto
+
+	+media('<mob-lg')
+		margin-bottom: 2rem
+
 .main-section__holder, .section__holder
 	margin-bottom: $bottom-space--article - 1
 

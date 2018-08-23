@@ -54,6 +54,7 @@ h2, .h2
 	+font-h2
 
 h3, .h3
+	margin-bottom: 2.2rem //костыль для подгонки отступов под дизайн
 	+font-h3
 
 h4, .h4
@@ -261,6 +262,12 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	&:last-child
 		margin-bottom: 0
 
+.text-intro
+	margin-bottom: 7.4rem
+
+	+media('<mob-lg')
+		margin-bottom: 2.1rem
+
 /* content img
 
 //.layout-article
@@ -345,6 +352,9 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		margin: 4.5rem 0
 		padding: 0
 		list-style: none
+
+		&.list-alt
+			+margin-vertical(2.2rem)
 
 		+media('<mob-lg')
 			+margin-vertical($bottom-space--element--mob)

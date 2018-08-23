@@ -517,6 +517,7 @@ h2, .h2 {
 }
 
 h3, .h3 {
+	margin-bottom: 2.2rem;
 	font-weight: 700;
 	font-size: 2.6rem;
 	line-height: 3.2rem;
@@ -845,6 +846,16 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em {
 	margin-bottom: 0;
 }
 
+.text-intro {
+	margin-bottom: 7.4rem;
+}
+
+@media (max-width: 639px) {
+	.text-intro {
+		margin-bottom: 2.1rem;
+	}
+}
+
 /* content img */
 /* content img end */
 /* columnize */
@@ -854,6 +865,11 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em {
 	margin: 4.5rem 0;
 	padding: 0;
 	list-style: none;
+}
+
+.user-content ul.list-alt, .user-content ol.list-alt {
+	margin-top: 2.2rem;
+	margin-bottom: 2.2rem;
 }
 
 @media (max-width: 639px) {
@@ -4782,6 +4798,59 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 
 @media (max-width: 639px) {
 	.section.section_news h1, .section.section_news .h1 {
+		margin-bottom: 2rem;
+	}
+}
+
+.text-section {
+	margin-bottom: 14rem;
+}
+
+@media (max-width: 639px) {
+	.text-section {
+		margin-bottom: 2rem;
+	}
+}
+
+.text-section:last-child {
+	margin-bottom: 0;
+}
+
+.text-section ul, .text-section ol, .text-section p {
+	max-width: 68rem;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.gain-section {
+	margin-bottom: 14rem;
+}
+
+@media (max-width: 639px) {
+	.gain-section {
+		margin-bottom: 2rem;
+	}
+}
+
+.gain-section:last-child {
+	margin-bottom: 0;
+}
+
+.gain-section ul, .gain-section ol, .gain-section p {
+	max-width: 68rem;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.gain-section__text {
+	margin-bottom: 3.2rem;
+	max-width: 68rem;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+@media (max-width: 639px) {
+	.gain-section__text {
 		margin-bottom: 2rem;
 	}
 }
