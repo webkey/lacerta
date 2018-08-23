@@ -844,6 +844,9 @@ a.nav-opener
 	+media('<tab-lg')
 		padding: $footer-box-space--mob
 
+	+media('<mob-lg')
+		padding: 2.6rem $footer-box-space--mob
+
 	.f-box__title
 		+font-bold
 		+font(2.6rem, round-float(30/26, 2))
@@ -1001,6 +1004,9 @@ a.nav-opener
 			margin-bottom: 0
 			background-color: $base-color-dark
 
+		+media('<mob-lg')
+			padding: 2.4rem nth($footer-box-space--mob, 2)
+
 	.appeal-form
 		+media('>=tab-sm')
 			display: block !important
@@ -1010,8 +1016,12 @@ a.nav-opener
 
 	form
 		+media('<tab-sm')
+			position: relative
 			display: block
 			padding: $footer-box-space--mob
+
+		+media('<mob-lg')
+			padding: 2.5rem nth($footer-box-space--mob, 2) 3rem
 
 // footer box developer
 .developer
@@ -1187,7 +1197,7 @@ a.nav-opener
 	+media('<mob-lg')
 		padding: nth($page-layout-space--mob, 1) 0 0
 		//margin-bottom: $bottom-space--article--mob
-		margin-bottom: 1rem
+		margin-bottom: 1.6rem
 		text-align: left
 
 	figure

@@ -61,7 +61,7 @@ h4, .h4
 	+font-h4
 
 	+media('<mob-lg')
-		margin-bottom: $bottom-space--mob
+		margin-bottom: 1.3rem
 
 h5, .h5
 	+font($font-size-h5, $line-height-h5)
@@ -355,14 +355,21 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 			position: relative
 
 			+media('<mob-lg')
-				margin-bottom: $bottom-space--mob
+				padding-left: $list-space--mob
+				margin-bottom: 1.3rem
 
 	.bottom-space_list-1
 		margin-bottom: $bottom-space--section + 0.1 //костыль для подгонки отступов под дизайн
 
+		+media('<mob-lg')
+			margin-bottom: 4.5rem
+
 	ul li
 		+font-light
 		+font(2.0rem, 3.0rem)
+
+		+media('<mob-lg')
+			+font(14px, 16px)
 
 	ul > li::before
 		content: ''
@@ -373,9 +380,17 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		border-radius: 6px
 		background-color: $highlight-color
 
+		+media('<mob-lg')
+			+size(8px)
+			border-radius: 4px
+			margin: 0.35em 0 -0.35em -22px
+
 	ol
 		margin: 5rem 0
 		counter-reset: section
+
+		+media('<mob-lg')
+			margin: 2rem 0
 
 		& > li
 			$size: 32px
@@ -393,7 +408,8 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 
 			+media('<mob-lg')
 				padding-left: $space--mob
-				margin-bottom: 1.5rem
+				margin-bottom: 1.1rem
+				+font($font-size--mob, $line-height--mob)
 
 			&::before
 				position: relative
@@ -410,9 +426,10 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 
 				+media('<mob-lg')
 					+size($size--mob)
-					margin: 0 calc(#{$space--mob} - #{$size--mob}) 0 -#{$space--mob}
-					line-height: $size--mob
+					margin: -4px calc(#{$space--mob} - #{$size--mob}) -4px -#{$space--mob}
+					line-height: $size--mob - 2
 					border-radius: round($size--mob / 2)
+					padding-top: 2px
 
 	ul, ol
 		ul, ol
@@ -724,7 +741,7 @@ blockquote
 
 	+media('<mob-lg')
 		height: 26px
-		+margin-vertical($bottom-space--element--mob)
+		+margin-vertical(3.5rem, 3.6rem)
 
 	&::before, &::after
 		content: ""

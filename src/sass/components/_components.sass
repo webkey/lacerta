@@ -28,9 +28,10 @@ input, button, [class|="btn"], [class*=" btn-"],
 		padding: 6.9rem nth($page-layout-space--md, 2) 8rem
 
 	+media('<tab-lg')
-		padding: 6.9rem nth($page-layout-space--mob, 2) 8rem
+		padding: 0
 		margin-bottom: $bottom-space--section--mob
 		border-radius: 0
+		background: none
 
 	.layout &
 		+media('<tab-lg')
@@ -45,7 +46,8 @@ input, button, [class|="btn"], [class*=" btn-"],
 		margin-bottom: $bottom-space--title
 
 		+media('<tab-lg')
-			margin-bottom: $bottom-space--title--mob
+			margin-bottom: 0.7rem
+			+padding-horizontal(#{nth($page-layout-space--mob, 2)})
 
 		// font size
 		&
@@ -68,6 +70,11 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 		+media('<tab-lg')
 			margin-bottom: 0
+			padding: 4rem nth($page-layout-space--mob, 2) 3rem
+			background-color: $base-color-alt
+
+		+media('<mob-lg')
+			padding: 2.5rem nth($page-layout-space--mob, 2) 1.5rem
 
 		&:last-child
 			margin-bottom: 0
@@ -75,6 +82,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 	.form-buttons
 		+media('<tab-lg')
 			margin-bottom: 0
+			padding-top: 2rem
+
+		+media('<mob-lg')
 			padding-top: 0.5rem
 
 		label, .label-holder
@@ -89,58 +99,23 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 		+media('<mob-lg')
 			max-width: none
+			padding-left: 21px
+			padding-right: 40px
+
+		svg
+			+media('<mob-lg')
+				padding-right: 22px
 
 	.social-networks
 		+media('<tab-lg')
 			display: none
 
-	//.input-wrap
-		&:last-child
-			margin-bottom: 0
-
-	//textarea
-		height: 130px
-		max-height: 130px
-		resize: none
-
-	//.form-buttons
-		float: left
-		margin-right: 30px
-
-		+media('<mob-lg')
-			float: none
-			margin: 0
-
-		[class*="btn-"]
-			+media('<mob-lg')
-				display: block
-				width: 100%
-				margin-top: $bottom-space--row
-
-				&:first-child
-					margin-top: 0
-
-	//.form-note
-		overflow: hidden
-		min-height: $btn-height
-		+clear-spacing
-		line-height: 25px
-
-		&::before
-			content: ''
-			display: inline-block
-			vertical-align: middle
-			min-height: inherit
-
-	//.form-note__item
-		display: inline-block
-		vertical-align: middle
-		width: calc(100% - 6px)
-		+font($font-size--small, $line-height--small)
-		letter-spacing: $letter-spacing
-
 .user-form__note
 	margin-bottom: 4.3rem
+
+	+media('<tab-lg')
+		+padding-horizontal(nth($page-layout-space--mob, 2))
+		margin-bottom: 2.3rem
 
 .user-form__msg
 	position: absolute
@@ -174,8 +149,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 		width: 100%
 		padding: 2rem nth($page-layout-space--md, 2) 1.5rem
 
-	+media('<desk-lg')
-		padding: 2rem nth($page-layout-space--mob, 2) 1.5rem
+	+media('<tab-lg')
+		padding: $page-layout-space--mob
+		border-radius: 0
 
 	.form-success &
 		opacity: 1
@@ -185,6 +161,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 	text-align: center
 	margin-bottom: 4.6rem
 
+	+media('<mob-lg')
+		margin-bottom: 2rem
+
 	&:last-child
 		margin-bottom: 0
 
@@ -193,6 +172,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 	&
 		+font-h1
+
+		+media('<mob-lg')
+			text-align: center
 
 .user-form__msg__subtitle,
 .user-form__msg__title
@@ -214,10 +196,19 @@ input, button, [class|="btn"], [class*=" btn-"],
 .user-form__msg__subtitle
 	+font-h3($base-color)
 
+	+media('<mob-lg')
+		text-align: center
+
 .user-form__msg__tel
 	+font-bold
 	+font(3.6rem, 4.2rem)
 	margin-bottom: 6.9rem
+
+	+media('<tab-lg')
+		margin-bottom: 0
+
+	+media('<mob-lg')
+		+font(2.6rem, 3.2rem)
 
 	&:last-child
 		margin-bottom: 0
@@ -235,6 +226,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 		.no-touchevents &:hover
 			color: $base-color-dark
+
+	+media('<tab-lg')
+		display: none
 
 /* user form end
 
@@ -352,7 +346,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 	+wide
 
 	+media('<mob-lg')
-		margin-bottom: $bottom-space--section--mob
+		margin-bottom: 5.6rem
 
 	&:last-child
 		margin-bottom: 0
@@ -370,6 +364,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 			+media('<mob-lg')
 				font-size: 12px
+				line-height: 14px
 
 			&::before, &:first-child::before
 				content: none
@@ -465,6 +460,13 @@ input, button, [class|="btn"], [class*=" btn-"],
 			duration: $animation-speed
 			timing-function: ease-in-out
 
+		+media('<mob-lg')
+			left: 3px
+			top: -2px
+			width: calc(100% - 6px)
+			height: calc(100% + 3px)
+			border-radius: 12px
+
 	//.pop-open:active
 		transform: translate(0, 1px)
 
@@ -519,13 +521,16 @@ input, button, [class|="btn"], [class*=" btn-"],
 		position: fixed
 		left: 50%
 		top: 50%
-		padding: round-float(nth($grid-space--mob, 2) * 1.5, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 2) * 0.75, 1)
+		padding: 4rem nth($grid-space--mob, 2) 2.5rem
 		max-width: calc(100% - #{nth($page-layout-space--mob, 2) * 2})
 		box-shadow: 0 0 30px rgba(black, 0.2)
 		z-index: 15
 		$translate: -50%, calc(-50% + 2em + #{round($header-height--mod / 2)})
 		transform: translate($translate)
 		transform: translate3d($translate, 0)
+
+	+media('<mob-lg')
+		+font($font-size--mob, $line-height--mob)
 
 	.pop-is-open &
 		opacity: 1
@@ -544,6 +549,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 	+font(2.2rem, 3.0rem)
 	display: block
 	margin-bottom: 0.7em
+	
+	+media('<mob-lg')
+		+font(1.8rem, 2.4rem)
 
 .pop__close
 	$line-w: 20px
@@ -667,6 +675,11 @@ input, button, [class|="btn"], [class*=" btn-"],
 	+media('<tab-lg')
 		margin-bottom: $bottom-space--element--mob
 
+	+media('<mob-lg')
+		display: flex
+		justify-content: center
+		padding-bottom: 3rem
+
 	&:last-child
 		margin-bottom: 0
 
@@ -686,7 +699,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 	& > strong
 		display: block
 		margin-bottom: 5px
-		+font-normal
+		+font-light
 		font-size: 14px
 		line-height: 18px
 		color: $text-color
@@ -694,6 +707,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 		+media('<tab-lg')
 			font-size: 12px
+
+		+media('<mob-lg')
+			text-align: center
 
 .f-soc__list
 	position: relative
@@ -770,10 +786,10 @@ input, button, [class|="btn"], [class*=" btn-"],
 		+media('<tab-lg')
 			display: inline-block
 			vertical-align: top
-			padding: nth($grid-space--mob, 1) nth($grid-space--mob, 2) round-float(nth($grid-space--mob, 1) * 0.8, 2)
+			padding: 1.6rem nth($grid-space--mob, 2) 1.6rem
 			background-color: $base-color-alt
 			width: calc(50% - #{$offers-slider-space})
-			margin: 0 round(round($offers-slider-space / 2)) $offers-slider-space
+			margin: 0 round(round($offers-slider-space / 2)) 19px
 
 		+media('<mob-lg')
 			width: calc(100% - #{$offers-slider-space})
@@ -788,6 +804,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 				.pop__open
 					opacity: 0.4
 
+					+media('<tab-lg')
+						opacity: 1
+
 	td, th
 		color: $text-color
 		border: 0 solid rgba(white, 0.2)
@@ -797,10 +816,11 @@ input, button, [class|="btn"], [class*=" btn-"],
 		text-align: left
 		vertical-align: top
 		+padding-vertical(0.8rem)
-		padding-left: 1rem
+		padding-left: 2rem
 
 		+media('<tab-lg')
-			font-size: $font-size--mob
+			font-size: 1.6rem
+			line-height: 2.0rem
 
 		&:first-child
 			padding-left: 0
@@ -808,10 +828,18 @@ input, button, [class|="btn"], [class*=" btn-"],
 			width: $width
 			min-width: $width
 
+			+media('<tab-lg')
+				width: auto
+				min-width: 0
+
 		&:last-child
 			$width: 220px
 			width: $width
 			min-width: $width
+
+			+media('<tab-lg')
+				width: auto
+				min-width: 0
 
 	td
 		border-bottom-width: 1px
@@ -819,7 +847,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 		+media('<tab-lg')
 			border: none
-			padding: 0.7em 0 0
+			padding: 11px 0 0
 
 		&::before
 			display: none
@@ -852,7 +880,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 			transition: color $animation-speed
 
 			+media('<tab-lg')
-				margin-bottom: 2px
+				color: $highlight-color
 
 		.dep
 			font-size: 1.4rem
@@ -862,16 +890,24 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 			+media('<tab-lg')
 				+font(12px, 15px)
+				padding-bottom: 1px
+				color: rgba($text-color, 1)
 
 		&:hover
 			.adr
 				color: $highlight-color
+
+				+media('<tab-lg')
+					color: $highlight-color--hover
 
 		&.active
 			cursor: default
 
 			.adr
 				color: $highlight-color--hover
+
+				+media('<tab-lg')
+					color: $highlight-color--hover
 
 			.dep
 				color: white
@@ -887,6 +923,10 @@ input, button, [class|="btn"], [class*=" btn-"],
 			padding-left: 0
 			margin-bottom: 0.4rem
 
+			+media('<tab-lg')
+				+font(1.6rem, 2.0rem)
+				margin-bottom: 0.2rem
+
 			&:last-child
 				margin-bottom: 0
 
@@ -895,10 +935,13 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 	.pop
 		+media('<tab-lg')
-			+margin-vertical(nth($pop-opener-space, 1))
+			+margin-vertical(2px, 4px)
 
 	.pop__open
 		padding: 0
+
+		+media('<tab-lg')
+			padding: 4px 15px
 
 		&::before
 			left: -16px //костыль для подгонки отступов под дизайн
@@ -906,10 +949,20 @@ input, button, [class|="btn"], [class*=" btn-"],
 			width: calc(100% + 32px) //костыль для подгонки отступов под дизайн
 			height: calc(100% + 10px) //костыль для подгонки отступов под дизайн
 
+			+media('<tab-lg')
+				left: 0
+				top: 1px
+				width: calc(100% + -1px)
+				height: calc(100% + -2px)
+
 	.pop__content
 		width: 368px
 		left: -16px //костыль для подгонки отступов под дизайн
 		top: -6px //костыль для подгонки отступов под дизайн
+
+		+media('<tab-lg')
+			left: 50%
+			top: 50%
 
 /* table-resp end
 
@@ -1008,8 +1061,14 @@ input, button, [class|="btn"], [class*=" btn-"],
 .section
 	margin-bottom: $bottom-space--section + 0.7 //костыль для подгонки отступов под дизайн
 
+	+media('<mob-lg')
+		margin-bottom: 2.1rem
+
 	h3, .h3
 		margin-bottom: 3.1rem
+
+		+media('<mob-lg')
+			margin-bottom: 1.3rem
 
 	.table-resp
 		padding-top: 8px
@@ -1017,14 +1076,24 @@ input, button, [class|="btn"], [class*=" btn-"],
 	&.section_before-callback
 		margin-bottom: $bottom-space--section + 1.8 //костыль для подгонки отступов под дизайн
 
+		+media('<mob-lg')
+			margin-bottom: 4.8rem
+
+		h3, .h3
+			+media('<mob-lg')
+				margin-bottom: 0.5rem
+
 	&.section_user-form
 		margin-bottom: $bottom-space--section + 0.8 //костыль для подгонки отступов под дизайн
+
+		+media('<mob-lg')
+			margin-bottom: 5.2rem
 
 .main-section__holder, .section__holder
 	margin-bottom: $bottom-space--article - 1
 
-	+media('<tab-lg')
-		margin-bottom: $bottom-space--article--mob
+	+media('<mob-lg')
+		margin-bottom: 0
 
 	&:last-child
 		margin-bottom: 0
@@ -2216,12 +2285,14 @@ input, button, [class|="btn"], [class*=" btn-"],
 	list-style: none
 	padding: 0
 	margin: 0 0 $bottom-space--element
-	font-size: 2.0rem
-	line-height: round-float(24/20, 2)
+	+font(2.0rem, 2.4rem)
 
 	+media('<tab-lg')
 		font-size: 1.6rem
 		margin: 0 0 $bottom-space--element--mob
+
+	+media('<mob-lg')
+		+font(1.4rem, 1.6rem)
 
 	&:last-child
 		margin-bottom: 0
@@ -2251,9 +2322,16 @@ input, button, [class|="btn"], [class*=" btn-"],
 			color: $link-color
 
 		&[href^="tel:"]
+			+media('<mob-lg')
+				font-size: 12px
+				line-height: 17px
+
 			b
 				+font-bold
 				font-size: 24px
+
+				+media('<mob-lg')
+					font-size: 16px
 
 /* footer list end
 
@@ -2291,6 +2369,12 @@ input, button, [class|="btn"], [class*=" btn-"],
 		+media('<tab-sm')
 			+push-auto
 			max-width: 320px
+			margin-top: 2rem
+			padding-left: 20px
+
+		svg
+			+media('<mob-lg')
+				right: 20px
 
 .appeal-form__cols
 	display: flex
@@ -2309,6 +2393,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 	+media('<tab-sm')
 		width: auto
 		margin-bottom: $form-bottom-space
+		
+	+media('<mob-lg')
+		margin-bottom: $form-bottom-space--mob
 
 	&:last-child
 		margin-bottom: 0
@@ -2365,6 +2452,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 	max-width: 600px
 
 	+font-h3($base-color)
+
+	+media('<mob-lg')
+		text-align: center
 
 /* footer form end
 
@@ -2793,7 +2883,7 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 		margin-bottom: nth($grid-space--mob, 2)
 
 	+media('<mob-lg')
-		padding-bottom: 4rem
+		padding-bottom: 3.9rem
 
 	&:last-child
 		margin-bottom: 0
@@ -2804,6 +2894,13 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 	color: inherit
 	background-color: $base-color-alt
 	padding: 3rem nth($page-layout-space, 2) 3.3rem
+	// transition
+	$prop: background-color
+	will-change: $prop
+	transition:
+		property: $prop
+		duration: $animation-speed
+		timing-function: ease-in-out
 
 	.touchevents &
 		outline: none
@@ -2814,7 +2911,11 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 
 	+media('<mob-lg')
 		position: static
-		padding-right: nth($page-layout-space--mob, 2)
+		padding: 1.1rem nth($page-layout-space--mob, 2) 1.5rem
+
+	// hover
+	.no-touchevents &:not(.is-open):hover
+		background-color: $base-color-dark
 
 .rolls__header__inner
 	text-align: left
@@ -2823,6 +2924,9 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 	max-width: $text-layout-width
 	cursor: default
 	line-height: 3.0rem
+
+	+media('<mob-lg')
+		+font(2.0rem, 2.4rem)
 
 // angle
 .rolls__angle
@@ -2967,7 +3071,8 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 		padding: nth($page-layout-space--mob, 1) 6rem nth($page-layout-space--mob, 1) nth($page-layout-space--mob, 2)
 
 	+media('<mob-lg')
-		padding-right: nth($page-layout-space--mob, 2)
+		padding: 1.4rem nth($page-layout-space--mob, 2) 1.6rem
+		line-height: 1.9rem
 
 	&::before
 		content: ""
@@ -3272,6 +3377,9 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 /* attention info
 .attention-info
 	margin-bottom: 5.1rem
+
+	+media('<mob-lg')
+		margin-bottom: 5.5rem
 
 	&:last-child
 		margin-bottom: 0
