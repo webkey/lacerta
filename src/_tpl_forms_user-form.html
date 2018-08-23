@@ -1,7 +1,7 @@
 <div class="user-form">
 	<div class="form-title">@@if(context.title){@@title}@@if(!context.title){Закажите звонок}</div>
 	@@if(!context.noteFalse){
-	<p class="bottom-space-element">
+	<p class="user-form__note">
 		Чтобы уточнить детали продажи или приступить к оформлению, <b>закажите звонок</b> или свяжитесь с нами в социальнных сетях.
 	</p>
 	}
@@ -33,6 +33,21 @@
 			<div class="input-wrap form-buttons">
 				<label>&nbsp;</label>
 				@@include("_tpl_btn.html", {"type": "button!", "value": "Заказать звонок", "iconRight": "@@include('./includes/svg/icon-phone.svg')"})
+			</div>
+		</div>
+
+		<div class="user-form__msg">
+			<div class="user-form__msg__caption">
+				<strong class="user-form__msg__title">Звонок заказан!</strong>
+				<span class="user-form__msg__subtitle">Мы перезвоним Вам на следующий номер:</span>
+			</div>
+			<div class="user-form__msg__tel"><a href="tel:+375296892548">+375 29 689-25-48</a></div>
+			<div class="user-form__msg__soc">
+				<div class="social-networks align-center">
+					<div class="social-networks__list">
+						@@loop('_tpl_social-items.html', 'includes/json/social-items.json')
+					</div>
+				</div>
 			</div>
 		</div>
 	</form>

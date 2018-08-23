@@ -244,7 +244,7 @@ function slidersInit() {
 				slidesToShow: 2,
 				slidesToScroll: 2,
 				lazyLoad: 'ondemand',
-				infinite: false,
+				infinite: true,
 				dots: true,
 				arrows: false,
 				// remove touch events

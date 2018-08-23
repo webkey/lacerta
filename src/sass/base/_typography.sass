@@ -19,7 +19,7 @@ body
 	//background: $bg-color url(../../img/empty.png) no-repeat left top fixed
 	background: $bg-color url(../../img/bg-page.png) left top
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		+font($font-size--mob, $line-height--mob)
 
 	// выделение текста
@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6,
 	color: $title-color
 	margin: 0 0 $bottom-space--element
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		margin-bottom: $bottom-space--element--mob
 
 	&:last-child
@@ -60,7 +60,7 @@ h4, .h4
 	margin-bottom: $bottom-space
 	+font-h4
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		margin-bottom: $bottom-space--mob
 
 h5, .h5
@@ -74,7 +74,7 @@ p
 	padding: 0
 	margin: 0 0 $bottom-space
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		margin-bottom: $bottom-space--mob
 
 	&:last-child
@@ -88,7 +88,7 @@ hr
 	border-bottom: 1px solid $border-color
 	margin-bottom: $bottom-space
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		margin-bottom: $bottom-space--mob
 
 a
@@ -135,6 +135,27 @@ i, em
 
 i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	+font-bold-italic
+
+.font-light
+	+font-light
+
+.font-normal
+	+font-normal
+
+.font-bold
+	+font-bold
+
+.font-bold-italic
+	+font-bold-italic
+
+.font-black
+	+font-black
+
+.font-alt
+	+font-alt
+
+.font-alt-black
+	+font-alt-black
 
 .highlight, .mark
 	color: $highlight-color
@@ -183,10 +204,18 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	+media('<desk-sm')
 		display: none !important
 
+.for-mob
+	+media('>=mob-lg')
+		display: none
+
+.for-desk
+	+media('<mob-lg')
+		display: none
+
 .section, .bottom-space-section, .#{$user-content} .bottom-space-section
 	margin-bottom: $bottom-space--section
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		margin-bottom: $bottom-space--section--mob
 
 	&:last-child
@@ -195,7 +224,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 .article, .bottom-space-article, .#{$user-content} .bottom-space-article
 	margin-bottom: $bottom-space--article
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		margin-bottom: $bottom-space--article--mob
 
 	&:last-child
@@ -204,7 +233,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 .bottom-space-element, .#{$user-content} .bottom-space-element
 	margin-bottom: $bottom-space--element
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		margin-bottom: $bottom-space--element--mob
 
 	&:last-child
@@ -213,7 +242,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 .bottom-space-row, .#{$user-content} .bottom-space-row
 	margin-bottom: $bottom-space--row
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		margin-bottom: $bottom-space--row--mob
 
 	&:last-child
@@ -221,12 +250,12 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 
 .enter-text
 	+font-normal
-	+font(2.2rem, round-float(26/22, 2))
+	+font(2.2rem, 2.6rem)
 	color: rgba($highlight-color, 0.8)
 	margin-bottom: $bottom-space--element
 
-	+media('<tab-lg')
-		font-size: 1.6rem
+	+media('<mob-lg')
+		+font(1.6rem, 1.8rem)
 		margin-bottom: $bottom-space--element--mob
 
 	&:last-child
@@ -292,7 +321,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 
 //.columnize--3, .columnize--4
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		column-count: 2
 
 //.columnize, .columnize--3, .columnize--4
@@ -313,53 +342,65 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 .#{$user-content}
 	//list
 	ul, ol
-		margin: $bottom-space--element 0
+		margin: 4.5rem 0
 		padding: 0
 		list-style: none
 
-		+media('<tab-lg')
+		+media('<mob-lg')
 			+margin-vertical($bottom-space--element--mob)
 
 		li
 			padding-left: $list-space
-			margin: 0 0 $bottom-space
+			margin: 0 0 1.6rem // для ol другие отступы!
 			position: relative
 
-			+media('<tab-lg')
+			+media('<mob-lg')
 				margin-bottom: $bottom-space--mob
+
+	.bottom-space_list-1
+		margin-bottom: $bottom-space--section + 0.1 //костыль для подгонки отступов под дизайн
+
+	ul li
+		+font-light
+		+font(2.0rem, 3.0rem)
 
 	ul > li::before
 		content: ''
 		display: block
 		float: left
 		+size(12px)
-		margin: 0.35em 0 -0.35em -#{$list-space}
+		margin: 0.55em 0 -0.55em -#{round($list-space - 20)}
 		border-radius: 6px
 		background-color: $highlight-color
 
 	ol
+		margin: 5rem 0
 		counter-reset: section
 
 		& > li
 			$size: 32px
-			$space: 53px
+			$space: 51px
 			$size--mob: 20px
 			$space--mob: 35px
 			//===================
 			counter-increment: section
 			height: 1%
 			//overflow: hidden
+			margin-bottom: 2rem
 			padding-left: $space
+			+font-normal
+			line-height: 2.7rem
 
-			+media('<tab-lg')
+			+media('<mob-lg')
 				padding-left: $space--mob
+				margin-bottom: 1.5rem
 
 			&::before
 				position: relative
 				display: inline-block
 				content: counter(section)
 				+size($size)
-				margin: 0 calc(#{$space} - #{$size}) 0 -#{$space}
+				margin: -4px calc(#{$space} - #{$size}) -4px -#{$space}
 				+font-bold
 				line-height: $size
 				text-align: center
@@ -367,7 +408,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 				background-color: white
 				border-radius: round($size / 2)
 
-				+media('<tab-lg')
+				+media('<mob-lg')
 					+size($size--mob)
 					margin: 0 calc(#{$space--mob} - #{$size--mob}) 0 -#{$space--mob}
 					line-height: $size--mob
@@ -377,7 +418,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		ul, ol
 			margin: round($bottom-space*0.5) 0
 
-			+media('<tab-lg')
+			+media('<mob-lg')
 				+margin-vertical(round($bottom-space--mob*0.5))
 
 /* list reset
@@ -406,7 +447,7 @@ table
 		color: inherit
 		padding: 8px 15px
 
-		+media('<tab-lg')
+		+media('<mob-lg')
 			+font($font-size--mob, $line-height--mob)
 
 	//&, td, th
@@ -428,7 +469,7 @@ table
 	table
 		margin-bottom: $bottom-space
 
-		+media('<tab-lg')
+		+media('<mob-lg')
 			margin-bottom: $bottom-space--mob
 
 	.table-auto table
@@ -484,7 +525,7 @@ blockquote
 	margin: $bottom-space--element auto
 	padding: 0
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		margin: $bottom-space--element--mob auto
 
 	q
@@ -497,7 +538,7 @@ blockquote
 		+font(3.0rem, 3.6rem)
 		color: $text-color
 
-		+media('<tab-lg')
+		+media('<mob-lg')
 			padding: 4.5rem 0
 			+font(2.0rem, 2.6rem)
 
@@ -513,7 +554,7 @@ blockquote
 		+font($font-size, $line-height)
 		color: $highlight-color
 
-		+media('<tab-lg')
+		+media('<mob-lg')
 			+font($font-size--mob, $line-height--mob)
 
 	&, & q
@@ -528,7 +569,7 @@ blockquote
 			background-color: $highlight-color
 			transform: rotate($sep-rotate)
 
-			+media('<tab-lg')
+			+media('<mob-lg')
 				height: nth($sep-size--mob, 1)
 				width: nth($sep-size--mob, 2)
 				margin: 0.7rem -#{round(nth($sep-size--mob, 2)/2)}
@@ -544,7 +585,7 @@ blockquote
 			margin-top: 3rem
 			margin-bottom: 3rem
 
-			+media('<tab-lg')
+			+media('<mob-lg')
 				margin-top: 1.8rem
 				margin-bottom: 1.8rem
 
@@ -583,7 +624,7 @@ blockquote
 	+media('<desk-lg')
 		margin-bottom: $bottom-space--element
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		display: none
 
 	&:last-child
@@ -676,12 +717,12 @@ blockquote
 /* separator
 .sep
 	position: relative
-	height: 50px
+	height: 48px
 	+margin-vertical($bottom-space--element)
 	text-indent: -9999px
 	overflow: hidden
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		height: 26px
 		+margin-vertical($bottom-space--element--mob)
 
@@ -697,7 +738,7 @@ blockquote
 		transform: rotate($sep-rotate)
 		+margin-vertical(14px)
 
-		+media('<tab-lg')
+		+media('<mob-lg')
 			height: nth($sep-size--mob, 1)
 			width: nth($sep-size--mob, 2)
 			margin-left: -#{round(nth($sep-size--mob, 2)/2)}

@@ -33,6 +33,9 @@ $font-alt: 'Playfair Display', serif !default
 =font-bold()
 	font-weight: 700
 
+=font-black()
+	font-weight: 900
+
 =font-italic()
 	font-weight: 300
 	font-style: italic
@@ -95,6 +98,12 @@ $border-color: #666695 !default
 // ----------------------------------------------------
 
 
+// Table
+// ==========================================================================
+$table-slide-border-color: #5b5bac !default
+$table-slide-border-color--alt: #e7e7f5 !default
+
+
 // Fonts
 // ==========================================================================
 
@@ -117,13 +126,16 @@ $letter-spacing: normal !default
 
 // Heading h1
 $font-size-h1: 8.0rem !default
-$line-height-h1: round-float(8.0rem/$font-size-h1, 2) !default
+$line-height-h1: 8.0rem !default
 // ----------------------------------------------------
-$font-size-h1--md: 4.2rem !default
-$line-height-h1--md: round-float(5.0rem/$font-size-h1--md, 2) !default
+$font-size-h1--md: 6.2rem !default
+$line-height-h1--md: 6.4rem !default
+// ----------------------------------------------------
+$font-size-h1--tablet: 5.0rem !default
+$line-height-h1--tablet: 5.4rem !default
 // ----------------------------------------------------
 $font-size-h1--sm: 3.0rem !default
-$line-height-h1--sm: round-float(3.2rem/$font-size-h1--sm, 2) !default
+$line-height-h1--sm: 3.2rem !default
 // ----------------------------------------------------
 =font-h1()
 	+font-alt-black
@@ -131,11 +143,15 @@ $line-height-h1--sm: round-float(3.2rem/$font-size-h1--sm, 2) !default
 	line-height: $line-height-h1
 	text-align: center
 
-	//+media('<desk-sm')
+	+media('<desk-sm')
 		font-size: $font-size-h1--md
 		line-height: $line-height-h1--md
 
 	+media('<tab-lg')
+		font-size: $font-size-h1--tablet
+		line-height: $line-height-h1--tablet
+
+	+media('<mob-lg')
 		font-size: $font-size-h1--sm
 		line-height: $line-height-h1--sm
 		text-align: left
@@ -148,13 +164,13 @@ $line-height-h1--sm: round-float(3.2rem/$font-size-h1--sm, 2) !default
 
 // Heading h2
 $font-size-h2: 3.6rem !default
-$line-height-h2: round-float(4.2rem/$font-size-h2, 2) !default
+$line-height-h2: 4.2rem !default
 // ----------------------------------------------------
-$font-size-h2--md: 3.6rem !default
-$line-height-h2--md: round-float(4.2rem/$font-size-h2--md, 2) !default
+$font-size-h2--md: 3.2rem !default
+$line-height-h2--md: 3.8rem !default
 // ----------------------------------------------------
-$font-size-h2--sm: 3.0rem !default
-$line-height-h2--sm: round-float(4.2rem/$font-size-h2--sm, 2) !default
+$font-size-h2--sm: 2.6rem !default
+$line-height-h2--sm: 3.2rem !default
 // ----------------------------------------------------
 =font-h2()
 	font-family: $font-norm
@@ -167,17 +183,17 @@ $line-height-h2--sm: round-float(4.2rem/$font-size-h2--sm, 2) !default
 		font-size: $font-size-h2--md
 		line-height: $line-height-h2--md
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		font-size: $font-size-h2--sm
 		line-height: $line-height-h2--sm
 		text-align: left
 
 // Heading h3
 $font-size-h3: 2.6rem !default
-$line-height-h3: round-float(3.2rem/$font-size-h3, 2) !default
+$line-height-h3: 3.2rem !default
 // ----------------------------------------------------
 $font-size-h3--sm: 2.0rem !default
-$line-height-h3--sm: round-float(2.8rem/$font-size-h3, 2) !default
+$line-height-h3--sm: 2.8rem !default
 // ----------------------------------------------------
 =font-h3($color: #6bdbbc)
 	+font-bold
@@ -186,7 +202,7 @@ $line-height-h3--sm: round-float(2.8rem/$font-size-h3, 2) !default
 	text-align: center
 	color: $color
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		font-size: $font-size-h3--sm
 		line-height: $line-height-h3--sm
 		text-align: left
@@ -205,7 +221,7 @@ $line-height-h4--sm: $line-height--mob !default
 	@if $color
 		color: $color
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		font-size: $font-size-h4--sm
 		line-height: $line-height-h4--sm
 
@@ -220,7 +236,7 @@ $line-height-h6: $line-height--small !default
 // Small Title Text
 =small-title($color: rgba($text-color, 0.4))
 	+font-normal
-	+font(1.6rem, round-float(24/16, 2))
+	+font(1.6rem, 2.4rem)
 	color: $color
 
 // Spaces
@@ -253,7 +269,7 @@ $z-heading: 1200 !default
 // ==========================================================================
 
 // отступы для всего сайта
-$page-layout-space: 7rem 8rem !default // v h
+$page-layout-space: 6.5rem 8rem !default // v h
 $page-layout-space--md: 7rem 4rem !default // v h
 $page-layout-space--mob: 3rem 2rem !default // v h
 // максимальная ширина сайта
@@ -266,6 +282,8 @@ $text-layout-space--md: 4rem 4rem !default // v h
 $text-layout-space--mob: 2rem 2rem !default // v h
 // максимальная ширина текстового блока
 $text-layout-width: 68rem !default
+// максимальная ширина текстового блока (альтернативная, например на главной - списки)
+$text-layout-width-alt: 81rem !default
 // максимальная ширина блока выходящего за пределы текста
 $flood-layout-width: 108rem !default
 // максимальная ширина блока с ограниченной шириной
@@ -275,7 +293,7 @@ $wide-layout-width: 124rem !default
 	margin-left: auto
 	margin-right: auto
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		max-width: none
 
 $wide-full-layout-width: 140rem !default
@@ -292,7 +310,7 @@ $grid-space: 4rem 4rem !default // v h
 $grid-space--md: 3rem 3rem !default // v h
 $grid-space--mob: 2rem 2rem !default // v h
 // отступы в дефолтных списках
-$list-space: 34px !default
+$list-space: 53px !default
 
 
 // Class of typography styles
@@ -322,7 +340,8 @@ $sidebar-width: 260px !default
 
 // Main
 // ==========================================================================
-$main-space-v: 0 $bottom-space--section !default
+//$main-space-v: 0 13.1rem !default
+$main-space-v: 0 21.2rem !default
 $main-space-v--mob: 0 $bottom-space--section--mob !default
 
 
@@ -377,7 +396,7 @@ $small-field: 'small-field'
 // Colors of forms
 $form-text-color: white !default
 //$form-placeholder-color: $border-color !default
-$form-placeholder-color: rgba($text-color, 0.1) !default
+$form-placeholder-color: rgba($text-color, 0.2) !default
 $form-bg-color: $base-color-dark !default
 $form-border-color: $form-bg-color !default
 // validation
@@ -552,7 +571,7 @@ $multiple-item-space: 3px !default
 		+media($form-media--mob)
 			right: 18px
 
-		.input-holder.error &, .input-holder.success &
+		//.input-holder.error &, .input-holder.success &
 			display: none
 
 	&::before
@@ -568,7 +587,7 @@ $multiple-item-space: 3px !default
 // States
 =form-success()
 	//color: $form-success-color
-	border-color: $form-success-color
+	//border-color: $form-success-color
 
 =form-error()
 	//color: $form-error-color
@@ -585,7 +604,9 @@ $multiple-item-space: 3px !default
 
 // Pop
 // ==========================================================================
-$pop-opener-space: 0.2em 0.7em !default
+$pop-opener-space: 5px 12px !default
+$pop-opener-space--outline: 2px 12px 4px 10px !default
+$pop-opener-left--outline: 3px !default
 $pop-animation-speed: 0.6s !default
 
 
@@ -596,7 +617,7 @@ $clients-item-space: 6rem 6rem !default
 
 // Separator
 // ==========================================================================
-$sep-size: 5px 46px !default //h w
+$sep-size: 5px 44px !default //h w
 $sep-size--mob: 3px 24px !default //h w
 $sep-rotate: -36deg !default
 
@@ -608,6 +629,9 @@ $offers-slider-space: 16px !default
 
 // Extended Offers Slider
 // ==========================================================================
+// Media Query for Forms
+$sliders-media--mob: '<tab-lg'
+
 $x-offers-slider-space: 16px !default
 
 

@@ -54,7 +54,7 @@
 				</div>
 				<div class="appeal-form single-drop__panel-js">
 					<!--form-success - add after success sent-->
-					<form action="#" method="post" class="validation-form-js">
+					<form action="#" method="post" class="validation-form-js form-success">
 						<div class="appeal-form__cols">
 							<div class="appeal-form__col">
 								@@loop("_tpl_forms_field.html", [
@@ -95,6 +95,7 @@
 									"classes": "cselect",
 									"ph": "Выберите услугу из списка",
 									"label": "Услуга",
+									"labelClasses": "has-select",
 									"valid": "true",
 									"required": "required",
 									"options": "<option value=''>Выберите услугу из списка</option><option value='1'>Купить облигации</option><option value='2'>Продать облигации</option><option value='3'>Консультация</option><option value='4'>Запросить информацию</option><option value='5'>Другое</option>"
@@ -105,6 +106,7 @@
 									"classes": "cselect",
 									"ph": "Выберите эмитент из списка",
 									"label": "Эмитент",
+									"labelClasses": "has-select",
 									"required": "required",
 									"options": "<option value=''>Выберите эмитент из списка</option><option value='1'>Купить облигации</option><option value='2'>Продать облигации</option><option value='3'>Консультация</option><option value='4'>Запросить информацию</option><option value='5'>Другое</option>"
 								}, {

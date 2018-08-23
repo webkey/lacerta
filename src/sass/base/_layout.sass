@@ -50,7 +50,7 @@ html
 		+padding-horizontal(0)
 		+push-auto
 
-		+media('<tab-lg')
+		+media('<mob-lg')
 			max-width: none
 
 		.home-page &
@@ -1176,14 +1176,15 @@ a.nav-opener
 .heading
 	position: relative
 	padding: nth($page-layout-space, 1) 0 0
-	margin-bottom: $bottom-space--article
+	margin-bottom: 7.1rem //костыль для подгонки отступов под дизайн
 	text-align: center
 	+wide
 
-	+media('<desk-lg')
+	+media('<desk-sm') // 1280
 		padding: nth($page-layout-space--md, 1) 0 0
+		margin-bottom: 4.0rem
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		padding: nth($page-layout-space--mob, 1) 0 0
 		//margin-bottom: $bottom-space--article--mob
 		margin-bottom: 1rem
@@ -1193,7 +1194,7 @@ a.nav-opener
 		display: block
 		width: 42rem
 		padding: $text-layout-space
-		margin: -#{nth($page-layout-space, 1)} auto $bottom-space--element
+		margin: -#{nth($page-layout-space, 1)} auto 4.9rem
 		background-color: white
 		user-select: none
 		overflow: hidden
