@@ -3392,7 +3392,10 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 .contact-share, .contacts-adr
 	margin-right: $cont-form-width
 
-	+media('<tab-lg')
+	+media('<tab-lg','>=tab-sm')
+		margin-right: $cont-form-width--sm
+
+	+media('<tab-sm')
 		margin-right: 0
 
 .contact-share
@@ -3407,6 +3410,9 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 	+media('<tab-lg')
 		min-height: 0
 		padding-bottom: $bottom-space--article--mob
+
+	+media('<tab-sm')
+		padding-bottom: 2rem
 
 	.contact-share__box
 		float: left
@@ -3451,7 +3457,13 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 	color: rgba($base-color-alt, 0.7)
 	background-color: white
 
+	+media('<desk-sm')
+		padding: 4rem 6rem 4.2rem
+
 	+media('<tab-lg')
+		padding: 2rem 3rem
+
+	+media('<tab-sm')
 		padding: $page-layout-space--mob
 		+margin-horizontal(-#{nth($page-layout-space--mob, 2)})
 
@@ -3498,7 +3510,7 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 	height: 0
 	z-index: 10
 
-	+media('<tab-lg')
+	+media('<tab-sm')
 		position: relative
 		left: auto
 		top: auto
@@ -3508,49 +3520,96 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 	position: relative
 	height: 100%
 
-.contacts-form .user-form
-	position: absolute
-	top: 0
-	right: 0
-	width: $cont-form-width
-	padding: 4.9rem 6rem 6rem
-	border-radius: 0
+.contacts-form
+	.user-form
+		position: absolute
+		top: 0
+		right: 0
+		width: $cont-form-width
+		padding: 4.9rem 6rem 6rem
+		border-radius: 0
+		background-color: $base-color-alt
 
-	+media('<tab-lg')
-		position: relative
-		top: auto
-		right: auto
-		width: auto
-		padding: nth($page-layout-space--mob, 1) nth($page-layout-space--mob, 2)
-		margin-bottom: -#{nth($main-space-v--mob, 2)}
+		+media('<tab-lg','>=tab-sm')
+			width: $cont-form-width--sm
+			padding: 2rem 3rem
+			margin: 0
 
-	.form-row
-		margin: 0
-
-		.input-wrap
-			display: block
+		+media('<tab-sm')
+			position: relative
+			top: auto
+			right: auto
 			width: auto
-			+margin-horizontal(0)
-			margin-bottom: 2.2rem
-
-			&:last-child
-				margin-bottom: 0
-
-	.form-title
-		text-align: left
-		margin-bottom: 2.1rem
+			padding: nth($page-layout-space--mob, 1) nth($page-layout-space--mob, 2)
+			margin-bottom: -#{nth($main-space-v--md, 2)}
 
 		+media('<mob-lg')
-			margin-bottom: 0.7rem
+			margin-bottom: -#{nth($main-space-v--mob, 2)}
 
-	.form-buttons
-		margin-top: 4rem
+		form
+			+media('<tab-lg')
+				padding: 0
 
-		label, .label-holder
-			display: none
+		.form-row
+			margin: 0
 
-		button
-			max-width: none
+			.input-wrap
+				display: block
+				width: auto
+				+margin-horizontal(0)
+				margin-bottom: 2.2rem
+
+				&:last-child
+					margin-bottom: 0
+
+		.form-title
+			text-align: left
+			margin-bottom: 2.1rem
+
+			+media('<tab-lg')
+				+padding-horizontal(0)
+
+			+media('<tab-sm')
+				margin-bottom: 0.7rem
+
+		.form-buttons
+			padding-top: 1.8rem
+
+			+media('<mob-lg')
+				padding-top: 0
+
+			label, .label-holder
+				display: none
+
+			button
+				max-width: none
+
+	.user-form__msg
+		border-radius: 0
+		padding: 3rem
+
+	.user-form__msg__caption
+		margin-bottom: 3rem
+
+	.user-form__msg__title
+		+font(5.2rem, 5.2rem)
+
+		+media('<tab-lg')
+			+font(3rem, 3.2rem)
+
+	.user-form__msg__subtitle
+		+font(2.6rem, 2.6rem)
+
+		+media('<tab-lg')
+			+font(2rem, 2.8rem)
+
+	.user-form__msg__tel
+		margin-bottom: 3rem
+		+font(3.2rem, 3.6rem)
+
+		+media('<tab-lg')
+			margin-bottom: 0
+			+font(2.6rem, 3.2rem)
 
 /* contacts end
 

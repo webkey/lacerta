@@ -7792,7 +7792,13 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	margin-right: 46.8rem;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 991px) and (min-width: 768px) {
+	.contact-share, .contacts-adr {
+		margin-right: 34rem;
+	}
+}
+
+@media (max-width: 767px) {
 	.contact-share, .contacts-adr {
 		margin-right: 0;
 	}
@@ -7820,6 +7826,12 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	.contact-share {
 		min-height: 0;
 		padding-bottom: 3rem;
+	}
+}
+
+@media (max-width: 767px) {
+	.contact-share {
+		padding-bottom: 2rem;
 	}
 }
 
@@ -7868,7 +7880,19 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	background-color: white;
 }
 
+@media (max-width: 1279px) {
+	.contacts-adr {
+		padding: 4rem 6rem 4.2rem;
+	}
+}
+
 @media (max-width: 991px) {
+	.contacts-adr {
+		padding: 2rem 3rem;
+	}
+}
+
+@media (max-width: 767px) {
 	.contacts-adr {
 		padding: 2.7rem 2rem;
 		margin-right: -2rem;
@@ -7939,7 +7963,7 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	z-index: 10;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
 	.contacts-form {
 		position: relative;
 		left: auto;
@@ -7960,16 +7984,37 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	width: 46.8rem;
 	padding: 4.9rem 6rem 6rem;
 	border-radius: 0;
+	background-color: #2b2b8b;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 991px) and (min-width: 768px) {
+	.contacts-form .user-form {
+		width: 34rem;
+		padding: 2rem 3rem;
+		margin: 0;
+	}
+}
+
+@media (max-width: 767px) {
 	.contacts-form .user-form {
 		position: relative;
 		top: auto;
 		right: auto;
 		width: auto;
 		padding: 2.7rem 2rem;
+		margin-bottom: -8rem;
+	}
+}
+
+@media (max-width: 639px) {
+	.contacts-form .user-form {
 		margin-bottom: -5.9rem;
+	}
+}
+
+@media (max-width: 991px) {
+	.contacts-form .user-form form {
+		padding: 0;
 	}
 }
 
@@ -7994,14 +8039,27 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	margin-bottom: 2.1rem;
 }
 
-@media (max-width: 639px) {
+@media (max-width: 991px) {
+	.contacts-form .user-form .form-title {
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
+
+@media (max-width: 767px) {
 	.contacts-form .user-form .form-title {
 		margin-bottom: 0.7rem;
 	}
 }
 
 .contacts-form .user-form .form-buttons {
-	margin-top: 4rem;
+	padding-top: 1.8rem;
+}
+
+@media (max-width: 639px) {
+	.contacts-form .user-form .form-buttons {
+		padding-top: 0;
+	}
 }
 
 .contacts-form .user-form .form-buttons label, .contacts-form .user-form .form-buttons .label-holder {
@@ -8010,6 +8068,53 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 
 .contacts-form .user-form .form-buttons button {
 	max-width: none;
+}
+
+.contacts-form .user-form__msg {
+	border-radius: 0;
+	padding: 3rem;
+}
+
+.contacts-form .user-form__msg__caption {
+	margin-bottom: 3rem;
+}
+
+.contacts-form .user-form__msg__title {
+	font-size: 5.2rem;
+	line-height: 5.2rem;
+}
+
+@media (max-width: 991px) {
+	.contacts-form .user-form__msg__title {
+		font-size: 3rem;
+		line-height: 3.2rem;
+	}
+}
+
+.contacts-form .user-form__msg__subtitle {
+	font-size: 2.6rem;
+	line-height: 2.6rem;
+}
+
+@media (max-width: 991px) {
+	.contacts-form .user-form__msg__subtitle {
+		font-size: 2rem;
+		line-height: 2.8rem;
+	}
+}
+
+.contacts-form .user-form__msg__tel {
+	margin-bottom: 3rem;
+	font-size: 3.2rem;
+	line-height: 3.6rem;
+}
+
+@media (max-width: 991px) {
+	.contacts-form .user-form__msg__tel {
+		margin-bottom: 0;
+		font-size: 2.6rem;
+		line-height: 3.2rem;
+	}
 }
 
 /* contacts end */
