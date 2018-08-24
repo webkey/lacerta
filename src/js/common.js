@@ -7,6 +7,7 @@ $(function () {
 		$cover = $('.c-transition'),
 		$heading = $('.heading-js'),
 		$title = $('h1', $heading),
+		timeout,
 		options = {
 			debug: true,
 			prefetch: true,
@@ -45,6 +46,13 @@ $(function () {
 					$container.html($newContent);
 					$cover.addClass('is-leaving');
 					$heading.addClass('is-leaving');
+
+					clearTimeout(timeout);
+
+					timeout = setTimeout(function () {
+						$cover.removeClass('is-leaving is-active');
+						$heading.removeClass('is-leaving is-active');
+					}, 1100);
 
 					customSelect();
 					formMaskInit();
@@ -1136,6 +1144,7 @@ function offersAccordionInit() {
 	var $offersAccord = $('.offers-rolls-js');
 
 	if ($offersAccord.length) {
+		var activeClass = 'is-open';
 		$offersAccord.msRolls({
 			item: '.offers-rolls__item-js'
 			, header: '.offers-rolls__header-js'
@@ -1144,7 +1153,20 @@ function offersAccordionInit() {
 			, animationSpeed: 330
 			, collapsed: false
 			, modifiers: {
-				activeClass: 'is-open'
+				activeClass: activeClass
+			}
+		});
+
+		$('.offers-rolls__hand-js').on('click', function () {
+			if (window.innerWidth > 992)
+				return;
+
+			var $curOpener = $(this);
+			var $panel = $curOpener.closest('.offers-rolls__item-js').siblings().find('.offers-rolls__panel-js');
+			if($curOpener.hasClass(activeClass)) {
+				$offersAccord.msRolls('close', $panel);
+			} else {
+				$offersAccord.msRolls('open', $panel);
 			}
 		});
 	}

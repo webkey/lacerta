@@ -22,6 +22,10 @@ var formValidInit = function (){
 		}
 	});
 
+	$.validator.methods.email = function( value, element ) {
+		return this.optional( element ) || /[a-z]+@[a-z]+\.[a-z]+/.test( value );
+	};
+
 	var $validationForm = $('.validation-form-js');
 
 	if($validationForm.length) {
@@ -30,6 +34,13 @@ var formValidInit = function (){
 				errorClass: 'error',
 				validClass: 'success',
 				errorElement: false,
+				// rules: {
+				// 	phoneNumber: {
+				// 		required: true,
+				// 		minlength: 9,
+				// 		number: true
+				// 	}
+				// },
 				errorPlacement: function(error,element) {
 					return true;
 				},

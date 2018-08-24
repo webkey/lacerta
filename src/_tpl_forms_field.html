@@ -4,7 +4,7 @@
 @@if(!context.wrap){<input}@@if(context.wrap){
 <div class="input-holder@@if(context.labelClasses){ @@labelClasses}">
 	<input}
-	@@if(context.classes){ class="@@classes"}@@if(context.id){ id="@@id"} name="@@id"@@if(context.ph){ placeholder="@@ph"} type="@@type"@@if(context.value){ value="@@value"}@@if(context.multiple){ multiple="multiple"}@@if(context.readonly){ readonly}@@if(context.disabled){ disabled}@@if(context.required){ required}
+	@@if(context.classes){ class="@@classes"}@@if(context.id){ id="@@id"}@@if(context.name){ name="@@name"}@@if(!context.name){ name="@@id"}@@if(context.ph){ placeholder="@@ph"} type="@@type"@@if(context.value){ value="@@value"}@@if(context.multiple){ multiple="multiple"}@@if(context.readonly){ readonly}@@if(context.disabled){ disabled}@@if(context.required){ required}
 @@if(!context.wrap){
 	/>
 	@@if(context.valid){@@include('_tpl_forms_valid.html', {"error": "@@error", "success": "@@success"})}
