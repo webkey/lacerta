@@ -186,12 +186,18 @@ html
 		z-index: $z-middle
 
 	+media('<tab-lg')
+		padding-bottom: nth($main-space-v--md, 2)
+
+	+media('<mob-lg')
 		padding-bottom: nth($main-space-v--mob, 2)
 
 	&.home-page
 		padding-bottom: 13.1rem
 
 		+media('<tab-lg')
+			padding-bottom: nth($main-space-v--md, 2)
+
+		+media('<mob-lg')
 			padding-bottom: nth($main-space-v--mob, 2)
 
 .content
@@ -256,7 +262,7 @@ html
 
 	+media('<tab-lg')
 		padding: 1rem nth($page-layout-space--mob, 2)
-		height: $header-height--mod
+		height: $header-height--mob
 
 	&:last-child
 		margin-bottom: 0
@@ -468,8 +474,8 @@ html
 	+media('<tab-lg')
 		//padding: 3.3rem nth($page-layout-space--mob, 2) 9.3rem
 		padding: 3.3rem nth($page-layout-space--mob, 2)
-		top: $header-height--mod
-		height: calc(100vh - #{$header-height--mod})
+		top: $header-height--mob
+		height: calc(100vh - #{$header-height--mob})
 
 	&.#{$nav-is-open-class}, // add js
 	.no-js &
@@ -555,7 +561,7 @@ html
 a.nav-opener
 	$burger-bg: transparent
 	$burger-size: $header-height--md
-	$burger-size--mob: $header-height--mod
+	$burger-size--mob: $header-height--mob
 	$layer-width: 43px
 	$layer-width--mob: 25px
 	$layer-height: 7px
@@ -595,7 +601,7 @@ a.nav-opener
 
 	+media('<tab-lg')
 		right: nth($page-layout-space--mob, 2)
-		top: round($header-height--mod / 2)
+		top: round($header-height--mob / 2)
 		margin-top: -#{round($burger-size--mob/2)}
 		+size($burger-size--mob)
 		+font($font-size--mob, $line-height--mob)
@@ -783,7 +789,7 @@ a.nav-opener
 .footer
 	position: relative
 	width: 100%
-	padding-top: nth($page-layout-space, 1)
+	padding-top: 6.6rem
 	padding-bottom: nth($page-layout-space, 1) + 3rem
 	z-index: $z-high
 	background-color: $base-color
@@ -1316,7 +1322,7 @@ a.nav-opener
 		padding-top: $header-height--md
 
 	+media('<tab-lg')
-		padding-top: $header-height--mod
+		padding-top: $header-height--mob
 
 $c-heading-y: 60vh
 @keyframes showHeading

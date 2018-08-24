@@ -532,7 +532,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 		max-width: calc(100% - #{nth($page-layout-space--mob, 2) * 2})
 		box-shadow: 0 0 30px rgba(black, 0.2)
 		z-index: 15
-		$translate: -50%, calc(-50% + 2em + #{round($header-height--mod / 2)})
+		$translate: -50%, calc(-50% + 2em + #{round($header-height--mob / 2)})
 		transform: translate($translate)
 		transform: translate3d($translate, 0)
 
@@ -547,7 +547,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 		transform: translate3d($translate, 0)
 
 		+media('<tab-lg')
-			$translate: -50%, calc(-50% + #{round($header-height--mod / 2)})
+			$translate: -50%, calc(-50% + #{round($header-height--mob / 2)})
 			transform: translate($translate)
 			transform: translate3d($translate, 0)
 
@@ -1136,6 +1136,14 @@ input, button, [class|="btn"], [class*=" btn-"],
 			+media('<mob-lg')
 				margin-bottom: 2rem
 
+	&.section_clients
+		h3, .h3
+			margin-bottom: 5.4rem
+			line-height: 2.8rem
+
+			+media('<mob-lg')
+				margin-bottom: 2rem
+
 .text-section
 	margin-bottom: 14rem
 
@@ -1148,6 +1156,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 	ul, ol, p
 		max-width: $text-layout-width
 		+push-auto
+
+		&:last-child
+			margin-bottom: 0
 
 .gain-section
 	margin-bottom: 14rem
@@ -2146,7 +2157,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 	+media($sliders-media--mob)
 		+font-normal
 		+font(12px, 15px)
-		color: $text-color-light
+		//color: $text-color-light
 		margin-bottom: 3px
 
 .detail__item__desc
@@ -2205,7 +2216,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 		-webkit-tap-highlight-color: transparent
 
 .clients__item__caption
-	padding: $grid-space
+	padding: nth($grid-space, 1) nth($grid-space, 2) 3.4rem
 
 	+media('<desk-sm') // 1280
 		padding: $grid-space--md
@@ -2219,7 +2230,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 	width: 240px
 	max-width: 100%
 	padding: 0
-	margin: 0 0 nth($page-layout-space--mob, 2)
+	margin: 0 0 2.1rem
 
 	&::before
 		content: ""
@@ -2240,16 +2251,16 @@ input, button, [class|="btn"], [class*=" btn-"],
 // title
 .clients__item__title
 	+font-bold
-	margin-bottom: 0.4em
+	margin-bottom: 0.7rem
 	color: $base-color-dark
 
 	+media('<mob-lg')
 		+font(2.0rem, round-float(22/20, 2))
-		margin-bottom: 0.1em
+		margin-bottom: 0.2rem
 
 // release
 .clients__item__release
-	+font-bold
+	+font-black
 	color: $base-color-dark
 
 	.clients__item__title ~ &
@@ -2264,7 +2275,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 .clients__item__more
 	display: block
 	position: relative
-	padding: floor(($btn-height - $btn-line-height)/2) #{nth($grid-space, 2) + 1} ceil(($btn-height - $btn-line-height)/2) nth($grid-space, 2)
+	padding: 1.6rem #{nth($grid-space, 2) + 1} 1.8rem nth($grid-space, 2)
 	background: $highlight-color
 	+font-normal
 	+font($font-size--smallest, $line-height--smallest)
@@ -2961,6 +2972,7 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 		$news-font-wide--middle: 3.0rem, 3.2rem
 		$news-font-wide--small: 2.4rem, 2.8rem
 		$news-font-wide--less: 2.0rem, 2.4rem
+		+font-normal
 		+font(nth($news-font-wide--norm, 1), nth($news-font-wide--norm, 2))
 		max-width: 780px
 		+push-auto
@@ -3281,10 +3293,14 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 	position: relative
 	min-height: 39rem + $space-b
 	padding-bottom: $space-b
+	margin-top: -5rem
 
 	+media('<tab-lg')
 		min-height: 0
 		padding-bottom: 0
+
+	+media('<mob-lg')
+		margin-top: 0
 
 .contacts__holder
 	position: relative
@@ -3311,16 +3327,30 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 	& > ul
 		list-style: none
 		padding: 0
-		margin: 0
+		margin: -5px 0 0
+
+		+media('<desk-sm')
+			margin-top: 0
 
 		li
 			padding: 0
+			+font(2.2rem, 3.0rem)
+			margin-bottom: 1.4rem
+
+			+media('<mob-lg')
+				+font(1.6rem, 1.9rem)
+
+				margin-bottom: 0.7rem
 
 			&::before
 				content: none
 
 		& > li
 			padding-left: 4.2rem
+
+			//+media('<tab-lg')
+				float: left
+				width: round-float($hundred / 2, 2)
 
 		a
 			color: currentColor
@@ -3344,8 +3374,10 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 					+font-light
 					font-size: 0.8em
 
-		ul > li
-			margin-bottom: 0
+		ul
+
+			& > li
+				margin-bottom: 0
 
 		svg
 			display: block
@@ -3366,7 +3398,7 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 .contact-share
 	min-height: 23.4rem
 	padding-top: 6rem
-	padding-bottom: 6rem
+	padding-bottom: 5.7rem
 	+clear
 
 	+media('<desk-sm')
@@ -3378,7 +3410,6 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 
 	.contact-share__box
 		float: left
-		width: 50%
 		padding-right: 2rem
 
 		+media('<desk-sm') // 1280
@@ -3387,8 +3418,26 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 			padding-bottom: 2rem
 			width: auto
 
+		&:first-child
+			width: 49%
+
+			+media('<desk-sm')
+				width: auto
+
+			//+media('<tab-lg')
+				float: left
+				width: #{round-float($hundred / 3, 2)}
+
 		&:last-child
 			padding-bottom: 0
+			width: 51%
+
+			+media('<desk-sm')
+				width: auto
+
+			//+media('<tab-lg')
+				float: left
+				width: #{round-float($hundred / 3 * 2, 2)}
 
 	//.social-networks
 		+media('<tab-lg')
@@ -3396,7 +3445,7 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 
 .contacts-adr
 	display: block
-	padding: 6rem
+	padding: 5rem 6rem 5.2rem
 	font-style: normal
 	+font(1.6rem, 2.4rem)
 	color: rgba($base-color-alt, 0.7)
@@ -3464,7 +3513,7 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 	top: 0
 	right: 0
 	width: $cont-form-width
-	padding: 6rem
+	padding: 4.9rem 6rem 6rem
 	border-radius: 0
 
 	+media('<tab-lg')
@@ -3482,19 +3531,26 @@ $scale: round-float(nth($big-btn-size--max, 2) / nth($big-btn-size, 2), 2)
 			display: block
 			width: auto
 			+margin-horizontal(0)
-			margin-bottom: $form-bottom-space--mob
+			margin-bottom: 2.2rem
 
 			&:last-child
 				margin-bottom: 0
 
 	.form-title
 		text-align: left
+		margin-bottom: 2.1rem
+
+		+media('<mob-lg')
+			margin-bottom: 0.7rem
 
 	.form-buttons
-		margin-top: $form-bottom-space--mob * 2
+		margin-top: 4rem
 
 		label, .label-holder
 			display: none
+
+		button
+			max-width: none
 
 /* contacts end
 
