@@ -435,7 +435,7 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
 	font-weight: 300;
 	padding: 0;
-	color: white;
+	color: inherit;
 	margin: 0 0 4.5rem;
 }
 
@@ -518,11 +518,11 @@ h2, .h2 {
 
 h3, .h3 {
 	margin-bottom: 2.2rem;
+	margin-top: 7.4rem;
 	font-weight: 700;
 	font-size: 2.6rem;
 	line-height: 3.2rem;
 	text-align: center;
-	color: #6bdbbc;
 }
 
 @media (max-width: 639px) {
@@ -531,6 +531,16 @@ h3, .h3 {
 		line-height: 2.8rem;
 		text-align: left;
 	}
+}
+
+@media (max-width: 639px) {
+	h3, .h3 {
+		margin-top: 2.5rem;
+	}
+}
+
+h3:first-child, .h3:first-child {
+	margin-top: 0;
 }
 
 h4, .h4 {
@@ -571,7 +581,7 @@ p {
 
 @media (max-width: 639px) {
 	p {
-		margin-bottom: 1.1rem;
+		margin-bottom: 1.5rem;
 	}
 }
 
@@ -862,14 +872,9 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em {
 /* columnize end */
 /* list */
 .user-content ul, .user-content ol {
-	margin: 4.5rem 0;
+	margin: 2.2rem 0;
 	padding: 0;
 	list-style: none;
-}
-
-.user-content ul.list-alt, .user-content ol.list-alt {
-	margin-top: 2.2rem;
-	margin-bottom: 2.2rem;
 }
 
 @media (max-width: 639px) {
@@ -880,25 +885,25 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em {
 }
 
 .user-content ul li, .user-content ol li {
-	padding-left: 53px;
+	padding-left: 32px;
 	margin: 0 0 1.6rem;
 	position: relative;
 }
 
 @media (max-width: 639px) {
 	.user-content ul li, .user-content ol li {
-		padding-left: 37px;
+		padding-left: 22px;
 		margin-bottom: 1.3rem;
 	}
 }
 
-.user-content .bottom-space_list-1 {
-	margin-bottom: 14.1rem;
+.user-content ol ~ ul li {
+	padding-left: 53px;
 }
 
 @media (max-width: 639px) {
-	.user-content .bottom-space_list-1 {
-		margin-bottom: 4.5rem;
+	.user-content ol ~ ul li {
+		padding-left: 37px;
 	}
 }
 
@@ -921,7 +926,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em {
 	float: left;
 	height: 12px;
 	width: 12px;
-	margin: 0.55em 0 -0.55em -33px;
+	margin: 0.5em 0 -0.5em -32px;
 	border-radius: 6px;
 	background-color: #6bdbbc;
 }
@@ -936,7 +941,6 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em {
 }
 
 .user-content ol {
-	margin: 5rem 0;
 	counter-reset: section;
 }
 
@@ -1036,7 +1040,7 @@ blockquote {
 	display: block;
 	position: relative;
 	max-width: 52rem;
-	margin: 4.5rem auto 5.1rem;
+	margin: 4.7rem auto 4.9rem;
 	padding: 0;
 }
 
@@ -1046,7 +1050,7 @@ blockquote {
 	}
 }
 
-blockquote q {
+blockquote q, blockquote > p {
 	display: block;
 	position: relative;
 	margin: 0;
@@ -1059,7 +1063,7 @@ blockquote q {
 }
 
 @media (max-width: 639px) {
-	blockquote q {
+	blockquote q, blockquote > p {
 		padding: 4.5rem 0;
 		font-size: 2rem;
 		line-height: 2.6rem;
@@ -1088,7 +1092,7 @@ blockquote cite {
 	}
 }
 
-blockquote::before, blockquote::after, blockquote q::before, blockquote q::after {
+blockquote::before, blockquote::after, blockquote q::before, blockquote q::after, blockquote > p::before, blockquote > p::after {
 	content: "";
 	display: block;
 	position: absolute;
@@ -1102,28 +1106,28 @@ blockquote::before, blockquote::after, blockquote q::before, blockquote q::after
 }
 
 @media (max-width: 639px) {
-	blockquote::before, blockquote::after, blockquote q::before, blockquote q::after {
+	blockquote::before, blockquote::after, blockquote q::before, blockquote q::after, blockquote > p::before, blockquote > p::after {
 		height: 3px;
 		width: 24px;
 		margin: 0.7rem -12px;
 	}
 }
 
-blockquote::before, blockquote q::before {
+blockquote::before, blockquote q::before, blockquote > p::before {
 	top: 0;
 }
 
-blockquote::after, blockquote q::after {
+blockquote::after, blockquote q::after, blockquote > p::after {
 	bottom: 0;
 }
 
-blockquote q::before, blockquote q::after {
+blockquote q::before, blockquote q::after, blockquote > p::before, blockquote > p::after {
 	margin-top: 3rem;
 	margin-bottom: 3rem;
 }
 
 @media (max-width: 639px) {
-	blockquote q::before, blockquote q::after {
+	blockquote q::before, blockquote q::after, blockquote > p::before, blockquote > p::after {
 		margin-top: 1.8rem;
 		margin-bottom: 1.8rem;
 	}
@@ -1229,7 +1233,9 @@ blockquote q::before, blockquote q::after {
 
 .cols .col h2, .cols .col .h2, .cols .col h3, .cols .col .h3 {
 	text-align: left;
+	margin-top: 0;
 	margin-bottom: 4.3rem;
+	color: #6bdbbc;
 }
 
 @media (max-width: 991px) {
@@ -1285,7 +1291,7 @@ blockquote q::before, blockquote q::after {
 .sep {
 	position: relative;
 	height: 48px;
-	margin-top: 4.5rem;
+	margin-top: 5rem;
 	margin-bottom: 4.5rem;
 	text-indent: -9999px;
 	overflow: hidden;
@@ -3231,6 +3237,7 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	display: block;
 	text-align: center;
 	margin-bottom: 2.4rem;
+	color: #6bdbbc;
 }
 
 @media (max-width: 991px) {
@@ -3252,7 +3259,6 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	font-size: 2.6rem;
 	line-height: 3.2rem;
 	text-align: center;
-	color: #6bdbbc;
 }
 
 @media (max-width: 639px) {
@@ -3509,7 +3515,6 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	font-size: 2.6rem;
 	line-height: 3.2rem;
 	text-align: center;
-	color: #333399;
 }
 
 @media (max-width: 639px) {
@@ -3715,6 +3720,7 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 
 @media (max-width: 639px) {
 	.breadcrumbs {
+		margin-top: -0.7rem;
 		margin-bottom: 5.6rem;
 	}
 }
@@ -3774,6 +3780,12 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	border: none;
 	color: #6bdbbc;
 	padding-left: 0.25em;
+}
+
+@media (max-width: 639px) {
+	.breadcrumbs__list li::after {
+		padding-left: 0.22em;
+	}
 }
 
 .breadcrumbs__list li:last-child::after {
@@ -4743,21 +4755,34 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 }
 
 .section {
+	margin-top: 14.1rem;
 	margin-bottom: 14.7rem;
 }
 
 @media (max-width: 639px) {
 	.section {
+		margin-top: 4.5rem;
 		margin-bottom: 2.1rem;
 	}
 }
 
+.section:first-child {
+	margin-top: 0;
+}
+
+.section:last-child {
+	margin-bottom: 0;
+}
+
 .section h3, .section .h3 {
+	margin-top: 0;
 	margin-bottom: 3.1rem;
+	color: #6bdbbc;
 }
 
 @media (max-width: 639px) {
 	.section h3, .section .h3 {
+		margin-top: 0;
 		margin-bottom: 1.3rem;
 	}
 }
@@ -4813,60 +4838,30 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	}
 }
 
-.text-section {
-	margin-bottom: 14rem;
-}
-
-@media (max-width: 639px) {
-	.text-section {
-		margin-bottom: 2rem;
-	}
-}
-
-.text-section:last-child {
-	margin-bottom: 0;
-}
-
-.text-section ul, .text-section ol, .text-section p {
-	max-width: 68rem;
-	margin-right: auto;
-	margin-left: auto;
-}
-
-.text-section ul:last-child, .text-section ol:last-child, .text-section p:last-child {
-	margin-bottom: 0;
-}
-
-.gain-section {
-	margin-bottom: 14rem;
-}
-
-@media (max-width: 639px) {
-	.gain-section {
-		margin-bottom: 2rem;
-	}
-}
-
-.gain-section:last-child {
-	margin-bottom: 0;
-}
-
 .gain-section ul, .gain-section ol, .gain-section p {
 	max-width: 68rem;
 	margin-right: auto;
 	margin-left: auto;
 }
 
-.gain-section__text {
-	margin-bottom: 3.2rem;
-	max-width: 68rem;
-	margin-right: auto;
-	margin-left: auto;
+.gain-section h3 {
+	color: #6bdbbc;
+	margin-top: 0;
 }
 
 @media (max-width: 639px) {
-	.gain-section__text {
-		margin-bottom: 2rem;
+	.gain-section h3 {
+		margin-top: 0;
+	}
+}
+
+.gain-section [class|="btn"], .gain-section [class*=" btn-"] {
+	margin-top: 1.8rem;
+}
+
+@media (max-width: 639px) {
+	.gain-section [class|="btn"], .gain-section [class*=" btn-"] {
+		margin-top: 1.5rem;
 	}
 }
 
@@ -4930,32 +4925,31 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	}
 }
 
-.main-section__heading h2, .main-section__heading h3, .main-section__heading h4,
-.main-section__heading .h2, .main-section__heading .h3, .main-section__heading .h4 {
+.main-section__heading h3, .main-section__heading .h3 {
 	font-size: 2.6rem;
 	line-height: 2.6rem;
+	margin-top: 0;
 	margin-bottom: 2.1rem;
 	text-align: left;
+	color: #6bdbbc;
 }
 
 @media (max-width: 1279px) {
-	.main-section__heading h2, .main-section__heading h3, .main-section__heading h4,
-	.main-section__heading .h2, .main-section__heading .h3, .main-section__heading .h4 {
+	.main-section__heading h3, .main-section__heading .h3 {
 		margin-bottom: 0;
 	}
 }
 
 @media (max-width: 639px) {
-	.main-section__heading h2, .main-section__heading h3, .main-section__heading h4,
-	.main-section__heading .h2, .main-section__heading .h3, .main-section__heading .h4 {
+	.main-section__heading h3, .main-section__heading .h3 {
+		margin-top: 0;
 		font-size: 2rem;
 		line-height: 2.8rem;
 		text-align: left;
 	}
 }
 
-.main-section__heading h2:last-child, .main-section__heading h3:last-child, .main-section__heading h4:last-child,
-.main-section__heading .h2:last-child, .main-section__heading .h3:last-child, .main-section__heading .h4:last-child {
+.main-section__heading h3:last-child, .main-section__heading .h3:last-child {
 	margin-bottom: 0;
 }
 
@@ -5703,6 +5697,13 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 .x-offers_detail .x-offers__item td.x-offers__item__caption .t-val {
 	min-height: 16.1rem;
 	margin-right: 8rem;
+}
+
+@media (max-width: 991px) {
+	.x-offers_detail .x-offers__item td.x-offers__item__caption .t-val {
+		margin-right: 0;
+		min-height: 0;
+	}
 }
 
 .touchevents .x-offers__item td.x-offers__item__caption .t-val {
@@ -6637,13 +6638,13 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	}
 }
 
-.f-list a[href^="tel:"] b {
+.f-list a[href^="tel:"] b, .f-list a[href^="tel:"] strong {
 	font-weight: 700;
 	font-size: 24px;
 }
 
 @media (max-width: 639px) {
-	.f-list a[href^="tel:"] b {
+	.f-list a[href^="tel:"] b, .f-list a[href^="tel:"] strong {
 		font-size: 16px;
 	}
 }
@@ -6664,7 +6665,7 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	margin-bottom: 0;
 }
 
-.req p b {
+.req p b, .req p strong {
 	color: white;
 }
 
@@ -6849,7 +6850,6 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	font-size: 2.6rem;
 	line-height: 3.2rem;
 	text-align: center;
-	color: #333399;
 }
 
 @media (max-width: 639px) {
@@ -8202,6 +8202,7 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	font-family: "Roboto", sans-serif;
 	font-weight: normal;
 	font-style: normal;
+	color: #6bdbbc;
 }
 
 /* attention info end */
@@ -8926,7 +8927,7 @@ a.nav-opener {
 
 @media (max-width: 639px) {
 	a.nav-opener {
-		right: 0;
+		right: 7px;
 	}
 }
 

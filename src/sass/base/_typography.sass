@@ -31,7 +31,7 @@ h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6
 	+font-light
 	padding: 0
-	color: $title-color
+	color: inherit
 	margin: 0 0 $bottom-space--element
 
 	+media('<mob-lg')
@@ -55,7 +55,15 @@ h2, .h2
 
 h3, .h3
 	margin-bottom: 2.2rem //костыль для подгонки отступов под дизайн
+	margin-top: 7.4rem
+
 	+font-h3
+
+	+media('<mob-lg')
+		margin-top: 2.5rem
+
+	&:first-child
+		margin-top: 0
 
 h4, .h4
 	margin-bottom: $bottom-space
@@ -73,10 +81,10 @@ h6, .h6
 
 p
 	padding: 0
-	margin: 0 0 $bottom-space
+	margin: 0 0 1.5rem
 
 	+media('<mob-lg')
-		margin-bottom: $bottom-space--mob
+		margin-bottom: 1.5rem
 
 	&:last-child
 		margin-bottom: 0
@@ -349,11 +357,11 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 .#{$user-content}
 	//list
 	ul, ol
-		margin: 4.5rem 0
+		margin: 2.2rem 0
 		padding: 0
 		list-style: none
 
-		&.list-alt
+		//&.list-alt
 			+margin-vertical(2.2rem)
 
 		+media('<mob-lg')
@@ -368,25 +376,27 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 				padding-left: $list-space--mob
 				margin-bottom: 1.3rem
 
-	.bottom-space_list-1
-		margin-bottom: $bottom-space--section + 0.1 //костыль для подгонки отступов под дизайн
+	ol ~ ul li
+		padding-left: $list-space--alt
 
 		+media('<mob-lg')
-			margin-bottom: 4.5rem
+			padding-left: $list-space--alt--mob
 
-	ul li
-		+font-light
-		+font(2.0rem, 3.0rem)
+	ul
+		li
+			+font-light
+			+font(2.0rem, 3.0rem)
 
-		+media('<mob-lg')
-			+font(14px, 16px)
+			+media('<mob-lg')
+				+font(14px, 16px)
 
 	ul > li::before
 		content: ''
 		display: block
 		float: left
 		+size(12px)
-		margin: 0.55em 0 -0.55em -#{round($list-space - 20)}
+		//margin: 0.55em 0 -0.55em -#{round($list-space - 20)}
+		margin: 0.50em 0 -0.50em -#{$list-space}
 		border-radius: 6px
 		background-color: $highlight-color
 
@@ -396,7 +406,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 			margin: 0.35em 0 -0.35em -22px
 
 	ol
-		margin: 5rem 0
+		//margin: 5rem 0
 		counter-reset: section
 
 		+media('<mob-lg')
@@ -549,13 +559,13 @@ blockquote
 	display: block
 	position: relative
 	max-width: 52rem
-	margin: $bottom-space--element auto 5.1rem
+	margin: 4.7rem auto 4.9rem
 	padding: 0
 
 	+media('<mob-lg')
 		margin: $bottom-space--element--mob auto
 
-	q
+	q, & > p
 		display: block
 		position: relative
 		margin: 0
@@ -584,7 +594,7 @@ blockquote
 		+media('<mob-lg')
 			+font($font-size--mob, $line-height--mob)
 
-	&, & q
+	&, & q, & > p
 		&::before, &::after
 			content: ""
 			display: block
@@ -607,7 +617,7 @@ blockquote
 		&::after
 			bottom: 0
 
-	q
+	q, & > p
 		&::before, &::after
 			margin-top: 3rem
 			margin-bottom: 3rem
@@ -735,7 +745,9 @@ blockquote
 
 		h2, .h2, h3, .h3
 			text-align: left
+			margin-top: 0
 			margin-bottom: 4.3rem //костыль для подгонки отступов под дизайн
+			color: $highlight-color
 
 			+media('<tab-lg')
 				text-align: center
@@ -772,7 +784,7 @@ blockquote
 .sep
 	position: relative
 	height: 48px
-	+margin-vertical($bottom-space--element)
+	+margin-vertical(5rem, 4.5rem)
 	text-indent: -9999px
 	overflow: hidden
 
