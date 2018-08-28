@@ -15,6 +15,216 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 /* reset default focusing end
 
+/* social networks
+.social-networks
+	margin-bottom: $bottom-space
+
+	&:last-child
+		margin-bottom: 0
+
+.social-networks__list
+	position: relative
+	display: inline-block
+	vertical-align: top
+	margin: 0 -10px -20px
+
+	+media('<tab-lg')
+		margin: 0 -5px -10px
+
+//.social-networks__item
+	float: left
+	margin: 0 10px 20px
+
+	+media('<tab-lg')
+		margin: 0 5px 10px
+
+	a
+		display: block
+		position: relative
+		color: $highlight-color
+		transition:
+			property: color, border-color
+			duration: $animation-speed
+
+		span
+			+hide-text
+
+		svg
+			display: block
+			+size(60px)
+
+			+media('<tab-lg')
+				+size(40px)
+
+		path
+			fill: currentColor
+
+		// hover
+		&:hover
+			color: $highlight-color--hover
+
+.social-networks__item
+	float: left
+	margin: 0 10px 20px
+
+	+media('<tab-lg')
+		margin: 0 5px 10px
+
+.social-networks__item, .f-soc__item
+	a
+		display: block
+		position: relative
+		font-size: 60px
+		+size(1em)
+
+		+media('<tab-lg')
+			font-size: 40px
+
+		&::before, &::after
+			content: ''
+			display: block
+			position: absolute
+			left: 0
+			top: 0
+			+size(100%)
+			background-image: url("../../img/soc-sprite.svg")
+			background-repeat: no-repeat
+			background-size: 12em auto // размер файла спрайта
+			// transition
+			//$prop: opacity
+			//will-change: $prop
+			//transition:
+				property: $prop
+				duration: $animation-speed * 2
+				timing-function: ease-in-out
+
+		&::after
+			opacity: 0
+
+		// hover
+		&:hover
+			&::before
+				opacity: 0
+
+			&::after
+				opacity: 1
+
+		$soc-list: 'facebook', 'telegram', 'viber'
+		$type-length: 4 // количество цветов одной иконки в спрайте
+
+		@for $i from 1 through length($soc-list)
+			$pos: -$type-length * $i * 1em + $type-length
+
+			&.#{nth($soc-list, $i)}
+				&::before
+					$p: $pos
+					background-position: $p $p
+
+				&::after
+					$p: $pos - 1
+					background-position: $p $p
+
+				.user-form__msg__soc &
+					&::before
+						$p: $pos - 2
+						background-position: $p $p
+
+					&::after
+						$p: $pos - 3
+						background-position: $p $p
+
+		span
+			+hide-text
+
+/* social networks end
+
+/* social networks in footer
+.f-soc
+	overflow: hidden
+	margin-bottom: $bottom-space--element
+
+	+media('<tab-lg')
+		margin-bottom: $bottom-space--element--mob
+
+	+media('<mob-lg')
+		display: flex
+		justify-content: center
+		padding-bottom: 3rem
+
+	&:last-child
+		margin-bottom: 0
+
+.f-soc__group
+	float: left
+	margin-left: nth($footer-box-space, 2)
+
+	+media('<desk-lg')
+		margin-left: nth($footer-box-space--md, 2)
+
+	+media('<tab-lg')
+		margin-left: nth($footer-box-space--mob, 2)
+
+	&:first-child
+		margin-left: 0
+
+	& > strong
+		display: block
+		margin-bottom: 5px
+		+font-light
+		font-size: 14px
+		line-height: 18px
+		color: $text-color
+		opacity: 0.4
+
+		+media('<tab-lg')
+			font-size: 12px
+
+		+media('<mob-lg')
+			text-align: center
+
+.f-soc__list
+	position: relative
+	display: inline-block
+	vertical-align: top
+	margin: 0 -15px -15px 0
+
+	+media('<tab-lg')
+		margin: 0 -10px -10px 0
+
+.f-soc__item
+	float: left
+	margin: 0 15px 15px 0
+
+	+media('<tab-lg')
+		margin: 0 10px 10px 0
+
+	// a
+		display: block
+		position: relative
+		color: $highlight-color
+		transition:
+			property: color, border-color
+			duration: $animation-speed
+
+		span
+			+hide-text
+
+		svg
+			display: block
+			+size(60px)
+
+			+media('<tab-lg')
+				+size(40px)
+
+		path
+			fill: currentColor
+
+		// hover
+		&:hover
+			color: $highlight-color--hover
+
+/* social networks in footer end
+
 /* user form
 .user-form
 	position: relative
@@ -100,7 +310,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 		display: block
 		width: 100%
 		margin-left: auto
-		max-width: 328px
+
+		+media('<tab-lg')
+			max-width: 328px
 
 		+media('<mob-lg')
 			max-width: none
@@ -229,12 +441,6 @@ input, button, [class|="btn"], [class*=" btn-"],
 			color: $base-color-dark
 
 .user-form__msg__soc
-	.social-networks__item a
-		color: inherit
-
-		.no-touchevents &:hover
-			color: $base-color-dark
-
 	+media('<tab-lg')
 		display: none
 
@@ -645,143 +851,6 @@ input, button, [class|="btn"], [class*=" btn-"],
 			background-color: $base-color
 
 /* pop end
-
-/* social networks
-.social-networks
-	margin-bottom: $bottom-space
-
-	&:last-child
-		margin-bottom: 0
-
-.social-networks__list
-	position: relative
-	display: inline-block
-	vertical-align: top
-	margin: 0 -10px -20px
-
-	+media('<tab-lg')
-		margin: 0 -5px -10px
-
-.social-networks__item
-	float: left
-	margin: 0 10px 20px
-
-	+media('<tab-lg')
-		margin: 0 5px 10px
-
-	a
-		display: block
-		position: relative
-		color: $highlight-color
-		transition:
-			property: color, border-color
-			duration: $animation-speed
-
-		span
-			+hide-text
-
-		svg
-			display: block
-			+size(60px)
-
-			+media('<tab-lg')
-				+size(40px)
-
-		path
-			fill: currentColor
-
-		// hover
-		&:hover
-			color: $highlight-color--hover
-
-/* social networks end
-
-/* social networks in footer
-.f-soc
-	overflow: hidden
-	margin-bottom: $bottom-space--element
-
-	+media('<tab-lg')
-		margin-bottom: $bottom-space--element--mob
-
-	+media('<mob-lg')
-		display: flex
-		justify-content: center
-		padding-bottom: 3rem
-
-	&:last-child
-		margin-bottom: 0
-
-.f-soc__group
-	float: left
-	margin-left: nth($footer-box-space, 2)
-
-	+media('<desk-lg')
-		margin-left: nth($footer-box-space--md, 2)
-
-	+media('<tab-lg')
-		margin-left: nth($footer-box-space--mob, 2)
-
-	&:first-child
-		margin-left: 0
-
-	& > strong
-		display: block
-		margin-bottom: 5px
-		+font-light
-		font-size: 14px
-		line-height: 18px
-		color: $text-color
-		opacity: 0.4
-
-		+media('<tab-lg')
-			font-size: 12px
-
-		+media('<mob-lg')
-			text-align: center
-
-.f-soc__list
-	position: relative
-	display: inline-block
-	vertical-align: top
-	margin: 0 -15px -15px 0
-
-	+media('<tab-lg')
-		margin: 0 -10px -10px 0
-
-.f-soc__item
-	float: left
-	margin: 0 15px 15px 0
-
-	+media('<tab-lg')
-		margin: 0 10px 10px 0
-
-	a
-		display: block
-		position: relative
-		color: $highlight-color
-		transition:
-			property: color, border-color
-			duration: $animation-speed
-
-		span
-			+hide-text
-
-		svg
-			display: block
-			+size(60px)
-
-			+media('<tab-lg')
-				+size(40px)
-
-		path
-			fill: currentColor
-
-		// hover
-		&:hover
-			color: $highlight-color--hover
-
-/* social networks in footer end
 
 /* table-resp
 .table-resp
@@ -1284,11 +1353,12 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 .main-section__caption
 	order: 1
-	+font-normal
-	+font(2.2rem, 2.6rem)
 	max-width: 50%
 	margin-bottom: $bottom-space--element
 	margin-top: 0.5rem
+	+font-normal
+	+font(2.2rem, 2.6rem)
+	color: rgba($highlight-color, 0.8)
 
 	+media('<desk-sm')
 		max-width: none
@@ -1301,6 +1371,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 		text-align: left
 
 .main-section__body
+	+font(2.2rem, 2.6rem)
 	width: 100%
 	order: 3
 
@@ -1309,7 +1380,8 @@ input, button, [class|="btn"], [class*=" btn-"],
 		//margin-bottom: 4rem //костыль для подгонки отступов под дизайн
 
 	.main-section_news &
-		margin-bottom: 4rem //костыль для подгонки отступов под дизайн
+		+media('<desk-sm')
+			margin-bottom: 4rem //костыль для подгонки отступов под дизайн
 
 		+media('<mob-lg')
 			margin-bottom: 2.1rem
@@ -1437,13 +1509,13 @@ input, button, [class|="btn"], [class*=" btn-"],
 			width: round-float(100% - ($item-width * 4), 2)
 
 .offers__heads
-	+padding-vertical(0.8rem, 1.1rem)
+	+padding-vertical(0.8rem, 1.5rem)
 
 	+media('<mob-lg')
 		display: none
 
 	.td
-		+font(1.6rem, round-float(24/16, 2))
+		+font(1.6rem, 2.4rem)
 		letter-spacing: $letter-spacing
 		color: rgba($text-color, 0.4)
 
@@ -3364,6 +3436,9 @@ a.news__item__inner
 	// active
 	&.is-open
 		display: block // Важно!
+
+	h3, h4
+		color: $highlight-color
 
 .rolls__panel__inner
 	margin: 0 auto

@@ -3,35 +3,58 @@
 var gulp = require('gulp'), // Подключаем Gulp
 	sass = require('gulp-sass'), // Подключаем Sass пакет https://github.com/dlmanning/gulp-sass
 	browserSync = require('browser-sync').create(), // Подключаем Browser Sync
-	reload = browserSync.reload,
-	concat = require('gulp-concat'), // Подключаем gulp-concat (для конкатенации файлов)
+	reload = browserSync.reload, concat = require('gulp-concat'), // Подключаем gulp-concat (для конкатенации файлов)
 	uglify = require('gulp-uglifyjs'), // Подключаем gulp-uglifyjs (для сжатия JS)
 	cssnano = require('gulp-cssnano'), // Подключаем пакет для минификации CSS
-	concatCss = require('gulp-concat-css'),
-	rename = require('gulp-rename'), // Подключаем библиотеку для переименования файлов
+	concatCss = require('gulp-concat-css'), rename = require('gulp-rename'), // Подключаем библиотеку для переименования файлов
 	del = require('del'), // Подключаем библиотеку для удаления файлов и папок
 	imagemin = require('gulp-imagemin'), // Подключаем библиотеку для работы с изображениями
 	pngquant = require('imagemin-pngquant'), // Подключаем библиотеку для работы с png
 	cache = require('gulp-cache'), // Подключаем библиотеку кеширования
 	autoprefixer = require('gulp-autoprefixer'), // Подключаем библиотеку для автоматического добавления префиксов
 	sourcemaps = require('gulp-sourcemaps'), // Подключаем Source Map для дебагинга sass-файлов https://github.com/floridoo/gulp-sourcemaps
-	fileinclude = require('gulp-file-include'),
-	markdown = require('markdown'),
-	htmlbeautify = require('gulp-html-beautify'), // Причесываем
+	fileinclude = require('gulp-file-include'), markdown = require('markdown'), htmlbeautify = require('gulp-html-beautify'), // Причесываем
 	fs = require('fs'), // For compiling modernizr.min.js
 	modernizr = require('modernizr'), // For compiling modernizr.min.js
 	config = require('./modernizr-config'), // Path to modernizr-config.json
-	replace = require('gulp-string-replace'),
-	strip = require('gulp-strip-comments'), // Удалить комментарии
+	replace = require('gulp-string-replace'), strip = require('gulp-strip-comments'), // Удалить комментарии
 	stripCssComments = require('gulp-strip-css-comments'), // Удалить комментарии (css)
 	removeEmptyLines = require('gulp-remove-empty-lines'), // Удалить пустые строки
 	revts = require('gulp-rev-timestamp'), // Дабавить версии к подключаемым файлам
-	beautify = require('gulp-beautify') // Причесать js
-	;
+	beautify = require('gulp-beautify'), // Причесать js
+	svgSprite = require("gulp-svg-sprites")
+;
 
 var path = {
 	'dist': 'dist'
 };
+
+// create svg sprites
+let svgSocOutputPath = 'src/includes/sprites/output/soc';
+
+gulp.task('cleanSocSprites', function () {
+	return del.sync([svgSocOutputPath]); // Удаляем папку dist
+});
+
+gulp.task('tempSocSprites', ['cleanSocSprites'], function () {
+	return gulp.src('src/includes/sprites/source/soc/*.svg')
+		.pipe(svgSprite({
+			layout: 'diagonal',
+			padding: 0,
+			baseSize: 60,
+			common: 'soc-icon',
+			svg: {
+				sprite: "soc-sprite.svg",
+			},
+			cssFile: "css/_soc-sprite.css"
+		}))
+		.pipe(gulp.dest(svgSocOutputPath));
+});
+
+gulp.task('createSocSprite', ['tempSocSprites'], function () {
+	return gulp.src([svgSocOutputPath + '/soc-sprite.svg'])
+		.pipe(gulp.dest('src/img'));
+});
 
 gulp.task('htmlCompilation', function () { // Таск формирования ДОМ страниц
 	return gulp.src(['src/__*.html'])
@@ -143,7 +166,7 @@ gulp.task('browserSync', function (done) { // Таск browserSync
 	done();
 });
 
-gulp.task('watch', ['createCustomModernizr', 'browserSync', 'htmlCompilation', 'sassCompilation', 'mergeCssLibs', 'copyLibsScriptsToJs'], function () {
+gulp.task('watch', ['createSocSprite', 'createCustomModernizr', 'browserSync', 'htmlCompilation', 'sassCompilation', 'mergeCssLibs', 'copyLibsScriptsToJs'], function () {
 	gulp.watch(['src/_tpl_*.html', 'src/__*.html', 'src/includes/**/*.json', 'src/includes/**/*.svg'], ['htmlCompilation']); // Наблюдение за tpl
 	// файлами в папке include
 	gulp.watch('src/sass/**/*.+(scss|sass)', ['sassCompilation']); // Наблюдение за sass файлами в папке sass

@@ -42,7 +42,23 @@
 		user-select: none
 		-webkit-tap-highlight-color: transparent
 
-	&::before, &::after
+	&::before
+		content: ''
+		display: block
+		position: absolute
+		+size(6px)
+		right: 32px
+		top: 50%
+		border: solid $base-color
+		border-width: 0 1px 1px 0
+		transform: rotate(-0.125turn)
+		margin: -2px 0
+
+		+media($btn-media--mob)
+			right: 16px
+			+size(5px)
+
+	//&::before, &::after
 		content: ""
 		display: block
 		position: absolute
@@ -57,11 +73,11 @@
 			width: 5px
 			margin: 1px 0
 
-	&::before
+	//&::before
 		bottom: 50%
 		transform: rotate(45deg)
 
-	&::after
+	//&::after
 		top: 50%
 		transform: rotate(-45deg)
 
@@ -80,7 +96,8 @@
 		background-color: $btn-disabled-bg
 
 		&::before, &::after
-			background-color: currentColor
+			//background-color: currentColor
+			border-color: currentColor
 
 		path
 			fill: currentColor
@@ -120,7 +137,7 @@
 		transform: translate(50%, -50%)
 
 		+media($btn-media--mob)
-			right: 20px
+			//right: 20px
 			right: 27px
 
 .btn-def_icon_left
