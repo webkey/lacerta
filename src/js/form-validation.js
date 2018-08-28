@@ -16,11 +16,11 @@ var formMaskInit = function(){
 var formValidInit = function (){
 	// !Код для тестирования успешной отправки формы
 	// После успешной отправки формы нужно добавить на тег form класс "form-success"
-	$.validator.setDefaults({
-		submitHandler: function(form) {
-			$(form).addClass('form-success')
-		}
-	});
+	// $.validator.setDefaults({
+	// 	submitHandler: function(form) {
+	// 		$(form).addClass('form-success')
+	// 	}
+	// });
 
 	$.validator.methods.email = function( value, element ) {
 		return this.optional( element ) || /[a-z]+@[a-z]+\.[a-z]+/.test( value );
