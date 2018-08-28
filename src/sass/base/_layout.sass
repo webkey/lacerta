@@ -336,7 +336,7 @@ html
 	margin: 0
 	+font-bold
 	//+font(3.6rem, $header-height--md)
-	+font(3.6rem, round-float(40/36, 2))
+	+font(3.6rem, 4.0rem)
 	+clear
 
 	+media('<desk-lg')
@@ -350,6 +350,18 @@ html
 		float: left
 		//+padding-horizontal(round($hs / 2))
 		padding-left: $hs
+
+		&.small
+			position: relative
+			bottom: -5px
+			font-size: 2.0rem
+			+font-light
+
+			+media('<1200px')
+				display: none
+
+				& + li
+					padding-left: 0
 
 		&:first-child
 			padding-left: 0
@@ -551,6 +563,17 @@ html
 		text-decoration: none
 		// transition
 		transition: color $animation-speed ease-in-out
+
+		&[href*="tel:"]
+			position: relative
+			display: inline-block
+			color: #bfbfda
+			font-size: 1.8rem
+			line-height: 2.4rem
+			margin-left: 6px
+
+			strong
+				+font-bold
 
 	li.current a,
 	a:not([href*="javascript:;"]):hover

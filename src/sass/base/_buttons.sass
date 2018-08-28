@@ -33,7 +33,7 @@
 	color: $btn-text-color
 	text-align: left
 	// transition
-	$prop: color, background-color
+	$prop: color, background-color, border-color
 	transition:
 		property: $prop
 		duration: $animation-speed
@@ -86,6 +86,18 @@
 			fill: currentColor
 
 /* btn-default end
+/* btn-default large
+.btn-def_large
+	min-width: 185px
+	font-size: 2.6rem
+	text-align: center
+	+font-bold
+	+padding-horizontal(40px)
+
+	&::before, &::after
+		display: none
+
+/* btn-default large end
 
 /* btn with icon
 .btn-def_icon_right, .btn-def_icon_left
@@ -140,6 +152,12 @@
 	&, & > span
 		+media($btn-media--mob)
 			+font($btn-font-size--mob, $btn-line-height--mob)
+
+.btn-def_large
+	+media($btn-media--mob)
+		+padding-horizontal(20px)
+		font-size: 2.2rem
+		min-width: 140px
 
 /* btn for mobile end
 

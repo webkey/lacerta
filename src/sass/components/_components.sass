@@ -434,6 +434,23 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 /* breadcrumbs end
 
+/* buy btn
+.buy
+	text-align: center
+	margin-bottom: 4rem
+
+	+media('<tab-lg')
+		margin-bottom: 2rem
+		text-align: left
+
+	.breadcrumbs + &
+		margin-top: -10rem
+
+		+media('<tab-lg')
+			margin-top: -2rem
+
+/* buy btn end
+
 /* pop
 .pop
 	display: inline-block
@@ -2009,7 +2026,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 	+media($sliders-media--mob)
 		padding: 1.6rem nth($page-layout-space--mob, 2)
 
-	&::before
+	//&::before
 		content: ""
 		display: block
 		position: absolute
@@ -2028,6 +2045,35 @@ input, button, [class|="btn"], [class*=" btn-"],
 	// active
 	&.is-open
 		display: block // Важно!
+
+	.btn-def_buy
+		position: absolute
+		right: nth($rolls-angle-size, 2)
+		bottom: 4rem
+		min-width: 185px
+		font-size: 2.6rem
+		text-align: center
+		+font-bold
+		padding-right: 32px
+
+		+media('<desk-lg')
+			bottom: 2.8rem
+			right: nth($rolls-angle-size--md, 2)
+
+		+media($sliders-media--mob)
+			position: relative
+			bottom: auto
+			right: auto
+			+margin-horizontal(#{nth($page-layout-space--mob, 2)})
+			margin-top: 2rem
+
+		+media($btn-media--mob)
+			padding-right: 15px
+			font-size: 2.2rem
+			min-width: 140px
+
+		&::before, &::after
+			display: none
 
 .x-offers__item__panel__inner
 	//margin: 0 auto
@@ -2197,7 +2243,24 @@ input, button, [class|="btn"], [class*=" btn-"],
 			+font(12px, 16px)
 
 	[class*="btn-"]
-		display: block
+		//display: block
+		background: none
+		border: 1px solid currentColor
+		padding: 10px 68px 10px 28px
+
+		+media('<tab-lg')
+			padding: 10px 40px 10px 20px
+
+		svg
+			right: 39px
+
+			+media('<tab-lg')
+				right: 22px
+
+		.no-touchevents &:hover
+			background: none
+			border-color: $highlight-color
+			color: $highlight-color
 
 /* extended offers end
 

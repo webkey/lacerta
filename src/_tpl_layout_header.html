@@ -6,6 +6,7 @@
 					<@@if(currentItem == "Главная"){span}@@if(currentItem != "Главная"){a href="index.html" data-heading="Размещение облигаций белорусских компаний" data-heading-align="left"}><em>Покупка и<br> продажа облигаций</em></span></@@if(currentItem == "Главная"){span}@@if(currentItem != "Главная"){a}>
 				</strong>
 				<ul class="header-menu">
+					<li class="small@@if(currentItem === 'Компания Lacerta'){ current}"><a href="@@if(currentItem === 'Компания Lacerta'){javascript:;}@@if(currentItem !== 'Компания Lacerta'){about.html}" data-heading="Скажите:<br> “Здравствуйте, деньги”">Компания Lacerta</a></li>
 					<li@@if(currentItem === 'Купить облигации'){ class="current"}><a href="@@if(currentItem === 'Купить облигации'){javascript:;}@@if(currentItem !== 'Купить облигации'){buy.html}" data-heading="Покупка облигаций">Купить</a></li>
 					<li@@if(currentItem === 'Продать облигации'){ class="current"}><a href="@@if(currentItem === 'Продать облигации'){javascript:;}@@if(currentItem !== 'Продать облигации'){sell.html}" data-heading="Продажа облигаций">Продать</a></li>
 				</ul>
