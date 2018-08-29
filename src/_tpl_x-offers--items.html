@@ -3,7 +3,7 @@
 		<table>
 			<tbody>
 				<tr>
-					<td class="x-offers__item__caption" data-label="@@if(context.heads.name){@@heads.name}@@if(context.heads.release){@@heads.release}">
+					<td class="x-offers__item__caption no-toggle-js" data-label="@@if(context.heads.name){@@heads.name}@@if(context.heads.release){@@heads.release}">
 						@@if(context.src && context.data.name){<a href="single.html" data-heading="Фабрика Ромакс" data-has-logo}@@if(!context.src && !context.data.name){<div} class="t-val">
 							@@if(context.src){<figure class="x-offers__item__img"><img src="img/@@src" alt="@@title"></figure>}
 							<div class="x-offers__item__heading">
@@ -77,7 +77,7 @@
 				</div>
 
 			</div>
-			@@include("_tpl_btn.html", {"value": "Купить", "classes": "btn-def btn-def_buy"})
+			<a href="single.html#order-call" class="btn-def btn-def_buy">Купить</a>
 		</div>
 	</div>
 </div>

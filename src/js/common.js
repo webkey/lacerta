@@ -949,14 +949,18 @@ function togglePop() {
 				}
 			});
 		}, events = function () {
-			$element.on(config.event + ' focus', config.hand, function (event) {
+			// $element.on(config.event + ' focus', config.hand, function (event) {
+			$element.on(config.event, config.hand, function (event) {
 				// console.log("isAnimated: ", isAnimated);
+				// console.log('msRolls');
 
 				// console.log("event: ", event);
 				// console.log(1);
 
 				// Если панель во время клика находится в процессе анимации,
 				// то выполнение функции прекратится
+
+				// console.log("isAnimated: ", isAnimated);
 				if (isAnimated) {
 					event.preventDefault();
 					return false;
@@ -1039,9 +1043,16 @@ function togglePop() {
 				}
 			});
 
-			$panel.wrap($panelWrap);
+			// $panel.wrap($panelWrap);
 
 			$.each($panel, function (index, panel) {
+
+				// console.log("initClasses.panelWrap: ", $(panel).closest('.' + initClasses.panelWrap).length);
+
+				if(!$(panel).closest('.' + initClasses.panelWrap).length) {
+					$(panel).wrap($panelWrap);
+				}
+
 				$(panel).css({
 					display: 'block',
 					width: '100%'
@@ -1181,6 +1192,11 @@ function offersAccordionInit() {
 			}
 		});
 	}
+
+	var $clickElem = $('.offers-rolls__header-js').find('td').not('.no-toggle-js');
+	$clickElem.on('click', function () {
+		$(this).closest('.offers-rolls__header-js').find('.offers-rolls__hand-js').trigger('click');
+	})
 }
 
 /**
@@ -1467,20 +1483,61 @@ function contactsMap(){
 }
 
 /**
- * !Locations Map Init
+ * !Scroll to section
  * */
 function scrollToSection(){
-	var $page = $('html,body');
+	// if (TOUCH)
+	// 	return false;
 
-	$('body').on('click', '.btn-scroll-to-js', function () {
-		var $curAnchor = $(this),
-			$scrollElem = $($curAnchor.attr('data-scroll-to'));
+	var $page = $('html, body');
 
-		if (!$page.is(':animated')) {
-			$page.stop().animate({scrollTop: $scrollElem.offset().top - 95}, 10030);
+	function scrollToLocal(id) {
+
+		// var hash = window.location.hash;
+		// var target = hash || id;
+		var target = id;
+
+		// console.log("hash: ", hash);
+		// console.log("target: ", target);
+
+		// if (hash && !$page.is(':animated')) {
+		// 	$page.stop().animate({scrollTop: $(hash).offset().top - 95}, 300);
+		// 	return;
+		// }
+
+		if (target && !$page.is(':animated')) {
+			$page.stop().animate({scrollTop: $(target).offset().top - 20}, 300);
 		}
+	}
+
+	// scrollToLocal();
+
+	$('.btn-scroll-to-js').on('click', function (e) {
+		e.preventDefault();
+
+		var $curAnchor = $(this);
+
+		var id = '#' + $curAnchor.attr('href').split('#')[1];
+
+		scrollToLocal(id);
 	});
 }
+
+// function scrollToSection(){
+// 	var $page = $('html, body');
+//
+// 	$('body').on('click', '.btn-scroll-to-js', function (e) {
+// 		e.preventDefault();
+//
+// 		var $curAnchor = $(this),
+// 			$scrollElem = $($curAnchor.attr('data-scroll-to'));
+//
+// 		if (!$page.is(':animated')) {
+// 			$page.stop().animate({scrollTop: $scrollElem.offset().top - 20}, 300);
+// 		}
+// 	});
+// }
+
 /**
  * =========== !ready document, load/resize window ===========
  */

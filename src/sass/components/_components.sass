@@ -1222,6 +1222,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 		+media('<mob-lg')
 			margin-bottom: 4.8rem
 
+		&:last-child
+			margin-bottom: 0
+
 		h3, .h3
 			+media('<mob-lg')
 				margin-bottom: 0.5rem
@@ -1232,12 +1235,18 @@ input, button, [class|="btn"], [class*=" btn-"],
 		+media('<mob-lg')
 			margin-bottom: 5.2rem
 
+		&:last-child
+			margin-bottom: 0
+
 	&.section_news
 		h1, .h1
 			margin-bottom: 7.3rem
 
 			+media('<mob-lg')
 				margin-bottom: 2rem
+
+		&:last-child
+			margin-bottom: 0
 
 	&.section_clients
 		h3, .h3
@@ -1246,6 +1255,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 			+media('<mob-lg')
 				margin-bottom: 2rem
+
+		&:last-child
+			margin-bottom: 0
 
 //.text-section
 	margin-bottom: 14rem
@@ -1992,7 +2004,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 		property: $prop
 		duration: $animation-speed
 		timing-function: ease-in-out
+
 	//.touchevents &
+	cursor: pointer
 	outline: none
 	-webkit-tap-highlight-color: transparent
 
@@ -2010,8 +2024,12 @@ input, button, [class|="btn"], [class*=" btn-"],
 		& > i
 			margin-top: -2px
 
-	.no-touchevents &:not(.is-open):hover
+	//.no-touchevents &:not(.is-open):hover
+	.no-touchevents &:hover
 		background: $base-color-dark
+
+		.rolls__angle
+			background: $highlight-color--hover
 
 	&.is-open
 		.rolls__angle

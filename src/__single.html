@@ -16,7 +16,8 @@
 })
 
 <div class="buy">
-	<a href="#!" class="btn-def btn-def_large btn-scroll-to-js" data-scroll-to=".appeal-form">Купить облигации</a>
+	<!--<button class="btn-def btn-def_large btn-scroll-to-js" data-scroll-to="#order-call">Купить облигации</button>-->
+	<a href="single.html#order-call" class="btn-def btn-def_large btn-scroll-to-js">Купить облигации</a>
 </div>
 
 <p>Группа компаний Ромакс работает на рынке Республики Беларусь с 1998 года. Сегодня в группу компаний входят ООО «Фабрика Ромакс» (производитель парфюмерно- косметической продукции, туалетной бумаги, полотенец, мусорных пакетов), ООО «Торговая компания «Ромакс» (импортер парфюмерно-косметической продукции, бытовой химии, товаров хозяйственно-бытового назначения), ООО «ЗападХимТорг» (сеть дискаунтеров бытовой химии и косметики «Остров чистоты»), ООО «Производственная компания «Ромакс» (транспортно-экспедиционная компания).</p>
@@ -66,6 +67,14 @@
 		<div class="x-offers__list x-offers-slider-js offers-rolls-js">
 			@@loop("_tpl_x-offers--items.html", "includes/json/x-offers--items--single-complete.json")
 		</div>
+	</div>
+</section>
+
+<section class="section section_user-form" id="order-call">
+	<div class="section__holder">
+		<h3 class="hide">Закажите звонок</h3>
+
+		@@include("_tpl_forms_user-form.html")
 	</div>
 </section>
 

@@ -67,6 +67,8 @@ $(function () {
 					locationsMap();
 					contactsMap();
 					scrollToSection();
+
+					// console.log('reinit');
 				}
 			}
 		},

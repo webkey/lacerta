@@ -380,8 +380,8 @@ html
 
 //egg
 .egg
-	//bottom: -63px
-	top: 555px
+	//top: 555px
+	bottom: -63px
 	right: -1px
 	position: fixed
 	overflow: hidden
@@ -393,6 +393,10 @@ html
 	z-index: $z-high - 5
 	pointer-events: none
 	//cursor: pointer
+
+	+media('>desk-hd')
+		right: calc(50% - 1px)
+		transform: translate(#{$page-layout-width / 2}, 0)
 
 	.error-page &
 		display: none
