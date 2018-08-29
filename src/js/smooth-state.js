@@ -66,6 +66,7 @@ $(function () {
 					singleDrop();
 					locationsMap();
 					contactsMap();
+					scrollToSection();
 				}
 			}
 		},

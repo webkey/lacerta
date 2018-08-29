@@ -607,14 +607,25 @@ function toggleNav() {
 	var $navOpener = $('.nav-opener-js');
 
 	if ($navOpener.length) {
-		var b = $navOpener.tClass({
-			toggleClassTo: ['html', '.nav-overlay-js', '.shutter--nav-js']
-			, modifiers: {
-				currentClass: 'nav-is-open open-only-mob'
+		var activeClasses = 'nav-is-open open-only-mob';
+		$navOpener.tClass({
+			// toggleClassTo: ['html', '.nav-overlay-js', '.shutter--nav-js']
+			modifiers: {
+				currentClass: activeClasses
 				// open-only-mob - используется для адаптива
 			}
 			, cssScrollFixed: false
 			, removeOutsideClick: true
+			, beforeAdded: function () {
+				$('html').addClass(activeClasses);
+				$('.nav-overlay-js').addClass(activeClasses);
+				$('.shutter--nav-js').addClass(activeClasses);
+			}
+			, beforeRemoved: function () {
+				$('html').removeClass(activeClasses);
+				$('.nav-overlay-js').removeClass(activeClasses);
+				$('.shutter--nav-js').removeClass(activeClasses);
+			}
 		});
 		// $('.egg').on('click', function () {
 		// 	console.log(2);
@@ -1355,7 +1366,9 @@ function locationsMap(){
 	}
 }
 
-/** Contacts map */
+/**
+ * Contacts map
+ * */
 function contactsMap(){
 	var mapId = 'contacts-map', $mapId = $('#' + mapId);
 
@@ -1452,6 +1465,22 @@ function contactsMap(){
 	// 	//markers = [];
 	// }
 }
+
+/**
+ * !Locations Map Init
+ * */
+function scrollToSection(){
+	var $page = $('html,body');
+
+	$('body').on('click', '.btn-scroll-to-js', function () {
+		var $curAnchor = $(this),
+			$scrollElem = $($curAnchor.attr('data-scroll-to'));
+
+		if (!$page.is(':animated')) {
+			$page.stop().animate({scrollTop: $scrollElem.offset().top - 95}, 10030);
+		}
+	});
+}
 /**
  * =========== !ready document, load/resize window ===========
  */
@@ -1472,4 +1501,5 @@ $(document).ready(function () {
 	singleDrop();
 	locationsMap();
 	contactsMap();
+	scrollToSection();
 });
