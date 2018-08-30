@@ -1485,58 +1485,58 @@ function contactsMap(){
 /**
  * !Scroll to section
  * */
-function scrollToSection(){
-	// if (TOUCH)
-	// 	return false;
-
-	var $page = $('html, body');
-
-	function scrollToLocal(id) {
-
-		// var hash = window.location.hash;
-		// var target = hash || id;
-		var target = id;
-
-		// console.log("hash: ", hash);
-		// console.log("target: ", target);
-
-		// if (hash && !$page.is(':animated')) {
-		// 	$page.stop().animate({scrollTop: $(hash).offset().top - 95}, 300);
-		// 	return;
-		// }
-
-		if (target && !$page.is(':animated')) {
-			$page.stop().animate({scrollTop: $(target).offset().top - 20}, 300);
-		}
-	}
-
-	// scrollToLocal();
-
-	$('.btn-scroll-to-js').on('click', function (e) {
-		e.preventDefault();
-
-		var $curAnchor = $(this);
-
-		var id = '#' + $curAnchor.attr('href').split('#')[1];
-
-		scrollToLocal(id);
-	});
-}
-
 // function scrollToSection(){
+// 	// if (TOUCH)
+// 	// 	return false;
+//
 // 	var $page = $('html, body');
 //
-// 	$('body').on('click', '.btn-scroll-to-js', function (e) {
+// 	function scrollToLocal(id) {
+//
+// 		// var hash = window.location.hash;
+// 		// var target = hash || id;
+// 		var target = id;
+//
+// 		// console.log("hash: ", hash);
+// 		// console.log("target: ", target);
+//
+// 		// if (hash && !$page.is(':animated')) {
+// 		// 	$page.stop().animate({scrollTop: $(hash).offset().top - 95}, 300);
+// 		// 	return;
+// 		// }
+//
+// 		if (target && !$page.is(':animated')) {
+// 			$page.stop().animate({scrollTop: $(target).offset().top - 20}, 300);
+// 		}
+// 	}
+//
+// 	// scrollToLocal();
+//
+// 	$('.btn-scroll-to-js').on('click', function (e) {
 // 		e.preventDefault();
 //
-// 		var $curAnchor = $(this),
-// 			$scrollElem = $($curAnchor.attr('data-scroll-to'));
+// 		var $curAnchor = $(this);
 //
-// 		if (!$page.is(':animated')) {
-// 			$page.stop().animate({scrollTop: $scrollElem.offset().top - 20}, 300);
-// 		}
+// 		var id = '#' + $curAnchor.attr('href').split('#')[1];
+//
+// 		scrollToLocal(id);
 // 	});
 // }
+
+function scrollToSection(){
+	var $page = $('html, body');
+
+	$('body').on('click', '.btn-scroll-to-js', function (e) {
+		e.preventDefault();
+
+		var $curAnchor = $(this),
+			$scrollElem = $($curAnchor.attr('data-scroll-to'));
+
+		if (!$page.is(':animated')) {
+			$page.stop().animate({scrollTop: $scrollElem.offset().top - 20}, 300);
+		}
+	});
+}
 
 /**
  * =========== !ready document, load/resize window ===========
