@@ -13,11 +13,15 @@ $(function () {
 			prefetch: true,
 			cacheLength: 10, // The number of pages to cache
 			onBefore: function($currentTarget, $container) {
+				// console.log('onBefore');
+				
 				$cover.removeClass('is-leaving').removeClass('is-active');
 
 				$heading.removeClass('is-leaving').removeClass('is-active');
 				var title = $currentTarget.attr('data-heading') || '';
-				$title.html(title);
+				// $title.html(title);
+				// console.log("$container: ", $container);
+				$container.attr('data-page-title', title);
 				// Align heading
 				var dataHeadingAlign = $currentTarget.attr('data-heading-align') || '';
 				$heading.attr('data-heading-align', dataHeadingAlign);
@@ -27,10 +31,13 @@ $(function () {
 			onStart: {
 				duration: 1100, // Duration of our animation
 				render: function ($container) {
+					// console.log('onStart');
 					// Add your CSS animation reversing class
 					$container.addClass('is-exiting');
 					$cover.addClass('is-active');
 					$heading.addClass('is-active');
+					// $title.html('');
+					$title.html($container.attr('data-page-title'));
 					// Close navigation if it is opened
 					$('.nav-opener-js').tClass('remove');
 					// Restart your animation
@@ -52,6 +59,8 @@ $(function () {
 					timeout = setTimeout(function () {
 						$cover.removeClass('is-leaving is-active');
 						$heading.removeClass('is-leaving is-active');
+						// reset title
+						$container.attr('data-page-title', '');
 					}, 1100);
 
 					customSelect();
