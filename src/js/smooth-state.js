@@ -10,7 +10,7 @@ $(function () {
 		timeout,
 		options = {
 			debug: true,
-			prefetch: true,
+			// prefetch: true,
 			cacheLength: 10, // The number of pages to cache
 			onBefore: function($currentTarget, $container) {
 				// console.log('onBefore');
