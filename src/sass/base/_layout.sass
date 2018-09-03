@@ -278,6 +278,9 @@ html
 	color: #cccddb
 	z-index: 5
 
+	@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)
+		background-image: url(../../img/logo-2x.png)
+
 	+media('<desk-lg')
 		background-image: url(../../img/logo-sm-2x.png)
 		width: 165px
@@ -829,6 +832,9 @@ a.nav-opener
 	+media('<tab-lg')
 		+padding-vertical(nth($footer-box-space--mob, 1), round-float(nth($footer-box-space--mob, 1) * 2, 1))
 
+	+media('<mob-lg')
+		padding-bottom: 0
+
 	&::before
 		content: ""
 		display: block
@@ -854,7 +860,10 @@ a.nav-opener
 		margin: -#{nth($footer-box-space--md, 1)} -#{nth($footer-box-space--md, 2)}
 
 	+media('<tab-lg')
-		margin: -#{nth($footer-box-space--mob, 1)} -#{nth($footer-box-space--mob, 2)}
+		margin: -#{nth($footer-box-space--mob, 1)} -#{nth($footer-box-space--mob, 2) -#{round-float(nth($footer-box-space--mob, 1) * 2, 1)}}
+
+	+media('<mob-lg')
+		margin-bottom: 0
 
 //.f-boxes
 	width: 50%
@@ -884,7 +893,12 @@ a.nav-opener
 		padding: $footer-box-space--mob
 
 	+media('<mob-lg')
-		padding: 2.6rem $footer-box-space--mob
+		//padding: 2.6rem $footer-box-space--mob
+		padding: 2.6rem nth($footer-box-space--mob, 2) 0
+
+	&:last-child
+		+media('<mob-lg')
+			padding-bottom: 2.6rem
 
 	.f-box__title
 		+font-bold
@@ -1126,8 +1140,11 @@ a.nav-opener
 	+media('<desk-lg')
 		margin-bottom: nth($footer-box-space--md, 1)
 
-	+media('<tab-lg')
+	//+media('<tab-lg')
 		margin-bottom: nth($footer-box-space--md, 1)
+
+	+media('<mob-lg')
+		margin-bottom: 2.6rem
 
 	&:last-child
 		margin-bottom: 0

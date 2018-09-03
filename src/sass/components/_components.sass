@@ -149,7 +149,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 	+media('<mob-lg')
 		display: flex
 		justify-content: center
-		padding-bottom: 3rem
+		//padding-bottom: 3rem
 
 	&:last-child
 		margin-bottom: 0
@@ -1656,7 +1656,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 .offers__item__img
 	position: relative
 	padding: 0
-	margin: 0 0 1.3rem
+	margin: 0 auto 1.3rem
 	display: none
 
 	+media('<mob-lg')
@@ -1934,7 +1934,8 @@ input, button, [class|="btn"], [class*=" btn-"],
 				display: flex
 				align-items: center
 				height: 100%
-				//min-height: 160px
+				//min-height: 100%
+				min-height: 161px
 				margin-right: 6rem
 				background-color: white
 				padding: nth($grid-space, 1) nth($grid-space, 2) nth($grid-space, 1) + 0.1 // компенсировать нижний бордер
@@ -2020,6 +2021,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 		+media($sliders-media--mob)
 			right: round($x-offers-slider-space / 2)
 			+size(nth($rolls-angle-size--mob, 1), calc(100% - #{round($x-offers-slider-space / 2 * 2)}))
+			box-shadow: none
 
 		& > i
 			margin-top: -2px
@@ -2035,12 +2037,16 @@ input, button, [class|="btn"], [class*=" btn-"],
 		.rolls__angle
 			box-shadow: inset -1px 0 0 $table-slide-border-color, inset 0 -1px 0 transparent
 
+			+media($sliders-media--mob)
+				box-shadow: none
+
 // image
 .x-offers__item__img
 	position: relative
 	padding: 0
 	margin: 0 nth($grid-space, 2) 0 0
 	width: 120px
+	min-width: 120px
 	max-width: 45%
 
 	+media($sliders-media--mob)
@@ -2148,6 +2154,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 		min-width: 185px
 		font-size: 2.6rem
 		text-align: center
+		will-change: transform
 		+font-bold
 		padding-right: 32px
 
@@ -2173,10 +2180,11 @@ input, button, [class|="btn"], [class*=" btn-"],
 .x-offers__item__panel__inner
 	//margin: 0 auto
 	//max-width: $text-layout-width
-	overflow: hidden
+	//overflow: hidden
+	overflow: visible
 	opacity: 0
 	pointer-events: none
-	will-change: opacity
+	//will-change: opacity, transform
 	transition: opacity $animation-speed * 2 ease-in-out
 
 	+media($sliders-media--mob)
@@ -2373,12 +2381,12 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 .clients__item
 	+grid-item(3, nth($clients-item-space, 2))
-	+font($font-size, $line-height)
+	+font(2.0rem, $line-height)
 	letter-spacing: $letter-spacing
 	color: $base-color
 
 	+media('<tab-lg')
-		+font($font-size--mob, $line-height--mob)
+		+font(1.6rem, $line-height--mob)
 		+grid-item-responsive(2, nth($page-layout-space--mob, 2))
 
 	+media('<mob-lg')
