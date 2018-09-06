@@ -11,7 +11,7 @@ $(function () {
 		options = {
 			debug: true,
 			// prefetch: true,
-			cacheLength: 10, // The number of pages to cache
+			cacheLength: 0, // The number of pages to cache
 			onBefore: function($currentTarget, $container) {
 				// console.log('onBefore');
 				
