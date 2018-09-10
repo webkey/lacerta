@@ -1,0 +1,35 @@
+@@include('_tpl_layout_head.html', {
+	"title": "Юридические документы",
+	"pageClass": ""
+})
+
+@@include('_tpl_PAGE_WRAP.html', {
+	"pageWrap": "START",
+	"currentItem": "Юридические документы",
+	"title": "Юридические документы"
+})
+
+@@include('_tpl_breadcrumbs.html', {
+	"items": ["Главная"],
+	"last": "Юридические документы"
+})
+
+<section class="section gain-section layout-text">
+	<h3>Документы</h3>
+	<p>Бесплатно мы поможем вам зарегистрироваться, найти в каталоге и выбрать интересную эмиссию. За остальное тоже много не попросим.</p>
+	@@include("_tpl_btn.html", {"value": "Проспект эмиссии", "classes": "btn-def-outline", "iconRight": "@@include('./includes/svg/icon-pdf.svg')"})
+	@@include("_tpl_btn.html", {"value": "Проспект эмиссии", "classes": "btn-def-outline", "iconRight": "@@include('./includes/svg/icon-pdf.svg')"})
+</section>
+
+<section class="section gain-section layout-text">
+	<h3>Отчетность</h3>
+	<p>Бесплатно мы поможем вам зарегистрироваться, найти в каталоге и выбрать интересную эмиссию. За остальное тоже много не попросим.</p>
+	@@include("_tpl_btn.html", {"value": "Лицензия", "classes": "btn-def-outline", "iconRight": "@@include('./includes/svg/icon-pdf.svg')"})
+	@@include("_tpl_btn.html", {"value": "Баланс за 2017 год", "classes": "btn-def-outline", "iconRight": "@@include('./includes/svg/icon-pdf.svg')"})
+	@@include("_tpl_btn.html", {"value": "Раскрытие информации", "classes": "btn-def-outline", "iconRight": "@@include('./includes/svg/icon-pdf.svg')"})
+	@@include("_tpl_btn.html", {"value": "Тарифы", "classes": "btn-def-outline", "iconRight": "@@include('./includes/svg/icon-pdf.svg')"})
+</section>
+
+@@include('_tpl_PAGE_WRAP.html', {"pageWrap": "END", "currentItem": "Вторичный рынок облигаций", "bigBtn": { "href": "buy.html", "text": "Купить облигации", "title": "Покупка облигаций" } })
+
+@@include('_tpl_layout_foot.html')
