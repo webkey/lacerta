@@ -292,6 +292,55 @@
 				</div>
 			</div>
 		</footer>
+		<div class="popup-default" id="popup-call">
+			<div class="popup-default__layout">
+				<div class="popup-default__holder" data-tc-stop>
+					<button class="popup-default__close popup-default-close-js" title="Закрыть">Закрыть</button>
+					<div class="h3">Желаете приобрести облигации?</div>
+					<div class="form-note">Оставьте ваши контактные данные<br> и наш сотрудник свяжется с вами в ближайшее время</div>
+					<form action="#" method="post" class="validation-form-js">
+						<div class="input-wrap">
+							<label for="form-popup-call-name">Имя</label>
+							<div class="input-holder">
+								<input id="form-popup-call-name" name="name" placeholder="Введите Ваше имя..." type="text" required />
+								<div class="error-note">Error text</div>
+								<div class="success-note">Success text</div>
+							</div>
+						</div>
+						<!--===================================================-->
+						<div class="input-wrap">
+							<label for="form-popup-call-phone">Телефон</label>
+							<div class="input-holder">
+								<input class="has-phone-mask" id="form-popup-call-phone" name="phoneNumber" placeholder="+375 29 656-98-25" type="text" required />
+								<div class="error-note">Error text</div>
+								<div class="success-note">Success text</div>
+							</div>
+						</div>
+						<!--===================================================-->
+						<div class="input-wrap">
+							<label for="form-popup-call-message">Ваше сообщение</label>
+							<div class="input-holder">
+								<textarea id="form-popup-call-message" name="form-popup-call-message" placeholder="Добрый день" required></textarea>
+								<div class="error-note">Error text</div>
+								<div class="success-note">Success text</div>
+							</div>
+						</div>
+						<!--===================================================-->
+						<div class="form-buttons">
+							<button class="btn-def btn-def_icon_right">Отправить запрос<svg class="svg-ico-send" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg></button>
+						</div>
+						<div class="user-form__msg">
+							<div class="user-form__msg__caption">
+								<strong class="user-form__msg__title">Звонок заказан!</strong>
+								<span class="user-form__msg__subtitle">Мы перезвоним Вам на следующий номер:</span>
+							</div>
+							<div class="user-form__msg__tel"><a href="tel:+375296892548">+375 29 689-25-48</a></div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="popup-default-overlay popup-default-overlay-js">&nbsp;</div>
 		<!--FOOTER end-->
 	</div>
 	<div class="c-transition">&nbsp;</div>

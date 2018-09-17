@@ -351,6 +351,7 @@ function slidersInit() {
 		var self,
 			$element = $(element),
 			dataStopRemove = '[data-tc-stop]',
+			$toggleClassTo = $element.add(config.switcher).add(config.adder).add(config.remover).add(config.toggleClassTo),
 			classIsAdded = false;
 
 		var callbacks = function() {
@@ -363,114 +364,64 @@ function slidersInit() {
 					}
 				});
 			},
+			prevent = function (event) {
+				event.preventDefault();
+				event.stopPropagation();
+				return false;
+			},
+			toggleFixedScroll = function () {
+				$html.toggleClass('css-scroll-fixed', !!countFixedScroll);
+			},
 			add = function () {
 				if (classIsAdded) return;
 
-				// callback before added class
-				$element.trigger('tClass.beforeAdded');
+				// Callback before added class
+				$element.trigger('switchClass.beforeAdded');
 
-				var arr = [
-					$element,
-					$(config.switchBtn),
-					config.toggleClassTo
-				];
-
-				$.each(arr, function () {
-					var curElem = this;
-					// если массив, то устанавливаем класс на каждый из элемент этого массива
-					if ($.isArray(curElem)) {
-						$.each(curElem, function () {
-							var $curElem = $(this);
-							if ($curElem.length) {
-								$curElem.addClass(config.modifiers.currentClass);
-
-								$element.trigger('tClass.afterEachAdded', $curElem);
-							} else {
-								// В консоль вывести предупреждение,
-								// если указанного элемента не существует.
-								console.warn('Element "' + this + '" does not exist!')
-							}
-						});
-					} else {
-						$(this).addClass(config.modifiers.currentClass);
-
-						$element.trigger('tClass.afterEachAdded', $(this));
-					}
-				});
-
-				if (config.cssScrollFixed) {
-					countFixedScroll = ++countFixedScroll;
-				}
+				// Добавить активный класс на:
+				// 1) Основной элемент
+				// 2) Дополнительный переключатель
+				// 3) Элементы указанные в настройках экземпляра плагина
+				$toggleClassTo.addClass(config.modifiers.currentClass);
 
 				classIsAdded = true;
 
-				toggleScroll();
+				if (config.cssScrollFixed) {
+					// Если в настойках указано, что нужно добавлять класс фиксации скролла,
+					// То каждый раз вызывая ДОБАВЛЕНИЕ активного класса, увеличивается счетчик количества этих вызовов
+					++countFixedScroll;
+					toggleFixedScroll();
+				}
 
 				// callback after added class
-				$element.trigger('tClass.afterAdded');
+				$element.trigger('switchClass.afterAdded');
 			},
 			remove = function () {
-
 				if (!classIsAdded) return;
 
 				// callback beforeRemoved
-				$element.trigger('tClass.beforeRemoved');
+				$element.trigger('switchClass.beforeRemoved');
 
-				var arr = [
-					$element,
-					$(config.switchBtn),
-					config.toggleClassTo
-				];
-
-				$.each(arr, function () {
-					var curElem = this;
-					// если массив, то удаляем класс с каждого элемент этого массива
-					if ($.isArray(curElem)) {
-						$.each(curElem, function () {
-							var $curElem = $(this);
-							if ($curElem.length) {
-								$curElem.removeClass(config.modifiers.currentClass);
-
-								$element.trigger('tClass.afterEachRemoved', $curElem);
-							} else {
-								// В консоль вывести предуприждение,
-								// если указанного элемента не существует.
-								console.warn('Element "' + this + '" does not exist!')
-							}
-						});
-					} else {
-						$(this).removeClass(config.modifiers.currentClass);
-
-						$element.trigger('tClass.afterEachRemoved', $(this));
-					}
-				});
+				// Удалять активный класс с:
+				// 1) Основной элемент
+				// 2) Дополнительный переключатель
+				// 3) Элементы указанные в настройках экземпляра плагина
+				$toggleClassTo.removeClass(config.modifiers.currentClass);
 
 				classIsAdded = false;
 
 				if (config.cssScrollFixed) {
-					countFixedScroll = --countFixedScroll;
+					// Если в настойках указано, что нужно добавлять класс фиксации скролла,
+					// То каждый раз вызывая УДАЛЕНИЕ активного класса, уменьшается счетчик количества этих вызовов
+					--countFixedScroll;
+					toggleFixedScroll();
 				}
-				toggleScroll();
 
 				// callback afterRemoved
-				$element.trigger('tClass.afterRemoved');
+				$element.trigger('switchClass.afterRemoved');
 			},
 			events = function () {
 				$element.on('click', function (event) {
-					var $this = $(this);
-
-					if ($this.attr('data-tc-only-remove') !== undefined) {
-						remove();
-
-						return false;
-					}
-
-					if ($this.attr('data-tc-only-add') !== undefined) {
-						add();
-
-						return false;
-					}
-
 					if (classIsAdded) {
 						remove();
 
@@ -480,53 +431,23 @@ function slidersInit() {
 
 					add();
 
-					event.preventDefault();
-					event.stopPropagation();
+					prevent(event);
 				});
 
-				if (config.switchBtn) {
-					$html.on('click', config.switchBtn, function (event) {
-						var $this = $(this);
+				$(config.switcher).on('click', function (event) {
+					$element.click();
+					prevent(event);
+				});
 
-						event.preventDefault();
+				$(config.adder).on('click', function (event) {
+					add();
+					prevent(event);
+				});
 
-						if ($this.attr('data-tc-only-add') !== undefined) {
-							add();
-
-							return false;
-						}
-
-						if ($this.attr('data-tc-only-remove') !== undefined) {
-							remove();
-
-							return false;
-						}
-
-						if (classIsAdded) {
-							remove();
-
-							return false;
-						}
-
-						add();
-
-						event.stopPropagation();
-					})
-				}
-			},
-			toggleScroll = function () {
-				if (config.cssScrollFixed) {
-					var mod = (config.cssScrollFixed === true) ? 'css-scroll-fixed' : config.cssScrollFixed;
-					if (!countFixedScroll) {
-						// Удаляем с тега html
-						// класс блокирования прокрутки
-						$html.removeClass(mod);
-					} else {
-						// Добавляем на тег html
-						// класс блокирования прокрутки.
-						$html.addClass(mod);
-					}
-				}
+				$(config.remover).on('click', function (event) {
+					remove();
+					prevent(event);
+				})
 			},
 			closeByClickOutside = function () {
 				$doc.on('click', function(event){
@@ -588,7 +509,9 @@ function slidersInit() {
 	};
 
 	$.fn.tClass.defaultOptions = {
-		switchBtn: null,
+		switcher: null,
+		adder: null,
+		remover: null,
 		toggleClassTo: null,
 		removeOutsideClick: true,
 		cssScrollFixed: false,
@@ -607,32 +530,49 @@ function toggleNav() {
 	var $navOpener = $('.nav-opener-js');
 
 	if ($navOpener.length) {
-		var activeClasses = 'nav-is-open open-only-mob';
 		$navOpener.tClass({
-			// toggleClassTo: ['html', '.nav-overlay-js', '.shutter--nav-js']
-			modifiers: {
-				currentClass: activeClasses
-				// open-only-mob - используется для адаптива
+			toggleClassTo: $('html').add('.nav-overlay-js').add('.shutter--nav-js')
+			, modifiers: {
+				currentClass: 'nav-is-open'
 			}
 			, cssScrollFixed: false
 			, removeOutsideClick: true
 			, beforeAdded: function () {
-				$('html').addClass(activeClasses);
-				$('.nav-overlay-js').addClass(activeClasses);
-				$('.shutter--nav-js').addClass(activeClasses);
+				$('html').addClass('open-only-mob');
+				// open-only-mob - используется для адаптива
+				// $('html').addClass(activeClasses);
+				// $('.nav-overlay-js').addClass(activeClasses);
+				// $('.shutter--nav-js').addClass(activeClasses);
 			}
 			, beforeRemoved: function () {
-				$('html').removeClass(activeClasses);
-				$('.nav-overlay-js').removeClass(activeClasses);
-				$('.shutter--nav-js').removeClass(activeClasses);
+				$('html').removeClass('open-only-mob');
+				// open-only-mob - используется для адаптива
+				// $('html').removeClass(activeClasses);
+				// $('.nav-overlay-js').removeClass(activeClasses);
+				// $('.shutter--nav-js').removeClass(activeClasses);
 			}
 		});
-		// $('.egg').on('click', function () {
-		// 	console.log(2);
-		// 	$navOpener.tClass('remove', function () {
-		// 		// console.log('Показать после открытия панели!');
-		// 	});
-		// });
+	}
+
+	var $popupDefOpener = $('.popup-opener-js');
+
+	if ($popupDefOpener.length) {
+		$.each($popupDefOpener, function () {
+			var $currentOpener = $(this),
+				$popup = $($currentOpener.attr('data-for'));
+
+			$currentOpener.tClass({
+				toggleClassTo: $('html').add($popup).add('.popup-default-overlay')
+				, remover: $('.popup-default-close-js')
+				, modifiers: {
+					currentClass: 'popup-is-open'
+				}
+				, cssScrollFixed: false
+				, removeOutsideClick: true
+				, beforeAdded: function () {}
+				, beforeRemoved: function () {}
+			});
+		});
 	}
 }
 
