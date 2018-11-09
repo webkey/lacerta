@@ -37,6 +37,21 @@ html
 	+media('<tab-lg')
 		+padding-horizontal(nth($page-layout-space--mob, 2))
 
+.layout, .layout-space
+	// элеметы, которые нужно вытянуть на всю ширину
+	// минусовые маржины по горизонтале имеют значение только внутри .layout-article
+	.layout-full-width
+		//+padding-horizontal(nth($page-layout-space, 2))
+		+margin-horizontal(-#{nth($page-layout-space, 2)})
+
+		+media('<desk-lg')
+			//+padding-horizontal(nth($page-layout-space--md, 2))
+			+margin-horizontal(-#{nth($page-layout-space--md, 2)})
+
+		+media('<tab-lg')
+			//+padding-horizontal(nth($page-layout-space--mob, 2))
+			+margin-horizontal(-#{nth($page-layout-space--mob, 2)})
+
 // выравнивание текстовых элементов на странице статьи (контент обернут в .layout-article)
 // и их максимальная ширина
 //.layout-article
@@ -66,18 +81,6 @@ html
 
 		+media('<tab-lg')
 			max-width: none
-
-	// элеметы без отступов по бокам
-	// минусовые маржины по горизонтале имеют значение только внутри .layout-article
-	//.layout-full-width, .layout-wide
-
-		+margin-horizontal(-#{nth($text-layout-space, 2)})
-
-		+media('<tab-lg')
-			+margin-horizontal(-#{nth($text-layout-space--md, 2)})
-
-		+media('<tab-sm')
-			+margin-horizontal(-#{nth($text-layout-space--sm, 2)})
 
 // максимальная ширина текстовых элементов на внутренней (текстовой) странице
 .max-wrap-text

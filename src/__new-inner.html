@@ -1,0 +1,72 @@
+@@include('_tpl_layout_head.html', {
+	"title": "Выход для ОАО: привлечь деньги без кредитов и облигаций",
+	"pageClass": ""
+})
+
+@@include('_tpl_PAGE_WRAP.html', {
+	"pageWrap": "START",
+	"currentItem": "СМИ о нас",
+	"title": ""
+})
+
+<section class="news-heading layout-full-width layout">
+	<figure class="news-heading__figure">
+		<img src="img/img-news-head.jpg" alt="ыход для ОАО: привлечь деньги без кредитов и облигаций">
+	</figure>
+	<div class="news-heading__body">
+		<span class="news-heading__btn-source">Деньги и власть</span>
+		<div class="news-heading__title">Выход для ОАО: привлечь деньги без кредитов и облигаций</div>
+		<time class="news-heading__date" datetime="2017-06-17">17 июля 2018</time>
+	</div>
+</section>
+
+@@include('_tpl_breadcrumbs.html', {
+	"items": ["Главная"],
+	"last": "Новости"
+})
+
+<p>Бизнес с долгами — обычная, рабочая ситуация. Правда, эта рабочая ситуация грозит проблемами с финансированием: банки отказывают в кредитах, облигации выпускать запрещает законодательство.</p>
+<p>Как же привлечь инвестиции? Для юрлиц формы открытого акционерного общества есть законный выход — выпустить привилегированные акции. Этот финансовый инструмент в нашей стране, считают специалисты, недооценен.</p>
+<blockquote>
+	<div>
+		<p>Открытые акционерные общества могут проводить так называемое IPO, размещение на открытом рынке ценных бумаг.Таким образом привлекаются средства инвесторов, физических и юридических лиц, которые рискуют своими деньгами в расчете на дивиденды. Безусловно, рынок акций в Беларуси пока очень слабо развит, но с точки зрения законодательства он готов к активной работе.</p>
+		<cite>— рассказывает <strong>заместитель директора ООО «Ласерта» Владимир Симонов.</strong></cite>
+	</div>
+</blockquote>
+<img class="imgc" src="img/img-01.jpg" alt="image description" />
+<p>В рамках IPO открытые акционерные общества имеют право также выпускать акции, обладающими отдельными характеристиками. Так, данные бумаги обязуют выплачивать определенный уставом доход (и опционально — бонус в рамках дивидендных выплат для держателей обычных акций), но не дают их владельцам право голоса на собраниях. Win-win!</p>
+<blockquote>
+	<div>
+		<p>«Ласерта» занимается размещением ценных бумаг среди пула инвесторов, физических и юридических лиц, выбравших этот инструмент для заработка на своих капиталах. Кроме того, мы полностью сопровождаем эмиссию, консультируем эмитента и благодаря накопленному опыту помогаем избежать типичных ошибок при регистрации выпуска</p>
+		<cite>— говорит <strong>Владимир Симонов</strong>.</cite>
+	</div>
+</blockquote>
+<p><strong>С проспектом эмиссии можно ознакомиться на сайте <a href="index.html">www.lacerta.by</a></strong></p>
+<section class="section section_news">
+	<h2 class="h1">Читайте еще</h2>
+	<div class="news layout-flood">
+		<div class="news__list">
+			@@loop("_tpl_news--items.html", "includes/json/news--items--short.json")
+		</div>
+		<p>@@include("_tpl_btn.html", {"value": "Все материалы"})</p>
+	</div>
+</section>
+
+@@include('_tpl_forms_user-form.html', { "title": "Закажите звонок" })
+
+
+<section class="section section_news">
+	<h2 class="h1">СМИ о нас</h2>
+	<div class="news layout-flood">
+		<div class="news__list">
+			@@loop("_tpl_news--items.html", "includes/json/news--items--short.json")
+		</div>
+		<p>@@include("_tpl_btn.html", {"value": "Все материалы"})</p>
+	</div>
+</section>
+
+
+
+@@include('_tpl_PAGE_WRAP.html', {"pageWrap": "END", "currentItem": "Компания Lacerta"})
+
+@@include('_tpl_layout_foot.html')

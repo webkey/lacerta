@@ -337,6 +337,31 @@ function slidersInit() {
 			});
 		});
 	}
+
+	/**about promo slider*/
+	var $promoSlider = $('.promo-slider-js');
+	if ($promoSlider.length) {
+		$.each($promoSlider, function () {
+			var $currentSlider = $(this);
+
+			$currentSlider.on('init', function (event, slick) {
+				$(slick.$slides).matchHeight({
+					byRow: false, property: 'height', target: null, remove: false
+				});
+			}).slick({
+				vertical: true,
+				speed: 330,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				// lazyLoad: 'ondemand',
+				// autoplay: false,
+				// autoplaySpeed: 8000,
+				infinite: false,
+				dots: true,
+				arrows: false
+			});
+		});
+	}
 }
 
 /**

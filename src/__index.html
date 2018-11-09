@@ -6,17 +6,21 @@
 @@include('_tpl_PAGE_WRAP.html', {
 	"pageWrap": "START",
 	"currentItem": "Главная",
-	"title": "Размещение облигаций белорусских компаний",
+	"title": "",
 	"classes": "home-page"
 })
 
-<section class="main-section main-section_enter">
+<section class="promo-slider layout-full-width promo-slider-js">
+	@@loop('_tpl_promo-slider--items.html', 'includes/json/_tpl_promo-slider--items.json')
+</section>
+
+<!--<section class="main-section main-section_enter">
 	<div class="main-section__holder">
 		<div class="main-section__content">
 			<div class="enter-text"><p>Более $1 млрд. привлеченных средств на проверенные эмиссии от надежных партнеров непрерывно с 2011 года для ведущих компаний</p></div>
 		</div>
 	</div>
-</section>
+</section>-->
 
 <section class="main-section">
 	<div class="main-section__holder">

@@ -516,6 +516,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 	line-height: 0
 	pointer-events: none
 	bottom: -2.8rem
+	visibility: hidden
 
 	.#{$user-content} &
 		margin: 0
@@ -527,6 +528,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 		height: auto
 		margin: 0
 		pointer-events: auto
+		visibility: visible
 
 		&, .#{$user-content} &
 			padding: 3px
@@ -3232,6 +3234,145 @@ a.news__item__inner
 
 /* news end
 
+/* new inner heading
+.news-heading
+	position: relative
+	+padding-vertical(8.6rem, 10.3rem)
+	margin-bottom: 3.8rem
+	text-align: center
+
+	+media('<desk-sm') // 1280
+		+padding-vertical(7.8rem)
+		margin-bottom: 4.0rem
+
+	+media('<mob-lg')
+		+padding-vertical(2.7rem)
+		margin-bottom: 1.5rem
+
+	& + .breadcrumbs
+		margin-bottom: 6.2rem
+		margin-top: 0
+
+		+media('<mob-lg')
+			margin-bottom: 2.4rem
+			margin-top: 0
+
+		&:last-child
+			margin-bottom: 0
+
+a.news-heading
+	display: block
+	cursor: pointer
+	text-decoration: none
+	// transition
+	$prop: background-color, color
+	will-change: $prop
+	transition:
+		property: $prop
+		duration: $animation-speed
+		timing-function: ease-in-out
+
+.news-heading__figure
+	display: block
+	position: absolute
+	left: 0
+	top: 0
+	+size(100%)
+	padding: 0
+	margin: 0
+	z-index: 1
+
+	&::before
+		$bg-color: #41418b
+		content: ""
+		display: block
+		position: absolute
+		left: 0
+		bottom: 0
+		+size(100%)
+		opacity: 0.8
+		+linear-gradient(to top, rgba($bg-color, 1) 0%, rgba($bg-color, 0) 100%)
+		z-index: 1
+		// transition
+		will-change: opacity
+		transition: opacity $animation-speed ease-in-out
+
+	img
+		position: absolute
+		left: 0
+		top: 0
+		max-width: none
+		width: 100%
+		height: 100%
+		+object-fit(cover)
+		z-index: -1
+
+.news-heading__body
+	position: relative
+	z-index: 2
+
+.news-heading__title
+	+font-h1
+	text-align: center
+	margin-bottom: 6.2rem
+
+	+media('<desk-sm')
+		margin-bottom: 5rem
+
+	+media('<tab-lg')
+		margin-bottom: 3.5rem
+
+	+media('<mob-lg')
+		margin-bottom: 1.5rem
+		text-align: center
+
+	&:last-child
+		margin-bottom: 0
+
+.news-heading__btn-source
+	display: inline-block
+	vertical-align: top
+	padding: 4px 16px 5px
+	min-width: 120px
+	+font-bold
+	+font(16px, 24px)
+	color: $highlight-color
+	background-color: $base-color
+	border-radius: 17px
+	margin-bottom: 4.3rem
+
+	+media('<desk-sm')
+		margin-bottom: 3.8rem
+
+	+media('<tab-lg')
+		margin-bottom: 2.1rem
+
+	+media('<mob-lg')
+			margin-bottom: 1.2rem
+			font-size: 12px
+			min-width: 74px
+			padding: 2px 12px 3px
+
+	&:last-child
+		margin-bottom: 0
+
+.news-heading__date
+	+font-h3
+	color: $highlight-color
+
+	margin-bottom: round-float(nth($grid-space, 1) * 1.125, 1)
+
+	+media('<tab-lg')
+		margin-bottom: round-float(nth($grid-space--mob, 1) * 1.125, 1)
+
+	+media('<mob-lg')
+		margin-bottom: round-float(nth($grid-space--mob, 1) * 0.7, 1)
+
+	&:last-child
+		margin-bottom: 0
+
+/* new inner heading end
+
 /* rolls
 .rolls
 	margin: 0 auto $bottom-space--element
@@ -4075,3 +4216,196 @@ a.news__item__inner
 			background-color: $highlight-color--hover
 
 /* popup default end
+
+/* promo
+.promo
+	padding: 0
+
+.promo-slider
+	// before slide load
+	white-space: nowrap
+	overflow: hidden
+	opacity: 0
+	visibility: hidden
+	// before slide load end
+	// transition
+	$prop: visibility
+	will-change: $prop
+	transition: $prop 0.5s ease-in-out
+
+	&.slick-initialized, .no-js &
+		// after slide load
+		white-space: normal
+		overflow: visible
+		opacity: 1
+		visibility: visible
+		// after slide load end
+
+	&, &.slick-dotted
+		margin-bottom: 14.5rem
+
+		+media('<mob-lg')
+			margin-bottom: 5.6rem
+
+	.slick-dots
+		&, .#{$user-content} & .slick-dots
+			margin: 0
+
+		&
+			left: auto
+			right: nth($page-layout-space, 2)
+			bottom: 8rem
+			width: auto
+
+			+media('<desk-lg')
+				right: nth($page-layout-space--md, 2)
+
+			+media('<tab-lg')
+				right: nth($page-layout-space--mob, 2)
+				bottom: 5rem
+
+			+media('<mob-lg')
+				bottom: 3rem
+
+			li
+				display: block
+				padding: 14px 0 0
+				font-size: 0
+				line-height: 0
+
+				button
+					width: 14px
+					height: 14px
+					background-color: rgba(white, 0.5)
+
+				// hover
+				&:hover
+					button
+						background-color: rgba(white, 0.7)
+
+				// active
+				&.slick-active
+					button
+						background-color: white
+
+.promo-slider__item
+	// before slide load
+	float: none
+	display: inline-block
+	vertical-align: top
+	// before slide load end
+	position: relative
+	overflow: hidden
+	width: 100%
+	padding: 6.5rem nth($page-layout-space, 2) 8.7rem
+	text-decoration: none
+	color: white
+	z-index: 1
+
+	+media('<desk-lg')
+		padding: 6.5rem nth($page-layout-space--md, 2) 8.7rem
+
+	+media('<tab-lg')
+		padding: 5rem nth($page-layout-space--mob, 2)
+
+	+media('<mob-lg')
+		+padding-vertical(nth($page-layout-space--mob, 1))
+		height: auto
+		min-height: 320px
+
+	&, .slick-vertical &
+		border: none
+
+	.slick-initialized &
+		// after slide load
+		float: left
+		display: block
+		// after slide load end
+
+	&::before, &::after
+		content: ""
+		display: block
+		position: absolute
+		+size(100%)
+		left: 0
+		top: 0
+		// transition
+		will-change: opacity
+		transition: opacity $animation-speed ease-in-out
+		z-index: 1
+
+	&::before
+		opacity: 1
+		$grad-color: black
+		+linear-gradient(to bottom, rgba($grad-color, 0) 0%,rgba($grad-color, 0.03) 27%,rgba($grad-color, 0.12) 70%,rgba($grad-color, 0.15) 100%)
+
+	&::after
+		opacity: 0
+		$bg-color: #41418b
+		+linear-gradient(to top, rgba($bg-color, 1) 0%, rgba($bg-color, 0) 100%)
+
+.promo-slider__figure
+	position: absolute
+	left: 0
+	top: 0
+	width: 100%
+	height: 100%
+	max-width: none
+	margin: 0
+	background-color: $base-color
+	+size(100%)
+	+object-fit(cover)
+
+.promo-slider__content
+	position: relative
+	z-index: 2
+	+wide
+
+	+media('<tab-lg')
+		padding-right: 40px
+
+	+media('<mob-lg')
+		padding-right: 30px
+
+.promo-slider__title
+	width: round(980 / 1240 * 100) * 1%
+	margin-bottom: 7rem
+	+font-h1
+
+	+media('<tab-lg')
+		width: auto
+		margin-bottom: 3rem
+
+	&:last-child
+		margin-bottom: 0
+
+.promo-slider__text
+	+font-bold
+	+font(2.4rem, round-float(29/24, 2))
+	margin: 0 0 5rem $main-sect-heading-width
+
+	+media('<desk-sm')
+		margin-left: 0
+
+	+media('<mob-lg')
+		margin-bottom: 3rem
+		font-size: 2rem
+
+	&:last-child
+		margin-bottom: 0
+
+.promo-slider__text-inner
+	max-width: $text-layout-width-alt
+
+// hover
+.promo-slider__item
+	&:hover
+		color: white
+
+		&::before
+			opacity: 0
+
+		&::after
+			opacity: 1
+
+/* promo end

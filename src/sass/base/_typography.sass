@@ -285,14 +285,17 @@ mark
 
 /* content img
 
-//.layout-article
+.user-content
 	& > img, .imgc
 		text-align: center
 		display: block
-		margin: 0 auto $bottom-space
+		margin: 8.1rem auto 4.8rem
 		width: $flood-layout-width
 		max-width: 100%
 		clear: both
+
+		+media('<mob-lg')
+			margin: 5rem auto 3.5rem
 
 	.imgl
 		text-align: left
@@ -570,9 +573,15 @@ blockquote
 	padding: 0
 
 	+media('<mob-lg')
-		margin: $bottom-space--element--mob auto
+		margin: 2rem auto 3rem
 
-	q, & > p
+	p
+		margin-bottom: 3.6rem
+
+		+media('<mob-lg')
+			margin-bottom: 2.5rem
+
+	q, & > p, & > div
 		display: block
 		position: relative
 		margin: 0
@@ -586,22 +595,7 @@ blockquote
 			padding: 4.5rem 0
 			+font(2.0rem, 2.6rem)
 
-	cite
-		position: absolute
-		bottom: 5rem
-		left: 0
-		text-align: left
-		display: block
-		margin-left: auto
-		font-family: inherit
-		+font-italic
-		+font($font-size, $line-height)
-		color: $highlight-color
-
-		+media('<mob-lg')
-			+font($font-size--mob, $line-height--mob)
-
-	&, & q, & > p
+	&, & q, & > p, & > div
 		&::before, &::after
 			content: ""
 			display: block
@@ -624,7 +618,7 @@ blockquote
 		&::after
 			bottom: 0
 
-	q, & > p
+	q, & > p, & > div
 		&::before, &::after
 			margin-top: 3rem
 			margin-bottom: 3rem
@@ -632,6 +626,22 @@ blockquote
 			+media('<mob-lg')
 				margin-top: 1.8rem
 				margin-bottom: 1.8rem
+
+	cite
+		//position: absolute
+		//bottom: 5rem
+		//left: 0
+		text-align: left
+		display: block
+		margin: 0 0 3px
+		font-family: inherit
+		+font-light
+		font-style: normal
+		+font($font-size, $line-height)
+		color: $highlight-color
+
+		+media('<mob-lg')
+			+font($font-size--mob, $line-height--mob)
 
 /* blockquote end
 
