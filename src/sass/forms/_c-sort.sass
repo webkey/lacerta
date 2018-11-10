@@ -8,8 +8,6 @@ $c-sort-btn: 26px
 
 .c-sort-wrap
 	position: relative
-	//display: inline-block
-	//vertical-align: top
 	float: left
 	width: 20px
 	margin-left: -11px
@@ -33,28 +31,6 @@ $c-sort-btn: 26px
 		&::before
 			background-color: $highlight-color
 			height: $c-sort-height
-
-		&.select2-container--below
-			&::before
-				border-top:
-					left-radius: round($c-sort-height / 2)
-					right-radius: round($c-sort-height / 2)
-
-				+media($form-media--mob)
-					border-top:
-						left-radius: round($c-sort-height / 2)
-						right-radius: round($c-sort-height / 2)
-
-		&.select2-container--above
-			&::before
-				border-bottom:
-					left-radius: round($c-sort-height / 2)
-					right-radius: round($c-sort-height / 2)
-
-				+media($form-media--mob)
-					border-top:
-						left-radius: round($c-sort-height / 2)
-						right-radius: round($c-sort-height / 2)
 
 	& ~ .select2-container--default
 		.selection
@@ -137,36 +113,9 @@ $c-sort-btn: 26px
 				border: none
 
 		&.select2-container--open
-
-			// border radius reset for open
-			&.select2-container--below
-				.select2-selection--single
-					border-bottom:
-						left-radius: round($c-sort-height / 2)
-						right-radius: round($c-sort-height / 2)
-
-					+media($form-media--mob)
-						border-bottom:
-							left-radius: round($c-sort-height / 2)
-							right-radius: round($c-sort-height / 2)
-
-			&.select2-container--above
-				.select2-selection--single
-					border-top:
-						left-radius: round($c-sort-height / 2)
-						right-radius: round($c-sort-height / 2)
-
-					+media($form-media--mob)
-						border-top:
-							left-radius: round($c-sort-height / 2)
-							right-radius: round($c-sort-height / 2)
-
 			.select2-selection--single
 				.select2-selection__rendered
 					border-color: transparent
-
-			//.select2-selection__arrow
-				transform: translateZ(0) rotate(0)
 
 .c-sort-reset
 	opacity: 0
@@ -177,6 +126,7 @@ $c-sort-btn: 26px
 	width: $c-sort-btn
 	margin: 1px 0 0 -#{$c-sort-btn + 1}
 	cursor: pointer
+	z-index: 10
 
 	i
 		$size: 22px
@@ -246,37 +196,6 @@ $c-sort-btn: 26px
 		align-items: center
 		justify-content: stretch
 
-	&.select2-dropdown--below
-		.select2-results
-			border-bottom:
-				left-radius: round($c-sort-height / 2)
-				right-radius: round($c-sort-height / 2)
-
-			+media($form-media--mob)
-				border-bottom:
-					left-radius: round($c-sort-height / 2)
-					right-radius: round($c-sort-height / 2)
-
-		.select2-container--open &
-			border-top:
-				left-radius: 0
-				right-radius: 0
-
-	&.select2-dropdown--above
-		.select2-results
-			border-top:
-				left-radius: round($c-sort-height / 2)
-				right-radius: round($c-sort-height / 2)
-
-			+media($form-media--mob)
-				border-top:
-					left-radius: round($c-sort-height / 2)
-					right-radius: round($c-sort-height / 2)
-
-		.select2-container--open &
-			border-bottom:
-				left-radius: 0
-				right-radius: 0
 
 	.select2-results__options
 		width: 100%
@@ -307,5 +226,45 @@ $c-sort-btn: 26px
 			background-color: transparent
 			color: white
 
+// border radius
+.c-sort ~ .select2.select2-container--below,
+.c-sort ~ .select2.select2-container--open.select2-container--above .select2-selection--single,
+.c-sort-drop.select2-dropdown--above .select2-results
+	&::before
+		border-top:
+			left-radius: round($c-sort-height / 2)
+			right-radius: round($c-sort-height / 2)
+
+		+media($form-media--mob)
+			border-top:
+				left-radius: round($c-sort-height / 2)
+				right-radius: round($c-sort-height / 2)
+
+.c-sort-drop.select2-dropdown--above
+	&, & .select2-results
+		.select2-container--open &
+			border-bottom:
+				left-radius: 0
+				right-radius: 0
+
+.c-sort ~ .select2.select2-container--above,
+.c-sort ~ .select2.select2-container--open.select2-container--below .select2-selection--single,
+.c-sort-drop.select2-dropdown--below .select2-results
+	&::before
+		border-bottom:
+			left-radius: round($c-sort-height / 2)
+			right-radius: round($c-sort-height / 2)
+
+		+media($form-media--mob)
+			border-bottom:
+				left-radius: round($c-sort-height / 2)
+				right-radius: round($c-sort-height / 2)
+
+.c-sort-drop.select2-dropdown--below
+	&, & .select2-results
+		.select2-container--open &
+			border-top:
+				left-radius: 0
+				right-radius: 0
 
 /* c-sort end
