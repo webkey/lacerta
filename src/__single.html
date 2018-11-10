@@ -30,11 +30,58 @@
 				<thead>
 					<tr>
 						<td class="td">Выпуск</td>
-						<td class="td">Валюта</td>
-						<td class="td">Ставка</td>
-						<td class="td">Номинал</td>
-						<td class="td">Начало эмиссии</td>
-						<td class="td">Срок</td>
+						<td class="td">
+							<div class="c-sort-wrap">
+								<select class="c-sort field-js" name="currency" data-placeholder="Валюта">
+									<option value=''>Валюта</option>
+									<option value='usd'>USD</option>
+									<option value='eur'>EUR</option>
+									<option value='rub'>RUB</option>
+									<option value='byn'>BYN</option>
+								</select>
+							</div>
+						</td>
+						<td class="td">
+							<div class="c-sort-wrap">
+								<select class="c-sort field-js" name="stavka" data-placeholder="Ставка" style="width: 180px">
+									<option value=''>Ставка</option>
+									<option value='0-2.49'>0 - 2.49%</option>
+									<option value='2.5-5.49'>2.5% - 5.49%</option>
+									<option value='2.5-5.49'>5.5% - 10.49%</option>
+									<option value='2.5-5.49'>10.5% - 15.49%</option>
+									<option value='2.5-5.49'>15.5% - 20.49%</option>
+									<option value='2.5-5.49'>25.5% - 30.49%</option>
+									<option value='2.5-5.49'>30.5% - 35.49%</option>
+									<option value='2.5-5.49'>35.5% - 40.49%</option>
+									<option value='2.5-5.49'>40.5% - 45.49%</option>
+									<option value='2.5-5.49'>45.5% - 50.49%</option>
+								</select>
+							</div>
+						</td>
+						<td class="td">
+							<div class="c-sort-wrap">
+								<select class="c-sort field-js" name="stavka" data-placeholder="Номинал" style="width: 200px">
+									<option value=''>Номинал</option>
+									<option value='0-100'>0 - 100</option>
+									<option value='100-100000'>100 - 100 000</option>
+									<option value='100000-200000'>100 000 - 200 000</option>
+									<option value='200000-300000'>200 000 - 300 000</option>
+								</select>
+							</div>
+						</td>
+						<td class="td">Погашение</td>
+						<td class="td">
+							<div class="c-sort-wrap">
+								<select class="c-sort field-js" name="stavka" data-placeholder="Срок" style="width: 160px">
+									<option value=''>Срок</option>
+									<option value='0.5'>6 месяцев</option>
+									<option value='1.0'>1 год</option>
+									<option value='1.5'>1.5 года</option>
+									<option value='2.0'>2 года</option>
+									<option value='5.0'>5 лет</option>
+								</select>
+							</div>
+						</td>
 						<td class="td">Объем выпуска</td>
 					</tr>
 				</thead>
@@ -54,11 +101,58 @@
 				<thead>
 					<tr>
 						<td class="td">Выпуск</td>
-						<td class="td">Валюта</td>
-						<td class="td">Ставка</td>
-						<td class="td">Номинал</td>
-						<td class="td">Начало эмиссии</td>
-						<td class="td">Срок</td>
+						<td class="td">
+							<div class="c-sort-wrap">
+								<select class="c-sort field-js" name="currency" data-placeholder="Валюта">
+									<option value=''>Валюта</option>
+									<option value='usd'>USD</option>
+									<option value='eur'>EUR</option>
+									<option value='rub'>RUB</option>
+									<option value='byn'>BYN</option>
+								</select>
+							</div>
+						</td>
+						<td class="td">
+							<div class="c-sort-wrap">
+								<select class="c-sort field-js" name="stavka" data-placeholder="Ставка" style="width: 180px">
+									<option value=''>Ставка</option>
+									<option value='0-2.49'>0 - 2.49%</option>
+									<option value='2.5-5.49'>2.5% - 5.49%</option>
+									<option value='2.5-5.49'>5.5% - 10.49%</option>
+									<option value='2.5-5.49' selected>10.5% - 15.49%</option>
+									<option value='2.5-5.49'>15.5% - 20.49%</option>
+									<option value='2.5-5.49'>25.5% - 30.49%</option>
+									<option value='2.5-5.49'>30.5% - 35.49%</option>
+									<option value='2.5-5.49'>35.5% - 40.49%</option>
+									<option value='2.5-5.49'>40.5% - 45.49%</option>
+									<option value='2.5-5.49'>45.5% - 50.49%</option>
+								</select>
+							</div>
+						</td>
+						<td class="td">
+							<div class="c-sort-wrap">
+								<select class="c-sort field-js" name="stavka" data-placeholder="Номинал" style="width: 200px">
+									<option value=''>Номинал</option>
+									<option value='0-100'>0 - 100</option>
+									<option value='100-100000'>100 - 100 000</option>
+									<option value='100000-200000'>100 000 - 200 000</option>
+									<option value='200000-300000'>200 000 - 300 000</option>
+								</select>
+							</div>
+						</td>
+						<td class="td">Погашение</td>
+						<td class="td">
+							<div class="c-sort-wrap">
+								<select class="c-sort field-js" name="stavka" data-placeholder="Срок" style="width: 160px">
+									<option value=''>Срок</option>
+									<option value='0.5'>6 месяцев</option>
+									<option value='1.0'>1 год</option>
+									<option value='1.5'>1.5 года</option>
+									<option value='2.0'>2 года</option>
+									<option value='5.0'>5 лет</option>
+								</select>
+							</div>
+						</td>
 						<td class="td">Объем выпуска</td>
 					</tr>
 				</thead>

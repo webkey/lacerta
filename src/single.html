@@ -62,7 +62,7 @@
 				<div class="header__holder">
 					<div class="header__top">
 						<strong class="logo">
-					<a href="index.html" data-heading="Размещение облигаций белорусских компаний" data-heading-align="left"><em>Покупка и<br> продажа облигаций</em></span></a>
+					<a href="index.html" data-heading-align="left"><em>Покупка и<br> продажа облигаций</em></span></a>
 				</strong>
 						<ul class="header-menu">
 							<li class="small"><a href="about.html" data-heading="Скажите:<br> “Здравствуйте, деньги”">Компания Lacerta</a></li>
@@ -128,7 +128,7 @@
 				</div>
 				<div class="breadcrumbs">
 					<ul class="breadcrumbs__list">
-						<li><a href="index.html" data-heading="Размещение облигаций белорусских компаний" data-heading-align="left"><span>Главная</span></a></li>
+						<li><a href="index.html" data-heading-align="left"><span>Главная</span></a></li>
 						<li><span>Фабрика Ромакс</span></li>
 					</ul>
 				</div>
@@ -147,11 +147,58 @@
 								<thead>
 									<tr>
 										<td class="td">Выпуск</td>
-										<td class="td">Валюта</td>
-										<td class="td">Ставка</td>
-										<td class="td">Номинал</td>
-										<td class="td">Начало эмиссии</td>
-										<td class="td">Срок</td>
+										<td class="td">
+											<div class="c-sort-wrap">
+												<select class="c-sort field-js" name="currency" data-placeholder="Валюта">
+									<option value=''>Валюта</option>
+									<option value='usd'>USD</option>
+									<option value='eur'>EUR</option>
+									<option value='rub'>RUB</option>
+									<option value='byn'>BYN</option>
+								</select>
+											</div>
+										</td>
+										<td class="td">
+											<div class="c-sort-wrap">
+												<select class="c-sort field-js" name="stavka" data-placeholder="Ставка" style="width: 180px">
+									<option value=''>Ставка</option>
+									<option value='0-2.49'>0 - 2.49%</option>
+									<option value='2.5-5.49'>2.5% - 5.49%</option>
+									<option value='2.5-5.49'>5.5% - 10.49%</option>
+									<option value='2.5-5.49'>10.5% - 15.49%</option>
+									<option value='2.5-5.49'>15.5% - 20.49%</option>
+									<option value='2.5-5.49'>25.5% - 30.49%</option>
+									<option value='2.5-5.49'>30.5% - 35.49%</option>
+									<option value='2.5-5.49'>35.5% - 40.49%</option>
+									<option value='2.5-5.49'>40.5% - 45.49%</option>
+									<option value='2.5-5.49'>45.5% - 50.49%</option>
+								</select>
+											</div>
+										</td>
+										<td class="td">
+											<div class="c-sort-wrap">
+												<select class="c-sort field-js" name="stavka" data-placeholder="Номинал" style="width: 200px">
+									<option value=''>Номинал</option>
+									<option value='0-100'>0 - 100</option>
+									<option value='100-100000'>100 - 100 000</option>
+									<option value='100000-200000'>100 000 - 200 000</option>
+									<option value='200000-300000'>200 000 - 300 000</option>
+								</select>
+											</div>
+										</td>
+										<td class="td">Погашение</td>
+										<td class="td">
+											<div class="c-sort-wrap">
+												<select class="c-sort field-js" name="stavka" data-placeholder="Срок" style="width: 160px">
+									<option value=''>Срок</option>
+									<option value='0.5'>6 месяцев</option>
+									<option value='1.0'>1 год</option>
+									<option value='1.5'>1.5 года</option>
+									<option value='2.0'>2 года</option>
+									<option value='5.0'>5 лет</option>
+								</select>
+											</div>
+										</td>
 										<td class="td">Объем выпуска</td>
 									</tr>
 								</thead>
@@ -243,9 +290,45 @@
 														<div class="detail__item__desc">22.01.2019</div>
 													</div>
 												</div>
+												<button class="btn-def btn-def_buy popup-opener-js" data-for="#popup-call">Купить</button>
+											</div>
+											<div class="detail__item detail__item-subitem">
+												<div class="detail__item__label">
+													<h4>График выплат</h4>
+												</div>
+												<div class="detail__item__body date-filters-js">
+													<div class="detail__item__box detail__item__box_small">
+														<div class="detail__item__title">Год выплаты:</div>
+														<div class="detail__item__desc">
+															<div class="date-select date-select-js">
+																<a href="#" data-filter="2019">2019</a>
+																<a href="#" class="active" data-filter="2018">2018</a>
+															</div>
+														</div>
+													</div>
+													<div class="detail__item__box detail__item__box_rowspan">
+														<div class="detail__item__title">Дата выплаты:</div>
+														<div class="detail__item__desc">
+															<ul class="date-list date-list-js" data-filter="2018">
+																<li>22.04.2018</li>
+																<li>22.07.2018</li>
+																<li>22.11.2018</li>
+																<li>22.12.2018</li>
+															</ul>
+															<ul class="date-list date-list-js" data-filter="2019">
+																<li>15.02.2019</li>
+																<li>16.03.2019</li>
+																<li>02.05.2019</li>
+																<li>13.08.2019</li>
+																<li>27.09.2019</li>
+																<li>30.11.2019</li>
+																<li>12.12.2019</li>
+															</ul>
+														</div>
+													</div>
+												</div>
 											</div>
 										</div>
-										<button class="btn-def btn-def_buy popup-opener-js" data-for="#popup-call">Купить</button>
 									</div>
 								</div>
 							</div>
@@ -260,11 +343,58 @@
 								<thead>
 									<tr>
 										<td class="td">Выпуск</td>
-										<td class="td">Валюта</td>
-										<td class="td">Ставка</td>
-										<td class="td">Номинал</td>
-										<td class="td">Начало эмиссии</td>
-										<td class="td">Срок</td>
+										<td class="td">
+											<div class="c-sort-wrap">
+												<select class="c-sort field-js" name="currency" data-placeholder="Валюта">
+									<option value=''>Валюта</option>
+									<option value='usd'>USD</option>
+									<option value='eur'>EUR</option>
+									<option value='rub'>RUB</option>
+									<option value='byn'>BYN</option>
+								</select>
+											</div>
+										</td>
+										<td class="td">
+											<div class="c-sort-wrap">
+												<select class="c-sort field-js" name="stavka" data-placeholder="Ставка" style="width: 180px">
+									<option value=''>Ставка</option>
+									<option value='0-2.49'>0 - 2.49%</option>
+									<option value='2.5-5.49'>2.5% - 5.49%</option>
+									<option value='2.5-5.49'>5.5% - 10.49%</option>
+									<option value='2.5-5.49' selected>10.5% - 15.49%</option>
+									<option value='2.5-5.49'>15.5% - 20.49%</option>
+									<option value='2.5-5.49'>25.5% - 30.49%</option>
+									<option value='2.5-5.49'>30.5% - 35.49%</option>
+									<option value='2.5-5.49'>35.5% - 40.49%</option>
+									<option value='2.5-5.49'>40.5% - 45.49%</option>
+									<option value='2.5-5.49'>45.5% - 50.49%</option>
+								</select>
+											</div>
+										</td>
+										<td class="td">
+											<div class="c-sort-wrap">
+												<select class="c-sort field-js" name="stavka" data-placeholder="Номинал" style="width: 200px">
+									<option value=''>Номинал</option>
+									<option value='0-100'>0 - 100</option>
+									<option value='100-100000'>100 - 100 000</option>
+									<option value='100000-200000'>100 000 - 200 000</option>
+									<option value='200000-300000'>200 000 - 300 000</option>
+								</select>
+											</div>
+										</td>
+										<td class="td">Погашение</td>
+										<td class="td">
+											<div class="c-sort-wrap">
+												<select class="c-sort field-js" name="stavka" data-placeholder="Срок" style="width: 160px">
+									<option value=''>Срок</option>
+									<option value='0.5'>6 месяцев</option>
+									<option value='1.0'>1 год</option>
+									<option value='1.5'>1.5 года</option>
+									<option value='2.0'>2 года</option>
+									<option value='5.0'>5 лет</option>
+								</select>
+											</div>
+										</td>
 										<td class="td">Объем выпуска</td>
 									</tr>
 								</thead>
@@ -356,9 +486,45 @@
 														<div class="detail__item__desc">22.01.2019</div>
 													</div>
 												</div>
+												<button class="btn-def btn-def_buy popup-opener-js" data-for="#popup-call">Купить</button>
+											</div>
+											<div class="detail__item detail__item-subitem">
+												<div class="detail__item__label">
+													<h4>График выплат</h4>
+												</div>
+												<div class="detail__item__body date-filters-js">
+													<div class="detail__item__box detail__item__box_small">
+														<div class="detail__item__title">Год выплаты:</div>
+														<div class="detail__item__desc">
+															<div class="date-select date-select-js">
+																<a href="#" data-filter="2019">2019</a>
+																<a href="#" class="active" data-filter="2018">2018</a>
+															</div>
+														</div>
+													</div>
+													<div class="detail__item__box detail__item__box_rowspan">
+														<div class="detail__item__title">Дата выплаты:</div>
+														<div class="detail__item__desc">
+															<ul class="date-list date-list-js" data-filter="2018">
+																<li>22.04.2018</li>
+																<li>22.07.2018</li>
+																<li>22.11.2018</li>
+																<li>22.12.2018</li>
+															</ul>
+															<ul class="date-list date-list-js" data-filter="2019">
+																<li>15.02.2019</li>
+																<li>16.03.2019</li>
+																<li>02.05.2019</li>
+																<li>13.08.2019</li>
+																<li>27.09.2019</li>
+																<li>30.11.2019</li>
+																<li>12.12.2019</li>
+															</ul>
+														</div>
+													</div>
+												</div>
 											</div>
 										</div>
-										<button class="btn-def btn-def_buy popup-opener-js" data-for="#popup-call">Купить</button>
 									</div>
 								</div>
 							</div>
@@ -447,9 +613,45 @@
 														<div class="detail__item__desc">22.01.2019</div>
 													</div>
 												</div>
+												<button class="btn-def btn-def_buy popup-opener-js" data-for="#popup-call">Купить</button>
+											</div>
+											<div class="detail__item detail__item-subitem">
+												<div class="detail__item__label">
+													<h4>График выплат</h4>
+												</div>
+												<div class="detail__item__body date-filters-js">
+													<div class="detail__item__box detail__item__box_small">
+														<div class="detail__item__title">Год выплаты:</div>
+														<div class="detail__item__desc">
+															<div class="date-select date-select-js">
+																<a href="#" data-filter="2019">2019</a>
+																<a href="#" class="active" data-filter="2018">2018</a>
+															</div>
+														</div>
+													</div>
+													<div class="detail__item__box detail__item__box_rowspan">
+														<div class="detail__item__title">Дата выплаты:</div>
+														<div class="detail__item__desc">
+															<ul class="date-list date-list-js" data-filter="2018">
+																<li>22.04.2018</li>
+																<li>22.07.2018</li>
+																<li>22.11.2018</li>
+																<li>22.12.2018</li>
+															</ul>
+															<ul class="date-list date-list-js" data-filter="2019">
+																<li>15.02.2019</li>
+																<li>16.03.2019</li>
+																<li>02.05.2019</li>
+																<li>13.08.2019</li>
+																<li>27.09.2019</li>
+																<li>30.11.2019</li>
+																<li>12.12.2019</li>
+															</ul>
+														</div>
+													</div>
+												</div>
 											</div>
 										</div>
-										<button class="btn-def btn-def_buy popup-opener-js" data-for="#popup-call">Купить</button>
 									</div>
 								</div>
 							</div>
@@ -642,9 +844,9 @@
 										<!--===================================================-->
 									</div>
 									<div class="appeal-form__col">
-										<div class="input-wrap small-field">
+										<div class="input-wrap
+	 small-field">
 											<label class="has-select" for="f-form-services">Услуга</label>
-											<!--Important! First option should have value ""-->
 											<div class="input-holder has-select">
 												<select class="cselect" id="f-form-services" name="f-form-services" data-placeholder="Выберите услугу из списка" required><option value=''>Выберите услугу из списка</option><option value='1'>Купить облигации</option><option value='2'>Продать облигации</option><option value='3'>Консультация</option><option value='4'>Запросить информацию</option><option value='5'>Другое</option></select>
 												<div class="error-note">Error text</div>

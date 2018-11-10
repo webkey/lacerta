@@ -63,6 +63,8 @@ $(function () {
 						$container.attr('data-page-title', '');
 					}, 1100);
 
+					inputFocusClass();
+					inputHasValueClass();
 					customSelect();
 					formMaskInit();
 					formValidInit();
@@ -76,8 +78,7 @@ $(function () {
 					locationsMap();
 					contactsMap();
 					scrollToSection();
-
-					// console.log('reinit');
+					filterYears();
 				}
 			}
 		},

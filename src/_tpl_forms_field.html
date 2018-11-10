@@ -34,10 +34,13 @@
 
 
 
-@@if(context.type == "select"){
-@@if(context.wrap){<div class="input-wrap@@if(context.wrap !== "true"){ @@wrap}">}
+@@if(context.type == "select")
+{
+@@if(context.wrap)
+{<div class="input-wrap
+	@@if(context.wrap !== "true")
+		{ @@wrap}">}
 @@if(context.id && !context.wrap){<label}@@if(context.id && context.wrap){<label}@@if(context.labelClasses){ class="@@labelClasses"}@@if(context.id){ for="@@id"}>@@label@@if(context.id && !context.wrap){</label>}@@if(context.id && context.wrap){</label>}
-	<!--Important! First option should have value ""-->
 @@if(!context.wrap){<select}@@if(context.wrap){
 <div class="input-holder@@if(context.labelClasses){ @@labelClasses}">
 	<select}

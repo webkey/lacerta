@@ -365,8 +365,9 @@ mark
 
 /* list
 .#{$user-content}
+
 	//list
-	ul, ol
+	ul#{$not-list}, ol#{$not-list}
 		margin: 2.2rem 0
 		padding: 0
 		list-style: none
@@ -386,13 +387,13 @@ mark
 				padding-left: $list-space--mob
 				margin-bottom: 1.3rem
 
-	ol ~ ul li
+	ol#{$not-list} ~ ul li
 		padding-left: $list-space--alt
 
 		+media('<mob-lg')
 			padding-left: $list-space--alt--mob
 
-	ul
+	ul#{$not-list}
 		li
 			+font-light
 			+font(2.0rem, 3.0rem)
@@ -400,7 +401,7 @@ mark
 			+media('<mob-lg')
 				+font(14px, 16px)
 
-	ul > li::before
+	ul#{$not-list} > li::before
 		content: ''
 		display: block
 		float: left
@@ -415,7 +416,7 @@ mark
 			border-radius: 4px
 			margin: 0.35em 0 -0.35em -22px
 
-	ol
+	ol#{$not-list}
 		//margin: 5rem 0
 		counter-reset: section
 
@@ -461,8 +462,8 @@ mark
 					border-radius: round($size--mob / 2)
 					padding-top: 2px
 
-	ul, ol
-		ul, ol
+	ul#{$not-list}, ol#{$not-list}
+		ul#{$not-list}, ol#{$not-list}
 			margin: round($bottom-space*0.5) 0
 
 			+media('<mob-lg')

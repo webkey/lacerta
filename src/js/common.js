@@ -153,7 +153,7 @@ function inputHasValueClass() {
 
 	if ($inputs.length) {
 		var $fieldWrap = $('.input-wrap');
-		var $selectWrap = $('.select');
+		var $selectWrap = $('.select, .c-sort-wrap');
 		var classHasValue = 'input--has-value';
 
 		var switchHasValue = function () {
@@ -204,12 +204,38 @@ function customSelect() {
 			dropdownCssClass: dropClass,
 			minimumResultsForSearch: Infinity
 		});
-
-		// $thisSelect.on("select2:open", function (e, prop) {
-		// 	console.log("e: ", e);
-		// 	console.log("prop: ", prop);
-		// });
 	});
+
+	// sort
+	var $container = $('.c-sort-wrap');
+	$.each($('select.c-sort'), function () {
+		var $curSelect = $(this);
+		$curSelect.select2({
+			language: 'ru',
+			// width: '100%',
+			width: 'resolve',
+			containerCssClass: 'c-sort-head',
+			dropdownCssClass: 'c-sort-drop',
+			minimumResultsForSearch: Infinity
+		}).closest($container).append($('<div class="c-sort-reset"><i>x</i></div>'));
+
+		var $curContainer = $curSelect.closest($container);
+		var $arrow = $curContainer.find('.select2-selection__arrow');
+		var btnResetPosition = function () {
+			$('.c-sort-reset', $curContainer).css({
+				left: $arrow.position().left
+			});
+		};
+		btnResetPosition();
+
+		$curSelect.on('change', function () {
+			btnResetPosition();
+		})
+	});
+
+	$container.on('click', '.c-sort-reset', function () {
+		$(this).closest($container).find('select.c-sort').val(null).trigger('change');
+	})
 }
 
 /**
@@ -1504,6 +1530,42 @@ function scrollToSection(){
 }
 
 /**
+ * !Scroll to section
+ * */
+function filterYears(){
+	var $container = $('.date-filters-js'),
+		$filters = $('.date-select-js'),
+		$filter = $('a', $filters),
+		$target = $('.date-list-js'),
+		activeClass = 'active';
+
+	var toggleTargets = function (element) {
+		var $curContainer = element.closest($container);
+
+		$curContainer.find($filter).removeClass(activeClass);
+		element.addClass(activeClass);
+		$curContainer
+			.find($target).hide()
+			.end()
+			.find($target.filter('[data-filter="' + element.attr('data-filter') + '"]')).show()
+			.addClass(activeClass);
+	};
+
+	$.each($filter, function () {
+		var $curFilter = $(this);
+		if ($curFilter.hasClass(activeClass)) {
+			toggleTargets($curFilter);
+		}
+	});
+
+	$filter.on('click', function (e) {
+		var $curFilter = $(this);
+		toggleTargets($curFilter);
+		e.preventDefault();
+	})
+}
+
+/**
  * =========== !ready document, load/resize window ===========
  */
 
@@ -1524,4 +1586,5 @@ $(document).ready(function () {
 	locationsMap();
 	contactsMap();
 	scrollToSection();
+	filterYears();
 });

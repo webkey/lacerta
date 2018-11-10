@@ -1015,7 +1015,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 			.dep
 				color: white
 
-	ul
+	ul#{$not-list}
 		list-style: none
 		margin: 0
 		padding: 0
@@ -1985,7 +1985,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 					+media($sliders-media--mob)
 						display: none
 
-	&.is-open td
+	//&.is-open td
 		box-shadow: inset 0 -1px 0 rgba($table-slide-border-color, 0)
 
 .x-offers__item__select, .x-offers__heads
@@ -2154,25 +2154,25 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 	.btn-def_buy
 		position: absolute
-		right: nth($rolls-angle-size, 2)
-		bottom: 4rem
+		right: 0
+		top: 4.5rem
 		min-width: 185px
 		font-size: 2.6rem
 		text-align: center
 		will-change: transform
 		+font-bold
 		padding-right: 32px
+		margin-right: -#{nth($page-layout-space, 2)}
 
 		+media('<desk-lg')
-			bottom: 2.8rem
-			right: nth($rolls-angle-size--md, 2)
+			top: 7.5rem
+			margin-right: -#{nth($page-layout-space--md, 2)}
 
 		+media($sliders-media--mob)
 			position: relative
-			bottom: auto
+			top: auto
 			right: auto
-			+margin-horizontal(#{nth($page-layout-space--mob, 2)})
-			margin-top: 2rem
+			margin: 0
 
 		+media($btn-media--mob)
 			padding-right: 15px
@@ -2236,6 +2236,14 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 	&:first-child
 		border: none
+
+	&.detail__item-subitem
+		padding-top: 0
+		border-top: none
+		margin-top: -8px
+
+		+media($sliders-media--mob)
+			padding-top: 20px
 
 .detail__item__label
 	float: left
@@ -2325,6 +2333,13 @@ input, button, [class|="btn"], [class*=" btn-"],
 	+media($sliders-media--mob)
 		width: 100%
 
+.detail__item__box_rowspan
+	width: 54%
+
+	+media($sliders-media--mob)
+		width: 100%
+		padding-right: 0
+
 .detail__item__title
 	+font(1.6rem, round-float(24/16, 2))
 	color: rgba($text-color, 0.4)
@@ -2369,6 +2384,84 @@ input, button, [class|="btn"], [class*=" btn-"],
 			background: none
 			border-color: $highlight-color
 			color: $highlight-color
+
+.date-select
+	margin: 0 0 $bottom-space
+
+	.detail__item__desc &
+		margin-left: -13px
+		padding-top: 4px
+
+		+media($sliders-media--mob)
+			margin-left: -10px
+
+	&:last-child
+		margin-bottom: 0
+
+	& > a
+		display: block
+		margin-bottom: 2px
+		padding: 10px 10px 6px
+		width: 151px
+		max-width: 100%
+		+font-bold
+		font-size: $font-size
+		line-height: 2.6rem
+		text-align: center
+		color: currentColor
+		text-decoration: none
+		border: 1px solid transparent
+		border-radius: 2.2rem
+		// transition
+		$prop: color, border-color, opacity
+		will-change: $prop
+		transition:
+			property: $prop
+			duration: $animation-speed
+			timing-function: ease-in-out
+
+		+media($sliders-media--mob)
+			font-size: 1.6rem
+			line-height: 1.9rem
+			width: 100px
+			padding: 6px 8px
+
+		&:not(.active):hover
+			color: $highlight-color
+
+		&.active
+			+font-normal
+			border-color: currentColor
+			opacity: 0.5
+			cursor: default
+
+.date-list
+	$space-h: 1rem
+
+	display: none
+	list-style: none
+	padding: 0
+	margin: -9px 0 $bottom-space
+	+clear
+
+	+media($sliders-media--mob)
+		margin: 0 0 $bottom-space--mob
+
+	&:last-child
+		margin-bottom: 0
+
+	li
+		float: left
+		width: 33.33%
+		min-width: 120px
+		padding-right: $space-h
+		margin: 22px 0 0
+
+		+media($sliders-media--mob)
+			margin-top: 12px
+
+	&.active
+		display: block
 
 /* extended offers end
 
@@ -3662,7 +3755,7 @@ a.news-heading
 	vertical-align: top
 	width: 100%
 
-	& > ul
+	& > ul#{$not-list}
 		list-style: none
 		padding: 0
 		margin: -5px 0 0
