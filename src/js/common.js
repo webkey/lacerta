@@ -384,7 +384,11 @@ function slidersInit() {
 				// autoplaySpeed: 8000,
 				infinite: false,
 				dots: true,
-				arrows: false
+				arrows: false,
+				accessibility: false,
+				draggable: false,
+				swipe: false
+				// verticalSwiping: true
 			});
 		});
 	}
