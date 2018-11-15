@@ -1575,9 +1575,7 @@ function scrollToSection(){
  * Filter Offers
  * */
 function filterOffers() {
-	$('.filter-offers-select-js').on('change', function () {
-		console.log(1);
-
+	$('.filter-offers-select-js').on('change', 'select', function () {
 		var $this = $(this),
 			name = $this.attr('name'),
 			classNoItem = 'filter-offers-no-items';
@@ -1604,6 +1602,8 @@ function filterOffers() {
 
 		if (dataFilters) {
 
+			console.log("dataFilters: ", dataFilters);
+
 			$filterItem.hide(0);
 			$filterItem.filter(dataFilters).show(0);
 
@@ -1622,7 +1622,7 @@ function filterOffers() {
 
 			if (thisProp == 0) continue;
 
-			arr.push('[data-property-' + thisKey + '*="' + thisProp + '"]');
+			arr.push('[data-prop-' + thisKey + '="' + thisProp + '"]');
 		}
 
 		return arr.join('');

@@ -142,14 +142,14 @@
 				<section class="section">
 					<h3>Доступные для покупки облигации</h3>
 					<div class="x-offers x-offers_detail">
-						<div class="x-offers__heads">
+						<div class="x-offers__heads filter-offers-select-js">
 							<table>
 								<thead>
 									<tr>
 										<td class="td">Выпуск</td>
 										<td class="td">
 											<div class="c-sort-wrap">
-												<select class="c-sort field-js filter-offers-select-js" name="currency" data-placeholder="Валюта">
+												<select class="c-sort field-js" name="currency" data-placeholder="Валюта">
 									<option value=''>Валюта</option>
 									<option value='usd'>USD</option>
 									<option value='eur'>EUR</option>
@@ -160,7 +160,7 @@
 										</td>
 										<td class="td">
 											<div class="c-sort-wrap">
-												<select class="c-sort field-js filter-offers-select-js" name="rate" data-placeholder="Ставка" style="width: 180px">
+												<select class="c-sort field-js" name="rate" data-placeholder="Ставка" style="width: 180px">
 									<option value=''>Ставка</option>
 									<option value='0.5'>0.5 - 2.49%</option>
 									<option value='2.5'>2.5% - 5.49%</option>
@@ -177,7 +177,7 @@
 										</td>
 										<td class="td">
 											<div class="c-sort-wrap">
-												<select class="c-sort field-js filter-offers-select-js" name="nominal" data-placeholder="Номинал" style="width: 200px">
+												<select class="c-sort field-js" name="nominal" data-placeholder="Номинал" style="width: 200px">
 									<option value=''>Номинал</option>
 									<option value='1'>0 - 100</option>
 									<option value='100'>100 - 100 000</option>
@@ -189,7 +189,7 @@
 										<td class="td">Погашение</td>
 										<td class="td">
 											<div class="c-sort-wrap">
-												<select class="c-sort field-js filter-offers-select-js" name="term" data-placeholder="Срок" style="width: 160px">
+												<select class="c-sort field-js" name="term" data-placeholder="Срок" style="width: 160px">
 									<option value=''>Срок</option>
 									<option value='0.5'>6 месяцев</option>
 									<option value='1'>1 год</option>
@@ -205,7 +205,7 @@
 							</table>
 						</div>
 						<div class="x-offers__list x-offers-slider-js offers-rolls-js">
-							<div class="x-offers__item offers-rolls__item-js filter-offers-item-js">
+							<div class="x-offers__item offers-rolls__item-js filter-offers-item-js" data-prop-currency="USDProp" data-prop-rate="8%Prop" data-prop-nominal="100Prop" data-prop-term="2 годаProp">
 								<div class="x-offers__item__select offers-rolls__header-js">
 									<table>
 										<tbody>
@@ -217,19 +217,19 @@
 														</div>
 													</div>
 												</td>
-												<td data-label="Валюта" data-property-currency="USDProp">
+												<td data-label="Валюта">
 													<div class="t-val">USD</div>
 												</td>
-												<td data-label="Ставка" data-property-rate="8%Prop">
+												<td data-label="Ставка">
 													<div class="t-val">8%</div>
 												</td>
-												<td data-label="Номинал" data-property-nominal="100Prop">
+												<td data-label="Номинал">
 													<div class="t-val">100</div>
 												</td>
 												<td data-label="Начало эмиссии">
 													<div class="t-val">23.05.18</div>
 												</td>
-												<td data-label="Срок" data-property-term="2 годаProp">
+												<td data-label="Срок">
 													<div class="t-val">2 года</div>
 												</td>
 												<td data-label="Объем выпуска">
@@ -338,14 +338,14 @@
 				<section class="section">
 					<h3>Завершенные эмиссии</h3>
 					<div class="x-offers x-offers_detail filter-offers-container-js">
-						<div class="x-offers__heads">
+						<div class="x-offers__heads filter-offers-select-js">
 							<table>
 								<thead>
 									<tr>
 										<td class="td">Выпуск</td>
 										<td class="td">
 											<div class="c-sort-wrap">
-												<select class="c-sort field-js filter-offers-select-js" name="currency" data-placeholder="Валюта">
+												<select class="c-sort field-js" name="currency" data-placeholder="Валюта">
 									<option value=''>Валюта</option>
 									<option value='usd'>USD</option>
 									<option value='eur'>EUR</option>
@@ -356,7 +356,7 @@
 										</td>
 										<td class="td">
 											<div class="c-sort-wrap">
-												<select class="c-sort field-js filter-offers-select-js" name="rate" data-placeholder="Ставка" style="width: 180px">
+												<select class="c-sort field-js" name="rate" data-placeholder="Ставка" style="width: 180px">
 									<option value=''>Ставка</option>
 									<option value='0.5'>0.5 - 2.49%</option>
 									<option value='2.5'>2.5% - 5.49%</option>
@@ -373,7 +373,7 @@
 										</td>
 										<td class="td">
 											<div class="c-sort-wrap">
-												<select class="c-sort field-js filter-offers-select-js" name="nominal" data-placeholder="Номинал" style="width: 200px">
+												<select class="c-sort field-js" name="nominal" data-placeholder="Номинал" style="width: 200px">
 									<option value=''>Номинал</option>
 									<option value='1'>0 - 100</option>
 									<option value='100'>100 - 100 000</option>
@@ -385,7 +385,7 @@
 										<td class="td">Погашение</td>
 										<td class="td">
 											<div class="c-sort-wrap">
-												<select class="c-sort field-js filter-offers-select-js" name="term" data-placeholder="Срок" style="width: 160px">
+												<select class="c-sort field-js" name="term" data-placeholder="Срок" style="width: 160px">
 									<option value=''>Срок</option>
 									<option value='0.5'>6 месяцев</option>
 									<option value='1.0'>1 год</option>
@@ -401,7 +401,7 @@
 							</table>
 						</div>
 						<div class="x-offers__list x-offers-slider-js offers-rolls-js">
-							<div class="x-offers__item offers-rolls__item-js filter-offers-item-js">
+							<div class="x-offers__item offers-rolls__item-js filter-offers-item-js" data-prop-currency="BYN" data-prop-rate="10" data-prop-nominal="100" data-prop-term="1">
 								<div class="x-offers__item__select offers-rolls__header-js">
 									<table>
 										<tbody>
@@ -413,19 +413,19 @@
 														</div>
 													</div>
 												</td>
-												<td data-label="Валюта" data-property-currency="BYN">
+												<td data-label="Валюта">
 													<div class="t-val">BYN</div>
 												</td>
-												<td data-label="Ставка" data-property-rate="10">
+												<td data-label="Ставка">
 													<div class="t-val">12%</div>
 												</td>
-												<td data-label="Номинал" data-property-nominal="100">
+												<td data-label="Номинал">
 													<div class="t-val">150</div>
 												</td>
 												<td data-label="Начало эмиссии">
 													<div class="t-val">23.05.18</div>
 												</td>
-												<td data-label="Срок" data-property-term="1">
+												<td data-label="Срок">
 													<div class="t-val">1 год</div>
 												</td>
 												<td data-label="Объем выпуска">
@@ -528,7 +528,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="x-offers__item offers-rolls__item-js filter-offers-item-js">
+							<div class="x-offers__item offers-rolls__item-js filter-offers-item-js" data-prop-currency="USD" data-prop-rate="5.5" data-prop-nominal="100000" data-prop-term="2">
 								<div class="x-offers__item__select offers-rolls__header-js">
 									<table>
 										<tbody>
@@ -540,19 +540,19 @@
 														</div>
 													</div>
 												</td>
-												<td data-label="Валюта" data-property-currency="USD">
+												<td data-label="Валюта">
 													<div class="t-val">USD</div>
 												</td>
-												<td data-label="Ставка" data-property-rate="5.5">
+												<td data-label="Ставка">
 													<div class="t-val">8%</div>
 												</td>
-												<td data-label="Номинал" data-property-nominal="100000">
+												<td data-label="Номинал">
 													<div class="t-val">150 000</div>
 												</td>
 												<td data-label="Начало эмиссии">
 													<div class="t-val">23.10.18</div>
 												</td>
-												<td data-label="Срок" data-property-term="2">
+												<td data-label="Срок">
 													<div class="t-val">2 года</div>
 												</td>
 												<td data-label="Объем выпуска">
@@ -655,7 +655,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="x-offers__item offers-rolls__item-js filter-offers-item-js">
+							<div class="x-offers__item offers-rolls__item-js filter-offers-item-js" data-prop-currency="USD" data-prop-rate="15.5" data-prop-nominal="200 000" data-prop-term="2">
 								<div class="x-offers__item__select offers-rolls__header-js">
 									<table>
 										<tbody>
@@ -667,19 +667,19 @@
 														</div>
 													</div>
 												</td>
-												<td data-label="Валюта" data-property-currency="USD">
+												<td data-label="Валюта">
 													<div class="t-val">USD</div>
 												</td>
-												<td data-label="Ставка" data-property-rate="15.5">
+												<td data-label="Ставка">
 													<div class="t-val">17%</div>
 												</td>
-												<td data-label="Номинал" data-property-nominal="200 000">
+												<td data-label="Номинал">
 													<div class="t-val">290 000</div>
 												</td>
 												<td data-label="Начало эмиссии">
 													<div class="t-val">23.10.18</div>
 												</td>
-												<td data-label="Срок" data-property-term="2">
+												<td data-label="Срок">
 													<div class="t-val">2 года</div>
 												</td>
 												<td data-label="Объем выпуска">
