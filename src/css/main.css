@@ -3235,7 +3235,7 @@ label.error {
 	top: 0;
 	height: 30px;
 	width: 26px;
-	margin: 1px 0 0 -27px;
+	margin: 0 0 0 -27px;
 	cursor: pointer;
 	z-index: 10;
 }

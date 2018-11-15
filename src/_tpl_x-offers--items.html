@@ -1,4 +1,4 @@
-<div class="x-offers__item offers-rolls__item-js">
+<div class="x-offers__item offers-rolls__item-js filter-offers-item-js">
 	<div class="x-offers__item__select offers-rolls__header-js">
 		<table>
 			<tbody>
@@ -13,11 +13,11 @@
 
 						@@if(context.src && context.data.name){</a>}@@if(!context.src && !context.data.name){</div>}
 					</td>
-					@@if(context.data.currency){<td data-label="@@heads.currency"><div class="t-val">@@data.currency</div></td>}
-					@@if(context.data.rate){<td data-label="@@heads.rate"><div class="t-val">@@data.rate</div></td>}
-					@@if(context.data.nominal){<td data-label="@@heads.nominal"><div class="t-val">@@data.nominal</div></td>}
+					@@if(context.data.currency){<td data-label="@@heads.currency" data-property-currency="@@data.currencyProp"><div class="t-val">@@data.currency</div></td>}
+					@@if(context.data.rate){<td data-label="@@heads.rate" data-property-rate="@@data.rateProp"><div class="t-val">@@data.rate</div></td>}
+					@@if(context.data.nominal){<td data-label="@@heads.nominal" data-property-nominal="@@data.nominalProp"><div class="t-val">@@data.nominal</div></td>}
 					@@if(context.data.begin){<td data-label="@@heads.begin"><div class="t-val">@@data.begin</div></td>}
-					@@if(context.data.term){<td data-label="@@heads.term"><div class="t-val">@@data.term</div></td>}
+					@@if(context.data.term){<td data-label="@@heads.term" data-property-term="@@data.termProp"><div class="t-val">@@data.term</div></td>}
 					@@if(context.data.pay){<td class="full-width--mob" data-label="@@heads.pay"><div class="t-val">@@data.pay</div></td>}
 					@@if(context.data.size){<td data-label="@@heads.size"><div class="t-val">@@data.size</div></td>}
 				</tr>

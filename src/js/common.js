@@ -207,7 +207,19 @@ function customSelect() {
 	});
 
 	// sort
-	var $container = $('.c-sort-wrap');
+	var $container = $('.c-sort-wrap'),
+		btnResetClass = 'c-sort-reset';
+
+	var btnResetSetPosition = function ($btn, leftPosition) {
+		$btn.css({
+			left: leftPosition
+		});
+	};
+
+	var changeSizeSelectField = function ($selectField, width) {
+		$selectField.css('max-width', width)
+	};
+
 	$.each($('select.c-sort'), function () {
 		var $curSelect = $(this);
 		$curSelect.select2({
@@ -217,20 +229,46 @@ function customSelect() {
 			containerCssClass: 'c-sort-head',
 			dropdownCssClass: 'c-sort-drop',
 			minimumResultsForSearch: Infinity
-		}).closest($container).append($('<div class="c-sort-reset"><i>x</i></div>'));
+		}).closest($container).append($('<div class="' + btnResetClass + '"><i>x</i></div>'));
 
-		var $curContainer = $curSelect.closest($container);
-		var $arrow = $curContainer.find('.select2-selection__arrow');
-		var btnResetPosition = function () {
-			$('.c-sort-reset', $curContainer).css({
-				left: $arrow.position().left
-			});
-		};
-		btnResetPosition();
+		var $curContainer = $curSelect.closest($container),
+			$selectField = $('.select2-selection__rendered', $curContainer),
+			$arrow = $('.select2-selection__arrow', $curContainer),
+			$btn = $('.' + btnResetClass, $curContainer);
+
+		btnResetSetPosition($btn, $arrow.position().left);
+		changeSizeSelectField($selectField, $curContainer.parent().width());
 
 		$curSelect.on('change', function () {
-			btnResetPosition();
+			btnResetSetPosition($btn, $arrow.position().left);
 		})
+	});
+
+	// Пересчет размера селекта фильтра и позицию кнопки очиски фильтра при ресайзе
+	$(window).on('resizeByWidth', function () {
+		// Пересчет размера селекта
+		var $selectField = $('.select2-selection__rendered');
+
+		if ($selectField.length){
+			$.each($selectField, function () {
+				var $curSelectField = $(this),
+					width = $curSelectField.closest($container).parent().width();
+
+				changeSizeSelectField($curSelectField, width);
+			})
+		}
+
+		// Пересчет позицию кнопки очиски фильтра
+		var $btn = $('.' + btnResetClass);
+
+		if ($btn.length){
+			$.each($btn, function () {
+				var $curBtn = $(this),
+					$arrow = $curBtn.closest($container).find('.select2-selection__arrow');
+
+				btnResetSetPosition($curBtn, $arrow.position().left);
+			})
+		}
 	});
 
 	$container.on('click', '.c-sort-reset', function () {
@@ -1534,7 +1572,65 @@ function scrollToSection(){
 }
 
 /**
- * !Scroll to section
+ * Filter Offers
+ * */
+function filterOffers() {
+	$('.filter-offers-select-js').on('change', function () {
+		console.log(1);
+
+		var $this = $(this),
+			name = $this.attr('name'),
+			classNoItem = 'filter-offers-no-items';
+
+		var tags = {};
+
+		$this.closest('.filter-offers-select-js').find('select').each(function () {
+			tags [$(this).attr('name')] = $(this).val();
+		});
+
+		tags [name] = $this.val();
+
+		var $filterItem = $this.closest('.filter-offers-container-js').find('.filter-offers-item-js');
+
+		var $noItemTemplate = $('<div />', {
+			class: classNoItem,
+			text: 'Извините, подходящих вариантов не найдено'
+		});
+
+		var dataFilters = concatObject(tags);
+
+		$filterItem.parent().find('.'+ classNoItem).remove();
+		$filterItem.show(0);
+
+		if (dataFilters) {
+
+			$filterItem.hide(0);
+			$filterItem.filter(dataFilters).show(0);
+
+			if (!$filterItem.is(':visible')) {
+				$filterItem.parent().append($noItemTemplate.clone());
+			}
+		}
+	});
+
+	function concatObject(obj) {
+		var arr = [];
+
+		for ( var prop in obj ) {
+			var thisKey = prop,
+				thisProp = obj[ thisKey ];
+
+			if (thisProp == 0) continue;
+
+			arr.push('[data-property-' + thisKey + '*="' + thisProp + '"]');
+		}
+
+		return arr.join('');
+	}
+}
+
+/**
+ * !Filter Years
  * */
 function filterYears(){
 	var $container = $('.date-filters-js'),
@@ -1590,5 +1686,6 @@ $(document).ready(function () {
 	locationsMap();
 	contactsMap();
 	scrollToSection();
+	filterOffers();
 	filterYears();
 });

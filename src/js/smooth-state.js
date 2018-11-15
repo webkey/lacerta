@@ -78,6 +78,7 @@ $(function () {
 					locationsMap();
 					contactsMap();
 					scrollToSection();
+					filterOffers();
 					filterYears();
 				}
 			}
