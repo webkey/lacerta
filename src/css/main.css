@@ -3134,6 +3134,7 @@ label.error {
 	margin: 0;
 	font-size: 16px;
 	line-height: 1;
+	min-width: 100%;
 }
 
 .c-sort ~ .select2::before {
@@ -3185,6 +3186,11 @@ label.error {
 	height: 30px;
 	margin-left: -27px;
 	visibility: visible;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
 }
 
 .c-sort ~ .select2-container--default .select2-selection--single .select2-selection__arrow b {
@@ -4436,7 +4442,7 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	margin-bottom: 4rem;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 639px) {
 	.buy {
 		margin-bottom: 2rem;
 		text-align: left;
@@ -4447,7 +4453,7 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	margin-top: -10rem;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 639px) {
 	.breadcrumbs + .buy {
 		margin-top: -2rem;
 	}
@@ -5666,7 +5672,7 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	}
 	.slick-initialized .offers__item {
 		float: left;
-		display: block;
+		display: block !important;
 	}
 }
 
@@ -5960,6 +5966,13 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	width: 23.7%;
 }
 
+@media (max-width: 1279px) {
+	.x-offers_detail .x-offers__heads td:first-child, .x-offers_detail .x-offers__item td:first-child {
+		min-width: 18%;
+		width: 18%;
+	}
+}
+
 @media (max-width: 991px) {
 	.x-offers__heads {
 		display: none;
@@ -6006,7 +6019,7 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	}
 	.slick-initialized .x-offers__item {
 		float: left;
-		display: block;
+		display: block !important;
 	}
 }
 
@@ -6147,6 +6160,12 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	margin-right: 8rem;
 }
 
+@media (max-width: 1279px) {
+	.x-offers_detail .x-offers__item td.x-offers__item__caption .t-val {
+		margin-right: 3rem;
+	}
+}
+
 @media (max-width: 991px) {
 	.x-offers_detail .x-offers__item td.x-offers__item__caption .t-val {
 		margin-right: 0;
@@ -6166,6 +6185,12 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 	.x-offers__item td.x-offers__item__caption .t-val {
 		margin-right: 3rem;
 		padding: 3rem 3rem;
+	}
+}
+
+@media (max-width: 1279px) {
+	.x-offers__item td.x-offers__item__caption .t-val {
+		padding: 2rem 2rem;
 	}
 }
 
@@ -6818,6 +6843,32 @@ input:focus, button:focus, [class|="btn"]:focus, [class*=" btn-"]:focus,
 
 .date-list.active {
 	display: block;
+}
+
+.filter-offers-no-items {
+	display: none;
+	color: #f25984;
+	background-color: #2b2b8b;
+	padding: 4rem 4rem;
+	border-radius: 30px;
+	font-weight: 500;
+}
+
+.filter-offers-no-items.active {
+	display: block;
+}
+
+@media (max-width: 991px) {
+	.filter-offers-no-items {
+		display: none;
+		padding: 3rem 3rem;
+	}
+}
+
+@media (max-width: 639px) {
+	.filter-offers-no-items {
+		padding: 2rem 2rem;
+	}
 }
 
 /* extended offers end */
@@ -11203,7 +11254,7 @@ a.nav-opener.nav-is-open > i::after {
 	}
 }
 
-@media (max-width: 991px) {
+@media (max-width: 639px) {
 	.heading figure {
 		width: 20rem;
 		padding: 2rem 2rem;

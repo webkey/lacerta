@@ -647,14 +647,14 @@ input, button, [class|="btn"], [class*=" btn-"],
 	text-align: center
 	margin-bottom: 4rem
 
-	+media('<tab-lg')
+	+media('<mob-lg')
 		margin-bottom: 2rem
 		text-align: left
 
 	.breadcrumbs + &
 		margin-top: -10rem
 
-		+media('<tab-lg')
+		+media('<mob-lg')
 			margin-top: -2rem
 
 /* buy btn end
@@ -1559,7 +1559,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 		.slick-initialized &
 			// after slide load
 			float: left
-			display: block
+			display: block !important
 
 	.td
 		+font(2.2rem, 3.0rem)
@@ -1801,6 +1801,11 @@ input, button, [class|="btn"], [class*=" btn-"],
 				min-width: $width
 				width: $width
 
+				+media('<desk-sm')
+					$width: 18%
+					min-width: $width
+					width: $width
+
 .x-offers__heads
 	&
 		+media($sliders-media--mob)
@@ -1844,7 +1849,7 @@ input, button, [class|="btn"], [class*=" btn-"],
 		.slick-initialized &
 			// after slide load
 			float: left
-			display: block
+			display: block !important
 
 	//&:first-child, &.slick-cloned + &
 		border: none
@@ -1953,6 +1958,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 					min-height: 16.1rem
 					margin-right: 8rem
 
+					+media('<desk-sm')
+						margin-right: 3rem
+
 					+media($sliders-media--mob)
 						margin-right: 0
 						min-height: 0
@@ -1964,6 +1972,9 @@ input, button, [class|="btn"], [class*=" btn-"],
 				+media('<desk-lg')
 					margin-right: nth($grid-space--md, 2)
 					padding: $grid-space--md
+
+				+media('<desk-sm')
+					padding: $grid-space--mob
 
 				+media($sliders-media--mob)
 					display: block
@@ -2462,6 +2473,25 @@ input, button, [class|="btn"], [class*=" btn-"],
 
 	&.active
 		display: block
+
+
+.filter-offers-no-items
+	display: none
+	color: $form-error-color
+	background-color: $base-color-alt
+	padding: $grid-space
+	border-radius: round($form-input-height/2)
+	+font-medium
+
+	&.active
+		display: block
+
+	+media('<tab-lg')
+		display: none
+		padding: $grid-space--md
+
+	+media('<mob-lg')
+		padding: $grid-space--mob
 
 /* extended offers end
 

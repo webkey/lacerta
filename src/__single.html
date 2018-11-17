@@ -24,8 +24,8 @@
 
 <section class="section">
 	<h3>Доступные для покупки облигации</h3>
-	<div class="x-offers x-offers_detail">
-		<div class="x-offers__heads filter-offers-select-js">
+	<div class="x-offers x-offers_detail filter-offers-container-js">
+		<div class="x-offers__heads filter-offers-selects-js">
 			<table>
 				<thead>
 					<tr>
@@ -50,11 +50,6 @@
 									<option value='5.5'>5.5% - 10.49%</option>
 									<option value='10.5'>10.5% - 15.49%</option>
 									<option value='15.5'>15.5% - 20.49%</option>
-									<option value='25.5'>25.5% - 30.49%</option>
-									<option value='30.5'>30.5% - 35.49%</option>
-									<option value='35.5'>35.5% - 40.49%</option>
-									<option value='40.5'>40.5% - 45.49%</option>
-									<option value='45.5'>45.5% - 50.49%</option>
 								</select>
 							</div>
 						</td>
@@ -90,13 +85,14 @@
 		<div class="x-offers__list x-offers-slider-js offers-rolls-js">
 			@@loop("_tpl_x-offers--items.html", "includes/json/x-offers--items--single-available.json")
 		</div>
+		<div class="filter-offers-no-items">Извините, подходящих вариантов не найдено</div>
 	</div>
 </section>
 
 <section class="section">
 	<h3>Завершенные эмиссии</h3>
 	<div class="x-offers x-offers_detail filter-offers-container-js">
-		<div class="x-offers__heads filter-offers-select-js">
+		<div class="x-offers__heads filter-offers-selects-js">
 			<table>
 				<thead>
 					<tr>
@@ -121,11 +117,6 @@
 									<option value='5.5'>5.5% - 10.49%</option>
 									<option value='10.5' selected>10.5% - 15.49%</option>
 									<option value='15.5'>15.5% - 20.49%</option>
-									<option value='25.5'>25.5% - 30.49%</option>
-									<option value='30.5'>30.5% - 35.49%</option>
-									<option value='35.5'>35.5% - 40.49%</option>
-									<option value='40.5'>40.5% - 45.49%</option>
-									<option value='45.5'>45.5% - 50.49%</option>
 								</select>
 							</div>
 						</td>
@@ -146,10 +137,10 @@
 								<select class="c-sort field-js" name="term" data-placeholder="Срок" style="width: 160px">
 									<option value=''>Срок</option>
 									<option value='0.5'>6 месяцев</option>
-									<option value='1.0'>1 год</option>
+									<option value='1'>1 год</option>
 									<option value='1.5'>1.5 года</option>
-									<option value='2.0'>2 года</option>
-									<option value='5.0'>5 лет</option>
+									<option value='2'>2 года</option>
+									<option value='5'>5 лет</option>
 								</select>
 							</div>
 						</td>
@@ -161,9 +152,9 @@
 		<div class="x-offers__list x-offers-slider-js offers-rolls-js">
 			@@loop("_tpl_x-offers--items.html", "includes/json/x-offers--items--single-complete.json")
 		</div>
+		<div class="filter-offers-no-items">Извините, подходящих вариантов не найдено</div>
 	</div>
 </section>
-
 <section class="section section_user-form" id="order-call">
 	<div class="section__holder">
 		<h3 class="hide">Закажите звонок</h3>

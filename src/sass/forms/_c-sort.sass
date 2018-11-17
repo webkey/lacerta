@@ -27,6 +27,7 @@ $c-sort-btn: 26px
 		margin: 0
 		font-size: 16px
 		line-height: 1
+		min-width: 100%
 
 		&::before
 			background-color: $highlight-color
@@ -80,6 +81,8 @@ $c-sort-btn: 26px
 				height: $c-sort-height
 				margin-left: -#{$c-sort-btn + 1}
 				visibility: visible
+				-webkit-tap-highlight-color: transparent
+				user-select: none
 
 				b
 					$size: 22px

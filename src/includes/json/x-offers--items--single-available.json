@@ -14,12 +14,132 @@
 	},
 	"data": {
 	  "name": "",
-	  "release": "З выпуск",
-	  "currency": "USD",
-	  "rate": "8%",
-	  "nominal": "100",
+	  "release": "2 выпуск",
+	  "currency": "BYN",
+	  "currencyProp": "byn",
+	  "rate": "12%",
+	  "rateProp": "10.5",
+	  "nominal": "150",
+	  "nominalProp": "100",
+	  "begin": "23.05.18",
+	  "term": "1 год",
+	  "termProp": "1",
+	  "pay": "",
+	  "size": "450 000 USD"
+	}
+  },
+  {
+	"src": "",
+	"heads": {
+	  "name": "Компания",
+	  "release": "Выпуск",
+	  "currency": "Валюта",
+	  "rate": "Ставка",
+	  "nominal": "Номинал",
+	  "begin": "Начало эмиссии",
+	  "term": "Срок",
+	  "pay": "",
+	  "size": "Объем выпуска"
+	},
+	"data": {
+	  "name": "",
+	  "release": "7 выпуск",
+	  "currency": "EUR",
+	  "currencyProp": "eur",
+	  "rate": "1.5%",
+	  "rateProp": "0.5",
+	  "nominal": "78 000",
+	  "nominalProp": "1",
+	  "begin": "23.05.18",
+	  "term": "6 месяцев",
+	  "termProp": "0.5",
+	  "pay": "",
+	  "size": "450 000 USD"
+	}
+  },
+  {
+	"src": "",
+	"heads": {
+	  "name": "Компания",
+	  "release": "Выпуск",
+	  "currency": "Валюта",
+	  "rate": "Ставка",
+	  "nominal": "Номинал",
+	  "begin": "Начало эмиссии",
+	  "term": "Срок",
+	  "pay": "",
+	  "size": "Объем выпуска"
+	},
+	"data": {
+	  "name": "",
+	  "release": "5 выпуск",
+	  "currency": "RUB",
+	  "currencyProp": "rub",
+	  "rate": "17.5%",
+	  "rateProp": "15.5",
+	  "nominal": "180 000",
+	  "nominalProp": "100",
 	  "begin": "23.05.18",
 	  "term": "2 года",
+	  "termProp": "2",
+	  "pay": "",
+	  "size": "450 000 USD"
+	}
+  },
+  {
+	"src": "",
+	"heads": {
+	  "name": "Компания",
+	  "release": "Выпуск",
+	  "currency": "Валюта",
+	  "rate": "Ставка",
+	  "nominal": "Номинал",
+	  "begin": "Начало эмиссии",
+	  "term": "Срок",
+	  "pay": "",
+	  "size": "Объем выпуска"
+	},
+	"data": {
+	  "name": "",
+	  "release": "5 выпуск",
+	  "currency": "USD",
+	  "currencyProp": "usd",
+	  "rate": "8%",
+	  "rateProp": "5.5",
+	  "nominal": "150 000",
+	  "nominalProp": "100000",
+	  "begin": "23.10.18",
+	  "term": "2 года",
+	  "termProp": "2",
+	  "pay": "",
+	  "size": "300 000 USD"
+	}
+  },
+  {
+	"src": "",
+	"heads": {
+	  "name": "Компания",
+	  "release": "Выпуск",
+	  "currency": "Валюта",
+	  "rate": "Ставка",
+	  "nominal": "Номинал",
+	  "begin": "Начало эмиссии",
+	  "term": "Срок",
+	  "pay": "",
+	  "size": "Объем выпуска"
+	},
+	"data": {
+	  "name": "",
+	  "release": "5 выпуск",
+	  "currency": "USD",
+	  "currencyProp": "usd",
+	  "rate": "17%",
+	  "rateProp": "15.5",
+	  "nominal": "290 000",
+	  "nominalProp": "200000",
+	  "begin": "23.10.18",
+	  "term": "1.5 года",
+	  "termProp": "1.5",
 	  "pay": "",
 	  "size": "300 000 USD"
 	}
