@@ -571,10 +571,51 @@ blockquote
 	position: relative
 	max-width: 52rem
 	margin: 4.7rem auto 4.9rem
-	padding: 0
+	padding: 9.4rem 0
 
 	+media('<mob-lg')
 		margin: 2rem auto 3rem
+		padding: 4.5rem 0
+
+	&::before, &::after
+		$sep-size: 47px 41px
+		$sep-size--mob: 26px 23px
+
+		content: ""
+		display: block
+		position: absolute
+		left: 50%
+		height: nth($sep-size, 1)
+		width: nth($sep-size, 2)
+		margin: 0 -#{round(nth($sep-size, 2) / 2)}
+		background-image: url(../../img/quote.png)
+		background-repeat: no-repeat
+		background-position: center
+		background-size: contain
+
+		+media('<mob-lg')
+			height: nth($sep-size--mob, 1)
+			width: nth($sep-size--mob, 2)
+			margin: 0 -#{round(nth($sep-size--mob, 2) / 2)}
+			background-image: url(../../img/quote-sm.png)
+
+	&::before
+		top: 0
+
+	&::after
+		bottom: 0
+
+	q, p
+		display: block
+		position: relative
+		margin: 0
+		font-family: inherit
+		+font-medium
+		+font(3.0rem, 3.6rem)
+		color: $text-color
+
+		+media('<mob-lg')
+			+font(2.0rem, 2.6rem)
 
 	p
 		margin-bottom: 3.6rem
@@ -582,21 +623,7 @@ blockquote
 		+media('<mob-lg')
 			margin-bottom: 2.5rem
 
-	q, & > p, & > div
-		display: block
-		position: relative
-		margin: 0
-		padding: 9.4rem 0
-		font-family: inherit
-		+font-medium
-		+font(3.0rem, 3.6rem)
-		color: $text-color
-
-		+media('<mob-lg')
-			padding: 4.5rem 0
-			+font(2.0rem, 2.6rem)
-
-	&, & q, & > p, & > div
+	//&, & q, & > p, & > div
 		&::before, &::after
 			content: ""
 			display: block
@@ -619,7 +646,7 @@ blockquote
 		&::after
 			bottom: 0
 
-	q, & > p, & > div
+	//q, & > p, & > div
 		&::before, &::after
 			margin-top: 3rem
 			margin-bottom: 3rem
@@ -629,9 +656,6 @@ blockquote
 				margin-bottom: 1.8rem
 
 	cite
-		//position: absolute
-		//bottom: 5rem
-		//left: 0
 		text-align: left
 		display: block
 		margin: 0 0 3px

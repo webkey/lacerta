@@ -1086,12 +1086,62 @@ blockquote {
 	position: relative;
 	max-width: 52rem;
 	margin: 4.7rem auto 4.9rem;
-	padding: 0;
+	padding: 9.4rem 0;
 }
 
 @media (max-width: 639px) {
 	blockquote {
 		margin: 2rem auto 3rem;
+		padding: 4.5rem 0;
+	}
+}
+
+blockquote::before, blockquote::after {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 50%;
+	height: 47px;
+	width: 41px;
+	margin: 0 -21px;
+	background-image: url(../img/quote.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+@media (max-width: 639px) {
+	blockquote::before, blockquote::after {
+		height: 26px;
+		width: 23px;
+		margin: 0 -12px;
+		background-image: url(../img/quote-sm.png);
+	}
+}
+
+blockquote::before {
+	top: 0;
+}
+
+blockquote::after {
+	bottom: 0;
+}
+
+blockquote q, blockquote p {
+	display: block;
+	position: relative;
+	margin: 0;
+	font-family: inherit;
+	font-weight: 500;
+	font-size: 3rem;
+	line-height: 3.6rem;
+	color: white;
+}
+
+@media (max-width: 639px) {
+	blockquote q, blockquote p {
+		font-size: 2rem;
+		line-height: 2.6rem;
 	}
 }
 
@@ -1102,67 +1152,6 @@ blockquote p {
 @media (max-width: 639px) {
 	blockquote p {
 		margin-bottom: 2.5rem;
-	}
-}
-
-blockquote q, blockquote > p, blockquote > div {
-	display: block;
-	position: relative;
-	margin: 0;
-	padding: 9.4rem 0;
-	font-family: inherit;
-	font-weight: 500;
-	font-size: 3rem;
-	line-height: 3.6rem;
-	color: white;
-}
-
-@media (max-width: 639px) {
-	blockquote q, blockquote > p, blockquote > div {
-		padding: 4.5rem 0;
-		font-size: 2rem;
-		line-height: 2.6rem;
-	}
-}
-
-blockquote::before, blockquote::after, blockquote q::before, blockquote q::after, blockquote > p::before, blockquote > p::after, blockquote > div::before, blockquote > div::after {
-	content: "";
-	display: block;
-	position: absolute;
-	left: 50%;
-	height: 5px;
-	width: 44px;
-	margin: 1.4rem -22px;
-	background-color: #6bdbbc;
-	-ms-transform: rotate(-36deg);
-	    transform: rotate(-36deg);
-}
-
-@media (max-width: 639px) {
-	blockquote::before, blockquote::after, blockquote q::before, blockquote q::after, blockquote > p::before, blockquote > p::after, blockquote > div::before, blockquote > div::after {
-		height: 3px;
-		width: 24px;
-		margin: 0.7rem -12px;
-	}
-}
-
-blockquote::before, blockquote q::before, blockquote > p::before, blockquote > div::before {
-	top: 0;
-}
-
-blockquote::after, blockquote q::after, blockquote > p::after, blockquote > div::after {
-	bottom: 0;
-}
-
-blockquote q::before, blockquote q::after, blockquote > p::before, blockquote > p::after, blockquote > div::before, blockquote > div::after {
-	margin-top: 3rem;
-	margin-bottom: 3rem;
-}
-
-@media (max-width: 639px) {
-	blockquote q::before, blockquote q::after, blockquote > p::before, blockquote > p::after, blockquote > div::before, blockquote > div::after {
-		margin-top: 1.8rem;
-		margin-bottom: 1.8rem;
 	}
 }
 
