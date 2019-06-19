@@ -9372,16 +9372,12 @@ a.news-heading {
 .promo-slider {
 	white-space: nowrap;
 	overflow: hidden;
-	opacity: 0;
-	visibility: hidden;
 	will-change: visibility;
 	transition: visibility 0.5s ease-in-out;
 }
 
 .promo-slider.slick-initialized, .no-js .promo-slider {
 	white-space: normal;
-	overflow: visible;
-	opacity: 1;
 	visibility: visible;
 }
 
@@ -9450,6 +9446,7 @@ a.news-heading {
 	float: none;
 	display: inline-block;
 	vertical-align: top;
+	white-space: normal;
 	position: relative;
 	overflow: hidden;
 	width: 100%;
@@ -9504,8 +9501,6 @@ a.news-heading {
 	position: absolute;
 	left: 0;
 	top: 0;
-	width: 100%;
-	height: 100%;
 	max-width: none;
 	margin: 0;
 	background-color: #333399;

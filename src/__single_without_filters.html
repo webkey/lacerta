@@ -1,0 +1,83 @@
+@@include('_tpl_layout_head.html', {
+	"title": "Фабрика Ромакс",
+	"pageClass": ""
+})
+
+@@include('_tpl_PAGE_WRAP.html', {
+	"pageWrap": "START",
+	"currentItem": "Фабрика Ромакс",
+	"title": "Фабрика Ромакс",
+	"titleImg": "img/img-clients-04.png"
+})
+
+@@include('_tpl_breadcrumbs.html', {
+	"items": ["Главная"],
+	"last": "Фабрика Ромакс"
+})
+
+<div class="buy">
+	<button class="btn-def btn-def_large btn-scroll-to-js" data-scroll-to="#order-call">Купить облигации</button>
+	<!--<a href="single.html#order-call" class="btn-def btn-def_large btn-scroll-to-js">Купить облигации</a>-->
+</div>
+
+<p>Группа компаний Ромакс работает на рынке Республики Беларусь с 1998 года. Сегодня в группу компаний входят ООО «Фабрика Ромакс» (производитель парфюмерно- косметической продукции, туалетной бумаги, полотенец, мусорных пакетов), ООО «Торговая компания «Ромакс» (импортер парфюмерно-косметической продукции, бытовой химии, товаров хозяйственно-бытового назначения), ООО «ЗападХимТорг» (сеть дискаунтеров бытовой химии и косметики «Остров чистоты»), ООО «Производственная компания «Ромакс» (транспортно-экспедиционная компания).</p>
+
+<section class="section">
+	<h3>Доступные для покупки облигации</h3>
+	<div class="x-offers x-offers_detail">
+		<div class="x-offers__heads">
+			<table>
+				<thead>
+					<tr>
+						<td class="td">Выпуск</td>
+						<td class="td">Валюта</td>
+						<td class="td">Ставка</td>
+						<td class="td">Номинал</td>
+						<td class="td">Начало эмиссии</td>
+						<td class="td">Срок</td>
+						<td class="td">Объем выпуска</td>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="x-offers__list x-offers-slider-js offers-rolls-js">
+			@@loop("_tpl_x-offers--items.html", "includes/json/x-offers--items--single-available.json")
+		</div>
+	</div>
+</section>
+
+<section class="section">
+	<h3>Завершенные эмиссии</h3>
+	<div class="x-offers x-offers_detail">
+		<div class="x-offers__heads">
+			<table>
+				<thead>
+					<tr>
+						<td class="td">Выпуск</td>
+						<td class="td">Валюта</td>
+						<td class="td">Ставка</td>
+						<td class="td">Номинал</td>
+						<td class="td">Начало эмиссии</td>
+						<td class="td">Срок</td>
+						<td class="td">Объем выпуска</td>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<div class="x-offers__list x-offers-slider-js offers-rolls-js">
+			@@loop("_tpl_x-offers--items.html", "includes/json/x-offers--items--single-complete.json")
+		</div>
+	</div>
+</section>
+
+<section class="section section_user-form" id="order-call">
+	<div class="section__holder">
+		<h3 class="hide">Закажите звонок</h3>
+
+		@@include("_tpl_forms_user-form.html")
+	</div>
+</section>
+
+@@include('_tpl_PAGE_WRAP.html', {"pageWrap": "END", "currentItem": "Вторичный рынок облигаций", "bigBtn": { "href": "buy.html", "text": "Купить облигации", "title": "Покупка облигаций" } })
+
+@@include('_tpl_layout_foot.html')

@@ -419,31 +419,41 @@ function slidersInit() {
 
 	/**about promo slider*/
 	var $promoSlider = $('.promo-slider-js');
+
 	if ($promoSlider.length) {
+		var options = {
+			vertical: true,
+			speed: 330,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			// lazyLoad: 'ondemand',
+			// autoplay: true,
+			autoplaySpeed: 5000,
+			infinite: false,
+			dots: true,
+			arrows: false,
+			accessibility: false,
+			draggable: false,
+			swipe: false
+			// verticalSwiping: true
+		};
+
 		$.each($promoSlider, function () {
 			var $currentSlider = $(this);
 
-			$currentSlider.on('init', function (event, slick) {
-				// $(slick.$slides).matchHeight({
-				// 	byRow: false, property: 'height', target: null, remove: false
-				// });
-			}).slick({
-				vertical: true,
-				speed: 330,
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				// lazyLoad: 'ondemand',
-				autoplay: true,
-				autoplaySpeed: 5000,
-				infinite: true,
-				dots: true,
-				arrows: false,
-				accessibility: false,
-				draggable: false,
-				swipe: false
-				// verticalSwiping: true
-			});
+			// $currentSlider.slick('unslick');
+			// $currentSlider.slick(options);
 		});
+
+		$promoSlider.slick(options);
+
+		$(window).off('debouncedresize').on('debouncedresize', function () {
+			$promoSlider.slick('unslick');
+
+			setTimeout(function () {
+				$promoSlider.slick(options);
+			}, 50);
+		})
 	}
 }
 
