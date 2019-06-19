@@ -4420,21 +4420,10 @@ a.news-heading
 	position: relative
 	overflow: hidden
 	width: 100%
-	padding: 6.5rem nth($page-layout-space, 2) 8.7rem
 	text-decoration: none
 	color: white
 	z-index: 1
 
-	+media('<desk-lg')
-		padding: 6.5rem nth($page-layout-space--md, 2) 8.7rem
-
-	+media('<tab-lg')
-		padding: 5rem nth($page-layout-space--mob, 2)
-
-	+media('<mob-lg')
-		+padding-vertical(nth($page-layout-space--mob, 1))
-		height: auto
-		min-height: 320px
 
 	&, .slick-vertical &
 		border: none
@@ -4467,6 +4456,12 @@ a.news-heading
 		$bg-color: #41418b
 		+linear-gradient(to top, rgba($bg-color, 1) 0%, rgba($bg-color, 0) 100%)
 
+.promo-slider__spacer
+	position: relative
+	background-color: red
+	opacity: 0.5
+	+ratio(1383, 600)
+
 .promo-slider__figure
 	position: absolute
 	left: 0
@@ -4478,6 +4473,32 @@ a.news-heading
 	background-color: $base-color
 	+size(100%)
 	+object-fit(cover)
+
+.promo-slider__main
+	overflow: hidden
+	position: absolute
+	left: 0
+	top: 0
+	height: 100%
+	width: 100%
+	padding: 6.5rem nth($page-layout-space, 2) 8.7rem
+
+	+media('<desk-lg')
+		padding: 6.5rem nth($page-layout-space--md, 2) 8.7rem
+
+	+media('<tab-lg')
+		padding: 5rem nth($page-layout-space--mob, 2)
+
+	+media('<tab-sm')
+		padding: 3rem nth($page-layout-space--mob, 2)
+
+	+media('<mob-lg')
+		+padding-vertical(nth($page-layout-space--mob, 1))
+		//height: auto
+		//min-height: 320px
+
+	+media('<mob-md')
+		+padding-vertical(1.5rem)
 
 .promo-slider__content
 	position: relative
@@ -4493,11 +4514,33 @@ a.news-heading
 .promo-slider__title
 	width: round(980 / 1240 * 100) * 1%
 	margin-bottom: 7rem
-	+font-h1
+	+font-alt-black
+	font-size: $font-size-h1
+	line-height: $line-height-h1
+
+	+media('<desk-sm')
+		font-size: 5.0rem
+		line-height: 5.6rem
 
 	+media('<tab-lg')
 		width: auto
 		margin-bottom: 3rem
+		font-size: 4rem
+		line-height: 4.4rem
+
+	+media('<tab-sm')
+		font-size: 3.2rem
+		line-height: 3.8rem
+		margin-bottom: 2rem
+
+	+media('<mob-lg')
+		font-size: 2.0rem
+		line-height: 2.4rem
+
+	+media('<mob-md')
+		font-size: 1.8rem
+		line-height: 2.4rem
+		margin-bottom: 1.2rem
 
 	&:last-child
 		margin-bottom: 0
@@ -4510,9 +4553,21 @@ a.news-heading
 	+media('<desk-sm')
 		margin-left: 0
 
+	+media('<tab-lg')
+		margin-bottom: 4rem
+		font-size: 2.2rem
+
+	+media('<tab-sm')
+		margin-bottom: 2rem
+		font-size: 1.8rem
+
 	+media('<mob-lg')
-		margin-bottom: 3rem
-		font-size: 2rem
+		margin-bottom: 1.5rem
+		font-size: 1.6rem
+
+	+media('<mob-md')
+		margin-bottom: 1.2rem
+		font-size: 1.4rem
 
 	&:last-child
 		margin-bottom: 0

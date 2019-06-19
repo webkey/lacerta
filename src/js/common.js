@@ -424,9 +424,9 @@ function slidersInit() {
 			var $currentSlider = $(this);
 
 			$currentSlider.on('init', function (event, slick) {
-				$(slick.$slides).matchHeight({
-					byRow: false, property: 'height', target: null, remove: false
-				});
+				// $(slick.$slides).matchHeight({
+				// 	byRow: false, property: 'height', target: null, remove: false
+				// });
 			}).slick({
 				vertical: true,
 				speed: 330,
